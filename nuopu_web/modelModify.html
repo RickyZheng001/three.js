@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>three.js webgl - loaders - OBJ loader</title>
+		<title>诺普信息技术</title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
         <meta http-equiv="Access-Control-Allow-Origin" content="*">
@@ -23,22 +23,17 @@
 			}
 			#info a, .button { color: #f00; font-weight: bold; text-decoration: underline; cursor: pointer }
 		</style>
-	</head>
-
-	<body>
-		<table width="100%" height = "800" border="0">
-			<tr>
-				<td width="50%"><div id="gameCanvas" width="100%" height="600"></div></td>
-				<td width="50%"> <embed id="pdfCtrl" src="./pdf/test1.pdf" type="application/pdf" width="400" height="600"></embed></td>
-			</tr>
-		</table>
-
+		<script type="text/javascript" src="../js/jquery-ui-1.10.4.custom/js/jquery-1.10.2.js"></script>
+		<script type="text/javascript" src="../js/jquery-ui-1.10.4.custom/js/jquery-ui-1.10.4.custom.min.js"></script>
+		<script type="text/javascript" src="../js/jquery-ui-1.10.4.custom/js/jquery.ui.touch-punch.min.js"></script>
+		<link rel="stylesheet" href="../js/jquery-ui-1.10.4.custom/css_smoothness/jquery-ui.css">
+		<link rel="stylesheet" href="style.css" type="text/css" media="screen">
 		<script type="text/javascript" src="../dat.gui-master/build/dat.gui.js"></script>
 		<script src="../build/three.js"></script>
 		<script src="../build/three.module.js"></script>
-        <script src="../dat.gui-master/tests/jquery.js"></script>
-        <script src="../examples/webbrowser/LoadGui.js"></script>
-        <script src="../examples/js/controls/OrbitControls.js"></script>
+		<script src="../dat.gui-master/tests/jquery.js"></script>
+		<script src="./utils/LoadGui.js"></script>
+		<script src="../examples/js/controls/OrbitControls.js"></script>
 		<script src="../examples/js/QuickHull.js"></script>
 		<script src="../examples/js/geometries/ConvexGeometry.js"></script>
 		<script src="../examples/js/Detector.js"></script>
@@ -46,6 +41,51 @@
 		<script src="../examples/js/loaders/STLLoader.js"></script>
 		<script src="../examples/js/loaders/OBJLoader.js"></script>
 		<script src="../examples/js/loaders/PLYLoader.js"></script>
+	</head>
+
+	<body class="unselectable">
+		<div id="content">
+			<div class="centeredDiv">
+				<div class="header">
+					<div class="banner"><a href="/index.php"><img src="/images/nervous_horizontal.svg"></a></div>
+					<div class="menu"><ul class="menu">
+						<li>
+							<a href="/projects/">projects</a>
+						</li>
+						<li>
+							<a href="/shop/">shop</a>
+						</li>
+						<li>
+							<a href="/blog">blog</a>
+						</li>
+						<li>
+							<a href="/about_us.php">about</a>
+						</li>
+						<li>
+							<a href="/labs">labs</a>
+						</li>
+						<li>
+							<a href="/contact.php">contact</a>
+						</li>
+					</ul>
+					</div>
+					<ul class="info">
+						<li id="loginOrLogout" class="info"><a class="info" href="/shop/login.php">login</a></li>
+						<li id="myAccount" class="info" style="display:none;"><a class="info" href="/shop/account.php">my account</a></li>
+						<li id="cartLabel" class="info"><a class="info" href="/shop/shopping_cart.php">cart:</a>
+							<span id="cartContents" style="font-size:9px">
+						 0 items						 </span>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<table width="100%" height = "800" border="0">
+			<tr>
+				<td width="50%"><div id="gameCanvas" width="100%" height="600"></div></td>
+				<td width="50%"> <embed id="pdfCtrl" src="./pdf/test1.pdf" type="application/pdf" width="400" height="600"></embed></td>
+			</tr>
+		</table>
 
 		<script>
 
