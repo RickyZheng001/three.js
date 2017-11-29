@@ -5,28 +5,11 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
         <meta http-equiv="Access-Control-Allow-Origin" content="*">
-        <style>
-			body {
-				font-family: Monospace;
-				color: #fff;
-				margin: 0px;
-				overflow: hidden;
-			}
-			#info {
-				color: #fff;
-				position: absolute;
-				top: 10px;
-				width: 100%;
-				text-align: center;
-				z-index: 100;
-				display:block;
-			}
-			#info a, .button { color: #f00; font-weight: bold; text-decoration: underline; cursor: pointer }
-		</style>
-		<script type="text/javascript" src="../js/jquery-ui-1.10.4.custom/js/jquery-1.10.2.js"></script>
-		<script type="text/javascript" src="../js/jquery-ui-1.10.4.custom/js/jquery-ui-1.10.4.custom.min.js"></script>
-		<script type="text/javascript" src="../js/jquery-ui-1.10.4.custom/js/jquery.ui.touch-punch.min.js"></script>
-		<link rel="stylesheet" href="../js/jquery-ui-1.10.4.custom/css_smoothness/jquery-ui.css">
+		<link href="https://fonts.googleapis.com/css?family=Electrolize:400" rel="stylesheet" type="text/css">
+		<script async="" src="//www.google-analytics.com/analytics.js"></script>
+		<script type="text/javascript" src="./js/jquery-ui-1.10.4.custom/js/jquery-1.10.2.js"></script>
+		<script type="text/javascript" src="./js/jquery-ui-1.10.4.custom/js/jquery-ui-1.10.4.custom.min.js"></script>
+		<link rel="stylesheet" href="./js/jquery-ui-1.10.4.custom/css_smoothness/jquery-ui.css">
 		<link rel="stylesheet" href="style.css" type="text/css" media="screen">
 		<script type="text/javascript" src="../dat.gui-master/build/dat.gui.js"></script>
 		<script src="../build/three.js"></script>
@@ -47,7 +30,7 @@
 		<div id="content">
 			<div class="centeredDiv">
 				<div class="header">
-					<div class="banner"><a href="/index.php"><img src="/images/nervous_horizontal.svg"></a></div>
+					<div class="banner"><a href="/index.php"><img src="./images/nervous_horizontal.svg"></a></div>
 					<div class="menu"><ul class="menu">
 						<li>
 							<a href="/projects/">projects</a>
@@ -274,9 +257,6 @@
 					console.log( item, loaded, total );
 
 				};
-
-				var textureLoader = new THREE.TextureLoader( manager );
-				var texture = textureLoader.load( 'textures/UV_Grid_Sm.jpg' );
 
 				// model
 

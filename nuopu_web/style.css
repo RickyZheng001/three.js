@@ -1,6 +1,6 @@
 @import url("loader.css");
-@import url("../shop/includes/header.css");
-@import url("../shop/includes/footer.css");
+@import url("./shop/includes/header.css");
+@import url("./shop/includes/footer.css");
 
 body {padding:0;margin:0;width:100%;height:100%;font-family:'Electrolize';}
 
