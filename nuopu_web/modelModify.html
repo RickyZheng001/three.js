@@ -26,11 +26,14 @@
 	</head>
 
 	<body>
+		<table width="100%" height = "800" border="0">
+			<tr>
+				<td width="50%"><div id="gameCanvas" width="100%" height="600"></div></td>
+				<td width="50%"> <embed id="pdfCtrl" src="./pdf/test1.pdf" type="application/pdf" width="400" height="600"></embed></td>
+			</tr>
+		</table>
 
 		<script type="text/javascript" src="../dat.gui-master/build/dat.gui.js"></script>
-
-		<div id="gameCanvas" width="800" height="600"></div>
-
 		<script src="../build/three.js"></script>
 		<script src="../build/three.module.js"></script>
         <script src="../dat.gui-master/tests/jquery.js"></script>
@@ -136,6 +139,10 @@
 
                 var jsonObj = eval('(' + response + ')');
                 var modelFileList = jsonObj.ModelFileList;
+                var pdfFile = jsonObj.PdfList[0];
+                var pdfCtrl = document.getElementById( 'pdfCtrl' );
+                pdfCtrl.src = pdfFile;
+
                 var i = 0;
                 for(i = 0; i < modelFileList.length; i++)
 				{
