@@ -201,6 +201,8 @@ function LoadGUIByConfig(configFileURL,callback,menuObj)
         }
 
         gui.add(menuObj, '更新模型');
+
+        gui.domElement.style = 'position:absolute;top:200px;left:0px';
     });
 }
 /*

@@ -62,13 +62,135 @@
 					</ul>
 				</div>
 			</div>
+			<div class="app">
+				<!-- facebook like button stuff -->
+				<div id="fb-root"></div>
+				<script>(function(d, s, id) {
+                    var js, fjs = d.getElementsByTagName(s)[0];
+                    if (d.getElementById(id)) return;
+                    js = d.createElement(s); js.id = id;
+                    js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.0";
+                    fjs.parentNode.insertBefore(js, fjs);
+                }(document, 'script', 'facebook-jssdk'));</script>
+				<!-- end facebook stuff -->
+				<div class="appTitle noSelect">
+					<div>
+						<div class="appName">Cell Cycle</div><div class="version">version 3.0</div>
+						<div class="appSubtitle">designed by nervous system + you</div>
+					</div>
+				</div>
+				<div id="canvas">
+					<table width="100%" height = "811" border="0">
+						<tr>
+							<td width="50%"><div id="gameCanvas" width="1280px" height="811"></div></td>
+							<td width="50%"> <embed id="pdfCtrl" src="./pdf/test1.pdf" type="application/pdf" width="600" height="550"></embed></td>
+						</tr>
+					</table>
+				</div>
+
+
+				<div class="appWords">Generate your own 3d-printed jewelry with this physics-based tool inspired by microscopic cellular structures.</div>
+
+				<div class="appTab noSel" id="tab" onclick="setTimeout(openTab,50);">
+					<div class="appLabel">choose a product</div>
+					<div class="appValue" id="tLabel">ring</div>
+				</div>
+
+				<div class="toolBox">
+					<div class="section section_sculpt">
+						<div class="appLabel">sculpt</div>
+						<div class="panel">
+							<div id="subdivide" class="imgButtonSelected" onclick="activateButton('subdivide');">
+								<a class="tooltipI">
+									<img src="images/subdivideIcon_w.png">
+									<div>subdivide cells</div>
+								</a>
+							</div>
+							<div id="merge" class="imgButton" onclick="activateButton('merge');"><a class="tooltipI"><img src="images/mergeIcon_w.png"><div>merge cells</div></a></div>
+							<div id="modify" class="imgButton" onclick="activateButton('modify');"><a class="tooltipI"><img src="images/modifyIcon_w.png"><div>morph structure</div></a></div>
+						</div>
+
+					</div>
+					<div class="section section_twist">
+						<div class="appLabel">twist</div>
+						<div class="sliderBox">
+							<div class="sLabel" id="outsideLabel_twist" style="display: block;">outside</div>
+							<div id="twist" class="slider ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all" aria-disabled="false"><div class="ui-slider-range ui-widget-header ui-corner-all ui-slider-range-min" style="width: 63.9999%;"></div><a class="ui-slider-handle ui-state-default ui-corner-all" href="#" style="left: 63.9999%;"></a></div>
+						</div>
+						<div class="sliderBox" id="sliderTwist_inside" style="display: block;">
+							<div class="sLabel">inside</div>
+							<div id="twist2" class="slider ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all" aria-disabled="false"><div class="ui-slider-range ui-widget-header ui-corner-all ui-slider-range-min" style="width: 26.9999%;"></div><a class="ui-slider-handle ui-state-default ui-corner-all" href="#" style="left: 26.9999%;"></a></div>
+						</div>
+					</div>
+					<div class="section section_round">
+						<div class="appLabel">shape</div>
+						<div id="roundControl">
+							<canvas id="roundSideUI" width="80" height="60" style="cursor: default;"></canvas>
+							<canvas id="roundUI" width="60" height="60" style="display: block;"></canvas>
+						</div>
+						<div class="appLabel">dimensions
+							<div class="units">
+								<div class="unit unitSel" id="unit0" onclick="setUnits(0);">mm</div>
+								<div class="unit" id="unit1" onclick="setUnits(1);">in</div>
+							</div>
+						</div>
+						<div id="dimensions" class="text">23.8 x 23.8 x 7.4 mm</div>
+					</div>
+
+					<div class="section section_size">
+						<div class="appLabel">sizing</div>
+						<select id="sizesDropDown" onchange="selectSize();"><option>US sz 4</option><option>US sz 4.5</option><option>US sz 5</option><option>US sz 5.5</option><option>US sz 6</option><option>US sz 6.5</option><option>US sz 7</option><option>US sz 7.5</option><option>US sz 8</option><option>US sz 8.5</option><option>US sz 9</option><option>custom</option></select>
+
+						<div class="sizeInfo">
+							<div id="size_label">circumference</div>
+							<div id="size_val" class="sliderOut">54.4</div>
+							<div id="size_units" class="units">mm</div>
+						</div>
+
+						<div class="sliderBox" id="sizeSlider" style="display: none;">
+							<div id="size" class="slider ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all ui-slider-disabled ui-state-disabled" aria-disabled="true"><div class="ui-slider-range ui-widget-header ui-corner-all ui-slider-range-min" style="width: 44.0098%;"></div><a class="ui-slider-handle ui-state-default ui-corner-all" href="#" style="left: 44.0098%;"></a></div>
+						</div>
+					</div>
+
+					<div class="section section_material">
+						<div class="appLabel">material</div>
+						<div id="materials"><div class="matFam"><div class="cLabel">nylon</div><div class="swatchContainer"><div class="swatchBox"><div class="swatch swatchSelect" id="swatch0" style="background-color: rgb(240, 241, 240);"></div><div class="tip">white</div></div><div class="swatchBox"><div class="swatch" id="swatch1" style="background-color: rgb(33, 33, 33);"></div><div class="tip">black</div></div><div class="swatchBox"><div class="swatch" id="swatch2" style="background-color: rgb(241, 24, 19);"></div><div class="tip">red</div></div><div class="swatchBox"><div class="swatch" id="swatch3" style="background-color: rgb(33, 46, 161);"></div><div class="tip">blue</div></div><div class="swatchBox"><div class="swatch" id="swatch4" style="background-color: rgb(255, 235, 0);"></div><div class="tip">yellow</div></div><div class="swatchBox"><div class="swatch" id="swatch5" style="background-color: rgb(242, 22, 94);"></div><div class="tip">pink</div></div></div></div><div class="matFam"><div class="cLabel">metal</div><div class="swatchContainer"><div class="swatchBox"><div class="swatch" id="swatch6" style="background-color: rgb(153, 153, 153);"><img src="images/materials/silver.jpg"></div><div class="tip">silver</div></div><div class="swatchBox"><div class="swatch" id="swatch7" style="background-color: rgb(193, 146, 68);"><img src="images/materials/brass.jpg"></div><div class="tip">brass</div></div><div class="swatchBox"><div class="swatch" id="swatch8" style="background-color: rgb(229, 164, 52);"><img src="images/materials/brass.jpg"></div><div class="tip">14k gold</div></div></div></div></div>
+						<div class="selectedMaterial">
+							<div class="name" id="matName">white</div>
+							<div class="info" id="matInfo">polished 3d-printed nylon plastic</div>
+						</div>
+					</div>
+
+					<div class="section section_price">
+						<div class="appLabel">price</div>
+						<div class="price">
+							<div id="price" class="dollar">$26</div>
+							<div id="shipsIn"> ships in<br>2 weeks</div>
+						</div>
+						<div class="appLabel">title</div>
+						<input type="text" id="designTitle" placeholder="name your design">
+					</div>
+					<div class="section section_buy">
+						<div class="button" onclick="saveFunction(false);">save</div>
+						<div class="button" onclick="saveFunction(true);">buy</div>
+					</div>
+					<div class="nervousLogo noSel">
+						<a href="http://n-e-r-v-o-u-s.com"><img src="images/nervousN.png"></a>
+						<div>a generator by <a href="http://n-e-r-v-o-u-s.com">nervous system</a><div class="copyright">© 2009-2014</div></div>
+					</div>
+				</div>
+				<div class="webBar">
+					<div class="socialMedia">
+						<div class="twitter">
+							<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://n-e-r-v-o-u-s.com/kinematics" data-text="Kinematics app by @nervous_system: create flexible, articulated jewelry for 3D printing" data-hashtags="kinematics">Tweet</a>
+							<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+						</div>
+						<div class="fb-like" data-href="http://n-e-r-v-o-u-s.com/kinematics" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div>
+					</div>
+				</div>
+			</div>
 		</div>
-		<table width="100%" height = "800" border="0">
-			<tr>
-				<td width="50%"><div id="gameCanvas" width="100%" height="600"></div></td>
-				<td width="50%"> <embed id="pdfCtrl" src="./pdf/test1.pdf" type="application/pdf" width="400" height="600"></embed></td>
-			</tr>
-		</table>
+
 
 		<script>
 
@@ -286,9 +408,9 @@
                     antialias: true,
                     alpha: true
 				});
-                this.renderer.setClearColor(0x000000, 1);
+                this.renderer.setClearColor(0x000000, 0);
 				renderer.setPixelRatio( window.devicePixelRatio );
-				renderer.setSize( 800,600 );
+				renderer.setSize( 1280,811 );
 				container.appendChild( renderer.domElement );
 
                 var controls = new THREE.OrbitControls( camera, renderer.domElement );
