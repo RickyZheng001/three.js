@@ -539,12 +539,39 @@ saveAlert.style.display = "none";
 
 
 function activateButton(id) {
+	/*
 	var buttonOld = document.getElementsByClassName("imgButtonSelected")[0];
 	buttonOld.className="imgButton";
 	
     var buttonNew = document.getElementById(id);
 	buttonNew.className="imgButtonSelected";
 	toolMode = id;
+*/
+	if(id == 'mainView')
+	{
+        camera.position.set( 0, 0, 250);
+        //orbitControls.setPolarAngle(0);
+        //orbitControls.setAzimuthalAngle(0);
+        orbitControls.setTargetPos(0,0,0);
+        orbitControls.update();
+	}
+	else if(id == 'leftView')
+	{
+		camera.position.set( -250, 0, 0);
+        //orbitControls.setPolarAngle(Math.PI);
+        //orbitControls.setAzimuthalAngle(0);
+        orbitControls.setTargetPos(0,0,0);
+        orbitControls.update();
+	}
+	else if(id == 'topView')
+	{
+		camera.position.set( 0, 250, 0);
+        //orbitControls.setPolarAngle(0);
+        //orbitControls.setAzimuthalAngle(Math.PI);
+        orbitControls.setTargetPos(0,0,0);
+        orbitControls.update();
+	}
+
 }
 
 function setLayers(onlyOne,rebuild) {

@@ -85,13 +85,10 @@
 					<table width="100%" height = "811" border="0">
 						<tr>
 							<td width="50%"><div id="gameCanvas" width="1280px" height="811"></div></td>
-							<td width="50%"> <embed id="pdfCtrl" src="./pdf/test1.pdf" type="application/pdf" width="600" height="550"></embed></td>
+							<td width="50%" style="position:absolute;top:30px"> <embed id="pdfCtrl" src="./pdf/test1.pdf" type="application/pdf" width="600" height="630"></embed></td>
 						</tr>
 					</table>
 				</div>
-
-
-				<div class="appWords">Generate your own 3d-printed jewelry with this physics-based tool inspired by microscopic cellular structures.</div>
 
 				<div class="appTab noSel" id="tab" onclick="setTimeout(openTab,50);">
 					<div class="appLabel">choose a product</div>
@@ -102,14 +99,14 @@
 					<div class="section section_sculpt">
 						<div class="appLabel">sculpt</div>
 						<div class="panel">
-							<div id="subdivide" class="imgButtonSelected" onclick="activateButton('subdivide');">
+							<div id="subdivide" class="imgButtonSelected" onclick="activateButton('mainView');">
 								<a class="tooltipI">
 									<img src="images/subdivideIcon_w.png">
-									<div>subdivide cells</div>
+									<div>主视图</div>
 								</a>
 							</div>
-							<div id="merge" class="imgButton" onclick="activateButton('merge');"><a class="tooltipI"><img src="images/mergeIcon_w.png"><div>merge cells</div></a></div>
-							<div id="modify" class="imgButton" onclick="activateButton('modify');"><a class="tooltipI"><img src="images/modifyIcon_w.png"><div>morph structure</div></a></div>
+							<div id="merge" class="imgButton" onclick="activateButton('topView');"><a class="tooltipI"><img src="images/mergeIcon_w.png"><div>俯视图</div></a></div>
+							<div id="modify" class="imgButton" onclick="activateButton('leftView');"><a class="tooltipI"><img src="images/modifyIcon_w.png"><div>左视图</div></a></div>
 						</div>
 
 					</div>
@@ -292,6 +289,7 @@
 			var container;
 			var modelArray = new Array();
 			var camera, scene, renderer;
+			var orbitControls;
 			var modelNode;
 			var xzPlane,xyPlane,yzPlane;
 			var axisHelper;
@@ -485,10 +483,10 @@
 				renderer.setSize( 1280,811 );
 				container.appendChild( renderer.domElement );
 
-                var controls = new THREE.OrbitControls( camera, renderer.domElement );
-                controls.minDistance = 200;
-                controls.maxDistance = 1000;
-                controls.maxPolarAngle = Math.PI;
+                orbitControls = new THREE.OrbitControls( camera, renderer.domElement );
+                orbitControls.minDistance = 50;
+                orbitControls.maxDistance = 1000;
+                orbitControls.maxPolarAngle = Math.PI;
 
 				//document.addEventListener( 'mousemove', onDocumentMouseMove, false );
 

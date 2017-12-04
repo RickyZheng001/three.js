@@ -95,6 +95,23 @@ THREE.OrbitControls = function ( object, domElement ) {
 		return spherical.theta;
 
 	};
+	this.setTargetPos = function(x,y,z)
+	{
+        this.target.x = x;
+        this.target.y = y;
+        this.target.z = z;
+	};
+
+	this.setPolarAngle = function(angle)
+	{
+		spherical.phi = angle;
+	};
+
+	this.setAzimuthalAngle = function(angle)
+	{
+		spherical.theta = angle;
+	}
+
 
 	this.saveState = function () {
 
