@@ -373,28 +373,8 @@
 				}
 			}
 
-            LoadGUIByConfig("config/config.json",onCallBack,menuObj);
-
 			init();
 			animate();
-
-            var scope = this;
-            var loader = new THREE.FileLoader( scope.manager );
-            loader.load( "config/1.json", function ( text ) {
-                var jsonObj = eval('(' + text + ')');
-                var iniText = JsonToIni2(jsonObj);
-                $.ajax({
-                    type: 'POST',
-                    url: 'http://localhost:1337/api?getmodel=1',
-                    data: iniText,
-                    success: function(response){
-                        onCallBack(response);
-                    },
-                    error: function (errs) {
-                        alert(errs.responseText);
-                    }
-                });
-            });
 
 			function init() {
 
@@ -545,6 +525,7 @@
 
 			function update()
 			{
+			    return;
 			    var i = 0;
 
 			    for(i = 0; i < modelArray.length; i++)

@@ -1,7 +1,75 @@
 /**
  * Created by ZhengLi on 2017/11/14.
  */
+function JsonToIni2(obj)
+{
+    var result;
 
+    result = "[file]" + "\r\n";
+
+    for(var i = 0; i < obj.Tab.length; i++) {
+        var sectionList = obj.Tab[i];
+
+        for (var j = 0; j < sectionList.length; j++) {
+            var section = sectionList[j];
+            var sectionName = section.Name;
+            var paramList = section.ParamList;
+            for (var k = 0; k < paramList.length; k++) {
+                var param = paramList[k];
+                var paramName = param.Name;
+                var paramType = param.Type;
+                var defaultValue = param.DefaultValue;
+                var iniName = param.iniName;
+                var iniType = param.iniType;
+                //var value = param.Value;
+
+                if(iniName != null && iniName != undefined && iniName !="")
+                {
+                    if(iniType.toLowerCase() == "int")
+                    {
+                        param.Value = parseInt(param[paramName]);
+                    }
+                    else if(iniType.toLowerCase() == "float")
+                    {
+                        param.Value = parseFloat(param[paramName]);
+                    }
+
+                    result += (iniName + "=" + param.Value + "\r\n");
+                }
+            }
+        }
+    }
+
+    result += "work_D_1=7\r\n";
+    result += "work_L_1=20\r\n";
+    result += "work_angle_1=118\r\n";
+
+    result += "work_D_2=8\r\n";
+    result += "work_L_2=20\r\n";
+    result += "work_angle_2=45\r\n";
+
+    result += "work_D_3=0\r\n";
+    result += "work_L_3=0\r\n";
+    result += "work_angle_3=0\r\n";
+
+    result += "work_D_4=0\r\n";
+    result += "work_L_4=0\r\n";
+    result += "work_angle_4=0\r\n";
+
+    result += "Csys_dispaly=0\r\n";
+    result += "xy_dispaly=0\r\n";
+    result += "xz_dispaly=0\r\n";
+    result += "yz_dispaly=0\r\n";
+
+    result += "cool_hole_type=2\r\n";
+    result += "cool_hole_d=1.4\r\n";
+    result += "spiral_D=3\r\n";
+    result += "thread_pitch=0\r\n";
+    result += "groove_w=1.68\r\n";
+    result += "groove_h=1.68\r\n";
+
+    return result;
+}
 function JsonToIni(obj)
 {
     var result;
