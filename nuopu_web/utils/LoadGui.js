@@ -180,46 +180,47 @@ function LoadGUIByConfig(configFileURL,callback,menuObj)
 
         for(var i = 0; i < obj.Tab.length; i++)
         {
-            var tabName = obj.Tab[i].Name;
+            var tabObj = obj.Tab[i];
+            var tabName = tabObj.Name;
 
             var guiTable = gui.addFolder(tabName);
 
-            var sectionList = obj.Tab[i].SectionList;
+            var paramList = tabObj.ParamList;
 
             menuObj[tabName] = {};
 
-            for(var j = 0; j < sectionList.length; j++)
+            for(var j = 0; j < paramList.length; j++)
             {
-                var section = sectionList[j];
-                var sectionName = section.Name;
+                var param = paramList[j];
+                var paramName = param.Name;
+                var paramType = param.Type;
+                var defaultValue = param.DefaultValue;
 
-                var guiSection = guiTable.addFolder(sectionName);
-
-                var paramList = section.ParamList;
-                var sectionMenuObj = {};
-                menuObj[tabName] = sectionMenuObj;
-
-                for(var k = 0; k < paramList.length; k++)
+                if(paramType == "EditBox")
                 {
-                    var param = paramList[k];
-                    var paramName = param.Name;
-                    var paramType = param.Type;
-                    var defaultValue = param.DefaultValue;
-
-                    if(paramType == "EditBox")
+                    param[paramName] = defaultValue;
+                    guiTable.add(param, paramName);
+                    //sectionMenuObj[paramName] = defaultValue;
+                    //guiSection.add(sectionMenuObj, paramName);
+                }
+                else if(paramType == "ComboBox")
+                {
+                    param[paramName] = defaultValue;
+                    var str = param.Choise;
+                    if(typeof(str) == "string")
                     {
-                        param[paramName] = defaultValue;
-                        guiSection.add(param, paramName);
-                        //sectionMenuObj[paramName] = defaultValue;
-                        //guiSection.add(sectionMenuObj, paramName);
-                    }
-                    else if(paramType == "ComboBox")
-                    {
-                        param[paramName] = defaultValue;
-                        var str = param.Choise;
                         var selections= new Array(); //定义一数组
                         selections = str.split(","); //字符分割
-                        guiSection.add(param,paramName,selections);
+                        guiTable.add(param,paramName,selections);
+                    }
+                    else
+                    {
+                        //是一个数组，直接关系后后面菜单结构
+                        selections = new Array();
+                        for(var l = 0; l < str.length; l++)
+                        {
+                            var choiseParam = str[l];
+                        }
                     }
                 }
             }
