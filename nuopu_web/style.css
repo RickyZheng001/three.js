@@ -30,6 +30,7 @@ body {padding:0;margin:0;width:100%;height:100%;font-family:'Electrolize';}
 .app img {border:none;}
 .app a {color:#000;font-weight:bold;text-decoration:none;}
 .app a:hover {text-decoration:underline;}
+.app .pdfView {position:absolute; left: 340px;top:40px;}
 .cellCycleMenu::selection {background-color:Transparent;color:#000;}
 
 
@@ -66,7 +67,7 @@ body {padding:0;margin:0;width:100%;height:100%;font-family:'Electrolize';}
 .section_product {width:120px;}
 .section_basic {width:230px;}
 .section_sculpt{width:170px;}
-.section_buy {width:70px;margin-top:20px;}
+.section_buy {width:120px;margin-top:20px;}
 .section_round {width:150px;}
 .section_rebuild {}
 .section_layers {width:92px}
@@ -182,8 +183,8 @@ div.imgButtonSelected {
 /* app footer */
 
 .copyright {font-size:11px;}
-.nervousLogo img {width:60px;margin:5px;}
-.nervousLogo {width:110px;text-align:center;font-size:13px;float:left;}
+.nervousLogo img {width:400px;margin:5px;margin-top: 40px}
+.nervousLogo {width:400px;text-align:left;font-size:13px;float:left;}
 
 
 #designTitle {color:#000;background-color:#ddd;box-shadow: 2px 2px 2px #666;padding:7px;height:25px;border:none;font-family:'Electrolize',sans-serif;margin:0;width:100%;}

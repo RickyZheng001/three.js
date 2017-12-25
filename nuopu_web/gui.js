@@ -937,6 +937,22 @@ function setEdges(solid,rebuild) {
 	if(rebuild)rebuildB.className = "button flash";
 }
 
+function Display3DModel()
+{
+	/*
+	<div id="gameCanvas" width="1280px" height="811"></div>
+						<div id="divPdfView" class="pdfView" style="visibility: hidden">
+	 */
+	document.getElementById("gameCanvas").style.visibility = "visible";
+	document.getElementById("divPdfView").style.visibility = "hidden";
+}
+
+function DisplayTuZhi()
+{
+    document.getElementById("gameCanvas").style.visibility = "hidden";
+    document.getElementById("divPdfView").style.visibility = "visible";
+}
+
 /*
   color functions adapted from
   http://www.cs.rit.edu/~ncs/color/t_convert.html

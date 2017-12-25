@@ -43,6 +43,7 @@ a.info  {font-weight:bold;font-size:10pt;text-decoration:none;}
 ul.menu {
     font-variant: small-caps;
     font-size: 18px;
+    color: #ffffff;
     padding: 6px 0 0 20px;
     margin: 0px;
     display: flex;
@@ -50,7 +51,7 @@ ul.menu {
 ul.menu li {
     text-align: left;
     list-style-type: none;
-    color: #000;
+    color: #ffffff;
     margin: 2px;
     padding: 2px;
 
@@ -60,7 +61,7 @@ ul.menu li:hover {
     border: 1px solid #ccc;
     margin: 1px;
 }
-ul.menu li a, ul.menu li a:visited {color:#000;font-weight:normal;text-decoration:none;}
+ul.menu li a, ul.menu li a:visited {color:#ffffff;font-weight:normal;text-decoration:none;}
 ul.menu li a:hover{text-decoration:none;}
 
 ul.menu li.current {font-size:18pt;text-transform:lowercase;font-variant:normal;}
@@ -80,7 +81,7 @@ ul.menu li.current a:hover {color:#666;}
     flex-wrap: wrap;
     justify-content: center;
 }
-	.banner {width:100%;text-align:center;margin:0px auto;}
+	.banner {width:100%;text-align:left;margin:0px auto;background-color: #000000}
  
     ul.info{margin-top:2px;margin-left:0px;}
 	
