@@ -39,6 +39,35 @@ a.info  {font-weight:bold;font-size:10pt;text-decoration:none;}
     display: flex;
     align-items: center;
 }
+.menu2 {
+    position: absolute;
+    left: 55%;
+    display: flex;
+    align-items: center;
+    width: 500px;
+    margin-top: 20px;
+}
+
+ul.menu2 {
+    font-variant: small-caps;
+    font-size: 14px;
+    color: #ffffff;
+    padding: 6px 0 0 20px;
+    margin: 0px;
+    display: flex;
+}
+
+ul.menu2 li {
+    text-align: center;
+    list-style-type: none;
+    color: #ffffff;
+    margin: 2px;
+    padding: 2px;
+    background-color: #009fd7;
+    border-radius: 4px;
+    width:60px;
+}
+ul.menu2 li a, ul.menu2 li a:visited {color:#ffffff;font-weight:normal;text-decoration:none;}
 
 ul.menu {
     font-variant: small-caps;

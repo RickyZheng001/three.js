@@ -32,18 +32,41 @@
 		<div id="content">
 			<div class="centeredDiv">
 				<div class="header">
-					<div class="banner"><a href="/index.php"><img src="./images/EdgeWinLogo_2.png"></a></div>
-					<div class="menu"><ul class="menu">
-						<li>
-							<a href="/projects/" color="#ffffff">刀具种类</a>
-						</li>
-						<li>
-							<a href="/shop/">技术秒杀</a>
-						</li>
-						<li>
-							<a href="/blog">帮助</a>
-						</li>
-					</ul>
+					<div class="banner"><img src="./images/EdgeWinLogo_2.png"></div>
+					<div class="menu">
+						<ul class="menu">
+							<li>
+								<a href="/projects/" color="#ffffff">刀具种类</a>
+							</li>
+							<li>
+								<a href="/shop/">技术秒杀</a>
+							</li>
+							<li>
+								<a href="/blog">帮助</a>
+							</li>
+							<li>
+								<input style="border:1px solid #ffffff" value="搜索">
+							</li>
+						</ul>
+					</div>
+					<div class="menu2">
+						<ul class="menu2">
+							<li>
+								<a color="#ffffff">账单查询</a>
+							</li>
+							<li>
+								<a>返回首页</a>
+							</li>
+							<li>
+								<a>注册</a>
+							</li>
+							<li>
+								<a>登录</a>
+							</li>
+							<li>
+								<a>退出</a>
+							</li>
+						</ul>
 					</div>
 					<ul class="info">
 						<li id="loginOrLogout" class="info"><a class="info" href="/shop/login.php">login</a></li>
@@ -68,7 +91,9 @@
 				<!-- end facebook stuff -->
 				<div class="appTitle noSelect">
 					<div>
-						<div class="appName">钻头</div><img src="./images/EdgeWinLogo_1.png" height="80" width="80">
+						<div class="appName">钻头</div>
+						<div class="appName2" style="margin-left: 10px;margin-top: 80px">整体钻头</div>
+						<img src="./images/EdgeWinLogo_1.png" height="80" width="80" style="margin-top: 26px">
 					</div>
 				</div>
 				<div id="canvas">
@@ -83,65 +108,63 @@
 					<div class="appValue" id="tLabel">ring</div>
 				</div>
 
-				<div class="toolBox">
+				<div id="toolBoxTuZhi" class="toolBox" style="visibility: hidden">
+					<div class="section section_basic">
+						<div class="smallbutton" onclick="OnClickUpdateModel();">更新</div>
+						<div class="smallbutton" onclick="Display3DModel();">三维模型</div>
+						<div class="smallbutton" onclick="DisplayTuZhi();">二维图纸</div>
+					</div>
+					<div class="section section_material">
+						<div class="appLabel">二维工程图下载</div>
+						<div class="button" onclick="">PDF</div>
+						<div class="button" onclick="">DWG</div>
+						<div class="button" onclick="">打包下载</div>
+					</div>
+
+					<div class="nervousLogo noSel">
+						<img src="images/EdgeWinLogo_3.png">
+					</div>
+				</div>
+				<div id="toolBox3D" class="toolBox2">
+					<div class="section section_basic">
+						<div class="smallbutton" onclick="OnClickUpdateModel();">更新</div>
+						<div class="smallbutton" onclick="Display3DModel();">三维模型</div>
+						<div class="smallbutton" onclick="DisplayTuZhi();">二维图纸</div>
+					</div>
 					<div class="section section_sculpt">
-						<div class="appLabel">sculpt</div>
+						<div class="appLabel">视图选择</div>
 						<div class="panel">
-							<div id="subdivide" class="imgButtonSelected" onclick="activateButton('mainView');">
-								<a class="tooltipI">
-									<img src="images/subdivideIcon_w.png">
-									<div>主视图</div>
-								</a>
-							</div>
+							<div id="subdivide" class="imgButton" onclick="activateButton('mainView');"><a class="tooltipI"><img src="images/subdivideIcon_w.png"><div>俯视图</div></a></div>
 							<div id="merge" class="imgButton" onclick="activateButton('topView');"><a class="tooltipI"><img src="images/mergeIcon_w.png"><div>俯视图</div></a></div>
 							<div id="modify" class="imgButton" onclick="activateButton('leftView');"><a class="tooltipI"><img src="images/modifyIcon_w.png"><div>左视图</div></a></div>
 						</div>
-
 					</div>
-					<div class="section section_twist">
-						<div class="appLabel">twist</div>
-						<div class="sliderBox">
-							<div class="sLabel" id="outsideLabel_twist" style="display: block;">outside</div>
-							<div id="twist" class="slider ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all" aria-disabled="false"><div class="ui-slider-range ui-widget-header ui-corner-all ui-slider-range-min" style="width: 63.9999%;"></div><a class="ui-slider-handle ui-state-default ui-corner-all" href="#" style="left: 63.9999%;"></a></div>
-						</div>
-						<div class="sliderBox" id="sliderTwist_inside" style="display: block;">
-							<div class="sLabel">inside</div>
-							<div id="twist2" class="slider ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all" aria-disabled="false"><div class="ui-slider-range ui-widget-header ui-corner-all ui-slider-range-min" style="width: 26.9999%;"></div><a class="ui-slider-handle ui-state-default ui-corner-all" href="#" style="left: 26.9999%;"></a></div>
-						</div>
+					<div class="section section_jizhunxianshi">
+						<div class="appLabel">基准显示</div>
+						<div class="smallbutton" onclick="OnClickDisplayZuoBiaoZhou();">坐标轴</div>
+						<div class="smallbutton" onclick="OnClickDisplayXZPlane();">xz平面</div>
+						<div class="smallbutton" onclick="OnClickDisplayYZPlane()">yz平面</div>
+						<div class="smallbutton" onclick="OnClickDisplayXYPlane()">xy平面</div>
 					</div>
-
+					<div class="section section_tuceng">
+						<div class="appLabel">涂层</div>
+						<div class="smallbutton" onclick="">金</div>
+						<div class="smallbutton" onclick="">银</div>
+						<div class="smallbutton" onclick="">合金</div>
+					</div>
 					<div class="section section_material">
-						<div class="appLabel">material</div>
-						<div id="materials"><div class="matFam"><div class="cLabel">nylon</div><div class="swatchContainer"><div class="swatchBox"><div class="swatch swatchSelect" id="swatch0" style="background-color: rgb(240, 241, 240);"></div><div class="tip">white</div></div><div class="swatchBox"><div class="swatch" id="swatch1" style="background-color: rgb(33, 33, 33);"></div><div class="tip">black</div></div><div class="swatchBox"><div class="swatch" id="swatch2" style="background-color: rgb(241, 24, 19);"></div><div class="tip">red</div></div><div class="swatchBox"><div class="swatch" id="swatch3" style="background-color: rgb(33, 46, 161);"></div><div class="tip">blue</div></div><div class="swatchBox"><div class="swatch" id="swatch4" style="background-color: rgb(255, 235, 0);"></div><div class="tip">yellow</div></div><div class="swatchBox"><div class="swatch" id="swatch5" style="background-color: rgb(242, 22, 94);"></div><div class="tip">pink</div></div></div></div><div class="matFam"><div class="cLabel">metal</div><div class="swatchContainer"><div class="swatchBox"><div class="swatch" id="swatch6" style="background-color: rgb(153, 153, 153);"><img src="images/materials/silver.jpg"></div><div class="tip">silver</div></div><div class="swatchBox"><div class="swatch" id="swatch7" style="background-color: rgb(193, 146, 68);"><img src="images/materials/brass.jpg"></div><div class="tip">brass</div></div><div class="swatchBox"><div class="swatch" id="swatch8" style="background-color: rgb(229, 164, 52);"><img src="images/materials/brass.jpg"></div><div class="tip">14k gold</div></div></div></div></div>
-						<div class="selectedMaterial">
-							<div class="name" id="matName">white</div>
-							<div class="info" id="matInfo">polished 3d-printed nylon plastic</div>
-						</div>
+						<div class="appLabel">三维实体下载</div>
+						<div class="button" onclick="">STP</div>
+						<div class="button" onclick="">OBJ</div>
+						<div class="button" onclick="">打包下载</div>
 					</div>
 
-					<div class="section section_price">
-						<div class="appLabel">price</div>
-						<div class="price">
-							<div id="price" class="dollar">$26</div>
-							<div id="shipsIn"> ships in<br>2 weeks</div>
-						</div>
-						<div class="appLabel">title</div>
-						<input type="text" id="designTitle" placeholder="name your design">
-					</div>
-					<div class="section section_buy">
-						<div class="button" onclick="Display3DModel();">三维模型</div>
-						<div class="button" onclick="DisplayTuZhi();">二维图纸</div>
-					</div>
 					<div class="nervousLogo noSel">
-						<a href="http://n-e-r-v-o-u-s.com"><img src="images/EdgeWinLogo_3.png"></a>
+						<img src="images/EdgeWinLogo_3.png">
 					</div>
 				</div>
 				<div class="webBar">
 					<div class="socialMedia">
-						<div class="twitter">
-							<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://n-e-r-v-o-u-s.com/kinematics" data-text="Kinematics app by @nervous_system: create flexible, articulated jewelry for 3D printing" data-hashtags="kinematics">Tweet</a>
-							<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-						</div>
 						<div class="fb-like" data-href="http://n-e-r-v-o-u-s.com/kinematics" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div>
 					</div>
 				</div>
@@ -219,7 +242,6 @@
 		</script>
 
 		<script>
-
 			function AddAxisArrowHelper(scene)
 			{
                 var Xdir = new THREE.Vector3(1,0,0);
@@ -257,12 +279,29 @@
 
 			var mouseX = 0, mouseY = 0;
 
-			//var width = 800;
-			//var height = 600;
 			var windowHalfX = window.innerWidth / 2;
 			var windowHalfY = window.innerHeight / 2;
-            //var windowHalfX = width / 2;
-           // var windowHalfY = height / 2;
+
+            function OnClickDisplayZuoBiaoZhou()
+            {
+                menuObj["显示坐标轴"] = !menuObj["显示坐标轴"];
+            }
+            function OnClickDisplayXYPlane()
+			{
+                menuObj["显示xy平面"] = !menuObj["显示xy平面"];
+			}
+            function OnClickDisplayYZPlane()
+            {
+                menuObj["显示yz平面"] = !menuObj["显示yz平面"];
+            }
+            function OnClickDisplayXZPlane()
+            {
+                menuObj["显示xz平面"] = !menuObj["显示xz平面"];
+            }
+            function OnClickUpdateModel()
+			{
+			    menuObj["更新模型"]();
+			}
 
             function onClickUpdateModel(geometry)
             {
@@ -500,14 +539,9 @@
 
 			    for(i = 0; i < modelArray.length; i++)
 				{
-                    var modelColor = parseInt("0x" + menuObj["模型颜色" + (i + 1)].slice(1));
-                    //if(lastModelColor != modelColor)
-                    {
-                        var material = new THREE.MeshPhongMaterial( { color: modelColor, specular: 0x111111, shininess: 200 } );
-                        modelArray[i].material = reflectMaterial;
-                        lastModelColor = modelColor;
-                    }
+					modelArray[i].material = reflectMaterial;
 				}
+
 
                 axisHelper.visible = menuObj["显示坐标轴"];
                 xzPlane.visible = menuObj["显示xz平面"];

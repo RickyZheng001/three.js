@@ -226,6 +226,7 @@ function LoadGUIByConfig(configFileURL,callback,menuObj)
             }
         }
 
+        /*
         menuObj["模型颜色1"] = "#ffae23";
         gui.addColor(menuObj, '模型颜色1');
 
@@ -234,7 +235,9 @@ function LoadGUIByConfig(configFileURL,callback,menuObj)
 
         menuObj["模型颜色3"] = "#aeff23";
         gui.addColor(menuObj, '模型颜色3');
+        */
 
+        /*
         menuObj["显示坐标轴"] = true;
         gui.add(menuObj, '显示坐标轴');
 
@@ -246,6 +249,12 @@ function LoadGUIByConfig(configFileURL,callback,menuObj)
 
         menuObj["显示yz平面"] = false;
         gui.add(menuObj, '显示yz平面');
+        */
+
+        menuObj["显示坐标轴"] = true;
+        menuObj["显示xz平面"] = false;
+        menuObj["显示xy平面"] = false;
+        menuObj["显示yz平面"] = false;
 
         menuObj["更新模型"] = function()
         {

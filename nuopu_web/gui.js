@@ -945,12 +945,18 @@ function Display3DModel()
 	 */
 	document.getElementById("gameCanvas").style.visibility = "visible";
 	document.getElementById("divPdfView").style.visibility = "hidden";
+
+    document.getElementById("toolBox3D").style.visibility = "visible";
+    document.getElementById("toolBoxTuZhi").style.visibility = "hidden";
 }
 
 function DisplayTuZhi()
 {
     document.getElementById("gameCanvas").style.visibility = "hidden";
     document.getElementById("divPdfView").style.visibility = "visible";
+
+    document.getElementById("toolBox3D").style.visibility = "hidden";
+    document.getElementById("toolBoxTuZhi").style.visibility = "visible";
 }
 
 /*
