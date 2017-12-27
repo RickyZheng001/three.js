@@ -204,7 +204,7 @@ div.imgButtonSelected {
 .appTitle {position:absolute;top:0px;left:0px;color:#000;pointer-events:none}
 .appTitle .version {font-size:12px;float:left;margin-top:30px;}
 .appTitle .appName {font-size:40px;padding:26px 26px 26px 26px;float:left;}
-.appTitle .appName2 {position:absolute;font-size:20px;float:left;border-radius: 12px;background-color: #0000cc;color: white;width: 100px;text-align: center}
+.appTitle .appName2 {position:absolute;font-size:20px;float:left;border-radius: 12px;background-color: #009fd7;color: white;width: 100px;text-align: center}
 .appTitle  .appSubtitle {font-size:14px;font-family: 'Electrolize', sans-serif;padding-left:10px;float:left;width:500px;clear:both;}
 
 /* app footer */

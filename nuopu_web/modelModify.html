@@ -103,11 +103,6 @@
 						</div>
 				</div>
 
-				<div class="appTab noSel" id="tab" onclick="setTimeout(openTab,50);">
-					<div class="appLabel">choose a product</div>
-					<div class="appValue" id="tLabel">ring</div>
-				</div>
-
 				<div id="toolBoxTuZhi" class="toolBox" style="visibility: hidden">
 					<div class="section section_basic">
 						<div class="smallbutton" onclick="OnClickUpdateModel();">更新</div>
@@ -392,6 +387,8 @@
 			}
 
             LoadGUIByConfig("config/config.json",onCallBack,menuObj);
+
+
 
 			init();
 			animate();

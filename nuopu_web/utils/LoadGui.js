@@ -78,34 +78,28 @@ function JsonToIni(obj)
 
     for(var i = 0; i < obj.Tab.length; i++) {
         var tabName = obj.Tab[i].Name;
-        var sectionList = obj.Tab[i].SectionList;
 
-        for (var j = 0; j < sectionList.length; j++) {
-            var section = sectionList[j];
-            var sectionName = section.Name;
-            var paramList = section.ParamList;
-            for (var k = 0; k < paramList.length; k++) {
-                var param = paramList[k];
-                var paramName = param.Name;
-                var paramType = param.Type;
-                var defaultValue = param.DefaultValue;
-                var iniName = param.iniName;
-                var iniType = param.iniType;
-                //var value = param.Value;
+        var paramList = obj.Tab[i].ParamList;
+        for (var k = 0; k < paramList.length; k++) {
+            var param = paramList[k];
+            var paramName = param.Name;
+            var paramType = param.Type;
+            var defaultValue = param.DefaultValue;
+            var iniName = param.iniName;
+            var iniType = param.iniType;
+            //var value = param.Value;
 
-                if(iniName != null && iniName != undefined && iniName !="")
+            if(iniName != null && iniName != undefined && iniName !="")
+            {
+                if(iniType.toLowerCase() == "int")
                 {
-                    if(iniType.toLowerCase() == "int")
-                    {
-                        param.Value = parseInt(param[paramName]);
-                    }
-                    else if(iniType.toLowerCase() == "float")
-                    {
-                        param.Value = parseFloat(param[paramName]);
-                    }
-
-                    result += (iniName + "=" + param.Value + "\r\n");
+                    param.Value = parseInt(param[paramName]);
                 }
+                else if(iniType.toLowerCase() == "float")
+                {
+                    param.Value = parseFloat(param[paramName]);
+                }
+                result += (iniName + "=" + param.Value + "\r\n");
             }
         }
     }
