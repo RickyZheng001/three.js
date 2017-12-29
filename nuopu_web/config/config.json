@@ -10,23 +10,23 @@
 				{
 					"Name":"总长",
 					"Type":"EditBox",
-					"DefaultValue":"125",
-					"iniName":"step_num",
-					"iniType":"Int"
+					"DefaultValue":"237",
+					"iniName":"l1",
+					"iniType":"Float"
 				},
 				{
 					"Name":"总槽长",
 					"Type":"EditBox",
-					"DefaultValue":"85",
-					"iniName":"step_num",
-					"iniType":"Int"
+					"DefaultValue":"197",
+					"iniName":"l2",
+					"iniType":"Float"
 				},
 				{
 					"Name":"主坐标系xy平面到钻尖的距离",
 					"Type":"EditBox",
 					"DefaultValue":"5",
-					"iniName":"step_num",
-					"iniType":"Int"
+					"iniName":"l4",
+					"iniType":"Float"
 				}
 			]
 		},
@@ -35,46 +35,89 @@
 			"ParamList":
 			[
 				{
+					"Name":"柄部类型",
+					"Type":"ComboBox",
+					"Choise":"圆柱,单侧固,双侧固",
+					"DefaultValue":"双侧固",
+					"iniName":"handle_type",
+					"iniType":"Int"
+				},
+				{
+					"Name":"侧固槽宽度",
+					"Type":"EditBox",
+					"DefaultValue":"7",
+					"iniName":"side_l",
+					"iniType":"Float"
+				},
+				{
+					"Name":"侧固槽深",
+					"Type":"EditBox",
+					"DefaultValue":"1.5",
+					"iniName":"side_h",
+					"iniType":"Float"
+				},
+				{
+					"Name":"侧固槽之间的距离",
+					"Type":"EditBox",
+					"DefaultValue":"10",
+					"iniName":"sides_distance",
+					"iniType":"Float"
+				},
+				{
+					"Name":"侧固槽距柄部距离",
+					"Type":"EditBox",
+					"DefaultValue":"10",
+					"iniName":"side1_distance",
+					"iniType":"Float"
+				},
+				{
+					"Name":"侧固槽旋转角度",
+					"Type":"EditBox",
+					"DefaultValue":"10",
+					"iniName":"side_angle",
+					"iniType":"Float"
+				},
+				{
 					"Name":"柄部直径",
 					"Type":"EditBox",
-					"DefaultValue":"6",
-					"iniName":"step_num",
-					"iniType":"Int"
+					"DefaultValue":"8",
+					"iniName":"d2",
+					"iniType":"Float"
 				},
 				{
 					"Name":"柄部长度",
 					"Type":"EditBox",
 					"DefaultValue":"36",
-					"iniName":"step_num",
-					"iniType":"Int"
+					"iniName":"l3",
+					"iniType":"Float"
 				},
 				{
 					"Name":"第一倒角角度",
 					"Type":"EditBox",
 					"DefaultValue":"45",
-					"iniName":"step_num",
-					"iniType":"Int"
+					"iniName":"handle_theta1",
+					"iniType":"Float"
 				},
 				{
 					"Name":"第一倒角宽度",
 					"Type":"EditBox",
 					"DefaultValue":"0.5",
-					"iniName":"step_num",
-					"iniType":"Int"
+					"iniName":"handle_offset1",
+					"iniType":"Float"
 				},
 				{
 					"Name":"第二倒角尾角度",
 					"Type":"EditBox",
 					"DefaultValue":"45",
-					"iniName":"step_num",
-					"iniType":"Int"
+					"iniName":"handle_theta2",
+					"iniType":"Float"
 				},
 				{
 					"Name":"第二倒角宽度",
 					"Type":"EditBox",
-					"DefaultValue":"0.5",
-					"iniName":"step_num",
-					"iniType":"Int"
+					"DefaultValue":"1",
+					"iniName":"handle_offset2",
+					"iniType":"Float"
 				}
 			]
 		},
@@ -84,165 +127,172 @@
 			"ParamList":
 			[
 				{
+					"Name":"内冷孔名称",
+					"Type":"ComboBox",
+					"Choise":"无,单直孔,双直孔,双螺旋,三螺旋",
+					"DefaultValue":"双螺旋",
+					"iniName":"cool_type",
+					"iniType":"Int"
+				},
+				{
 					"Name":"冷却孔直径",
 					"Type":"EditBox",
-					"DefaultValue":"0.4",
-					"iniName":"step_num",
-					"iniType":"Int"
+					"DefaultValue":"1",
+					"iniName":"d",
+					"iniType":"Float"
 				},
 				{
 					"Name":"冷却孔孔距",
 					"Type":"EditBox",
-					"DefaultValue":"1.6",
-					"iniName":"step_num",
-					"iniType":"Int"
+					"DefaultValue":"3",
+					"iniName":"TK",
+					"iniType":"Float"
 				},
 				{
 					"Name":"导程",
 					"Type":"EditBox",
-					"DefaultValue":"16.32",
-					"iniName":"step_num",
-					"iniType":"Int"
+					"DefaultValue":"44.7316",
+					"iniName":"pitch",
+					"iniType":"Float"
 				},
 				{
 					"Name":"冷却槽深度",
 					"Type":"EditBox",
-					"DefaultValue":"0.8",
-					"iniName":"step_num",
-					"iniType":"Int"
+					"DefaultValue":"1.5",
+					"iniName":"cool_groove_h",
+					"iniType":"Float"
 				},
 				{
 					"Name":"冷却槽根部圆弧半径",
 					"Type":"EditBox",
 					"DefaultValue":"0.1",
-					"iniName":"step_num",
-					"iniType":"Int"
+					"iniName":"",
+					"iniType":"Float"
 				},
 				{
 					"Name":"冷却槽宽度倒角宽度",
 					"Type":"EditBox",
-					"DefaultValue":"0.1",
-					"iniName":"step_num",
-					"iniType":"Int"
+					"DefaultValue":"1.5",
+					"iniName":"cool_groove_w",
+					"iniType":"Float"
 				},
 				{
 					"Name":"冷却槽倒角角度",
 					"Type":"EditBox",
 					"DefaultValue":"45",
-					"iniName":"step_num",
-					"iniType":"Int"
+					"iniName":"",
+					"iniType":"Float"
 				},
 				{
 					"Name":"第一冷却孔周向分度角度",
 					"Type":"EditBox",
-					"DefaultValue":"0",
-					"iniName":"step_num",
-					"iniType":"Int"
+					"DefaultValue":"90",
+					"iniName":"cool_groove_angle",
+					"iniType":"Float"
 				}
 			]
-			
 		},	
 		{
 			"Name":"槽型曲线方程",
 			"ParamList":
 			[
 				{
-					"Name":"一次系数",
+					"Name":"九次系数",
 					"Type":"EditBox",
 					"DefaultValue":"0.003253",
-					"iniName":"step_num",
-					"iniType":"Int"
+					"iniName":"Polynomial_9",
+					"iniType":"Float"
 				},
 				{
-					"Name":"二次系数",
+					"Name":"八次系数",
 					"Type":"EditBox",
 					"DefaultValue":"0.004271",
-					"iniName":"step_num",
-					"iniType":"Int"
+					"iniName":"Polynomial_8",
+					"iniType":"Float"
 				},
 				{
-					"Name":"三次系数",
+					"Name":"七次系数",
 					"Type":"EditBox",
 					"DefaultValue":"-0.03705",
-					"iniName":"step_num",
-					"iniType":"Int"
+					"iniName":"Polynomial_7",
+					"iniType":"Float"
 				},
 				{
-					"Name":"四次系数",
+					"Name":"六次系数",
 					"Type":"EditBox",
 					"DefaultValue":"-0.03705",
-					"iniName":"step_num",
-					"iniType":"Int"
+					"iniName":"Polynomial_6",
+					"iniType":"Float"
 				},
 				{
 					"Name":"五次系数",
 					"Type":"EditBox",
 					"DefaultValue":"0.1535",
-					"iniName":"step_num",
-					"iniType":"Int"
+					"iniName":"Polynomial_5",
+					"iniType":"Float"
 				},
 				{
-					"Name":"六次系数",
+					"Name":"四次系数",
 					"Type":"EditBox",
 					"DefaultValue":"0.011",
-					"iniName":"step_num",
-					"iniType":"Int"
+					"iniName":"Polynomial_4",
+					"iniType":"Float"
 				},
 				{
-					"Name":"七次系数",
+					"Name":"三次系数",
 					"Type":"EditBox",
 					"DefaultValue":"-0.2179",
-					"iniName":"step_num",
-					"iniType":"Int"
+					"iniName":"Polynomial_3",
+					"iniType":"Float"
 				},
 				{
-					"Name":"八次系数",
+					"Name":"二次系数",
 					"Type":"EditBox",
 					"DefaultValue":"0.4237",
-					"iniName":"step_num",
-					"iniType":"Int"
+					"iniName":"Polynomial_2",
+					"iniType":"Float"
 				},
 				{
-					"Name":"九次系数",
+					"Name":"一次系数",
 					"Type":"EditBox",
 					"DefaultValue":"-0.00145",
-					"iniName":"step_num",
-					"iniType":"Int"
+					"iniName":"Polynomial_1",
+					"iniType":"Float"
 				},
 				{
 					"Name":"常量",
 					"Type":"EditBox",
 					"DefaultValue":"1.038",
-					"iniName":"step_num",
-					"iniType":"Int"
+					"iniName":"Polynomial_0",
+					"iniType":"Float"
 				},
 				{
 					"Name":"X左区间",
 					"Type":"EditBox",
 					"DefaultValue":"-2.4",
-					"iniName":"step_num",
-					"iniType":"Int"
+					"iniName":"Polynomial_X_min",
+					"iniType":"Float"
 				},
 				{
 					"Name":"X右区间",
 					"Type":"EditBox",
-					"DefaultValue":"2.1",
-					"iniName":"step_num",
-					"iniType":"Int"
+					"DefaultValue":"2.4",
+					"iniName":"Polynomial_X_max",
+					"iniType":"Float"
 				},
 				{
 					"Name":"芯厚直径",
 					"Type":"EditBox",
 					"DefaultValue":"2.076",
-					"iniName":"step_num",
-					"iniType":"Int"
+					"iniName":"Polynomial_arc_center_D",
+					"iniType":"Float"
 				},
 				{
 					"Name":"工作直径",
 					"Type":"EditBox",
-					"DefaultValue":"6",
-					"iniName":"step_num",
-					"iniType":"Int"
+					"DefaultValue":"6.55",
+					"iniName":"d1",
+					"iniType":"Float"
 				}
 			]
 		},
@@ -254,56 +304,56 @@
 					"Name":"第一刃带宽度",
 					"Type":"EditBox",
 					"DefaultValue":"0.313",
-					"iniName":"step_num",
-					"iniType":"Int"
+					"iniName":"margin_width1",
+					"iniType":"Float"
 				},
 				{
 					"Name":"第一后角",
 					"Type":"EditBox",
 					"DefaultValue":"19.2",
-					"iniName":"step_num",
-					"iniType":"Int"
+					"iniName":"relief_angle1",
+					"iniType":"Float"
 				},
 				{
 					"Name":"第一后角宽度",
 					"Type":"EditBox",
 					"DefaultValue":"1.179",
-					"iniName":"step_num",
-					"iniType":"Int"
+					"iniName":"relief_width1",
+					"iniType":"Float"
 				},
 				{
 					"Name":"第二后角",
 					"Type":"EditBox",
 					"DefaultValue":"24.278",
-					"iniName":"step_num",
-					"iniType":"Int"
+					"iniName":"relief_angle2",
+					"iniType":"Float"
 				},
 				{
 					"Name":"第二后角宽度",
 					"Type":"EditBox",
 					"DefaultValue":"1.058",
-					"iniName":"step_num",
-					"iniType":"Int"
+					"iniName":"relief_width2",
+					"iniType":"Float"
 				},
 				{
 					"Name":"第二刃带宽度",
 					"Type":"EditBox",
 					"DefaultValue":"0.714",
-					"iniName":"step_num",
-					"iniType":"Int"
+					"iniName":"margin_width2",
+					"iniType":"Float"
 				},
 				{
 					"Name":"第二刃带直径",
 					"Type":"EditBox",
 					"DefaultValue":"6.5",
-					"iniName":"step_num",
-					"iniType":"Int"
+					"iniName":"margin_D2",
+					"iniType":"Float"
 				},
 				{
 					"Name":"第三后角",
 					"Type":"EditBox",
-					"DefaultValue":"72.23",
-					"iniName":"step_num",
+					"DefaultValue":"22.166",
+					"iniName":"relief_angle3",
 					"iniType":"Int"
 				}
 			]
@@ -316,8 +366,8 @@
 					"Name":"螺旋线导程",
 					"Type":"EditBox",
 					"DefaultValue":"16.32",
-					"iniName":"step_num",
-					"iniType":"Int"
+					"iniName":"",
+					"iniType":"Float"
 				}
 			]
 		},
@@ -329,85 +379,279 @@
 					"Name":"一次系数",
 					"Type":"EditBox",
 					"DefaultValue":"0.1",
-					"iniName":"step_num",
-					"iniType":"Int"
+					"iniName":"",
+					"iniType":"Float"
 				},
 				{
 					"Name":"二次系数",
 					"Type":"EditBox",
 					"DefaultValue":"0.1",
-					"iniName":"step_num",
-					"iniType":"Int"
+					"iniName":"",
+					"iniType":"Float"
 				},
 				{
 					"Name":"三次系数",
 					"Type":"EditBox",
 					"DefaultValue":"0.1",
-					"iniName":"step_num",
-					"iniType":"Int"
+					"iniName":"",
+					"iniType":"Float"
 				},
 				{
 					"Name":"四次系数",
 					"Type":"EditBox",
 					"DefaultValue":"0.1",
-					"iniName":"step_num",
-					"iniType":"Int"
+					"iniName":"",
+					"iniType":"Float"
 				},
 				{
 					"Name":"五次系数",
 					"Type":"EditBox",
 					"DefaultValue":"0.1",
-					"iniName":"step_num",
-					"iniType":"Int"
+					"iniName":"",
+					"iniType":"Float"
 				},
 				{
 					"Name":"六次系数",
 					"Type":"EditBox",
 					"DefaultValue":"0.1",
-					"iniName":"step_num",
-					"iniType":"Int"
+					"iniName":"",
+					"iniType":"Float"
 				},
 				{
 					"Name":"七次系数",
 					"Type":"EditBox",
 					"DefaultValue":"0.1",
-					"iniName":"step_num",
-					"iniType":"Int"
+					"iniName":"",
+					"iniType":"Float"
 				},
 				{
 					"Name":"八次系数",
 					"Type":"EditBox",
 					"DefaultValue":"0.1",
-					"iniName":"step_num",
-					"iniType":"Int"
+					"iniName":"",
+					"iniType":"Float"
 				},
 				{
 					"Name":"九次系数",
 					"Type":"EditBox",
 					"DefaultValue":"0.1",
-					"iniName":"step_num",
-					"iniType":"Int"
+					"iniName":"",
+					"iniType":"Float"
 				},
 				{
 					"Name":"常量",
 					"Type":"EditBox",
 					"DefaultValue":"0.1",
-					"iniName":"step_num",
-					"iniType":"Int"
+					"iniName":"",
+					"iniType":"Float"
 				},
 				{
 					"Name":"X左区间",
 					"Type":"EditBox",
 					"DefaultValue":"0.1",
-					"iniName":"step_num",
-					"iniType":"Int"
+					"iniName":"",
+					"iniType":"Float"
 				},
 				{
 					"Name":"X右区间",
 					"Type":"EditBox",
 					"DefaultValue":"0.1",
-					"iniName":"step_num",
-					"iniType":"Int"
+					"iniName":"",
+					"iniType":"Float"
+				}
+			]
+		},
+		{
+			"Name":"齿隙曲线方程 -多义线轨迹",
+			"ParamList":
+			[
+				{
+					"Name":"九次系数",
+					"Type":"EditBox",
+					"DefaultValue":"-211",
+					"iniName":"gash_Polynomial_9",
+					"iniType":"Float"
+				},
+				{
+					"Name":"八次系数",
+					"Type":"EditBox",
+					"DefaultValue":"327.8",
+					"iniName":"gash_Polynomial_8",
+					"iniType":"Float"
+				},
+				{
+					"Name":"七次系数",
+					"Type":"EditBox",
+					"DefaultValue":"-38.55",
+					"iniName":"gash_Polynomial_7",
+					"iniType":"Float"
+				},
+				{
+					"Name":"六次系数",
+					"Type":"EditBox",
+					"DefaultValue":"-156",
+					"iniName":"gash_Polynomial_6",
+					"iniType":"Float"
+				},
+				{
+					"Name":"五次系数",
+					"Type":"EditBox",
+					"DefaultValue":"63.58",
+					"iniName":"gash_Polynomial_5",
+					"iniType":"Float"
+				},
+				{
+					"Name":"四次系数",
+					"Type":"EditBox",
+					"DefaultValue":"16.79",
+					"iniName":"gash_Polynomial_4",
+					"iniType":"Float"
+				},
+				{
+					"Name":"三次系数",
+					"Type":"EditBox",
+					"DefaultValue":"-13.54",
+					"iniName":"gash_Polynomial_3",
+					"iniType":"Float"
+				},
+				{
+					"Name":"二次系数",
+					"Type":"EditBox",
+					"DefaultValue":"2.478",
+					"iniName":"gash_Polynomial_2",
+					"iniType":"Float"
+				},
+				{
+					"Name":"一次系数",
+					"Type":"EditBox",
+					"DefaultValue":"-0.2066",
+					"iniName":"gash_Polynomial_1",
+					"iniType":"Float"
+				},
+				{
+					"Name":"常量",
+					"Type":"EditBox",
+					"DefaultValue":"-0.009536",
+					"iniName":"gash_Polynomial_0",
+					"iniType":"Float"
+				},
+				{
+					"Name":"X左区间",
+					"Type":"EditBox",
+					"DefaultValue":"-0.6",
+					"iniName":"gash_Polynomial_X_min",
+					"iniType":"Float"
+				},
+				{
+					"Name":"X右区间",
+					"Type":"EditBox",
+					"DefaultValue":"0.75",
+					"iniName":"gash_Polynomial_X_max",
+					"iniType":"Float"
+				},
+				{
+					"Name":"曲线底部圆弧直径",
+					"Type":"EditBox",
+					"DefaultValue":"16.32",
+					"iniName":"",
+					"iniType":"Float"
+				},
+				{
+					"Name":"曲线底部圆弧开角",
+					"Type":"EditBox",
+					"DefaultValue":"16.32",
+					"iniName":"gash_Polynomial_X_max",
+					"iniType":"Float"
+				}
+			]
+		},
+		{
+			"Name":"齿隙曲线坐标系 -多义线轨迹",
+			"ParamList":
+			[
+				{
+					"Name":"原点X",
+					"Type":"EditBox",
+					"DefaultValue":"0.254",
+					"iniName":"gash_csys_origin_x",
+					"iniType":"Float"
+				},
+				{
+					"Name":"原点Y",
+					"Type":"EditBox",
+					"DefaultValue":"-0.601",
+					"iniName":"gash_csys_origin_y",
+					"iniType":"Float"
+				},
+				{
+					"Name":"原点Z",
+					"Type":"EditBox",
+					"DefaultValue":"3.941",
+					"iniName":"gash_csys_origin_z",
+					"iniType":"Float"
+				},
+				{
+					"Name":"X轴向量I",
+					"Type":"EditBox",
+					"DefaultValue":"0.959",
+					"iniName":"gash_csys_x_i",
+					"iniType":"Float"
+				},
+				{
+					"Name":"X轴向量j",
+					"Type":"EditBox",
+					"DefaultValue":"0.219",
+					"iniName":"gash_csys_x_j",
+					"iniType":"Float"
+				},
+				{
+					"Name":"X轴向量k",
+					"Type":"EditBox",
+					"DefaultValue":"-0.183",
+					"iniName":"gash_csys_x_k",
+					"iniType":"Float"
+				},
+				{
+					"Name":"Y轴向量I",
+					"Type":"EditBox",
+					"DefaultValue":"0.283",
+					"iniName":"gash_csys_y_i",
+					"iniType":"Float"
+				},
+				{
+					"Name":"Y轴向量j",
+					"Type":"EditBox",
+					"DefaultValue":"-0.801",
+					"iniName":"gash_csys_y_j",
+					"iniType":"Float"
+				},
+				{
+					"Name":"Y轴向量k",
+					"Type":"EditBox",
+					"DefaultValue":"0.528",
+					"iniName":"gash_csys_y_k",
+					"iniType":"Float"
+				},
+				{
+					"Name":"Z轴向量I",
+					"Type":"EditBox",
+					"DefaultValue":"-0.031",
+					"iniName":"gash_csys_z_i",
+					"iniType":"Float"
+				},
+				{
+					"Name":"Z轴向量j",
+					"Type":"EditBox",
+					"DefaultValue":"-0.558",
+					"iniName":"gash_csys_z_j",
+					"iniType":"Float"
+				},
+				{
+					"Name":"Z轴向量k",
+					"Type":"EditBox",
+					"DefaultValue":"-0.829",
+					"iniName":"gash_csys_z_k",
+					"iniType":"Float"
 				}
 			]
 		},
@@ -418,86 +662,86 @@
 				{
 					"Name":"原点X",
 					"Type":"EditBox",
-					"DefaultValue":"16.32",
-					"iniName":"step_num",
-					"iniType":"Int"
+					"DefaultValue":"0.13",
+					"iniName":"",
+					"iniType":"Float"
 				},
 				{
 					"Name":"原点Y",
 					"Type":"EditBox",
-					"DefaultValue":"16.32",
-					"iniName":"step_num",
-					"iniType":"Int"
+					"DefaultValue":"-0.745",
+					"iniName":"",
+					"iniType":"Float"
 				},
 				{
 					"Name":"原点Z",
 					"Type":"EditBox",
-					"DefaultValue":"16.32",
-					"iniName":"step_num",
-					"iniType":"Int"
+					"DefaultValue":"4.05",
+					"iniName":"",
+					"iniType":"Float"
 				},
 				{
 					"Name":"X轴向量i",
 					"Type":"EditBox",
-					"DefaultValue":"16.32",
-					"iniName":"step_num",
-					"iniType":"Int"
+					"DefaultValue":"-0.824",
+					"iniName":"",
+					"iniType":"Float"
 				},
 				{
 					"Name":"X轴向量j",
 					"Type":"EditBox",
-					"DefaultValue":"16.32",
-					"iniName":"step_num",
-					"iniType":"Int"
+					"DefaultValue":"-0.458",
+					"iniName":"",
+					"iniType":"Float"
 				},
 				{
 					"Name":"X轴向量k",
 					"Type":"EditBox",
-					"DefaultValue":"16.32",
-					"iniName":"step_num",
-					"iniType":"Int"
+					"DefaultValue":"0.334",
+					"iniName":"",
+					"iniType":"Float"
+				},
+				{
+					"Name":"Y轴向量i",
+					"Type":"EditBox",
+					"DefaultValue":"0.566",
+					"iniName":"",
+					"iniType":"Float"
+				},
+				{
+					"Name":"Y轴向量j",
+					"Type":"EditBox",
+					"DefaultValue":"-0.682",
+					"iniName":"",
+					"iniType":"Float"
 				},
 				{
 					"Name":"Y轴向量k",
 					"Type":"EditBox",
-					"DefaultValue":"16.32",
-					"iniName":"step_num",
-					"iniType":"Int"
+					"DefaultValue":"0.463",
+					"iniName":"",
+					"iniType":"Float"
 				},
 				{
-					"Name":"Y轴向量k",
+					"Name":"Z轴向量i",
 					"Type":"EditBox",
-					"DefaultValue":"16.32",
-					"iniName":"step_num",
-					"iniType":"Int"
+					"DefaultValue":"0.016",
+					"iniName":"",
+					"iniType":"Float"
 				},
 				{
-					"Name":"Y轴向量k",
+					"Name":"Z轴向量j",
 					"Type":"EditBox",
-					"DefaultValue":"16.32",
-					"iniName":"step_num",
-					"iniType":"Int"
-				},
-				{
-					"Name":"Z轴向量k",
-					"Type":"EditBox",
-					"DefaultValue":"16.32",
-					"iniName":"step_num",
-					"iniType":"Int"
+					"DefaultValue":"0.571",
+					"iniName":"",
+					"iniType":"Float"
 				},
 				{
 					"Name":"Z轴向量k",
 					"Type":"EditBox",
-					"DefaultValue":"16.32",
-					"iniName":"step_num",
-					"iniType":"Int"
-				},
-				{
-					"Name":"Z轴向量k",
-					"Type":"EditBox",
-					"DefaultValue":"16.32",
-					"iniName":"step_num",
-					"iniType":"Int"
+					"DefaultValue":"0.821",
+					"iniName":"",
+					"iniType":"Float"
 				}
 			]
 		},
@@ -506,158 +750,221 @@
 			"ParamList":
 			[
 				{
-					"Name":"XY一次系数",
+					"Name":"坐标系转动轴",
 					"Type":"EditBox",
-					"DefaultValue":"16.32",
-					"iniName":"step_num",
-					"iniType":"Int"
+					"DefaultValue":"y",
+					"iniName":"gash_path_axis",
+					"iniType":"String"
 				},
 				{
-					"Name":"XY二次系数",
+					"Name":"坐标系转动角度",
 					"Type":"EditBox",
-					"DefaultValue":"16.32",
-					"iniName":"step_num",
-					"iniType":"Int"
-				},
-				{
-					"Name":"XY三次系数",
-					"Type":"EditBox",
-					"DefaultValue":"16.32",
-					"iniName":"step_num",
-					"iniType":"Int"
-				},
-				{
-					"Name":"XY四次系数",
-					"Type":"EditBox",
-					"DefaultValue":"16.32",
-					"iniName":"step_num",
-					"iniType":"Int"
-				},
-				{
-					"Name":"XY五次系数",
-					"Type":"EditBox",
-					"DefaultValue":"16.32",
-					"iniName":"step_num",
-					"iniType":"Int"
-				},
-				{
-					"Name":"XY六次系数",
-					"Type":"EditBox",
-					"DefaultValue":"16.32",
-					"iniName":"step_num",
-					"iniType":"Int"
-				},
-				{
-					"Name":"XY七次系数",
-					"Type":"EditBox",
-					"DefaultValue":"16.32",
-					"iniName":"step_num",
-					"iniType":"Int"
-				},
-				{
-					"Name":"XY八次系数",
-					"Type":"EditBox",
-					"DefaultValue":"16.32",
-					"iniName":"step_num",
-					"iniType":"Int"
+					"DefaultValue":"30",
+					"iniName":"gash_path_angle",
+					"iniType":"Float"
 				},
 				{
 					"Name":"XY九次系数",
 					"Type":"EditBox",
-					"DefaultValue":"16.32",
-					"iniName":"step_num",
-					"iniType":"Int"
+					"DefaultValue":"0",
+					"iniName":"gash_path_XY_9",
+					"iniType":"Float"
+				},
+				{
+					"Name":"XY八次系数",
+					"Type":"EditBox",
+					"DefaultValue":"0",
+					"iniName":"gash_path_XY_8",
+					"iniType":"Float"
+				},
+				{
+					"Name":"XY七次系数",
+					"Type":"EditBox",
+					"DefaultValue":"0",
+					"iniName":"gash_path_XY_7",
+					"iniType":"Float"
+				},
+				{
+					"Name":"XY六次系数",
+					"Type":"EditBox",
+					"DefaultValue":"0",
+					"iniName":"gash_path_XY_6",
+					"iniType":"Float"
+				},
+				{
+					"Name":"XY五次系数",
+					"Type":"EditBox",
+					"DefaultValue":"0",
+					"iniName":"gash_path_XY_5",
+					"iniType":"Float"
+				},
+				{
+					"Name":"XY四次系数",
+					"Type":"EditBox",
+					"DefaultValue":"0",
+					"iniName":"gash_path_XY_4",
+					"iniType":"Float"
+				},
+				{
+					"Name":"XY三次系数",
+					"Type":"EditBox",
+					"DefaultValue":"0",
+					"iniName":"gash_path_XY_3",
+					"iniType":"Float"
+				},
+				{
+					"Name":"XY二次系数",
+					"Type":"EditBox",
+					"DefaultValue":"-0.04911",
+					"iniName":"gash_path_XY_2",
+					"iniType":"Float"
+				},
+				{
+					"Name":"XY一次系数",
+					"Type":"EditBox",
+					"DefaultValue":"1.498",
+					"iniName":"gash_path_XY_1",
+					"iniType":"Float"
 				},
 				{
 					"Name":"XY常量",
 					"Type":"EditBox",
-					"DefaultValue":"16.32",
-					"iniName":"step_num",
-					"iniType":"Int"
+					"DefaultValue":"-3.646",
+					"iniName":"gash_path_XY_0",
+					"iniType":"Float"
 				},
 				{
 					"Name":"X左区间",
 					"Type":"EditBox",
-					"DefaultValue":"16.32",
-					"iniName":"step_num",
-					"iniType":"Int"
+					"DefaultValue":"0",
+					"iniName":"gash_X_min",
+					"iniType":"Float"
 				},
 				{
 					"Name":"X右区间",
 					"Type":"EditBox",
-					"DefaultValue":"16.32",
-					"iniName":"step_num",
-					"iniType":"Int"
-				},
-				{
-					"Name":"XZ一次系数",
-					"Type":"EditBox",
-					"DefaultValue":"16.32",
-					"iniName":"step_num",
-					"iniType":"Int"
-				},
-				{
-					"Name":"XZ二次系数",
-					"Type":"EditBox",
-					"DefaultValue":"16.32",
-					"iniName":"step_num",
-					"iniType":"Int"
-				},
-				{
-					"Name":"XZ三次系数",
-					"Type":"EditBox",
-					"DefaultValue":"16.32",
-					"iniName":"step_num",
-					"iniType":"Int"
-				},
-				{
-					"Name":"XZ四次系数",
-					"Type":"EditBox",
-					"DefaultValue":"16.32",
-					"iniName":"step_num",
-					"iniType":"Int"
-				},
-				{
-					"Name":"XZ五次系数",
-					"Type":"EditBox",
-					"DefaultValue":"16.32",
-					"iniName":"step_num",
-					"iniType":"Int"
-				},
-				{
-					"Name":"XZ六次系数",
-					"Type":"EditBox",
-					"DefaultValue":"16.32",
-					"iniName":"step_num",
-					"iniType":"Int"
-				},
-				{
-					"Name":"XZ七次系数",
-					"Type":"EditBox",
-					"DefaultValue":"16.32",
-					"iniName":"step_num",
-					"iniType":"Int"
-				},
-				{
-					"Name":"XZ八次系数",
-					"Type":"EditBox",
-					"DefaultValue":"16.32",
-					"iniName":"step_num",
-					"iniType":"Int"
+					"DefaultValue":"2.7",
+					"iniName":"gash_X_max",
+					"iniType":"Float"
 				},
 				{
 					"Name":"XZ九次系数",
 					"Type":"EditBox",
-					"DefaultValue":"16.32",
-					"iniName":"step_num",
-					"iniType":"Int"
+					"DefaultValue":"0",
+					"iniName":"gash_path_XZ_9",
+					"iniType":"Float"
 				},
 				{
-					"Name":"XZ常量",
+					"Name":"XZ八次系数",
+					"Type":"EditBox",
+					"DefaultValue":"0",
+					"iniName":"gash_path_XZ_8",
+					"iniType":"Float"
+				},
+				{
+					"Name":"XZ七次系数",
+					"Type":"EditBox",
+					"DefaultValue":"0",
+					"iniName":"gash_path_XZ_7",
+					"iniType":"Float"
+				},
+				{
+					"Name":"XZ六次系数",
+					"Type":"EditBox",
+					"DefaultValue":"0",
+					"iniName":"gash_path_XZ_6",
+					"iniType":"Float"
+				},
+				{
+					"Name":"XZ五次系数",
+					"Type":"EditBox",
+					"DefaultValue":"0",
+					"iniName":"gash_path_XZ_5",
+					"iniType":"Float"
+				},
+				{
+					"Name":"XZ四次系数",
+					"Type":"EditBox",
+					"DefaultValue":"0",
+					"iniName":"gash_path_XZ_4",
+					"iniType":"Float"
+				},
+				{
+					"Name":"XZ三次系数",
+					"Type":"EditBox",
+					"DefaultValue":"0",
+					"iniName":"gash_path_XZ_3",
+					"iniType":"Float"
+				},
+				{
+					"Name":"XZ二次系数",
+					"Type":"EditBox",
+					"DefaultValue":"0.1905",
+					"iniName":"gash_path_XZ_2",
+					"iniType":"Float"
+				},
+				{
+					"Name":"XZ一次系数",
+					"Type":"EditBox",
+					"DefaultValue":"0.8093",
+					"iniName":"gash_path_XZ_1",
+					"iniType":"Float"
+				},
+				{
+				"Name":"XZ常量",
+				"Type":"EditBox",
+				"DefaultValue":"0.6004",
+				"iniName":"gash_path_XZ_0",
+				"iniType":"Float"
+				},
+				{
+					"Name":"圆心x",
 					"Type":"EditBox",
 					"DefaultValue":"16.32",
-					"iniName":"step_num",
-					"iniType":"Int"
+					"iniName":"",
+					"iniType":"Float"
+				},
+				{
+					"Name":"圆心y",
+					"Type":"EditBox",
+					"DefaultValue":"16.32",
+					"iniName":"",
+					"iniType":"Float"
+				},
+				{
+					"Name":"圆心z",
+					"Type":"EditBox",
+					"DefaultValue":"16.32",
+					"iniName":"",
+					"iniType":"Float"
+				},
+				{
+					"Name":"圆半径",
+					"Type":"EditBox",
+					"DefaultValue":"16.32",
+					"iniName":"",
+					"iniType":"Float"
+				},
+				{
+					"Name":"轴方向i",
+					"Type":"EditBox",
+					"DefaultValue":"16.32",
+					"iniName":"",
+					"iniType":"Float"
+				},
+				{
+					"Name":"轴方向j",
+					"Type":"EditBox",
+					"DefaultValue":"16.32",
+					"iniName":"",
+					"iniType":"Float"
+				},
+				{
+					"Name":"轴方向k",
+					"Type":"EditBox",
+					"DefaultValue":"16.32",
+					"iniName":"",
+					"iniType":"Float"
 				}
 			]
 		},
@@ -668,30 +975,37 @@
 				{
 					"Name":"钻尖角",
 					"Type":"EditBox",
-					"DefaultValue":"120",
-					"iniName":"step_num",
-					"iniType":"Int"
+					"DefaultValue":"140",
+					"iniName":"drill_point_angle",
+					"iniType":"Float"
 				},
 				{
 					"Name":"第一后角",
 					"Type":"EditBox",
-					"DefaultValue":"16.32",
-					"iniName":"step_num",
-					"iniType":"Int"
+					"DefaultValue":"17.085",
+					"iniName":"flank_surface_angle_1",
+					"iniType":"Float"
 				},
 				{
-					"Name":"第一后角宽度",
+					"Name":"第一后第二后角交线与Y轴夹角",
 					"Type":"EditBox",
-					"DefaultValue":"1",
-					"iniName":"step_num",
-					"iniType":"Int"
+					"DefaultValue":"-23.77",
+					"iniName":"flank_surface_Y_angle",
+					"iniType":"Float"
+				},
+				{
+					"Name":"第一后第二后角交线与钻尖距离",
+					"Type":"EditBox",
+					"DefaultValue":"0.038",
+					"iniName":"flank_surface_center_dir",
+					"iniType":"Float"
 				},
 				{
 					"Name":"第二后角",
 					"Type":"EditBox",
-					"DefaultValue":"1",
-					"iniName":"step_num",
-					"iniType":"Int"
+					"DefaultValue":"27.806",
+					"iniName":"flank_surface_angle_2",
+					"iniType":"Float"
 				}
 			]
 		}

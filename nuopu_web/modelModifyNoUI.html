@@ -71,6 +71,7 @@
 			var axisHelper;
 			var lastModelColor;
             var menuObj = {};
+            var reflectMaterial;
 
 			var mouseX = 0, mouseY = 0;
 
@@ -216,6 +217,15 @@
                 //AddAxisArrowHelper(scene);
 
 				// texture
+                var path = "../examples/textures/cube/skybox/";
+                var urls = [
+                    path + "px.jpg", path + "nx.jpg",
+                    path + "py.jpg", path + "ny.jpg",
+                    path + "pz.jpg", path + "nz.jpg"
+                ];
+
+                textureCube = new THREE.CubeTextureLoader().load( urls );
+                reflectMaterial = new THREE.MeshPhongMaterial( { color: 0xe4e4e4, envMap: textureCube, side: THREE.DoubleSide } );
 
 				var manager = new THREE.LoadingManager();
 				manager.onProgress = function ( item, loaded, total ) {
@@ -301,19 +311,12 @@
 
 			function update()
 			{
-			    return;
 			    var i = 0;
 
-			    for(i = 0; i < modelArray.length; i++)
-				{
-                    var modelColor = parseInt("0x" + menuObj["模型颜色" + (i + 1)].slice(1));
-                    //if(lastModelColor != modelColor)
-                    {
-                        var material = new THREE.MeshPhongMaterial( { color: modelColor, specular: 0x111111, shininess: 200 } );
-                        modelArray[i].material = material;
-                        lastModelColor = modelColor;
-                    }
-				}
+                for(i = 0; i < modelArray.length; i++)
+                {
+                    modelArray[i].material = reflectMaterial;
+                }
 
                 axisHelper.visible = menuObj["显示坐标轴"];
                 xzPlane.visible = menuObj["显示xz平面"];

@@ -91,14 +91,37 @@ function JsonToIni(obj)
 
             if(iniName != null && iniName != undefined && iniName !="")
             {
-                if(iniType.toLowerCase() == "int")
+                if(paramType.toLowerCase() == "combobox")
                 {
-                    param.Value = parseInt(param[paramName]);
+                    var choise = param.Choise;
+                    var selections= new Array(); //定义一数组
+                    selections = choise.split(","); //字符分割
+                    param.Value = 0;
+                    for(var j = 0; j < selections.length; j++)
+                    {
+                        if(selections[j] == param[paramName])
+                        {
+                            param.Value = j;
+                            break;
+                        }
+                    }
                 }
-                else if(iniType.toLowerCase() == "float")
+                else
                 {
-                    param.Value = parseFloat(param[paramName]);
+                    if(iniType.toLowerCase() == "int")
+                    {
+                        param.Value = parseInt(param[paramName]);
+                    }
+                    else if(iniType.toLowerCase() == "float")
+                    {
+                        param.Value = parseFloat(param[paramName]);
+                    }
+                    else if(iniType.toLowerCase() == "string")
+                    {
+                        param.Value = param[paramName];
+                    }
                 }
+
                 result += (iniName + "=" + param.Value + "\r\n");
             }
         }
@@ -157,7 +180,7 @@ groove_h=1.68
 
     return result;
 }
-function LoadGUIByConfig(configFileURL,callback,menuObj)
+function LoadGUIByConfig(configFileURL,callback,menuObj,display3DModelCallback,displayPdfCallback)
 {
     var scope = this;
 
@@ -254,6 +277,7 @@ function LoadGUIByConfig(configFileURL,callback,menuObj)
         {
             var jsonObj = obj;
             var jsonMenuObj = menuObj;
+            var bServerCallBack = false;
 
             var result = JsonToIni(jsonObj);
             //update here
@@ -271,10 +295,14 @@ function LoadGUIByConfig(configFileURL,callback,menuObj)
                 }
             });
         }
+        menuObj["显示三维模型"] = display3DModelCallback;
+        menuObj["显示二维图纸"] = displayPdfCallback;
 
         gui.add(menuObj, '更新模型');
+        gui.add(menuObj, '显示三维模型');
+        gui.add(menuObj, '显示二维图纸');
 
-        gui.domElement.style = 'position:absolute;top:200px;left:0px';
+        gui.domElement.style = 'position:absolute;top:200px;left:0px;background-color:#ffffff';
     });
 }
 /*

@@ -28,7 +28,7 @@ body {padding:0;margin:0;width:100%;height:100%;font-family:'Electrolize';}
 }
 .terms {text-align:center;}
 .app img {border:none;}
-.app a {color:#000;font-weight:bold;text-decoration:none;}
+.app a {color:#ffffff;font-weight:bold;text-decoration:none;}
 .app a:hover {text-decoration:underline;}
 .app .pdfView {position:absolute; left: 340px;top:40px;}
 .cellCycleMenu::selection {background-color:Transparent;color:#000;}
