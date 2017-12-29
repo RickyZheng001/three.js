@@ -24,6 +24,7 @@ body {padding:0;margin:0;width:100%;height:100%;font-family:'Electrolize';}
   /* box-shadow: 10px 10px 30px #666; */
   border-top: 1px solid #000;
   width:100%;
+    height:891px;
   min-width:1280px;
 }
 .terms {text-align:center;}
@@ -61,10 +62,10 @@ body {padding:0;margin:0;width:100%;height:100%;font-family:'Electrolize';}
 .webGLalert {position:absolute;top:0px;left:0px;color:#000;text-align:center;background-color:#ffff00;padding:40px;width:100%;height:100%;font-size:20px;}
 
 /* tool box / controllers! */
-.toolBox {position:absolute;bottom:5px;left:50%;width:1280px;display:block;color:#000;height:125px;margin-left:-640px;}
+.toolBox {position:absolute;bottom:0px;left:50%;width:1280px;display:block;color:#000;height:160px;margin-left:-640px;}
 .toolBox .section {float:left;padding:0 6px;}
 
-.toolBox2 {position:absolute;bottom:5px;left:50%;width:1280px;display:block;color:#000;height:125px;margin-left:-640px;}
+.toolBox2 {position:absolute;bottom:0px;left:50%;width:1280px;display:block;color:#000;height:160px;margin-left:-640px;}
 .toolBox2 .section {float:left;padding:0 6px;}
 
 .section_product {width:120px;}
