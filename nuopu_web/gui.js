@@ -959,6 +959,23 @@ function DisplayTuZhi()
     document.getElementById("toolBoxTuZhi").style.visibility = "visible";
 }
 
+function SaveAndCommit()
+{
+    $.ajax({
+        type: 'POST',
+        url: 'http://localhost:1337/api?savemodel=1',
+        data: result,
+        success: function (response) {
+            callback(response);
+        },
+        error: function (errs) {
+
+            alert(errs.responseText);
+
+        }
+    });
+}
+
 function OnClickHeadSearch()
 {
 

@@ -12,8 +12,7 @@
 					"Type":"EditBox",
 					"DefaultValue":"237",
 					"iniName":"l1",
-					"iniType":"Float",
-					"CanBeSearch":1
+					"iniType":"Float"
 				},
 				{
 					"Name":"总槽长",
@@ -192,7 +191,68 @@
 					"iniType":"Float"
 				}
 			]
-		},	
+		},
+		{
+			"Name":"槽型特征",
+			"ParamList":
+			[
+				{
+					"Name":"槽跑出倒锥量",
+					"Type":"EditBox",
+					"DefaultValue":"-3",
+					"iniName":"out_groove_ratio",
+					"iniType":"Float"
+				},
+				{
+					"Name":"槽跑出导程",
+					"Type":"EditBox",
+					"DefaultValue":"90",
+					"iniName":"out_groove_pitch",
+					"iniType":"Float"
+				}
+			]
+		},
+		{
+			"Name":"钻尖特征",
+			"ParamList":
+			[
+				{
+					"Name":"钻尖保护高度",
+					"Type":"EditBox",
+					"DefaultValue":"0.4",
+					"iniName":"safe_h",
+					"iniType":"Float"
+				},
+				{
+					"Name":"钻尖保护开角",
+					"Type":"EditBox",
+					"DefaultValue":"43",
+					"iniName":"safe_angle",
+					"iniType":"Float"
+				},
+				{
+					"Name":"钻尖保护距离钻尖距离",
+					"Type":"EditBox",
+					"DefaultValue":"0.989",
+					"iniName":"safe_h1",
+					"iniType":"Float"
+				},
+				{
+					"Name":"钻尖保护后角角度",
+					"Type":"EditBox",
+					"DefaultValue":"23.78",
+					"iniName":"safe_angle1",
+					"iniType":"Float"
+				},
+				{
+					"Name":"钻尖保护后角角度",
+					"Type":"EditBox",
+					"DefaultValue":"0.2",
+					"iniName":"safe_sub_r",
+					"iniType":"Float"
+				}
+			]
+		},
 		{
 			"Name":"槽型曲线方程",
 			"ParamList":
@@ -221,7 +281,7 @@
 				{
 					"Name":"六次系数",
 					"Type":"EditBox",
-					"DefaultValue":"-0.03705",
+					"DefaultValue":"-0.03019",
 					"iniName":"Polynomial_6",
 					"iniType":"Float"
 				},
@@ -256,7 +316,7 @@
 				{
 					"Name":"一次系数",
 					"Type":"EditBox",
-					"DefaultValue":"-0.00145",
+					"DefaultValue":"-0.001447",
 					"iniName":"Polynomial_1",
 					"iniType":"Float"
 				},
@@ -292,9 +352,15 @@
 					"Name":"工作直径",
 					"Type":"EditBox",
 					"DefaultValue":"6.55",
+					"iniName":"d1_cus",
+					"iniType":"Float"
+				},
+				{
+					"Name":"工作直径(请勿修改)",
+					"Type":"EditBox",
+					"DefaultValue":"6.55",
 					"iniName":"d1",
-					"iniType":"Float",
-					"CanBeSearch":1
+					"iniType":"Float"
 				}
 			]
 		},

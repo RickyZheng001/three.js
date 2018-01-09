@@ -118,7 +118,7 @@ groove_h=1.68
 
     return result;
 }
-function LoadDesignGUI(configFileURL,callback,menuObj,display3DModelCallback,displayPdfCallback)
+function LoadDesignGUI(configFileURL,callback,menuObj,display3DModelCallback,displayPdfCallback,saveAndCommitCallback)
 {
     var scope = this;
     var gui = null;
@@ -202,6 +202,7 @@ function LoadDesignGUI(configFileURL,callback,menuObj,display3DModelCallback,dis
         }
         menuObj["显示三维模型"] = display3DModelCallback;
         menuObj["显示二维图纸"] = displayPdfCallback;
+        menuObj["保存提交"] = saveAndCommitCallback;
 
         gui.add(menuObj, '更新模型');
         gui.add(menuObj, '显示三维模型');
