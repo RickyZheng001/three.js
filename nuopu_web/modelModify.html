@@ -85,19 +85,17 @@
 			<div class="app">
 				<!-- facebook like button stuff -->
 				<div id="fb-root"></div>
-				<script>(function(d, s, id) {
-                    var js, fjs = d.getElementsByTagName(s)[0];
-                    if (d.getElementById(id)) return;
-                    js = d.createElement(s); js.id = id;
-                    js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.0";
-                    fjs.parentNode.insertBefore(js, fjs);
-                }(document, 'script', 'facebook-jssdk'));</script>
 				<!-- end facebook stuff -->
-				<div class="appTitle noSelect">
+				<div class="appTitle">
 					<div>
-						<div class="appName">钻头</div>
-						<div class="appName2" style="margin-left: 10px;margin-top: 80px">整体钻头</div>
-						<img src="./images/EdgeWinLogo_1.png" height="80" width="80" style="margin-top: 26px">
+						<div class="appName" style="position: absolute;margin-left: 40px;margin-top: 0px;">钻头</div>
+						<div class="appName2" style="position: absolute;margin-left: 50px;margin-top: 80px;">整体钻头</div>
+						<div class="smallbutton" style="position: absolute;margin-left: 10px;margin-top: 120px;" onclick="Display3DModel()">概念设计图</div>
+						<div class="smallbutton" style="position: absolute;margin-left: 110px;margin-top: 120px;" onclick="DisplayTuZhi()">工程制造图</div>
+
+						<div class="smallbutton" style="position: absolute;margin-left: 10px;margin-top: 160px;width:200px;" onclick="OnClickHeadSearch()">整体钻头  搜索</div>
+						<div class="smallbutton" style="position: absolute;margin-left: 10px;margin-top: 190px;width:200px;" onclick="OnClickParamDesign()">整体钻头  参数设计</div>
+						<div class="smallbutton" style="position: absolute;margin-left: 10px;margin-top: 220px;width:200px;" onclick="OnClickHandleSearch()">刀柄搜索</div>
 					</div>
 				</div>
 				<div id="canvas">
@@ -142,7 +140,7 @@
 						<div class="smallbutton" onclick="">合金</div>
 					</div>
 					<div class="section section_material">
-						<div class="appLabel">三维实体下载</div>
+						<div class="appLabel">三维和图纸下载</div>
 						<div class="button" onclick="">STP</div>
 						<div class="button" onclick="OnClickDownloadObj();">OBJ</div>
 						<div class="button" onclick="">打包下载</div>
@@ -190,7 +188,7 @@
             var menuObj = {};
             var textureCube;
             var reflectMaterial;
-
+			var m_globalGui;
 			var mouseX = 0, mouseY = 0;
 
 			var windowHalfX = window.innerWidth / 2;
@@ -215,6 +213,11 @@
             function OnClickUpdateModel()
 			{
 			    menuObj["更新模型"]();
+			}
+			function CloseAllTab()
+			{
+			    LoadGUIByConfig();
+
 			}
 			function OnClickDownloadObj()
 			{
@@ -305,7 +308,7 @@
 				}
 			}
 
-            LoadGUIByConfig("config/config.json",onCallBack,menuObj,Display3DModel,DisplayTuZhi);
+            LoadDesignGUI("config/config.json",onCallBack,menuObj,Display3DModel,DisplayTuZhi);
 
 			init();
 			animate();

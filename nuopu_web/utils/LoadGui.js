@@ -1,74 +1,12 @@
 /**
  * Created by ZhengLi on 2017/11/14.
  */
-function JsonToIni2(obj)
+function GlobalOnClickClosePanel()
 {
-    var result;
-
-    result = "[file]" + "\r\n";
-
-    for(var i = 0; i < obj.Tab.length; i++) {
-        var sectionList = obj.Tab[i];
-
-        for (var j = 0; j < sectionList.length; j++) {
-            var section = sectionList[j];
-            var sectionName = section.Name;
-            var paramList = section.ParamList;
-            for (var k = 0; k < paramList.length; k++) {
-                var param = paramList[k];
-                var paramName = param.Name;
-                var paramType = param.Type;
-                var defaultValue = param.DefaultValue;
-                var iniName = param.iniName;
-                var iniType = param.iniType;
-                //var value = param.Value;
-
-                if(iniName != null && iniName != undefined && iniName !="")
-                {
-                    if(iniType.toLowerCase() == "int")
-                    {
-                        param.Value = parseInt(param[paramName]);
-                    }
-                    else if(iniType.toLowerCase() == "float")
-                    {
-                        param.Value = parseFloat(param[paramName]);
-                    }
-
-                    result += (iniName + "=" + param.Value + "\r\n");
-                }
-            }
-        }
+    if(m_globalGui != null && m_globalGui != undefined)
+    {
+        m_globalGui.domElement.style.visibility = 'hidden';
     }
-
-    result += "work_D_1=7\r\n";
-    result += "work_L_1=20\r\n";
-    result += "work_angle_1=118\r\n";
-
-    result += "work_D_2=8\r\n";
-    result += "work_L_2=20\r\n";
-    result += "work_angle_2=45\r\n";
-
-    result += "work_D_3=0\r\n";
-    result += "work_L_3=0\r\n";
-    result += "work_angle_3=0\r\n";
-
-    result += "work_D_4=0\r\n";
-    result += "work_L_4=0\r\n";
-    result += "work_angle_4=0\r\n";
-
-    result += "Csys_dispaly=0\r\n";
-    result += "xy_dispaly=0\r\n";
-    result += "xz_dispaly=0\r\n";
-    result += "yz_dispaly=0\r\n";
-
-    result += "cool_hole_type=2\r\n";
-    result += "cool_hole_d=1.4\r\n";
-    result += "spiral_D=3\r\n";
-    result += "thread_pitch=0\r\n";
-    result += "groove_w=1.68\r\n";
-    result += "groove_h=1.68\r\n";
-
-    return result;
 }
 function JsonToIni(obj)
 {
@@ -180,9 +118,200 @@ groove_h=1.68
 
     return result;
 }
+function LoadDesignGUI(configFileURL,callback,menuObj,display3DModelCallback,displayPdfCallback)
+{
+    var scope = this;
+    var gui = null;
+
+    var test = window.location.pathname;
+    var loader = new THREE.FileLoader( scope.manager );
+    //loader.setResponseType( 'arraybuffer' );
+    loader.load( configFileURL, function ( text ) {
+        var obj = eval('(' + text + ')');
+
+        //var menuObj = {};
+        gui = new dat.gui.GUI();
+        gui.remember(menuObj);
+
+        for (var i = 0; i < obj.Tab.length; i++) {
+            var tabObj = obj.Tab[i];
+            var tabName = tabObj.Name;
+
+            var guiTable = gui.addFolder(tabName);
+
+            var paramList = tabObj.ParamList;
+
+            menuObj[tabName] = {};
+
+            for (var j = 0; j < paramList.length; j++) {
+                var param = paramList[j];
+                var paramName = param.Name;
+                var paramType = param.Type;
+                var defaultValue = param.DefaultValue;
+
+                if (paramType == "EditBox") {
+                    param[paramName] = defaultValue;
+                    guiTable.add(param, paramName);
+                    //sectionMenuObj[paramName] = defaultValue;
+                    //guiSection.add(sectionMenuObj, paramName);
+                }
+                else if (paramType == "ComboBox") {
+                    param[paramName] = defaultValue;
+                    var str = param.Choise;
+                    if (typeof(str) == "string") {
+                        var selections = new Array(); //定义一数组
+                        selections = str.split(","); //字符分割
+                        guiTable.add(param, paramName, selections);
+                    }
+                    else {
+                        //是一个数组，直接关系后后面菜单结构
+                        selections = new Array();
+                        for (var l = 0; l < str.length; l++) {
+                            var choiseParam = str[l];
+                        }
+                    }
+                }
+            }
+        }
+
+        menuObj["显示坐标轴"] = true;
+        menuObj["显示xz平面"] = false;
+        menuObj["显示xy平面"] = false;
+        menuObj["显示yz平面"] = false;
+
+        menuObj["更新模型"] = function () {
+            var jsonObj = obj;
+            var jsonMenuObj = menuObj;
+            var bServerCallBack = false;
+
+            var result = JsonToIni(jsonObj);
+            //update here
+            $.ajax({
+                type: 'POST',
+                url: 'http://localhost:1337/api?getmodel=1',
+                data: result,
+                success: function (response) {
+                    callback(response);
+                },
+                error: function (errs) {
+
+                    alert(errs.responseText);
+
+                }
+            });
+        }
+        menuObj["显示三维模型"] = display3DModelCallback;
+        menuObj["显示二维图纸"] = displayPdfCallback;
+
+        gui.add(menuObj, '更新模型');
+        gui.add(menuObj, '显示三维模型');
+        gui.add(menuObj, '显示二维图纸');
+
+        gui.domElement.style = 'position:absolute;top:300px;left:0px;background-color:#ffffff;visibility:hidden;';
+        gui.domElement.id = 'MenuParamDesign';
+        gui.OnClickClosePanel = GlobalOnClickClosePanel;
+
+        m_globalGui = gui;
+    });
+}
+function LoadHeadSearchGUI(configFileURL,callback,menuObj,display3DModelCallback,displayPdfCallback)
+{
+    var scope = this;
+    var gui = null;
+
+    var test = window.location.pathname;
+    var loader = new THREE.FileLoader( scope.manager );
+    //loader.setResponseType( 'arraybuffer' );
+    loader.load( configFileURL, function ( text ) {
+        var obj = eval('(' + text + ')');
+
+        //var menuObj = {};
+        gui = new dat.gui.GUI();
+        gui.remember(menuObj);
+
+        for (var i = 0; i < obj.Tab.length; i++) {
+            var tabObj = obj.Tab[i];
+            var tabName = tabObj.Name;
+
+            var guiTable = gui.addFolder(tabName);
+
+            var paramList = tabObj.ParamList;
+
+            menuObj[tabName] = {};
+
+            for (var j = 0; j < paramList.length; j++) {
+                var param = paramList[j];
+                var paramName = param.Name;
+                var paramType = param.Type;
+                var defaultValue = param.DefaultValue;
+
+                if (paramType == "EditBox") {
+                    param[paramName] = defaultValue;
+                    guiTable.add(param, paramName);
+                    //sectionMenuObj[paramName] = defaultValue;
+                    //guiSection.add(sectionMenuObj, paramName);
+                }
+                else if (paramType == "ComboBox") {
+                    param[paramName] = defaultValue;
+                    var str = param.Choise;
+                    if (typeof(str) == "string") {
+                        var selections = new Array(); //定义一数组
+                        selections = str.split(","); //字符分割
+                        guiTable.add(param, paramName, selections);
+                    }
+                    else {
+                        //是一个数组，直接关系后后面菜单结构
+                        selections = new Array();
+                        for (var l = 0; l < str.length; l++) {
+                            var choiseParam = str[l];
+                        }
+                    }
+                }
+            }
+        }
+
+        menuObj["显示坐标轴"] = true;
+        menuObj["显示xz平面"] = false;
+        menuObj["显示xy平面"] = false;
+        menuObj["显示yz平面"] = false;
+
+        menuObj["更新模型"] = function () {
+            var jsonObj = obj;
+            var jsonMenuObj = menuObj;
+            var bServerCallBack = false;
+
+            var result = JsonToIni(jsonObj);
+            //update here
+            $.ajax({
+                type: 'POST',
+                url: 'http://localhost:1337/api?getmodel=1',
+                data: result,
+                success: function (response) {
+                    callback(response);
+                },
+                error: function (errs) {
+
+                    alert(errs.responseText);
+
+                }
+            });
+        }
+        menuObj["显示三维模型"] = display3DModelCallback;
+        menuObj["显示二维图纸"] = displayPdfCallback;
+
+        gui.add(menuObj, '更新模型');
+
+        gui.domElement.style = 'position:absolute;top:300px;left:0px;background-color:#ffffff;visibility:hidden;';
+        gui.domElement.id = 'MenuParamDesign';
+        gui.OnClickClosePanel = GlobalOnClickClosePanel;
+
+        m_globalGui = gui;
+    });
+}
 function LoadGUIByConfig(configFileURL,callback,menuObj,display3DModelCallback,displayPdfCallback)
 {
     var scope = this;
+    var gui = null;
 
     var test = window.location.pathname;
     var loader = new THREE.FileLoader( scope.manager );
@@ -192,7 +321,7 @@ function LoadGUIByConfig(configFileURL,callback,menuObj,display3DModelCallback,d
         var obj = eval('(' + text + ')');
 
         //var menuObj = {};
-        var gui = new dat.gui.GUI();
+        gui = new dat.gui.GUI();
         gui.remember(menuObj);
 
         for(var i = 0; i < obj.Tab.length; i++)
@@ -243,31 +372,6 @@ function LoadGUIByConfig(configFileURL,callback,menuObj,display3DModelCallback,d
             }
         }
 
-        /*
-        menuObj["模型颜色1"] = "#ffae23";
-        gui.addColor(menuObj, '模型颜色1');
-
-        menuObj["模型颜色2"] = "#23aeff";
-        gui.addColor(menuObj, '模型颜色2');
-
-        menuObj["模型颜色3"] = "#aeff23";
-        gui.addColor(menuObj, '模型颜色3');
-        */
-
-        /*
-        menuObj["显示坐标轴"] = true;
-        gui.add(menuObj, '显示坐标轴');
-
-        menuObj["显示xz平面"] = false;
-        gui.add(menuObj, '显示xz平面');
-
-        menuObj["显示xy平面"] = false;
-        gui.add(menuObj, '显示xy平面');
-
-        menuObj["显示yz平面"] = false;
-        gui.add(menuObj, '显示yz平面');
-        */
-
         menuObj["显示坐标轴"] = true;
         menuObj["显示xz平面"] = false;
         menuObj["显示xy平面"] = false;
@@ -302,9 +406,14 @@ function LoadGUIByConfig(configFileURL,callback,menuObj,display3DModelCallback,d
         gui.add(menuObj, '显示三维模型');
         gui.add(menuObj, '显示二维图纸');
 
-        gui.domElement.style = 'position:absolute;top:200px;left:0px;background-color:#ffffff';
+        gui.domElement.style = 'position:absolute;top:300px;left:0px;background-color:#ffffff;visibility:hidden;';
+        gui.domElement.id = 'MenuParamDesign';
+        gui.OnClickClosePanel = GlobalOnClickClosePanel;
+
+        m_globalGui = gui;
     });
 }
+
 /*
 var obj = {
     message: 'Hello World',

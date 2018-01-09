@@ -85,7 +85,7 @@ const GUI = function(pars) {
   /**
    * Outermost DOM Element
    * @type DOMElement
-   */
+   *
   this.domElement = document.createElement('div');
   this.__ul = document.createElement('ul');
   this.domElement.appendChild(this.__ul);

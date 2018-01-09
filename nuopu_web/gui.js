@@ -959,6 +959,22 @@ function DisplayTuZhi()
     document.getElementById("toolBoxTuZhi").style.visibility = "visible";
 }
 
+function OnClickHeadSearch()
+{
+
+}
+
+function OnClickParamDesign()
+{
+	document.getElementById("MenuParamDesign").style.visibility = "visible";
+	m_globalGui.closed = false;
+}
+
+function OnClickHandleSearch()
+{
+
+}
+
 /*
   color functions adapted from
   http://www.cs.rit.edu/~ncs/color/t_convert.html

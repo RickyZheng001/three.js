@@ -2755,6 +2755,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	 */
 	var GUI = function GUI(pars) {
 	  var _this = this;
+	  var OnClickClosePanel = null;
 	
 	  var params = pars || {};
 	
@@ -3031,6 +3032,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	    _dom2.default.bind(this.__closeButton, 'click', function () {
 	      _this.closed = !_this.closed;
+	      if(_this.OnClickClosePanel != null)
+		  {
+		  	_this.OnClickClosePanel();
+		  }
 	    });
 	    // Oh, you're a nested GUI!
 	  } else {

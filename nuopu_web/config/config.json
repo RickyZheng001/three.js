@@ -12,7 +12,8 @@
 					"Type":"EditBox",
 					"DefaultValue":"237",
 					"iniName":"l1",
-					"iniType":"Float"
+					"iniType":"Float",
+					"CanBeSearch":1
 				},
 				{
 					"Name":"总槽长",
@@ -292,7 +293,8 @@
 					"Type":"EditBox",
 					"DefaultValue":"6.55",
 					"iniName":"d1",
-					"iniType":"Float"
+					"iniType":"Float",
+					"CanBeSearch":1
 				}
 			]
 		},
