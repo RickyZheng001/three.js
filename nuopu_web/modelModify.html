@@ -289,7 +289,7 @@
 
                 var jsonObj = eval('(' + response + ')');
                 var modelFileList = jsonObj.ModelFileList;
-                var pdfFile = jsonObj.PdfList[0];
+                var pdfFile = jsonObj.PdfList;
                 var pdfCtrl = document.getElementById( 'pdfCtrl' );
                 pdfCtrl.src = 'http://localhost:1337/' + pdfFile;
 
