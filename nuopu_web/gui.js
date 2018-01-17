@@ -863,12 +863,11 @@ function resizeApp() {
 	var minW = 640;
 	var minH = 600;
 	
-	var possibleW = min(windowW-10, 1280);
+	var possibleW = Math.min(windowW - 10, 1280);
 	var possibleH = windowH - 100;
 	
 	var myW = Math.max(minW,possibleW);
 	var myH = Math.max(minH,possibleH);
-	
 
 	c3d.style.width = myW;
 	c3d.style.height = myH;

@@ -64,61 +64,10 @@ function JsonToIni(obj)
             }
         }
     }
-    /*
-    work_D_1=7
-work_L_1=20
-work_angle_1=118
-work_D_2=8
-work_L_2=20
-work_angle_2=45
-work_D_3=0
-work_L_3=0
-work_angle_3=0
-work_D_4=0
-work_L_4=0
-work_angle_4=0
-Csys_dispaly=0
-xy_dispaly=0
-xz_dispaly=0
-yz_dispaly=0
-cool_hole_type=2
-cool_hole_d=1.4
-spiral_D=3
-thread_pitch=0
-groove_w=1.68
-groove_h=1.68
-    * */
-    result += "work_D_1=7\r\n";
-    result += "work_L_1=20\r\n";
-    result += "work_angle_1=118\r\n";
-
-    result += "work_D_2=8\r\n";
-    result += "work_L_2=20\r\n";
-    result += "work_angle_2=45\r\n";
-
-    result += "work_D_3=0\r\n";
-    result += "work_L_3=0\r\n";
-    result += "work_angle_3=0\r\n";
-
-    result += "work_D_4=0\r\n";
-    result += "work_L_4=0\r\n";
-    result += "work_angle_4=0\r\n";
-
-    result += "Csys_dispaly=0\r\n";
-    result += "xy_dispaly=0\r\n";
-    result += "xz_dispaly=0\r\n";
-    result += "yz_dispaly=0\r\n";
-
-    result += "cool_hole_type=2\r\n";
-    result += "cool_hole_d=1.4\r\n";
-    result += "spiral_D=3\r\n";
-    result += "thread_pitch=0\r\n";
-    result += "groove_w=1.68\r\n";
-    result += "groove_h=1.68\r\n";
 
     return result;
 }
-function LoadDesignGUI(configFileURL,callback,menuObj,display3DModelCallback,displayPdfCallback,saveAndCommitCallback)
+function LoadDesignGUI(configFileURL,callback,menuObj,onClickUpdateCallBack)
 {
     var scope = this;
     var gui = null;
@@ -184,11 +133,13 @@ function LoadDesignGUI(configFileURL,callback,menuObj,display3DModelCallback,dis
             var jsonMenuObj = menuObj;
             var bServerCallBack = false;
 
+            onClickUpdateCallBack();
+
             var result = JsonToIni(jsonObj);
             //update here
             $.ajax({
                 type: 'POST',
-                url: 'http://localhost:1337/api?getmodel=1',
+                url: globalServerAddr + "api?getmodel=1",
                 data: result,
                 success: function (response) {
                     callback(response);
@@ -200,13 +151,8 @@ function LoadDesignGUI(configFileURL,callback,menuObj,display3DModelCallback,dis
                 }
             });
         }
-        menuObj["显示三维模型"] = display3DModelCallback;
-        menuObj["显示二维图纸"] = displayPdfCallback;
-        menuObj["保存提交"] = saveAndCommitCallback;
 
         gui.add(menuObj, '更新模型');
-        gui.add(menuObj, '显示三维模型');
-        gui.add(menuObj, '显示二维图纸');
 
         gui.domElement.style = 'position:absolute;top:300px;left:0px;background-color:#ffffff;visibility:hidden;';
         gui.domElement.id = 'MenuParamDesign';
@@ -285,7 +231,7 @@ function LoadHeadSearchGUI(configFileURL,callback,menuObj,display3DModelCallback
             //update here
             $.ajax({
                 type: 'POST',
-                url: 'http://localhost:1337/api?getmodel=1',
+                url: globalServerAddr + "api?getmodel=1",
                 data: result,
                 success: function (response) {
                     callback(response);
@@ -388,7 +334,7 @@ function LoadGUIByConfig(configFileURL,callback,menuObj,display3DModelCallback,d
             //update here
             $.ajax({
                 type: 'POST',
-                url: 'http://localhost:1337/api?getmodel=1',
+                url: globalServerAddr + "api?getmodel=1",
                 data: result,
                 success: function(response){
                     callback(response);
@@ -414,57 +360,15 @@ function LoadGUIByConfig(configFileURL,callback,menuObj,display3DModelCallback,d
         m_globalGui = gui;
     });
 }
+function DisplayProgressBar()
+{
 
-/*
-var obj = {
-    message: 'Hello World',
-    displayOutline: false,
+}
+function HideProgressBar()
+{
 
-    maxSize: 1.0,
-    speed: 5,
+}
+function UpdateProgressBar(percent)
+{
 
-    height: 10,
-    noiseStrength: 10.2,
-    growthSpeed: 0.2,
-
-    type: 'three',
-
-    explode: function () {
-        alert('Bang!');
-    },
-
-    color0: "#ffae23", // CSS string
-    color1: [ 0, 128, 255 ], // RGB array
-    color2: [ 0, 128, 255, 0.3 ], // RGB with alpha
-    color3: { h: 350, s: 0.9, v: 0.3 } // Hue, saturation, value
-};
-
-var gui = new dat.gui.GUI();
-
-gui.remember(obj);
-
-gui.add(obj, 'message');
-gui.add(obj, 'displayOutline');
-gui.add(obj, 'explode');
-
-gui.add(obj, 'maxSize').min(0).max(5).step(0.25);
-gui.add(obj, 'height').step(5); // Increment amount
-
-// Choose from accepted values
-gui.add(obj, 'type', [ 'one', 'two', 'three' ] );
-
-// Choose from named values
-gui.add(obj, 'speed', { Stopped: 0, Slow: 0.1, Fast: 5 } );
-
-var f1 = gui.addFolder('Colors');
-f1.addColor(obj, 'color0');
-f1.addColor(obj, 'color1');
-f1.addColor(obj, 'color2');
-f1.addColor(obj, 'color3');
-
-var f2 = gui.addFolder('Another Folder');
-f2.add(obj, 'noiseStrength');
-
-var f3 = f2.addFolder('Nested Folder');
-f3.add(obj, 'growthSpeed');
-*/
+}

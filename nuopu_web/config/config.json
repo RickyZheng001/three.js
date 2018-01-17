@@ -356,7 +356,7 @@
 					"iniType":"Float"
 				},
 				{
-					"Name":"工作直径(请勿修改)",
+					"Name":"工作直径",
 					"Type":"EditBox",
 					"DefaultValue":"6.55",
 					"iniName":"d1",
