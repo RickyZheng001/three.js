@@ -553,6 +553,7 @@ common.extend(
       // We have to prevent collisions on names in order to have a key
       // by which to remember saved values
       if (this.__folders[name] !== undefined) {
+        return this.__folders[name];
         throw new Error('You already have a folder in this GUI by the' +
           ' name "' + name + '"');
       }

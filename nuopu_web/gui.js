@@ -857,6 +857,7 @@ function login() {
 }
 
 function resizeApp() {
+    /*
 	var c3d = document.getElementById("webgl");
 	var windowW = window.innerWidth;
 	var windowH = window.innerHeight;
@@ -878,6 +879,7 @@ function resizeApp() {
 	gl.viewportWidth = myW;
 	gl.viewportHeight = myH;
   positionFooter();
+  */
 }
 window.onresize = function() { resizeApp();}
 
@@ -947,6 +949,11 @@ function Display3DModel()
 
     document.getElementById("toolBox3D").style.visibility = "visible";
     document.getElementById("toolBoxTuZhi").style.visibility = "hidden";
+
+    if(m_globalFuncUpdateModel != null && m_globalFuncUpdateModel != undefined)
+    {
+        //m_globalFuncUpdateModel();
+    }
 }
 
 function DisplayTuZhi()
@@ -982,13 +989,70 @@ function OnClickHeadSearch()
 
 function OnClickParamDesign()
 {
-	document.getElementById("MenuParamDesign").style.visibility = "visible";
-	m_globalGui.closed = false;
+    var docElement = document.getElementById("MenuParamDesign");
+    if(docElement == null || docElement == undefined)
+    {
+        return;
+    }
+
+    var strVisible = docElement.style.visibility;
+
+    if(strVisible == "visible")
+    {
+        docElement.style.visibility = "hidden";
+        m_globalGui.closed = false;
+    }
+    else
+    {
+        docElement.style.visibility = "visible";
+        m_globalGui.closed = false;
+    }
 }
 
 function OnClickHandleSearch()
 {
 
+}
+function initBindGridEvent()
+{
+    $("td.editable").unbind();
+// 添加单元格点击事件
+    addGridClickEvent();
+}
+function addGridClickEvent(){
+    $("td.simpleInput").bind("click",function(){
+        $('.simpleInput').each(function(){
+            $(this).removeClass("selectCell");
+        });
+// 给选中的元素添加选中样式
+        $(this).addClass("selectCell");
+    });
+}
+function OnClickSaveThisModel()
+{
+    //弹出确定提示框
+    //保存
+    var bSaveToSql = confirm("确定要保存这个模型到数据库吗?");
+    if(bSaveToSql == false)
+	{
+		return;
+	}
+
+    //var result = JsonToIni(m_globalGuiJsonObj);
+    var strJson = JSON.stringify(m_globalGuiJsonObj);
+
+    $.ajax({
+        type: 'POST',
+        url: globalServerAddr + "api?savemodel=1",
+        contentType: "application/x-www-form-urlencoded; charset=utf-8",
+        data: strJson,
+        success: function (response) {
+            callback(response);
+        },
+        error: function (errs) {
+            alert(errs.responseText);
+        }
+    });
 }
 
 /*

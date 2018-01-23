@@ -6,6 +6,8 @@
 		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
         <meta http-equiv="Access-Control-Allow-Origin" content="*">
 		<meta http-equiv="pragma" content="no-cache">
+		<meta http-equiv="cache-control" content="no-cache">
+		<meta http-equiv="expires" content="0">
 		<link href="https://fonts.googleapis.com/css?family=Electrolize:400" rel="stylesheet" type="text/css">
 		<script async="" src="//www.google-analytics.com/analytics.js"></script>
 		<script type="text/javascript" src="./js/jquery-ui-1.10.4.custom/js/jquery-1.10.2.js"></script>
@@ -91,20 +93,65 @@
 					<div>
 						<div class="appName" style="position: absolute;margin-left: 40px;margin-top: 0px;">钻头</div>
 						<div class="appName2" style="position: absolute;margin-left: 50px;margin-top: 80px;">整体钻头</div>
-						<div class="smallbutton" style="position: absolute;margin-left: 10px;margin-top: 120px;" onclick="Display3DModel()">概念设计图</div>
-						<div class="smallbutton" style="position: absolute;margin-left: 110px;margin-top: 120px;" onclick="DisplayTuZhi()">工程制造图</div>
+						<div class="smallbutton" style="position: absolute;margin-left: 10px;margin-top: 120px;" onclick="Display3DModel()">显示三维</div>
+						<div class="smallbutton" style="position: absolute;margin-left: 110px;margin-top: 120px;" onclick="DisplayTuZhi()">显示图纸</div>
 
 						<div class="smallbutton" style="position: absolute;margin-left: 10px;margin-top: 160px;width:200px;" onclick="OnClickHeadSearch()">整体钻头  搜索</div>
 						<div class="smallbutton" style="position: absolute;margin-left: 10px;margin-top: 190px;width:200px;" onclick="OnClickParamDesign()">整体钻头  参数设计</div>
 						<div class="smallbutton" style="position: absolute;margin-left: 10px;margin-top: 220px;width:200px;" onclick="OnClickHandleSearch()">刀柄搜索</div>
+						<div class="smallbutton" style="position: absolute;margin-left: 10px;margin-top: 220px;width:200px;" onclick="OnClickSaveThisModel()">保存此刀具</div>
 					</div>
 				</div>
 				<div id="canvas">
 					<div id="gameCanvas" width="1920px" height="1080px"></div>
 					<div id="divPdfView" class="pdfView" style="visibility: hidden">
-						<embed id="pdfCtrl" src="./pdf/test1.pdf" type="application/pdf" width="1440px" height="630"></embed>
+						<embed id="pdfCtrl" src="./pdf/test1.pdf" type="application/pdf" width="1440px" height="670"></embed>
 					</div>
 					<canvas id="myCanvas" width="500" height="150" style="position: absolute;left: 40%;top: 40px;visibility: hidden">Your browser does not have support for canvas.</canvas>
+					<table class="editableTable" border="0" style="position: absolute;left: 300px;top: 200px;overflow:scroll;">
+						<tr>
+							<th>序号</th>
+							<th>名称</th>
+							<th>总长</th>
+							<th>柄部直径</th>
+							<th>直径</th>
+						</tr>
+						<tr>
+							<td class="editable simpleInput">1</td>
+							<td>钻头</td>
+							<td>237</td>
+							<td>10</td>
+							<td>10</td>
+						</tr>
+						<tr>
+							<td class="editable simpleInput">2</td>
+							<td>钻头2</td>
+							<td>237</td>
+							<td>10</td>
+							<td>10</td>
+						</tr>
+						<tr>
+							<td class="editable simpleInput">2</td>
+							<td>钻头3</td>
+							<td>237</td>
+							<td>10</td>
+							<td>10</td>
+						</tr>
+						<tr>
+							<td class="editable simpleInput">2</td>
+							<td>钻头4</td>
+							<td>237</td>
+							<td>10</td>
+							<td>10</td>
+						</tr>
+						<tr>
+							<td class="editable simpleInput">2</td>
+							<td>钻头5</td>
+							<td>237</td>
+							<td>10</td>
+							<td>10</td>
+						</tr>
+					</table>
 				</div>
 
 				<div id="ModelGenerateProgressBar" style="visibility: hidden;position: absolute" left="200px" top="200px" ></div>
@@ -158,8 +205,10 @@
 		</div>
 
 		<script>
+            initBindGridEvent();
+
 			var progressBar = {};
-            var progress = 0;
+            var progressBarPercent = 0;
             var contextProgress = null;
             var progressTimer = null;
             progressBar.total_width = 300;
@@ -193,13 +242,23 @@
 
             function onUpdateProgress()
 			{
-			    progress += 0.003;
-			    updateProgress(progress);
+                progressBarPercent += 0.003;
+			    updateProgress(progressBarPercent);
 			}
-            function updateProgress(progress) {
+            function updateProgress(progress)
+			{
                 if(progress >= 0.99)
 				{
-				    progress = 0.99;
+				    if(m_globalGenerateModelStep == 1)
+					{
+                        m_globalGenerateModelStep = 2;
+                        progressBarPercent = 0;
+					}
+					else if(m_globalGenerateModelStep == 2)
+					{
+                        progress = 0.99;
+					}
+
                 }
 
                 var x = progress * progressBar.total_width;
@@ -350,12 +409,20 @@
                 ctx.save();
                 ctx.fillStyle = 'white';
                 var text = Math.floor(width/max*100)+"%";
-                var text_width = ctx.measureText(text).width;
-                var text_x = x+width-text_width-radius/2;
-                if (width<=radius+text_width) {
-                    text_x = x+radius/2;
+
+                if(m_globalGenerateModelStep == 1)
+                {
+                    text = "生成3D模型中... " + text;
                 }
-                ctx.fillText(text, text_x, y+22);
+                else if(m_globalGenerateModelStep == 2)
+                {
+                    text = "生成pdf中..." + text;
+                }
+
+                var text_width = ctx.measureText(text).width;
+                var text_x = x + (progressBar.total_width - text_width) * 0.5;
+
+				ctx.fillText(text, text_x, y+22);
                 ctx.restore();
             }
 
@@ -368,7 +435,7 @@
 
 				//确定原点，箭头长度，和箭头颜色，三个箭头同一设置
                 var origin = new THREE.Vector3(0,0,0);
-                var length = 200;
+                var length = 2000;
                 var color = 0xffff00;
 
 				//建立三个方向上箭头辅助
@@ -394,7 +461,10 @@
             var menuObj = {};
             var textureCube;
             var reflectMaterial;
-			var m_globalGui;
+			var m_globalGui = null;
+			var m_globalGuiJsonObj = null;
+            var m_globalFuncUpdateModel = null;
+            var m_globalGenerateModelStep = 1;
 			var mouseX = 0, mouseY = 0;
 
 			var windowHalfX = window.innerWidth / 2;
@@ -446,7 +516,7 @@
 
 			}
 
-            function onClickUpdateModel(geometry)
+            function onClickUpdateModel(geometry,handleLength)
             {
                 var material = null;
                 if (geometry.hasColors) {
@@ -459,8 +529,8 @@
 
                 var mesh = new THREE.Mesh( geometry, material );
 
-                mesh.position.set( 0, 0, 0);
-                mesh.rotation.set( - Math.PI / 2, 0, 0 );
+                mesh.position.set(handleLength, 0, 0);
+                mesh.rotation.set( 0, -Math.PI * 0.5, 0 );
                 mesh.scale.set( 1,1,1 );
 
                 mesh.castShadow = true;
@@ -482,7 +552,7 @@
 
 				modelArray = new Array();
 			}
-            function onCallBack(response)
+            function onCallBack(response,handleLength)
 			{
                 var onProgress = function ( xhr ) {
 
@@ -508,13 +578,19 @@
 
 				var loader = new THREE.STLLoader();
 				loader.load(requestURL, function ( geometry ){
-					onClickUpdateModel(geometry);
+					onClickUpdateModel(geometry,handleLength);
 				},onProgress,onError);
 			}
+			function onUpdateMenu()
+			{
+                ReloadDesignGUI(m_globalGuiJsonObj);
+			}
+
 			function onClickUpdateCallBack()
 			{
 			    //这里显示进度条，并且把界面封印起来
-				progress = 0;
+                m_globalGenerateModelStep = 1;
+                progressBarPercent = 0;
 
                 var elem = document.getElementById('myCanvas');
                 elem.style.visibility = "visible";
@@ -522,7 +598,7 @@
                 progressTimer = setInterval(onUpdateProgress,100);
 			}
 
-            LoadDesignGUI("config/config.json",onCallBack,menuObj,onClickUpdateCallBack);
+            LoadDesignGUI("config/config.json",onCallBack,menuObj,onClickUpdateCallBack,onUpdateMenu);
 
 			init();
 			animate();
@@ -549,7 +625,7 @@
 				camera.add( pointLight );
 				scene.add( camera );
 
-                axisHelper = new THREE.AxisHelper(200);
+                axisHelper = new THREE.AxisHelper(1000);
                 axisHelper.material.depthTest = false;
                 scene.add(axisHelper);
 
@@ -627,9 +703,9 @@
                 var material = new THREE.MeshPhongMaterial( { color: 0xAAAAAA, specular: 0x111111, shininess: 200 } );
                 var loader = new THREE.STLLoader();
 				//loader.load( 'obj/male02/male02.obj', function ( object ) {
-                loader.load( 'obj/test/test123.stl', function ( geometry ){
+                loader.load( 'obj/test/1.stl', function ( geometry ){
                 //loader.load( 'http://localhost:1337', function ( geometry ) {
-                    onClickUpdateModel(geometry);
+                    onClickUpdateModel(geometry,237);
 				}, onProgress, onError );
 
 				//
