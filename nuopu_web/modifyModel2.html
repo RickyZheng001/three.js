@@ -1,0 +1,351 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>EDGE NOBELTEC智能工艺 </title>
+
+<!--图标样式-->
+<link rel="stylesheet" type="text/css" href="./css/modifyModel2Bootstrap.min.css" />
+
+<!--主要样式-->
+<link rel="stylesheet" type="text/css" href="./css/modifyModel2Style.css" />
+    <script type="text/javascript" src="./js/jquery-ui-1.10.4.custom/js/jquery-1.10.2.js"></script>
+    <script type="text/javascript" src="./js/jquery-ui-1.10.4.custom/js/jquery-ui-1.10.4.custom.min.js"></script>
+    <script type="text/javascript" src="../dat.gui-master/build/dat.gui.js"></script>
+    <link rel="stylesheet" href="../dat.gui-master/build/dat.gui.css" type="text/css">
+    <script src="../build/three.js"></script>
+    <script src="../build/three.module.js"></script>
+    <script src="../examples/js/loaders/STLLoader.js"></script>
+    <script src="../examples/js/loaders/OBJLoader.js"></script>
+    <script src="../examples/js/loaders/PLYLoader.js"></script>
+    <script src="./utils/LoadGui.js"></script>
+<script type="text/javascript">
+$(function (){
+    $('.tree li:has(ul)').addClass('parent_li').find(' > span').attr('title', 'Collapse this branch');
+        $('.tree li.parent_li > span').on('click', function (e) {
+            var children = $(this).parent('li.parent_li').find(' > ul > li');
+
+            var a = $(this).attr('id');
+           // if($(this).attr('id') == "menuitem")
+            {
+               // return;
+            }
+
+            if (children.is(":visible")) {
+                children.hide('fast');
+                $(this).attr('title', 'Expand this branch').find(' > i').addClass('icon-plus-sign').removeClass('icon-minus-sign');
+            }
+            else
+            {
+                children.show('fast');
+                $(this).attr('title', 'Collapse this branch').find(' > i').addClass('icon-minus-sign').removeClass('icon-plus-sign');
+            }
+
+            e.stopPropagation();
+        });
+
+});
+</script>
+
+</head>
+<body>
+
+<ul id="myMenu" style="visibility: hidden;position: absolute;border: 1px;background-color: #ffffff;background: #ffffff;z-index: 99;">
+    <li><div id="menuitem" class="smallbutton" style="z-index: 100;" onclick="AddNewNode('myMenu')">新增</div></li>
+    <li><div id="menuitem" class="smallbutton" style="z-index: 100;" onclick="RemoveNode('myMenu')">删除</div></li>
+    <li><div id="menuitem" class="smallbutton" style="z-index: 100;" onclick="CopyNode('myMenu')">复制</div></li>
+    <li><div id="menuitem" class="smallbutton" style="z-index: 100;" onclick="PasteNode('myMenu')">粘贴</div></li>
+</ul>
+
+<div id="myUI" class="tree well">
+<ul>
+	<li>
+		<span><i class="icon-folder-open"></i> 标准元素+平面+倒角+螺纹孔+高精度孔
+            <div id="myDiv">aaaaaa</div>
+
+        </span> <a href="">一级节点//右键：显示零件特征三维数模，显示零件特征二维图纸，增加二级节点，展开所有节点</a>
+		<ul>
+           	<li>
+				<span><i class="icon-minus-sign"></i>圆柱 外形</span> <a href="">二级节点//右键：编辑更新，增加三级节点，展开所有节点</a>
+				<ul>
+					<li>
+						<span><i class="icon-minus-sign"></i>入口 面</span> <a href="">三级节点//右键：编辑更新，删除，增加四级节点，展开所有节点</a>
+							<li>
+								<span><i class="icon-leaf"></i>普通倒角0.7*45</span>
+							</li>
+							<li>
+								<span><i class="icon-minus-sign"></i>孔D4.9H9-23</span>
+								<ul>
+									<li>
+										<span><i class="icon-leaf"></i>螺纹M5*1-18</span> <a href="">四级节点//右键：编辑更新,删除，增加五级节点，展开所有节点</a>
+									</li>
+								</ul>
+							</li>
+                            <li>
+                                <span><i class="icon-leaf"></i> 中间状态 隔空</span>
+                             </li>
+							<li>
+								<span><i class="icon-minus-sign"></i> 高精度孔D3H7C0.01-23</span>
+								<ul>
+									<li>
+										<span><i class="icon-leaf"></i> 槽W2*R0.2-4.5RA1.6</span>
+									</li>
+									<li>
+										<span><i class="icon-leaf"></i> 孔底平面RA1.6</span>
+									</li>
+								 </ul>
+							</li>
+                            <li>
+                                 <span><i class="icon-leaf"></i> 通孔 出口平面</span>
+                             </li>
+						</ul>
+					</li>
+            <li>
+                <span><i class="icon-leaf"></i> 夹具零件干涉尺寸</span> <a href="">二级节点//右键：编辑更新</a>
+            </li>
+            <li>
+                <span><i class="icon-leaf"></i> 标准工艺选择</span>
+            </li>
+
+            <li>
+                <span><i class="icon-calendar"></i> 工艺特征</span> <a href="">二级节点//右键：显示工艺特征三维数模，显示工艺特征二维图纸，展开所有节点</a>
+                <ul>
+                    <li>
+                        <span class="badge badge-success"><i class="icon-leaf"></i> 整套刀具通用信息</span><a href="">三级节点//右键：编辑更新</a>
+                    </li>
+                    <li>
+                        <span class="badge badge-success"><i class="icon-minus-sign"></i>P1 精铣平面</span> <a href="">三级节点// 右键：向下合并</a>
+                        <ul>
+                            <li>
+                                <a href=""><span><i class="icon-time"></i>T1 面铣刀</span> </a> <a href="">四级节点//右键：编辑更新，显示整套刀具三维数模，显示整套刀具二维图纸</a>
+                            </li>
+                        </ul>
+
+                    </li>
+                    <li>
+                        <span class="badge badge-success"><i class="icon-minus-sign"></i>P2 倒角和孔和钻底孔</span><a href="">三级节点//右键：向上合并，向下合并</a>
+                        <ul>
+                            <li>
+                                <span><i class="icon-time"></i>T2 阶梯钻头</span>
+                            </li>钻螺纹底
+                        </ul>
+                    </li>
+                    <li>
+                        <span class="badge badge-success"><i class="icon-minus-sign"></i> P3 攻丝</span>
+                        <ul>
+                            <li>
+                                <a href=""><span><i class="icon-time"></i> T3 丝锥</span> </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span class="badge badge-success"><i class="icon-minus-sign"></i> P3.5 铣槽</span>
+                        <ul>
+                            <li>
+                                <a href=""><span><i class="icon-time"></i> T3.5 T型铣刀</span> </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span class="badge badge-success"><i class="icon-minus-sign"></i> P4 精铰孔</span></span>
+                        <ul>
+                            <li>
+                                <a href=""><span><i class="icon-time"></i> T4 铰刀</span> </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <span><i class="icon-leaf"></i> END</span> <a href=""></a>
+            </li>
+				</ul>
+           	</li>
+		</ul>
+	</li>
+    </ul>
+</div>
+</body>
+<script>
+    function RebindOnClickEvent()
+    {
+        $('.tree li:has(ul)').addClass('parent_li').find(' > span').attr('title', 'Collapse this branch');
+        $('.tree li.parent_li > span').on('click', function (e) {
+            var children = $(this).parent('li.parent_li').find(' > ul > li');
+
+            var a = $(this).attr('id');
+            // if($(this).attr('id') == "menuitem")
+            {
+                // return;
+            }
+
+            if (children.is(":visible")) {
+                children.hide('fast');
+                $(this).attr('title', 'Expand this branch').find(' > i').addClass('icon-plus-sign').removeClass('icon-minus-sign');
+            }
+            else
+            {
+                children.show('fast');
+                $(this).attr('title', 'Collapse this branch').find(' > i').addClass('icon-minus-sign').removeClass('icon-plus-sign');
+            }
+
+            e.stopPropagation();
+        });
+    }
+    function GetHtmlStrByJsonObj(jsonObj)
+    {
+        var result = "";
+
+        if(jsonObj == null || jsonObj == undefined)
+        {
+            return result;
+        }
+
+        /*
+        <span class="badge badge-success"><i class="icon-minus-sign"></i>P1 精铣平面</span> <a href="">三级节点// 右键：向下合并</a>
+         */
+        result += "<ul>";
+        for(var i = 0; i < jsonObj.length; i++)
+        {
+            result += "<li>";
+
+            var obj = jsonObj[i];
+            result += "<span ><i class=\"icon-minus-sign\"></i>" + obj.Name + "</span>";
+            result += GetHtmlStrByJsonObj(obj.ParamList);
+
+            result += "</li>";
+        }
+
+        result += "</ul>";
+
+        return result;
+    }
+    function LoadUIConfigByJsonObj(jsonObj)
+    {
+        var strHtml = GetHtmlStrByJsonObj(jsonObj);
+
+        var doc = document.getElementById("myUI");
+        doc.innerHTML = strHtml;
+
+        RebindOnClickEvent();
+    }
+    function AddNewNode(strNodeId)
+    {
+        var div = document.getElementById(strNodeId);
+        div.innerHTML = "<ul><li><span><i class=\"icon-minus-sign\"></i> 圆柱 外形</span></li></ul>" + div.innerHTML;
+    }
+    function ReloadParamModifyUI(jsonObj)
+    {
+        var scope = this;
+        var gui = null;
+
+        var obj = jsonObj;
+
+        var menuObj = {};
+        gui = new dat.gui.GUI();
+        gui.remember(menuObj);
+
+        var guiTable = gui.addFolder(jsonObj);
+
+        //gui.remember(menuObj);
+
+        for (var i = 0; i < obj.Tab.length; i++)
+        {
+            var tabObj = obj.Tab[i];
+            var tabName = tabObj.Name;
+
+            var guiTable = gui.addFolder(tabName);
+
+            menuObj[tabName] = {};
+            UpdateGUIByJsonObj(guiTable,tabObj,onComboBoxChangedCallBack);
+        }
+
+            menuObj["显示坐标轴"] = true;
+            menuObj["显示xz平面"] = false;
+            menuObj["显示xy平面"] = false;
+            menuObj["显示yz平面"] = false;
+
+            menuObj["更新模型"] = function () {
+                var jsonObj = obj;
+                var jsonMenuObj = menuObj;
+                var bServerCallBack = false;
+
+                onClickUpdateCallBack();
+
+                var result = JsonToIni(jsonObj);
+                var handleLength = parseFloat(jsonObj.Tab[0].ParamList[0]["总长"]);
+                //update here
+                $.ajax({
+                    type: 'POST',
+                    url: globalServerAddr + "api?getmodel=1",
+                    data: result,
+                    success: function (response) {
+                        callback(response, handleLength);
+                    },
+                    error: function (errs) {
+
+                        alert(errs.responseText);
+
+                    }
+                });
+            }
+
+                menuObj["保存模型到数据库"] = function () {
+
+                var jsonObj = obj;
+                var jsonMenuObj = menuObj;
+                var bServerCallBack = false;
+
+                onClickUpdateCallBack();
+
+                //var result = JsonToIni(jsonObj);
+
+                $.ajax({
+                    type: 'POST',
+                    url: globalServerAddr + "api?savemodel=1",
+                    data: jsonObj,
+                    success: function (response) {
+                        callback(response);
+                    },
+                    error: function (errs) {
+                        alert(errs.responseText);
+                    }
+                });
+            }
+
+            gui.add(menuObj, '更新模型');
+
+            gui.domElement.style = 'position:absolute;top:300px;left:0px;background-color:#ffffff;visibility:hidden;';
+            gui.domElement.id = 'MenuParamDesign';
+            gui.OnClickClosePanel = GlobalOnClickClosePanel;
+
+            m_globalGui = gui;
+            m_globalGuiJsonObj = obj;
+            m_globalFuncUpdateModel = menuObj["更新模型"];
+        });
+    }
+
+    LoadLingJianUIByJson("config/LingJianTeZheng.json");
+
+    /*
+    var div = document.getElementById("myDiv");
+    var menu = document.getElementById("myMenu");
+    //contextmenu事件
+    div.addEventListener("contextmenu",function(e){
+        //阻止默认的右键事件
+        e.preventDefault();
+        //新菜单位置跟随鼠标
+        menu.style.left = e.clientX+"px";
+        menu.style.top = e.clientY+"px";
+        //显示菜单
+        menu.style.visibility = "visible";
+    });
+
+    //鼠标单击，菜单取消
+    div.addEventListener("click",function(e){
+        menu.style.visibility = "hidden";
+    })
+    */
+</script>
+</html>

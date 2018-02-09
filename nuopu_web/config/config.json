@@ -31,8 +31,8 @@
 				{
 					"Name":"工作距离",
 					"Type":"EditBox",
-					"DefaultValue":"6.55",
-					"iniName":"d1_cus",
+					"DefaultValue":"100",
+					"iniName":"l_work",
 					"iniType":"Float"
 				},
 				{
@@ -61,14 +61,14 @@
 									"Name":"柄部直径",
 									"Type":"EditBox",
 									"DefaultValue":"10",
-									"iniName":"radis",
+									"iniName":"d2",
 									"iniType":"Float"
 								},
 								{
 									"Name":"柄部长度",
 									"Type":"EditBox",
 									"DefaultValue":"10",
-									"iniName":"radis",
+									"iniName":"l3",
 									"iniType":"Float"
 								}
 							]
@@ -81,35 +81,35 @@
 									"Name":"柄部直径",
 									"Type":"EditBox",
 									"DefaultValue":"10",
-									"iniName":"radis",
+									"iniName":"d2",
 									"iniType":"Float"
 								},
 								{
 									"Name":"柄部长度",
 									"Type":"EditBox",
 									"DefaultValue":"10",
-									"iniName":"radis",
+									"iniName":"l3",
 									"iniType":"Float"
 								},
 								{
 									"Name":"侧固槽宽度",
 									"Type":"EditBox",
 									"DefaultValue":"10",
-									"iniName":"radis",
+									"iniName":"side_l",
 									"iniType":"Float"
 								},
 								{
 									"Name":"侧固槽深度",
 									"Type":"EditBox",
 									"DefaultValue":"10",
-									"iniName":"radis",
+									"iniName":"side_h",
 									"iniType":"Float"
 								},
 								{
 									"Name":"侧固槽距柄部距离",
 									"Type":"EditBox",
 									"DefaultValue":"10",
-									"iniName":"radis",
+									"iniName":"side1_distance",
 									"iniType":"Float"
 								}
 							]
@@ -122,42 +122,42 @@
 									"Name":"柄部直径",
 									"Type":"EditBox",
 									"DefaultValue":"10",
-									"iniName":"radis",
+									"iniName":"d2",
 									"iniType":"Float"
 								},
 								{
 									"Name":"柄部长度",
 									"Type":"EditBox",
 									"DefaultValue":"10",
-									"iniName":"radis",
+									"iniName":"l3",
 									"iniType":"Float"
 								},
 								{
 									"Name":"侧固槽宽度",
 									"Type":"EditBox",
 									"DefaultValue":"10",
-									"iniName":"radis",
+									"iniName":"side_l",
 									"iniType":"Float"
 								},
 								{
 									"Name":"侧固槽深度",
 									"Type":"EditBox",
 									"DefaultValue":"10",
-									"iniName":"radis",
+									"iniName":"side_h",
 									"iniType":"Float"
 								},
 								{
 									"Name":"侧固槽之间距离",
 									"Type":"EditBox",
 									"DefaultValue":"10",
-									"iniName":"radis",
+									"iniName":"sides_distance",
 									"iniType":"Float"
 								},
 								{
 									"Name":"侧固槽距柄部距离",
 									"Type":"EditBox",
 									"DefaultValue":"10",
-									"iniName":"radis",
+									"iniName":"side1_distance",
 									"iniType":"Float"
 								}
 							]
@@ -192,28 +192,28 @@
 									"Name":"冷却孔直径",
 									"Type":"EditBox",
 									"DefaultValue":"10",
-									"iniName":"radis",
+									"iniName":"d",
 									"iniType":"Float"
 								},
 								{
 									"Name":"冷却孔孔距",
 									"Type":"EditBox",
 									"DefaultValue":"10",
-									"iniName":"radis",
+									"iniName":"TK",
 									"iniType":"Float"
 								},
 								{
 									"Name":"冷却槽深度",
 									"Type":"EditBox",
 									"DefaultValue":"10",
-									"iniName":"radis",
+									"iniName":"cool_groove_h",
 									"iniType":"Float"
 								},
 								{
 									"Name":"冷却槽宽度",
 									"Type":"EditBox",
 									"DefaultValue":"10",
-									"iniName":"radis",
+									"iniName":"cool_groove_w",
 									"iniType":"Float"
 								}
 							]
@@ -226,7 +226,7 @@
 									"Name":"导程",
 									"Type":"EditBox",
 									"DefaultValue":"10",
-									"iniName":"radis",
+									"iniName":"pitch",
 									"iniType":"Float"
 								}
 							]
@@ -239,42 +239,42 @@
 									"Name":"冷却孔直径",
 									"Type":"EditBox",
 									"DefaultValue":"10",
-									"iniName":"radis",
+									"iniName":"d",
 									"iniType":"Float"
 								},
 								{
 									"Name":"冷却孔孔距",
 									"Type":"EditBox",
 									"DefaultValue":"10",
-									"iniName":"radis",
+									"iniName":"TK",
 									"iniType":"Float"
 								},
 								{
 									"Name":"导程",
 									"Type":"EditBox",
 									"DefaultValue":"10",
-									"iniName":"radis",
+									"iniName":"pitch",
 									"iniType":"Float"
 								},
 								{
 									"Name":"冷却槽深度",
 									"Type":"EditBox",
 									"DefaultValue":"10",
-									"iniName":"radis",
+									"iniName":"cool_groove_h",
 									"iniType":"Float"
 								},
 								{
 									"Name":"冷却槽宽度",
 									"Type":"EditBox",
 									"DefaultValue":"10",
-									"iniName":"radis",
+									"iniName":"cool_groove_w",
 									"iniType":"Float"
 								}
 							]
 						}
 					],
 					"DefaultValue":"0",
-					"iniName":"handle_type",
+					"iniName":"cool_type",
 					"iniType":"Int"
 				}
 			]

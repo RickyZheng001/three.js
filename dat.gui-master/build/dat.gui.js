@@ -3018,7 +3018,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        }
 	      }
 	    }
-	
+
 	    this.__closeButton = document.createElement('div');
 	    this.__closeButton.innerHTML = GUI.TEXT_CLOSED;
 	    _dom2.default.addClass(this.__closeButton, GUI.CLASS_CLOSE_BUTTON);

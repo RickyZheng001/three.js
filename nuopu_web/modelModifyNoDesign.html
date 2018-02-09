@@ -93,13 +93,12 @@
 					<div>
 						<div class="appName" style="position: absolute;margin-left: 40px;margin-top: 0px;">钻头</div>
 						<div class="appName2" style="position: absolute;margin-left: 50px;margin-top: 80px;">整体钻头</div>
-						<div class="smallbutton" style="position: absolute;margin-left: 10px;margin-top: 120px;" onclick="Display3DModel()">更新显示三维</div>
-						<div class="smallbutton" style="position: absolute;margin-left: 110px;margin-top: 120px;" onclick="DisplayTuZhi()">更新显示图纸</div>
+						<div class="smallbutton" style="position: absolute;margin-left: 10px;margin-top: 120px;" onclick="Display3DModel()">显示三维</div>
+						<div class="smallbutton" style="position: absolute;margin-left: 110px;margin-top: 120px;" onclick="DisplayTuZhi()">显示图纸</div>
 
 						<div class="smallbutton" style="position: absolute;margin-left: 10px;margin-top: 160px;width:200px;" onclick="OnClickZuanTouSearch()">整体钻头  搜索</div>
-						<div class="smallbutton" style="position: absolute;margin-left: 10px;margin-top: 190px;width:200px;" onclick="OnClickParamDesign()">整体钻头  参数设计</div>
-						<div class="smallbutton" style="position: absolute;margin-left: 10px;margin-top: 220px;width:200px;" onclick="OnClickHandleSearch()">刀柄搜索</div>
-						<div class="smallbutton" style="position: absolute;margin-left: 10px;margin-top: 250px;width:200px;" onclick="OnClickSaveThisModel()">保存此刀具</div>
+						<div class="smallbutton" style="position: absolute;margin-left: 10px;margin-top: 190px;width:200px;" onclick="OnClickHandleSearch()">刀柄搜索</div>
+						<div class="smallbutton" style="position: absolute;margin-left: 10px;margin-top: 220px;width:200px;" onclick="OnClickSaveThisModel()">保存此刀具</div>
 					</div>
 				</div>
 				<div id="canvas">
@@ -227,7 +226,7 @@
             //initBindGridEvent();
 
 			var progressBar = {};
-            var progress = 0;
+            var progressBarPercent = 0;
             var contextProgress = null;
             var progressTimer = null;
             progressBar.total_width = 300;
@@ -261,13 +260,23 @@
 
             function onUpdateProgress()
 			{
-			    progress += 0.003;
-			    updateProgress(progress);
+                progressBarPercent += 0.003;
+			    updateProgress(progressBarPercent);
 			}
-            function updateProgress(progress) {
+            function updateProgress(progress)
+			{
                 if(progress >= 0.99)
 				{
-				    progress = 0.99;
+				    if(m_globalGenerateModelStep == 1)
+					{
+                        m_globalGenerateModelStep = 2;
+                        progressBarPercent = 0;
+					}
+					else if(m_globalGenerateModelStep == 2)
+					{
+                        progress = 0.99;
+					}
+
                 }
 
                 var x = progress * progressBar.total_width;
@@ -418,12 +427,20 @@
                 ctx.save();
                 ctx.fillStyle = 'white';
                 var text = Math.floor(width/max*100)+"%";
-                var text_width = ctx.measureText(text).width;
-                var text_x = x+width-text_width-radius/2;
-                if (width<=radius+text_width) {
-                    text_x = x+radius/2;
+
+                if(m_globalGenerateModelStep == 1)
+                {
+                    text = "生成3D模型中... " + text;
                 }
-                ctx.fillText(text, text_x, y+22);
+                else if(m_globalGenerateModelStep == 2)
+                {
+                    text = "生成pdf中..." + text;
+                }
+
+                var text_width = ctx.measureText(text).width;
+                var text_x = x + (progressBar.total_width - text_width) * 0.5;
+
+				ctx.fillText(text, text_x, y+22);
                 ctx.restore();
             }
 
@@ -467,10 +484,11 @@
 			var m_globalGui = null;
 			var m_globalGuiJsonObj = null;
             var m_globalFuncUpdateModel = null;
+            var m_globalGenerateModelStep = 1;
             var m_globalHandleSearchGui = null;
             var m_globalHandleSearchJsonObj = null;
-            var m_globalDaoBinSearchJsonResult = null;
-            var m_globalZuanTouSearchJsonResult = null;
+            var m_globalSelectedZuanTouId = null;
+            var m_globalSelectedZuanTouHandleLength = 0;
 			var mouseX = 0, mouseY = 0;
 
 			var windowHalfX = window.innerWidth / 2;
@@ -599,7 +617,7 @@
                 ReloadDesignGUI(m_globalGuiJsonObj);
 			}
             function onSearchDaoBingCallBack(strJson)
-			{
+            {
                 var jsonObj = eval('(' + strJson + ')');
                 m_globalDaoBinSearchJsonResult = jsonObj;
                 var searchDiv = document.getElementById("SearchTable");
@@ -626,7 +644,7 @@
                     strTableHtml += "<td>" + paramList[2].Value + "</td>";
                     strTableHtml += "<td>" + paramList[3].Value + "</td>";
                     strTableHtml += "<td>" + paramList[4].Value + "</td>";
-                    strTableHtml += "<td>" + "<div class=\"smallbutton\" style=\"position: absolute;width: 30px;margin-left: 14px;margin-top: -9px;padding-left: 0px;padding-top: 0px;\" onclick=\"OnZuZhuang(" + i + ",onCallBack)\">更新</div>" + "</td>";
+                    strTableHtml += "<td>" + "<div class=\"smallbutton\" style=\"position: absolute;width: 30px;margin-left: 14px;margin-top: -9px;padding-left: 0px;padding-top: 0px;\" onclick=\"OnZuZhuangByZuanTouId(" + i + ",onCallBack)\">更新</div>" + "</td>";
                     strTableHtml += "</tr>";
                 }
                 strTableHtml += "</table>";
@@ -639,6 +657,7 @@
             }
             function onSearchZuanTouCallBack(strJson)
 			{
+
                 var jsonObj = eval('(' + strJson + ')');
                 m_globalZuanTouSearchJsonResult = jsonObj;
                 var searchDiv = document.getElementById("SearchTable");
@@ -659,11 +678,11 @@
                     var paramList = jsonObj[i].ParamList;
                     strTableHtml += "<tr class=\"editable simpleInput\">";
                     strTableHtml += "<td>" + (i + 1) + "</td>";
-                    strTableHtml += "<td>" + paramList[0].Value + "</td>";
                     strTableHtml += "<td>" + paramList[1].Value + "</td>";
                     strTableHtml += "<td>" + paramList[2].Value + "</td>";
                     strTableHtml += "<td>" + paramList[3].Value + "</td>";
-                    strTableHtml += "<td>" + "<div class=\"smallbutton\" style=\"position: absolute;width: 30px;margin-left: 14px;margin-top: -9px;padding-left: 0px;padding-top: 0px;\" onclick=\"OnUpdateZuanTou(" + i +",onCallBack)\">更新</div>" + "</td>";
+                    strTableHtml += "<td>" + paramList[4].Value + "</td>";
+                    strTableHtml += "<td>" + "<div class=\"smallbutton\" style=\"position: absolute;width: 30px;margin-left: 14px;margin-top: -9px;padding-left: 0px;padding-top: 0px;\" onclick=\"GenerateZuanTouByIndex(" + i + ",onCallBack)\">更新</div>" + "</td>";
                     strTableHtml += "</tr>";
                 }
                 strTableHtml += "</table>";
@@ -677,7 +696,8 @@
 			function onClickUpdateCallBack()
 			{
 			    //这里显示进度条，并且把界面封印起来
-				progress = 0;
+                m_globalGenerateModelStep = 1;
+                progressBarPercent = 0;
 
                 var elem = document.getElementById('myCanvas');
                 elem.style.visibility = "visible";
@@ -694,7 +714,7 @@
 
 			function init()
 			{
-				container = document.getElementById( 'gameCanvas');
+				container = document.getElementById( 'gameCanvas' );
 				//container.width = 800;
 				//container.height = 600;
 				//document.body.appendChild( container );
@@ -837,8 +857,8 @@
 
 			function onDocumentMouseMove( event ) {
 
-				mouseX = ( event.clientX - windowHalfX ) * 0.5;
-				mouseY = ( event.clientY - windowHalfY ) * 0.5;
+				mouseX = ( event.clientX - windowHalfX ) / 2;
+				mouseY = ( event.clientY - windowHalfY ) / 2;
 
 			}
 

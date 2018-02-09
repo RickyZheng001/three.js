@@ -1,0 +1,116 @@
+[
+	{
+		"Name":"单一特征/融合特征：标准元素+平面+倒角+螺纹孔+高精度孔",
+		"ModifyParam":0,
+		"ParamList":
+		[
+			{
+				"Name":" 圆柱外形",
+				"ModifyParam":0,
+				"ParamList":
+				[
+					{
+						"Name":"面和初始坐标",
+						"ModifyParam":1,
+						"ParamList":
+						[
+							{
+								"Name":"定位面形式",
+								"Type":"EditBox",
+								"DefaultValue":100
+							},
+							{
+								"Name":"定位面名称",
+								"Type":"EditBox",
+								"DefaultValue":"x"
+							},
+							{
+								"Name":"定位角度",
+								"Type":"EditBox",
+								"DefaultValue":145
+							}
+						]
+					},
+					{
+						"Name":"夹具零件干涉尺寸",
+						"ModifyParam":1,
+						"ParamList":
+						[
+
+						]
+					},
+					{
+						"Name":"入口面",
+						"ModifyParam":1,
+						"ParamList":
+						[
+
+						]
+					},
+					{
+						"Name":"普通倒角",
+						"ModifyParam":1,
+						"ParamList":
+						[
+
+						]
+					},
+					{
+						"Name":"孔D4.9H9-23",
+						"ModifyParam":0,
+						"ParamList":
+						[
+							{
+								"Name":"螺纹M5*1-18",
+								"ModifyParam":1,
+								"ParamList":
+								[
+
+								]
+							}
+						]
+					},
+					{
+						"Name":"中间状态 隔空",
+						"ModifyParam":1,
+						"ParamList":
+						[
+
+						]
+					},
+					{
+						"Name":"高精度孔D3H7C0.01-23",
+						"ModifyParam":1,
+						"ParamList":
+						[
+							{
+								"Name":"槽W2*R0.2-4.5RA1.6",
+								"ModifyParam":1,
+								"ParamList":
+								[
+
+								]
+							},
+							{
+								"Name":"孔底平面RA1.6",
+								"ModifyParam":1,
+								"ParamList":
+								[
+
+								]
+							}
+						]
+					},
+					{
+						"Name":"通孔 出口平面",
+						"ModifyParam":1,
+						"ParamList":
+						[
+
+						]
+					}
+				]
+			}
+		]
+	}
+]

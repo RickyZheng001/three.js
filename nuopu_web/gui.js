@@ -953,9 +953,105 @@ function Display3DModel()
     if(m_globalFuncUpdateModel != null && m_globalFuncUpdateModel != undefined)
     {
         //m_globalFuncUpdateModel();
+
     }
 }
+function OnUpdateZuanTou(index)
+{
+    //m_globalZuanTouSearchJsonResult
+    var id = m_globalDaoBinSearchJsonResult[index].ID;
+    //组装零件
+    //
+    if(m_globalGuiJsonObj == null || m_globalGuiJsonObj == undefined)
+    {
+        //还没有钻头信息，暂时不支持组装
+    }
+    else
+    {
+        //已有钻头信息，可以组装了
+        //m_globalLastZuanTouJson
+        var result = JsonToIni(m_globalGuiJsonObj);
 
+        onClickUpdateCallBack();
+
+        var handleLength = parseFloat(m_globalGuiJsonObj.Tab[0].ParamList[0]["总长"]);
+        //update here
+        $.ajax({
+            type: 'POST',
+            url: globalServerAddr + "api?zuZhuang=1&daoBingId=" + id,
+            data: result,
+            success: function (response) {
+                onCallBack(response,handleLength);
+
+            },
+            error: function (errs) {
+
+                alert(errs.responseText);
+
+            }
+        });
+    }
+}
+function OnZuZhuangByZuanTouId(daoBingIndex,onCallBack)
+{
+    var id = m_globalDaoBinSearchJsonResult[daoBingIndex].ID;
+    //组装零件
+
+	onClickUpdateCallBack();
+
+	//update here
+	$.ajax({
+		type: 'POST',
+		url: globalServerAddr + "api?zuZhuangByZuanTouId=1&daoBingId=" + id + "&zuanTouId=" + m_globalSelectedZuanTouId,
+		//data: result,
+		success: function (response) {
+			onCallBack(response,m_globalSelectedZuanTouHandleLength);
+
+		},
+		error: function (errs) {
+
+			alert(errs.responseText);
+
+		}
+	});
+}
+function OnZuZhuang(index)
+{
+	var id = m_globalDaoBinSearchJsonResult[index].ID;
+	//组装零件
+	//
+	if(m_globalGuiJsonObj == null || m_globalGuiJsonObj == undefined)
+	{
+		//还没有钻头信息，暂时不支持组装
+		return;
+	}
+	else
+	{
+		//已有钻头信息，可以组装了
+		//m_globalLastZuanTouJson
+        var result = JsonToIni(m_globalGuiJsonObj);
+
+        onClickUpdateCallBack();
+
+        var handleLength = parseFloat(m_globalGuiJsonObj.Tab[0].ParamList[0]["总长"]);
+        //update here
+        $.ajax({
+            type: 'POST',
+            url: globalServerAddr + "api?zuZhuang=1&daoBingId=" + id,
+            data: result,
+            success: function (response) {
+                onCallBack(response,handleLength);
+
+            },
+            error: function (errs) {
+
+                alert(errs.responseText);
+
+            }
+        });
+	}
+
+}
 function DisplayTuZhi()
 {
     document.getElementById("gameCanvas").style.visibility = "hidden";
@@ -963,6 +1059,44 @@ function DisplayTuZhi()
 
     document.getElementById("toolBox3D").style.visibility = "hidden";
     document.getElementById("toolBoxTuZhi").style.visibility = "visible";
+}
+function GenerateZuanTouByIndex(index,callback)
+{
+	if(m_globalZuanTouSearchJsonResult == null || m_globalZuanTouSearchJsonResult == undefined)
+	{
+		return;
+	}
+
+	var jsonObj = m_globalZuanTouSearchJsonResult[index];
+	if(jsonObj == null || jsonObj == undefined)
+	{
+		return;
+	}
+
+	var paramList = jsonObj.ParamList;
+	var zuanTouID = paramList[0].Value;
+	m_globalSelectedZuanTouId = zuanTouID;
+	var handleLength = jsonObj.ParamList[2].Value;
+    m_globalSelectedZuanTouHandleLength = handleLength;
+    //handleLength = 0;
+    onClickUpdateCallBack();
+    $.ajax({
+        type: 'POST',
+        url: globalServerAddr + "api?generateZuanTouBySearch=1&zuanTouId=" + zuanTouID,
+        //data: zuanTouID,
+        success: function (response) {
+            callback(response,handleLength);
+        },
+        error: function (errs) {
+            alert(errs.responseText);
+        }
+    });
+}
+function HideSearchResultPanel()
+{
+	var divElement = document.getElementById("SearchTable");
+
+	divElement.style.visibility = "hidden";
 }
 
 function SaveAndCommit()
@@ -975,21 +1109,17 @@ function SaveAndCommit()
             callback(response);
         },
         error: function (errs) {
-
             alert(errs.responseText);
-
         }
     });
 }
 
-function OnClickHeadSearch()
+function OnClickZuanTouSearch()
 {
+    CloseHandleSearchPanel();
+    CloseModelDesignPanel();
 
-}
-
-function OnClickParamDesign()
-{
-    var docElement = document.getElementById("MenuParamDesign");
+    var docElement = document.getElementById("MenuParamDesign_zuanTouSearch");
     if(docElement == null || docElement == undefined)
     {
         return;
@@ -1009,9 +1139,77 @@ function OnClickParamDesign()
     }
 }
 
+function OnClickParamDesign()
+{
+    CloseHandleSearchPanel();
+
+    var docElement = document.getElementById("MenuParamDesign");
+    if(docElement == null || docElement == undefined)
+    {
+        return;
+    }
+
+    var strVisible = docElement.style.visibility;
+
+    if(strVisible == "visible")
+    {
+        docElement.style.visibility = "hidden";
+        m_globalGui.closed = false;
+    }
+    else
+    {
+        docElement.style.visibility = "visible";
+        m_globalGui.closed = false;
+    }
+}
+function CloseModelDesignPanel()
+{
+    var docElement = document.getElementById("MenuParamDesign");
+    if(docElement != null && docElement != undefined)
+    {
+        docElement.style.visibility = "hidden";
+
+        if(m_globalHandleSearchGui != null)
+        {
+            m_globalHandleSearchGui.closed = false;
+        }
+    }
+}
+function CloseHandleSearchPanel()
+{
+    var docElement = document.getElementById("MenuParamDesign_handleSearch");
+    if(docElement != null && docElement != undefined)
+    {
+        docElement.style.visibility = "hidden";
+
+        if(m_globalHandleSearchGui != null)
+		{
+            m_globalHandleSearchGui.closed = false;
+		}
+    }
+}
 function OnClickHandleSearch()
 {
+    CloseModelDesignPanel();
 
+    var docElement = document.getElementById("MenuParamDesign_handleSearch");
+    if(docElement == null || docElement == undefined)
+    {
+        return;
+    }
+
+    var strVisible = docElement.style.visibility;
+
+    if(strVisible == "visible")
+    {
+        docElement.style.visibility = "hidden";
+        m_globalGui.closed = false;
+    }
+    else
+    {
+        docElement.style.visibility = "visible";
+        m_globalGui.closed = false;
+    }
 }
 function initBindGridEvent()
 {
@@ -1020,7 +1218,7 @@ function initBindGridEvent()
     addGridClickEvent();
 }
 function addGridClickEvent(){
-    $("td.simpleInput").bind("click",function(){
+    $("tr.simpleInput").bind("click",function(){
         $('.simpleInput').each(function(){
             $(this).removeClass("selectCell");
         });
@@ -1028,6 +1226,7 @@ function addGridClickEvent(){
         $(this).addClass("selectCell");
     });
 }
+
 function OnClickSaveThisModel()
 {
     //弹出确定提示框
@@ -1054,7 +1253,6 @@ function OnClickSaveThisModel()
         }
     });
 }
-
 /*
   color functions adapted from
   http://www.cs.rit.edu/~ncs/color/t_convert.html

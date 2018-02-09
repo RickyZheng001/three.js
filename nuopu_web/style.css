@@ -15,9 +15,13 @@ body {padding:0;margin:0;width:100%;height:100%;font-family:'Electrolize';}
 .editableTable thead{
     background:#FFFFCC;
 }
-td{
+td {
+    text-align:center; /*设置水平居中*/
+    vertical-align:middle;/*设置垂直居中*/
+}
+tr{
     background:#66CCFF;
-    cursor:pointer;
+    /*cursor:pointer;*/
 }
 .selectCell{
     background:#6699FF;
@@ -150,6 +154,20 @@ td{
 .smallbutton {
     float:left;
     background-color: #009fd7;
+    color:#fff;
+    border-radius:4px;
+    padding:2px;
+    font-size:10px;
+    cursor:pointer;
+    box-shadow:2px 2px 2px #666;
+    margin:2px;
+    text-transform:uppercase;
+    width:80px;
+    text-align: center;
+}
+.closebutton {
+    float:left;
+    background-color: #d74a00;
     color:#fff;
     border-radius:4px;
     padding:2px;

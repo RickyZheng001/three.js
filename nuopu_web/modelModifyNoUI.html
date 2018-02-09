@@ -30,7 +30,11 @@
 
 	<body>
 		<div id="canvas">
-			<div id="gameCanvas" width="1440px" height="900"></div>
+			<table width="100%" height = "811" border="0">
+				<tr>
+					<td width="100%"><div id="gameCanvas" width="1280px" height="811"></div></td>
+				</tr>
+			</table>
 		</div>
 
 		<script>
@@ -78,7 +82,7 @@
             //var windowHalfX = width / 2;
            // var windowHalfY = height / 2;
 
-            function onClickUpdateModel(geometry,handleLength)
+            function onClickUpdateModel(geometry)
             {
                 var material = null;
                 if (geometry.hasColors) {
@@ -91,8 +95,8 @@
 
                 var mesh = new THREE.Mesh( geometry, material );
 
-                mesh.position.set(handleLength, 0, 0);
-                mesh.rotation.set( 0, -Math.PI * 0.5, 0 );
+                mesh.position.set( 0, 0, 0);
+                mesh.rotation.set( - Math.PI / 2, 0, 0 );
                 mesh.scale.set( 1,1,1 );
 
                 mesh.castShadow = true;
@@ -156,7 +160,7 @@
 				//container.height = 600;
 				//document.body.appendChild( container );
 
-				camera = new THREE.PerspectiveCamera( 45, 1440 / 820, 1, 2000 );
+				camera = new THREE.PerspectiveCamera( 45, 800 / 600, 1, 2000 );
 				camera.position.z = 250;
 
 				// scene
@@ -170,7 +174,7 @@
 				camera.add( pointLight );
 				scene.add( camera );
 
-                axisHelper = new THREE.AxisHelper(1000);
+                axisHelper = new THREE.AxisHelper(200);
                 axisHelper.material.depthTest = false;
                 scene.add(axisHelper);
 
@@ -247,9 +251,9 @@
                 var material = new THREE.MeshPhongMaterial( { color: 0xAAAAAA, specular: 0x111111, shininess: 200 } );
                 var loader = new THREE.STLLoader();
 				//loader.load( 'obj/male02/male02.obj', function ( object ) {
-                loader.load( 'obj/test/1.stl', function ( geometry ){
+                loader.load( 'obj/test/test123.stl', function ( geometry ){
                 //loader.load( 'http://localhost:1337', function ( geometry ) {
-                    onClickUpdateModel(geometry,237);
+                    onClickUpdateModel(geometry);
 				}, onProgress, onError );
 
 				//
@@ -260,7 +264,7 @@
 				});
                 this.renderer.setClearColor(0x000000, 0);
 				renderer.setPixelRatio( window.devicePixelRatio );
-				renderer.setSize( 1440,820 );
+				renderer.setSize( 1280,811 );
 				container.appendChild( renderer.domElement );
 
                 orbitControls = new THREE.OrbitControls( camera, renderer.domElement );
@@ -318,10 +322,6 @@
                 xzPlane.visible = menuObj["显示xz平面"];
                 xyPlane.visible = menuObj["显示xy平面"];
                 yzPlane.visible = menuObj["显示yz平面"];
-
-                xzPlane.visible = false;
-                xyPlane.visible = false;
-                yzPlane.visible = false;
 			}
 			function render() {
 

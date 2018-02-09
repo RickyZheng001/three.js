@@ -96,7 +96,6 @@
 						<div class="smallbutton" style="position: absolute;margin-left: 10px;margin-top: 120px;" onclick="Display3DModel()">更新显示三维</div>
 						<div class="smallbutton" style="position: absolute;margin-left: 110px;margin-top: 120px;" onclick="DisplayTuZhi()">更新显示图纸</div>
 
-						<div class="smallbutton" style="position: absolute;margin-left: 10px;margin-top: 160px;width:200px;" onclick="OnClickZuanTouSearch()">整体钻头  搜索</div>
 						<div class="smallbutton" style="position: absolute;margin-left: 10px;margin-top: 190px;width:200px;" onclick="OnClickParamDesign()">整体钻头  参数设计</div>
 						<div class="smallbutton" style="position: absolute;margin-left: 10px;margin-top: 220px;width:200px;" onclick="OnClickHandleSearch()">刀柄搜索</div>
 						<div class="smallbutton" style="position: absolute;margin-left: 10px;margin-top: 250px;width:200px;" onclick="OnClickSaveThisModel()">保存此刀具</div>
@@ -663,7 +662,7 @@
                     strTableHtml += "<td>" + paramList[1].Value + "</td>";
                     strTableHtml += "<td>" + paramList[2].Value + "</td>";
                     strTableHtml += "<td>" + paramList[3].Value + "</td>";
-                    strTableHtml += "<td>" + "<div class=\"smallbutton\" style=\"position: absolute;width: 30px;margin-left: 14px;margin-top: -9px;padding-left: 0px;padding-top: 0px;\" onclick=\"OnUpdateZuanTou(" + i +",onCallBack)\">更新</div>" + "</td>";
+                    strTableHtml += "<td>" + "<div class=\"smallbutton\" style=\"position: absolute;width: 30px;margin-left: 14px;margin-top: -9px;padding-left: 0px;padding-top: 0px;\" onclick=\"OnUpdateZuanTou(" + i + ",onCallBack)\">更新</div>" + "</td>";
                     strTableHtml += "</tr>";
                 }
                 strTableHtml += "</table>";
@@ -687,8 +686,8 @@
 
 			LoadZuanTouSearchGUI("config/zuantou_search_menu_1.json",zuanTouSearchMenuObj,onSearchZuanTouCallBack);
             LoadHandleSearchGUI("config/handle_config_1.json",searchMenuObj,onSearchDaoBingCallBack);
-            LoadDesignGUI("config/config.json",onCallBack,menuObj,onClickUpdateCallBack,onUpdateMenu);
-
+            //LoadDesignGUI("config/config.json",onCallBack,menuObj,onClickUpdateCallBack,onUpdateMenu);
+            LoadDetailDesignGUI("config/DetailConfig.json",onCallBack,menuObj,onClickUpdateCallBack,onUpdateMenu);
 			init();
 			animate();
 

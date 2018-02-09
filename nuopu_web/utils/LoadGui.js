@@ -8,64 +8,85 @@ function GlobalOnClickClosePanel()
         m_globalGui.domElement.style.visibility = 'hidden';
     }
 }
+function GetIniStringByJsonObj(jsonObj)
+{
+    var result = "";
+
+    for(var i = 0; i < jsonObj.length; i++)
+    {
+        var singleJsonObj = jsonObj[i];
+        var paramList = singleJsonObj.ParamList;
+
+        if(paramList != null && paramList != undefined)
+        {
+            for(var j = 0; j < paramList.length; j++)
+            {
+                var paramObj = paramList[j];
+                if(paramObj == null || paramObj == undefined)
+                {
+                    continue;
+                }
+
+                if(paramObj.Choise != null && paramObj.Choise != undefined)
+                {
+                    if(paramObj.Name == "内冷孔和冷却槽")
+                    {
+                        paramObj.Value = parseInt(paramObj[paramObj.Name]);
+                        if(paramObj.Value == 0 || paramObj.Value == 1)
+                        {
+                            result += ("fluted_type" + "=" + "0" + "\r\n");
+                        }
+                        else
+                        {
+                            result += ("fluted_type" + "=" + "1" + "\r\n");
+                        }
+
+                        if(paramObj.Value == 0 || paramObj.Value == 2)
+                        {
+                            result += ("cool_type" + "=" + "0" + "\r\n");
+                        }
+                        else if(paramObj.Value == 1)
+                        {
+                            result += ("cool_type" + "=" + "1" + "\r\n");
+                        }
+                        else
+                        {
+                            result += ("cool_type" + "=" + "2" + "\r\n");
+                        }
+
+                        var choiseArray = new Array();
+                        choiseArray.push(paramObj.Choise[paramObj.Value]);
+                        result += GetIniStringByJsonObj(choiseArray);
+                    }
+                    else
+                    {
+                        paramObj.Value = parseInt(paramObj[paramObj.Name]);
+                        var choiseArray = new Array();
+                        choiseArray.push(paramObj.Choise[paramObj.Value]);
+                        result += (paramObj.iniName + "=" + paramObj.Value + "\r\n");
+                        result += GetIniStringByJsonObj(choiseArray);
+                    }
+                    continue;
+                }
+
+                if(paramObj.iniName != null && paramObj.iniName != undefined && paramObj.iniName != "")
+                {
+                    paramObj.Value = parseFloat(paramObj[paramObj.Name]);
+                    result += (paramObj.iniName + "=" + paramObj.Value + "\r\n");
+                }
+            }
+        }
+    }
+
+    return result;
+}
 function JsonToIni(obj)
 {
     var result;
 
     result = "[file]" + "\r\n";
 
-    for(var i = 0; i < obj.Tab.length; i++) {
-        var tabName = obj.Tab[i].Name;
-
-        var paramList = obj.Tab[i].ParamList;
-        for (var k = 0; k < paramList.length; k++) {
-            var param = paramList[k];
-            var paramName = param.Name;
-            var paramType = param.Type;
-            var defaultValue = param.DefaultValue;
-            var iniName = param.iniName;
-            var iniType = param.iniType;
-            //var value = param.Value;
-
-            if(iniName != null && iniName != undefined && iniName !="")
-            {
-                if(paramType.toLowerCase() == "combobox")
-                {
-                    var choise = param.Choise;
-                    var selections = new Array(); //定义一数组
-
-                   // for(var j = )
-                    selections = choise.split(","); //字符分割
-                    param.Value = 0;
-                    for(var j = 0; j < selections.length; j++)
-                    {
-                        if(selections[j] == param[paramName])
-                        {
-                            param.Value = j;
-                            break;
-                        }
-                    }
-                }
-                else
-                {
-                    if(iniType.toLowerCase() == "int")
-                    {
-                        param.Value = parseInt(param[paramName]);
-                    }
-                    else if(iniType.toLowerCase() == "float")
-                    {
-                        param.Value = parseFloat(param[paramName]);
-                    }
-                    else if(iniType.toLowerCase() == "string")
-                    {
-                        param.Value = param[paramName];
-                    }
-                }
-
-                result += (iniName + "=" + param.Value + "\r\n");
-            }
-        }
-    }
+    result += GetIniStringByJsonObj(obj.Tab);
 
     return result;
 }
@@ -99,7 +120,7 @@ function UpdateGUIByJsonObj(guiRoot,jsonObj,onComboBoxChangedCallBack)
 
             if(bFind == false)
             {
-                guiRoot.add(param, paramName, selections).onFinishChange(onComboBoxChangedCallBack);
+                guiRoot.add(param, paramName).onFinishChange(onComboBoxChangedCallBack);
             }
 
             //sectionMenuObj[paramName] = defaultValue;
@@ -107,12 +128,21 @@ function UpdateGUIByJsonObj(guiRoot,jsonObj,onComboBoxChangedCallBack)
         }
         else if (paramType == "ComboBox")
         {
-            param[paramName] = defaultValue;
+            param[paramName] = parseInt(defaultValue);
             var str = param.Choise;
 
             if (typeof(str) == "string") {
-                var selections = new Array(); //定义一数组
-                selections = str.split(","); //字符分割
+                var selections = {} //定义一数组
+                var strArray = str.split(","); //字符分割
+
+                for(var k = 0; k < strArray.length; k++)
+                {
+                    selections[strArray[k]] = k;
+                }
+
+                var defaultIndex = parseInt(defaultValue);
+                param[paramName] = defaultIndex;
+
                 var bFind = false;
                 for(var k = 0; k < guiRoot.__controllers.length; k++)
                 {
@@ -209,6 +239,229 @@ function ReloadDesignGUI(jsonObj,callback,menuObj,onClickUpdateCallBack,onComboB
     m_globalGuiJsonObj = jsonObj;
     m_globalFuncUpdateModel = menuObj["更新模型"];
 }
+function LoadZuanTouSearchGUI(configFileURL,menuObj,callback)
+{
+    var scope = this;
+    var gui = null;
+
+    menuObj = {};
+
+    var loader = new THREE.FileLoader( scope.manager );
+    //loader.setResponseType( 'arraybuffer' );
+    loader.load( configFileURL, function ( text ) {
+        var obj = eval('(' + text + ')');
+
+        //var menuObj = {};
+        gui = new dat.gui.GUI();
+        gui.remember(menuObj);
+
+        for (var i = 0; i < obj.Tab.length; i++) {
+            var tabObj = obj.Tab[i];
+            var tabName = tabObj.Name;
+
+            var guiTable = gui.addFolder(tabName);
+
+            menuObj[tabName] = {};
+            UpdateGUIByJsonObj(guiTable,tabObj,null);
+        }
+
+        menuObj["搜索"] = function () {
+            var jsonObj = obj;
+            var jsonMenuObj = menuObj;
+            var bServerCallBack = false;
+
+            onClickUpdateCallBack();
+
+            var strJson = JSON.stringify(jsonObj);
+            //var result = JsonToIni(jsonObj);
+            var handleLength = parseFloat(jsonObj.Tab[0].ParamList[0]["总长"]);
+            //update here
+            $.ajax({
+                type: 'POST',
+                url: globalServerAddr + "api?queryZuanTou=1",
+                data: strJson,
+                success: function (response) {
+                    callback(response,handleLength);
+                },
+                error: function (errs) {
+
+                    alert(errs.responseText);
+
+                }
+            });
+        }
+
+        gui.add(menuObj, '搜索');
+
+        gui.domElement.style = 'position:absolute;top:270px;left:0px;background-color:#ffffff;visibility:hidden;';
+        gui.domElement.id = 'MenuParamDesign_zuanTouSearch';
+        gui.OnClickClosePanel = GlobalOnClickClosePanel;
+
+        var m_globalHandleSearchGui = gui;
+        var m_globalHandleSearchJsonObj = obj;
+    });
+}
+function LoadHandleSearchGUI(configFileURL,menuObj,callback)
+{
+    var scope = this;
+    var gui = null;
+
+    menuObj = {};
+
+    var loader = new THREE.FileLoader( scope.manager );
+    //loader.setResponseType( 'arraybuffer' );
+    loader.load( configFileURL, function ( text ) {
+        var obj = eval('(' + text + ')');
+
+        //var menuObj = {};
+        gui = new dat.gui.GUI();
+        gui.remember(menuObj);
+
+        for (var i = 0; i < obj.Tab.length; i++) {
+            var tabObj = obj.Tab[i];
+            var tabName = tabObj.Name;
+
+            var guiTable = gui.addFolder(tabName);
+
+            menuObj[tabName] = {};
+            UpdateGUIByJsonObj(guiTable,tabObj,null);
+        }
+
+        menuObj["搜索"] = function () {
+            var jsonObj = obj;
+            var jsonMenuObj = menuObj;
+            var bServerCallBack = false;
+
+            onClickUpdateCallBack();
+
+            var strJson = JSON.stringify(jsonObj);
+            var handleLength = parseFloat(jsonObj.Tab[0].ParamList[0]["总长"]);
+            //update here
+            $.ajax({
+                type: 'POST',
+                url: globalServerAddr + "api?queryDaoBing=1",
+                data: strJson,
+                success: function (response) {
+                    callback(response,handleLength);
+                },
+                error: function (errs) {
+
+                    alert(errs.responseText);
+
+                }
+            });
+        }
+
+        gui.add(menuObj, '搜索');
+
+        gui.domElement.style = 'position:absolute;top:330px;left:0px;background-color:#ffffff;visibility:hidden;';
+        gui.domElement.id = 'MenuParamDesign_handleSearch';
+        gui.OnClickClosePanel = GlobalOnClickClosePanel;
+
+        var m_globalHandleSearchGui = gui;
+        var m_globalHandleSearchJsonObj = obj;
+    });
+}
+function LoadDetailDesignGUI(configFileURL,callback,menuObj,onClickUpdateCallBack,onComboBoxChangedCallBack)
+{
+    var scope = this;
+    var gui = null;
+
+    var loader = new THREE.FileLoader( scope.manager );
+    //loader.setResponseType( 'arraybuffer' );
+    loader.load( configFileURL, function ( text ) {
+        var obj = eval('(' + text + ')');
+
+        //var menuObj = {};
+        gui = new dat.gui.GUI();
+        gui.remember(menuObj);
+
+        for (var i = 0; i < obj.Tab.length; i++) {
+            var tabObj = obj.Tab[i];
+            var tabName = tabObj.Name;
+
+            var guiTable = gui.addFolder(tabName);
+
+            menuObj[tabName] = {};
+            UpdateGUIByJsonObj(guiTable,tabObj,onComboBoxChangedCallBack);
+        }
+
+        menuObj["显示坐标轴"] = true;
+        menuObj["显示xz平面"] = false;
+        menuObj["显示xy平面"] = false;
+        menuObj["显示yz平面"] = false;
+
+        menuObj["更新模型"] = function () {
+            var jsonObj = obj;
+            var jsonMenuObj = menuObj;
+            var bServerCallBack = false;
+
+            onClickUpdateCallBack();
+
+            var result = JsonToIni(jsonObj);
+            var handleLength = parseFloat(jsonObj.Tab[0].ParamList[0]["总长"]);
+            //update here
+            $.ajax({
+                type: 'POST',
+                url: globalServerAddr + "api?generateDetailModel=1",
+                data: result,
+                success: function (response) {
+                    callback(response,handleLength);
+                },
+                error: function (errs) {
+
+                    alert(errs.responseText);
+
+                }
+            });
+        }
+
+        menuObj["保存模型到数据库"] = function () {
+
+            var jsonObj = obj;
+            var jsonMenuObj = menuObj;
+            var bServerCallBack = false;
+
+            onClickUpdateCallBack();
+
+            //var result = JsonToIni(jsonObj);
+
+            $.ajax({
+                type: 'POST',
+                url: globalServerAddr + "api?savemodel=1",
+                data: jsonObj,
+                success: function (response) {
+                    callback(response);
+                },
+                error: function (errs) {
+                    alert(errs.responseText);
+                }
+            });
+        }
+
+        gui.add(menuObj, '更新模型');
+
+        gui.domElement.style = 'position:absolute;top:300px;left:0px;background-color:#ffffff;visibility:hidden;';
+        gui.domElement.id = 'MenuParamDesign';
+        gui.OnClickClosePanel = GlobalOnClickClosePanel;
+
+        m_globalGui = gui;
+        m_globalGuiJsonObj = obj;
+        m_globalFuncUpdateModel = menuObj["更新模型"];
+    });
+}
+function LoadLingJianUIByJson(configFileURL)
+{
+    var scope = this;
+    var gui = null;
+
+    var loader = new THREE.FileLoader( scope.manager );
+    //loader.setResponseType( 'arraybuffer' );
+    loader.load( configFileURL, function ( text ) {
+        var jsonObj = eval('(' + text + ')');
+        LoadUIConfigByJsonObj(jsonObj);
+    });
+}
 function LoadDesignGUI(configFileURL,callback,menuObj,onClickUpdateCallBack,onComboBoxChangedCallBack)
 {
     var scope = this;
@@ -246,7 +499,7 @@ function LoadDesignGUI(configFileURL,callback,menuObj,onClickUpdateCallBack,onCo
             onClickUpdateCallBack();
 
             var result = JsonToIni(jsonObj);
-            handleLength = parseFloat(jsonObj.Tab[0].ParamList[0]["总长"]);
+            var handleLength = parseFloat(jsonObj.Tab[0].ParamList[0]["总长"]);
             //update here
             $.ajax({
                 type: 'POST',
