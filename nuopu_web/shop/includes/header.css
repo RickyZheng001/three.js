@@ -41,7 +41,7 @@ a.info  {font-weight:bold;font-size:10pt;text-decoration:none;}
 }
 .menu2 {
     position: absolute;
-    left: 50%;
+    left: 60%;
     display: flex;
     align-items: center;
     width: 500px;

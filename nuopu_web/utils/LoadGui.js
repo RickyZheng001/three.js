@@ -450,7 +450,7 @@ function LoadDetailDesignGUI(configFileURL,callback,menuObj,onClickUpdateCallBac
         m_globalFuncUpdateModel = menuObj["更新模型"];
     });
 }
-function LoadLingJianUIByJson(configFileURL)
+function LoadLingJianUIByJson(configFileURL,onFinishLoadUI)
 {
     var scope = this;
     var gui = null;
@@ -459,10 +459,12 @@ function LoadLingJianUIByJson(configFileURL)
     //loader.setResponseType( 'arraybuffer' );
     loader.load( configFileURL, function ( text ) {
         var jsonObj = eval('(' + text + ')');
+        m_globalTreeUIJsonObj = jsonObj;
         LoadUIConfigByJsonObj(jsonObj);
+        onFinishLoadUI();
     });
 }
-function LoadDesignGUI(configFileURL,callback,menuObj,onClickUpdateCallBack,onComboBoxChangedCallBack)
+function LoadDesignGUI(configFileURL,callback,menuObj,onClickUpdateCallBack,onComboBoxChangedCallBack,onSearch)
 {
     var scope = this;
     var gui = null;

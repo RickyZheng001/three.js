@@ -2,7 +2,7 @@
     min-height:20px;
     padding:19px;
     margin-bottom:20px;
-    background-color:#fbfbfb;
+    background-color:#ffffff;
     border:1px solid #999;
     -webkit-border-radius:4px;
     -moz-border-radius:4px;
@@ -92,4 +92,23 @@
 }
 .smallbutton:hover {
     background-color:#009fd7;z-index:100;
+}
+
+.contextBtn {
+    float:left;
+    background-color: #eeeeee;
+    color:#000000;
+    border-radius:4px;
+    padding:2px;
+    font-size:10px;
+    cursor:pointer;
+    box-shadow:0px 0px 0px #ffffff;
+    margin:2px;
+    text-transform:uppercase;
+    width:200px;
+    text-align: center;
+    z-index:100;
+}
+.contextBtn:hover {
+    background-color:#eeeeee;z-index:100;
 }

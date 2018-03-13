@@ -539,38 +539,64 @@ saveAlert.style.display = "none";
 
 
 function activateButton(id) {
-	/*
-	var buttonOld = document.getElementsByClassName("imgButtonSelected")[0];
-	buttonOld.className="imgButton";
-	
-    var buttonNew = document.getElementById(id);
-	buttonNew.className="imgButtonSelected";
-	toolMode = id;
-*/
+
+	var distance = 500;
 	if(id == 'mainView')
 	{
-        camera.position.set( 0, 0, 250);
+        camera.position.set( 0, 0, distance);
+        //orbitControls.setPolarAngle(0);
+        //orbitControls.setAzimuthalAngle(0);
+        orbitControls.setTargetPos(0,0,0);
+        orbitControls.update();
+	}
+	else if(id == 'backView')
+	{
+        camera.position.set( 0, 0, -distance);
         //orbitControls.setPolarAngle(0);
         //orbitControls.setAzimuthalAngle(0);
         orbitControls.setTargetPos(0,0,0);
         orbitControls.update();
 	}
 	else if(id == 'leftView')
-	{
-		camera.position.set( -250, 0, 0);
+    {
+        camera.position.set( -distance, 0, 0);
         //orbitControls.setPolarAngle(Math.PI);
         //orbitControls.setAzimuthalAngle(0);
         orbitControls.setTargetPos(0,0,0);
         orbitControls.update();
-	}
+    }
+    else if(id == 'rightView')
+    {
+        camera.position.set( distance, 0, 0);
+        //orbitControls.setPolarAngle(Math.PI);
+        //orbitControls.setAzimuthalAngle(0);
+        orbitControls.setTargetPos(0,0,0);
+        orbitControls.update();
+    }
 	else if(id == 'topView')
 	{
-		camera.position.set( 0, 250, 0);
+		camera.position.set( 0, distance, 0);
         //orbitControls.setPolarAngle(0);
         //orbitControls.setAzimuthalAngle(Math.PI);
         orbitControls.setTargetPos(0,0,0);
         orbitControls.update();
 	}
+    else if(id == 'bottomView')
+    {
+        camera.position.set( 0, -distance, 0);
+        //orbitControls.setPolarAngle(0);
+        //orbitControls.setAzimuthalAngle(Math.PI);
+        orbitControls.setTargetPos(0,0,0);
+        orbitControls.update();
+    }
+    else if(id == 'zhouCeView')
+    {
+        camera.position.set( distance, distance, distance);
+        //orbitControls.setPolarAngle(0);
+        //orbitControls.setAzimuthalAngle(Math.PI);
+        orbitControls.setTargetPos(0,0,0);
+        orbitControls.update();
+    }
 
 }
 
@@ -1187,6 +1213,40 @@ function CloseHandleSearchPanel()
             m_globalHandleSearchGui.closed = false;
 		}
     }
+}
+function OnJiaChiJieGouSelectionChanged()
+{
+	var selectHtmlElement = document.getElementById("YanChangGanComboBox");
+
+	if(selectHtmlElement == null || selectHtmlElement == undefined)
+	{
+		return;
+	}
+
+    var yanChangGanHtmlElement = document.getElementById("YanChangGanBtn");
+	if(yanChangGanHtmlElement == null || yanChangGanHtmlElement == undefined)
+	{
+		return;
+	}
+
+	if(selectHtmlElement.value == "0")
+	{
+        yanChangGanHtmlElement.className = "graybutton";
+        m_bYanChangGanBtnIsDisable = true;
+	}
+	else if(selectHtmlElement.value == "1")
+	{
+        yanChangGanHtmlElement.className = "smallbutton";
+        m_bYanChangGanBtnIsDisable = false;
+
+	}
+}
+function OnClickYanChangGanSearch()
+{
+	if(m_bYanChangGanBtnIsDisable == true)
+	{
+		return;
+	}
 }
 function OnClickHandleSearch()
 {

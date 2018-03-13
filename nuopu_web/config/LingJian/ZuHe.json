@@ -1,0 +1,22 @@
+[
+	{
+		"Name":"外形和面（铣）",
+		"ImagePath":"avatar1.jpg"
+	},
+	{
+		"Name":"孔和槽（铣）",
+		"ImagePath":"avatar2.jpg"
+	},
+	{
+		"Name":"融合特征",
+		"ImagePath":"avatar3.jpg"
+	},
+	{
+		"Name":"组合特征",
+		"ImagePath":"avatar4.jpg"
+	},
+	{
+		"Name":"外形和面（铣）",
+		"ImagePath":"avatar5.jpg"
+	}
+]

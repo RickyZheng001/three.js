@@ -2,6 +2,7 @@
 	{
 		"Name":"单一特征/融合特征：标准元素+平面+倒角+螺纹孔+高精度孔",
 		"ModifyParam":0,
+		"MenuId":"myMenu_root",
 		"ParamList":
 		[
 			{
@@ -73,6 +74,7 @@
 					{
 						"Name":"中间状态 隔空",
 						"ModifyParam":1,
+						"MenuId":"myMenu_General",
 						"ParamList":
 						[
 
@@ -81,11 +83,13 @@
 					{
 						"Name":"高精度孔D3H7C0.01-23",
 						"ModifyParam":1,
+						"MenuId":"myMenu_General2",
 						"ParamList":
 						[
 							{
 								"Name":"槽W2*R0.2-4.5RA1.6",
 								"ModifyParam":1,
+								"MenuId":"myMenu_General2",
 								"ParamList":
 								[
 
@@ -94,6 +98,7 @@
 							{
 								"Name":"孔底平面RA1.6",
 								"ModifyParam":1,
+								"MenuId":"myMenu_General2",
 								"ParamList":
 								[
 

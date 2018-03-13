@@ -40,22 +40,8 @@
 			<div class="centeredDiv">
 				<div class="header">
 					<div><img src="./images/EdgeWinLogo_2.png" width="159px" style="margin-left: 20px;"></div>
-					<div class="menu">
-						<ul class="menu">
-							<li>
-								<a href="/projects/" color="#ffffff">刀具种类</a>
-							</li>
-							<li>
-								<a href="/shop/">技术秒杀</a>
-							</li>
-							<li>
-								<a href="/blog">帮助</a>
-							</li>
-							<li>
-								<input style="border:1px solid #ffffff" value="搜索">
-							</li>
-						</ul>
-					</div>
+					<div><img src="./images/GNSJ_SearchLogo.png" width="159px" style="position: absolute;margin-left: 35%;margin-top:-7px;width: 291px;height:72px; "></div>
+
 					<div class="menu2">
 						<ul class="menu2">
 							<li>
@@ -63,12 +49,6 @@
 							</li>
 							<li>
 								<a>返回首页</a>
-							</li>
-							<li>
-								<a>注册</a>
-							</li>
-							<li>
-								<a>登录</a>
 							</li>
 							<li>
 								<a>退出</a>
@@ -96,9 +76,18 @@
 						<div class="smallbutton" style="position: absolute;margin-left: 10px;margin-top: 120px;" onclick="Display3DModel()">显示三维</div>
 						<div class="smallbutton" style="position: absolute;margin-left: 110px;margin-top: 120px;" onclick="DisplayTuZhi()">显示图纸</div>
 
-						<div class="smallbutton" style="position: absolute;margin-left: 10px;margin-top: 160px;width:200px;" onclick="OnClickZuanTouSearch()">整体钻头  搜索</div>
-						<div class="smallbutton" style="position: absolute;margin-left: 10px;margin-top: 190px;width:200px;" onclick="OnClickHandleSearch()">刀柄搜索</div>
-						<div class="smallbutton" style="position: absolute;margin-left: 10px;margin-top: 220px;width:200px;" onclick="OnClickSaveThisModel()">保存此刀具</div>
+						<div class="smallbutton" style="position: absolute;margin-left: 10px;margin-top: 150px;cursor:default;">夹持结构 </div>
+
+						<select id="YanChangGanComboBox" style="position: absolute;margin-left: 100px;margin-top: 152px;width:116px;" onchange="OnJiaChiJieGouSelectionChanged()">
+							<option value ="0">刀柄</option>
+							<option value ="1">刀柄 + 延长杆</option>
+						</select>
+
+						<div class="smallbutton" style="position: absolute;margin-left: 10px;margin-top: 180px;width:200px;" onclick="OnClickZuanTouSearch()">整体钻头  搜索</div>
+						<div class="smallbutton" style="position: absolute;margin-left: 10px;margin-top: 210px;width:200px;" onclick="OnClickHandleSearch()">刀柄搜索</div>
+						<div id="YanChangGanBtn" class="graybutton" style="position: absolute;margin-left: 10px;margin-top: 240px;width:200px;" onclick="OnClickYanChangGanSearch()">延长杆搜索</div>
+						<div class="smallbutton" style="position: absolute;margin-left: 10px;margin-top: 270px;width:200px;" onclick="OnClickSaveThisModel()">技术条件</div>
+						<div class="smallbutton" style="position: absolute;margin-left: 10px;margin-top: 300px;width:200px;" onclick="OnClickSaveThisModel()">图纸模板</div>
 					</div>
 				</div>
 				<div id="canvas">
@@ -188,31 +177,41 @@
 				</div>
 				<div id="toolBox3D" class="toolBox2">
 					<div class="section section_sculpt">
-						<div class="appLabel">视图选择</div>
+						<div class="appLabel">视图</div>
 						<div class="panel">
-							<div id="subdivide" class="imgButton" onclick="activateButton('mainView');"><a class="tooltipI"><img src="images/subdivideIcon_w.png"><div>俯视图</div></a></div>
-							<div id="merge" class="imgButton" onclick="activateButton('topView');"><a class="tooltipI"><img src="images/mergeIcon_w.png"><div>俯视图</div></a></div>
-							<div id="modify" class="imgButton" onclick="activateButton('leftView');"><a class="tooltipI"><img src="images/modifyIcon_w.png"><div>左视图</div></a></div>
+							<div class="smallbutton" onclick="activateButton('zhouCeView');">轴测图</div>
+							<div class="smallbutton" onclick="activateButton('mainView');">主视图</div>
+							<div class="smallbutton" onclick="activateButton('backView');">后视图</div>
+							<div class="smallbutton" onclick="activateButton('leftView');">左视图</div>
+							<div class="smallbutton" onclick="activateButton('rightView');">右视图</div>
+							<div class="smallbutton" onclick="activateButton('topView');">俯视图</div>
+							<div class="smallbutton" onclick="activateButton('bottomView');">仰视图</div>
 						</div>
 					</div>
 					<div class="section section_jizhunxianshi">
-						<div class="appLabel">基准显示</div>
+						<div class="appLabel">基准</div>
 						<div class="smallbutton" onclick="OnClickDisplayZuoBiaoZhou();">坐标轴</div>
 						<div class="smallbutton" onclick="OnClickDisplayXZPlane();">xz平面</div>
 						<div class="smallbutton" onclick="OnClickDisplayYZPlane()">yz平面</div>
 						<div class="smallbutton" onclick="OnClickDisplayXYPlane()">xy平面</div>
 					</div>
 					<div class="section section_tuceng">
-						<div class="appLabel">涂层</div>
-						<div class="smallbutton" onclick="">TiCN</div>
-						<div class="smallbutton" onclick="">TiN</div>
-						<div class="smallbutton" onclick="">无涂层</div>
+						<div class="appLabel">显示</div>
+						<div class="smallbutton" onclick="">参数表</div>
+						<div class="smallbutton" onclick="">技术条件</div>
+						<div class="smallbutton" onclick="">图纸模板</div>
 					</div>
 					<div class="section section_material">
-						<div class="appLabel">三维和图纸下载</div>
-						<div class="button" onclick="">STP</div>
-						<div class="button" onclick="OnClickDownloadObj();">OBJ</div>
-						<div class="button" onclick="">打包下载</div>
+						<div class="appLabel">下载</div>
+						<div class="button" onclick="">STP + DWG</div>
+						<div class="button" onclick="OnClickDownloadObj();">STL + PDF</div>
+						<div class="button" onclick="">全部</div>
+					</div>
+					<div class="section section_material">
+						<div class="appLabel">价格</div>
+						<div style="width:80px;height:28px;margin-top: 2px;">5.00元</div>
+						<div style="width:80px;height:28px;margin-top: 2px;">5.00元</div>
+						<div style="width:80px;height:28px;margin-top: 2px;">10.00元</div>
 					</div>
 
 					<div class="nervousLogo noSel">

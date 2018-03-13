@@ -9,7 +9,7 @@
 <link rel="stylesheet" type="text/css" href="./css/modifyModel2Bootstrap.min.css" />
 
 <!--主要样式-->
-<link rel="stylesheet" type="text/css" href="./css/modifyModel2Style.css" />
+
     <script type="text/javascript" src="./js/jquery-ui-1.10.4.custom/js/jquery-1.10.2.js"></script>
     <script type="text/javascript" src="./js/jquery-ui-1.10.4.custom/js/jquery-ui-1.10.4.custom.min.js"></script>
     <script type="text/javascript" src="../dat.gui-master/build/dat.gui.js"></script>
@@ -20,6 +20,7 @@
     <script src="../examples/js/loaders/OBJLoader.js"></script>
     <script src="../examples/js/loaders/PLYLoader.js"></script>
     <script src="./utils/LoadGui.js"></script>
+    <link rel="stylesheet" type="text/css" href="./css/modifyModel2Style.css" />
 <script type="text/javascript">
 $(function (){
     $('.tree li:has(ul)').addClass('parent_li').find(' > span').attr('title', 'Collapse this branch');
@@ -51,120 +52,60 @@ $(function (){
 </head>
 <body>
 
-<ul id="myMenu" style="visibility: hidden;position: absolute;border: 1px;background-color: #ffffff;background: #ffffff;z-index: 99;">
-    <li><div id="menuitem" class="smallbutton" style="z-index: 100;" onclick="AddNewNode('myMenu')">新增</div></li>
-    <li><div id="menuitem" class="smallbutton" style="z-index: 100;" onclick="RemoveNode('myMenu')">删除</div></li>
-    <li><div id="menuitem" class="smallbutton" style="z-index: 100;" onclick="CopyNode('myMenu')">复制</div></li>
-    <li><div id="menuitem" class="smallbutton" style="z-index: 100;" onclick="PasteNode('myMenu')">粘贴</div></li>
-</ul>
+<div id="myMenu_General2" style="visibility: hidden;position: absolute;border: 1px;background-color: #ffffff;background: #ffffff;z-index: 99;width: 200px;">
+    <div id="menuitem" class="contextBtn" style="z-index: 100;" onclick="OnClickAddNewNode('myMenu_General2')">新增</div>
+    <div id="menuitem" class="contextBtn" style="z-index: 100;" onclick="OnClickRemoveCurNode()">删除</div>
+    <div id="menuitem" class="contextBtn" style="z-index: 100;" onclick="CopyNode('myMenu')">编辑</div>
+    <div id="menuitem" class="contextBtn" style="z-index: 100;" onclick="OnClickCopyCurNode()">拷贝</div>
+    <div id="menuitem" class="contextBtn" style="z-index: 100;" onclick="OnClickParseCurNode()">粘贴</div>
+    <div id="menuitem" class="contextBtn" style="z-index: 100;" onclick="OnClickMove('myMenu_General2')">移动</div>
+</div>
+<div id="myMenu_root" style="visibility: hidden;position: absolute;border: 1px;background-color: #ffffff;background: #ffffff;z-index: 99;width: 200px;">
+    <div id="menuitem" class="contextBtn" style="z-index: 100;" onclick="OnClickAddNewNode('myMenu_root')">增加</div>
+    <div id="menuitem" class="contextBtn" style="z-index: 100;" onclick="RemoveNode('myMenu')">编辑</div>
+    <div id="menuitem" class="contextBtn" style="z-index: 100;" onclick="CopyNode('myMenu')">更新</div>
+    <div id="menuitem" class="contextBtn" style="z-index: 100;" onclick="PasteNode('myMenu')">最终审核固化</div>
+    <div id="menuitem" class="contextBtn" style="z-index: 100;" onclick="PasteNode('myMenu')">撤销审核固化</div>
+    <div id="menuitem" class="contextBtn" style="z-index: 100;" onclick="PasteNode('myMenu')">零件特征清零</div>
+    <div id="menuitem" class="contextBtn" style="z-index: 100;" onclick="PasteNode('myMenu')">零件特征3D显示</div>
+    <div id="menuitem" class="contextBtn" style="z-index: 100;" onclick="PasteNode('myMenu')">零件特征图纸显示</div>
+</div>
+<div id="myMenu_addDetail" style="visibility: hidden;position: absolute;border: 1px;background-color: #ffffff;background: #ffffff;z-index: 99;width: 200px;">
+    <div id="menuitem" class="contextBtn" style="z-index: 100;" onclick="AddNewNode(0)">面</div>
+    <div id="menuitem" class="contextBtn" style="z-index: 100;" onclick="AddNewNode(1)">孔</div>
+    <div id="menuitem" class="contextBtn" style="z-index: 100;" onclick="AddNewNode(2)">倒角</div>
+    <div id="menuitem" class="contextBtn" style="z-index: 100;" onclick="AddNewNode(3)">槽</div>
+    <div id="menuitem" class="contextBtn" style="z-index: 100;" onclick="AddNewNode(4)">锥面</div>
+</div>
+<div id="myMenu_General" style="visibility: hidden;position: absolute;border: 1px;background-color: #ffffff;background: #ffffff;z-index: 99;width:200px;">
+    <div id="menuitem" class="contextBtn" style="z-index: 100;" onclick="AddNewNode('myMenu')">编辑</div>
+    <div id="menuitem" class="contextBtn" style="z-index: 100;" onclick="OnClickRemoveCurNode()">删除</div>
+</div>
+<div id="myMenu_MoveDetail" style="visibility: hidden;position: absolute;border: 1px;background-color: #ffffff;background: #ffffff;z-index: 99;width: 200px;">
+    <div id="menuitem" class="contextBtn" style="z-index: 100;" onclick="OnClickMoveUp()">上移</div>
+    <div id="menuitem" class="contextBtn" style="z-index: 100;" onclick="OnClickMoveDown()">下移</div>
+</div>
 
-<div id="myUI" class="tree well">
-<ul>
-	<li>
-		<span><i class="icon-folder-open"></i> 标准元素+平面+倒角+螺纹孔+高精度孔
-            <div id="myDiv">aaaaaa</div>
+<div>
+    <img src="./img/JinDuTiaoGreen.png" style="position: absolute;margin-left: 80px;margin-top: 50px;z-index: 50;">
+    <img src="./img/JinDuTiaoGreen.png" style="position: absolute;margin-left: 80px;margin-top: 170px;z-index: 50;">
+    <img src="./img/JinDuTiaoGreen.png" style="position: absolute;margin-left: 80px;margin-top: 290px;z-index: 50;">
+    <img src="./img/JinDuTiaoGreen.png" style="position: absolute;margin-left: 80px;margin-top: 410px;z-index: 50;">
+    <img src="./img/JinDuTiaoGreen.png" style="position: absolute;margin-left: 80px;margin-top: 530px;z-index: 50;">
 
-        </span> <a href="">一级节点//右键：显示零件特征三维数模，显示零件特征二维图纸，增加二级节点，展开所有节点</a>
-		<ul>
-           	<li>
-				<span><i class="icon-minus-sign"></i>圆柱 外形</span> <a href="">二级节点//右键：编辑更新，增加三级节点，展开所有节点</a>
-				<ul>
-					<li>
-						<span><i class="icon-minus-sign"></i>入口 面</span> <a href="">三级节点//右键：编辑更新，删除，增加四级节点，展开所有节点</a>
-							<li>
-								<span><i class="icon-leaf"></i>普通倒角0.7*45</span>
-							</li>
-							<li>
-								<span><i class="icon-minus-sign"></i>孔D4.9H9-23</span>
-								<ul>
-									<li>
-										<span><i class="icon-leaf"></i>螺纹M5*1-18</span> <a href="">四级节点//右键：编辑更新,删除，增加五级节点，展开所有节点</a>
-									</li>
-								</ul>
-							</li>
-                            <li>
-                                <span><i class="icon-leaf"></i> 中间状态 隔空</span>
-                             </li>
-							<li>
-								<span><i class="icon-minus-sign"></i> 高精度孔D3H7C0.01-23</span>
-								<ul>
-									<li>
-										<span><i class="icon-leaf"></i> 槽W2*R0.2-4.5RA1.6</span>
-									</li>
-									<li>
-										<span><i class="icon-leaf"></i> 孔底平面RA1.6</span>
-									</li>
-								 </ul>
-							</li>
-                            <li>
-                                 <span><i class="icon-leaf"></i> 通孔 出口平面</span>
-                             </li>
-						</ul>
-					</li>
-            <li>
-                <span><i class="icon-leaf"></i> 夹具零件干涉尺寸</span> <a href="">二级节点//右键：编辑更新</a>
-            </li>
-            <li>
-                <span><i class="icon-leaf"></i> 标准工艺选择</span>
-            </li>
+    <img src="./img/JinDuTiaoCycleGreen.png" style="position: absolute;margin-left: 76px;margin-top: 50px;z-index: 50;">
+    <img src="./img/JinDuTiaoCycleGreen.png" style="position: absolute;margin-left: 76px;margin-top: 210px;z-index: 50;">
+    <img src="./img/JinDuTiaoCycleGreen.png" style="position: absolute;margin-left: 76px;margin-top: 350px;z-index: 50;">
+    <img src="./img/JinDuTiaoCycleGreen.png" style="position: absolute;margin-left: 76px;margin-top: 490px;z-index: 50;">
+    <img src="./img/JinDuTiaoCycleGreen.png" style="position: absolute;margin-left: 76px;margin-top: 630px;z-index: 50;">
 
-            <li>
-                <span><i class="icon-calendar"></i> 工艺特征</span> <a href="">二级节点//右键：显示工艺特征三维数模，显示工艺特征二维图纸，展开所有节点</a>
-                <ul>
-                    <li>
-                        <span class="badge badge-success"><i class="icon-leaf"></i> 整套刀具通用信息</span><a href="">三级节点//右键：编辑更新</a>
-                    </li>
-                    <li>
-                        <span class="badge badge-success"><i class="icon-minus-sign"></i>P1 精铣平面</span> <a href="">三级节点// 右键：向下合并</a>
-                        <ul>
-                            <li>
-                                <a href=""><span><i class="icon-time"></i>T1 面铣刀</span> </a> <a href="">四级节点//右键：编辑更新，显示整套刀具三维数模，显示整套刀具二维图纸</a>
-                            </li>
-                        </ul>
-
-                    </li>
-                    <li>
-                        <span class="badge badge-success"><i class="icon-minus-sign"></i>P2 倒角和孔和钻底孔</span><a href="">三级节点//右键：向上合并，向下合并</a>
-                        <ul>
-                            <li>
-                                <span><i class="icon-time"></i>T2 阶梯钻头</span>
-                            </li>钻螺纹底
-                        </ul>
-                    </li>
-                    <li>
-                        <span class="badge badge-success"><i class="icon-minus-sign"></i> P3 攻丝</span>
-                        <ul>
-                            <li>
-                                <a href=""><span><i class="icon-time"></i> T3 丝锥</span> </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <span class="badge badge-success"><i class="icon-minus-sign"></i> P3.5 铣槽</span>
-                        <ul>
-                            <li>
-                                <a href=""><span><i class="icon-time"></i> T3.5 T型铣刀</span> </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <span class="badge badge-success"><i class="icon-minus-sign"></i> P4 精铰孔</span></span>
-                        <ul>
-                            <li>
-                                <a href=""><span><i class="icon-time"></i> T4 铰刀</span> </a>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            </li>
-            <li>
-                <span><i class="icon-leaf"></i> END</span> <a href=""></a>
-            </li>
-				</ul>
-           	</li>
-		</ul>
-	</li>
-    </ul>
+    <div style="position: absolute; margin-left:15px;margin-top: 50px;z-index: 50;font-size: smaller">零件图</div>
+    <div style="position: absolute; margin-left:15px;margin-top: 210px;z-index: 50;font-size: smaller">工序图</div>
+    <div style="position: absolute; margin-left:15px;margin-top: 350px;z-index: 50;font-size: smaller">工步图</div>
+    <div style="position: absolute; margin-left:15px;margin-top: 490px;z-index: 50;font-size: smaller">加工示意图</div>
+    <div style="position: absolute; margin-left:15px;margin-top: 630px;z-index: 50;font-size: smaller">刀具清单</div>
+</div>
+<div id="myUI" class="tree well" style="border-width: 0px; position: absolute;margin-left: 50px;margin-top: 20px;">
 </div>
 </body>
 <script>
@@ -193,7 +134,80 @@ $(function (){
             e.stopPropagation();
         });
     }
-    function GetHtmlStrByJsonObj(jsonObj)
+    function HideAllContextMenu()
+    {
+        /*
+        myMenu
+myMenu_root
+myMenu_addDetail
+myMenu_General
+myMenu_MoveDetail
+        */
+        var menu = null;
+
+        menu = document.getElementById("myMenu_General2");
+        menu.style.visibility = "hidden";
+
+        menu = document.getElementById("myMenu_root");
+        menu.style.visibility = "hidden";
+
+        menu = document.getElementById("myMenu_addDetail");
+        menu.style.visibility = "hidden";
+
+        menu = document.getElementById("myMenu_General");
+        menu.style.visibility = "hidden";
+
+        menu = document.getElementById("myMenu_MoveDetail");
+        menu.style.visibility = "hidden";
+    }
+    function RebindContextMenuEvent(jsonObj)
+    {
+        if(jsonObj == null || jsonObj == undefined)
+        {
+            return;
+        }
+
+        var objId = jsonObj.id;
+        var menuId = jsonObj.MenuId;
+
+        var div = document.getElementById(objId);
+        var menu = document.getElementById(menuId);
+        //contextmenu事件
+        div.addEventListener("contextmenu",function(e){
+            //阻止默认的右键事件
+            e.preventDefault();
+
+            HideAllContextMenu();
+            //新菜单位置跟随鼠标
+            menu.style.left = e.clientX+"px";
+            menu.style.top = e.clientY+"px";
+            //显示菜单
+            menu.style.visibility = "visible";
+            m_globalLastClickJsonObj = jsonObj;
+        });
+
+        //鼠标单击，菜单取消
+        div.addEventListener("click",function(e){
+            HideAllContextMenu();
+        });
+
+        var globalDiv = document.getElementById("myUI");
+        globalDiv.addEventListener("click",function(e){
+            HideAllContextMenu();
+        });
+
+        var paramList = jsonObj.ParamList;
+        if(paramList == null || paramList == undefined)
+        {
+            return;
+        }
+
+        for(var i = 0; i < paramList.length; i++)
+        {
+            RebindContextMenuEvent(paramList[i]);
+        }
+    }
+    function GetHtmlStrByJsonObj(jsonObj,strPreffixId)
     {
         var result = "";
 
@@ -211,8 +225,9 @@ $(function (){
             result += "<li>";
 
             var obj = jsonObj[i];
-            result += "<span ><i class=\"icon-minus-sign\"></i>" + obj.Name + "</span>";
-            result += GetHtmlStrByJsonObj(obj.ParamList);
+            obj.id =  strPreffixId + "_" + i;
+            result += "<span id=\"" + obj.id + "\"><i class=\"icon-minus-sign\"></i>" + obj.Name + "</span>";
+            result += GetHtmlStrByJsonObj(obj.ParamList,obj.id);
 
             result += "</li>";
         }
@@ -223,17 +238,330 @@ $(function (){
     }
     function LoadUIConfigByJsonObj(jsonObj)
     {
-        var strHtml = GetHtmlStrByJsonObj(jsonObj);
+        var strHtml = GetHtmlStrByJsonObj(jsonObj,"_");
 
         var doc = document.getElementById("myUI");
         doc.innerHTML = strHtml;
 
         RebindOnClickEvent();
     }
-    function AddNewNode(strNodeId)
+    function ParseSpecJsonObj(jsonObjRoot,jsonObjParentToBeParse,jsonObjCopyed)
     {
-        var div = document.getElementById(strNodeId);
-        div.innerHTML = "<ul><li><span><i class=\"icon-minus-sign\"></i> 圆柱 外形</span></li></ul>" + div.innerHTML;
+        if(jsonObjParentToBeParse == null || jsonObjParentToBeParse == undefined)
+        {
+            return;
+        }
+
+        if(jsonObjCopyed == null || jsonObjCopyed == undefined)
+        {
+            return;
+        }
+
+        var strJson = JSON.stringify(jsonObjCopyed);
+        var clonedJsonObj = JSON.parse(strJson);
+
+        if(jsonObjParentToBeParse.ParamList == null || jsonObjParentToBeParse.ParamList == undefined)
+        {
+            jsonObjParentToBeParse.ParamList = new Array();
+        }
+
+        jsonObjParentToBeParse.ParamList.push(clonedJsonObj);
+    }
+    function RemoveSpecJsonObj(jsonObjRoot,jsonObj)
+    {
+        if(jsonObjRoot == jsonObj)
+        {
+            //不应该在这里出现
+            return;
+        }
+
+        var paramList = jsonObjRoot.ParamList;
+
+        if(paramList == null || paramList == undefined)
+        {
+            return;
+        }
+
+        for(var i = 0; i < paramList.length; i++)
+        {
+            if(paramList[i] == jsonObj)
+            {
+                paramList.splice(i,1);
+                i--;
+               // paramList.removeChild()
+               // paramList.remove(jsonObj);
+            }
+            else
+            {
+                RemoveSpecJsonObj(paramList[i],jsonObj);
+            }
+        }
+    }
+    function OnClickCopyCurNode()
+    {
+        m_globalLastCopyJsonObj = m_globalLastClickJsonObj;
+
+        HideAllContextMenu();
+    }
+    function OnClickParseCurNode()
+    {
+        ParseSpecJsonObj(m_globalTreeUIJsonObj,m_globalLastClickJsonObj,m_globalLastCopyJsonObj);
+
+        LoadUIConfigByJsonObj(m_globalTreeUIJsonObj);
+        OnFinishLoadUI();
+        HideAllContextMenu();
+
+        m_globalLastCopyJsonObj = null;
+    }
+    function OnClickRemoveCurNode()
+    {
+        if(m_globalLastClickJsonObj == null || m_globalLastClickJsonObj == undefined)
+        {
+            return;
+        }
+
+        RemoveSpecJsonObj(m_globalTreeUIJsonObj[0],m_globalLastClickJsonObj);
+
+        LoadUIConfigByJsonObj(m_globalTreeUIJsonObj);
+        OnFinishLoadUI();
+        HideAllContextMenu();
+    }
+    function OnClickMove(strNodeId)
+    {
+        var subMenu = document.getElementById("myMenu_MoveDetail");
+        if(subMenu == null || subMenu == undefined)
+        {
+            return;
+        }
+
+        var curMenu = document.getElementById(strNodeId);
+        subMenu.style.left = "" + (parseFloat(curMenu.style.left.split("px")[0]) + 205) + "px";
+        subMenu.style.top = "" + (parseFloat(curMenu.style.top.split("px")[0]) + 140) + "px";
+        subMenu.style.visibility = "visible";
+    }
+    function MoveUpJsonObj(jsonObjRoot,jsonObjToMoveUp)
+    {
+        if(jsonObjRoot == null || jsonObjRoot == undefined)
+        {
+            return;
+        }
+
+        if(jsonObjToMoveUp == null || jsonObjToMoveUp == undefined)
+        {
+            return;
+        }
+
+        var paramList = jsonObjRoot.ParamList;
+        if(paramList == null || paramList == undefined)
+        {
+            return;
+        }
+
+        for(var i = 0; i < paramList.length; i++)
+        {
+            if(paramList[i] == jsonObjToMoveUp)
+            {
+                if(i == 0)
+                {
+                    //已经是第一个了，不需要操作
+                    break;
+                }
+                else
+                {
+                    var tempObj = paramList[i - 1];
+                    paramList[i - 1] = paramList[i];
+                    paramList[i] = tempObj;
+                    break;
+                }
+            }
+            else
+            {
+                MoveUpJsonObj(paramList[i],jsonObjToMoveUp);
+            }
+        }
+    }
+    function MoveDownJsonObj(jsonObjRoot,jsonObjToMoveUp)
+    {
+        if(jsonObjRoot == null || jsonObjRoot == undefined)
+        {
+            return;
+        }
+
+        if(jsonObjToMoveUp == null || jsonObjToMoveUp == undefined)
+        {
+            return;
+        }
+
+        var paramList = jsonObjRoot.ParamList;
+        if(paramList == null || paramList == undefined)
+        {
+            return;
+        }
+
+        for(var i = 0; i < paramList.length; i++)
+        {
+            if(paramList[i] == jsonObjToMoveUp)
+            {
+                if(i == paramList.length - 1)
+                {
+                    //已经是最后，不需要操作
+                    break;
+                }
+                else
+                {
+                    var tempObj = paramList[i + 1];
+                    paramList[i + 1] = paramList[i];
+                    paramList[i] = tempObj;
+                    break;
+                }
+            }
+            else
+            {
+                MoveDownJsonObj(paramList[i],jsonObjToMoveUp);
+            }
+        }
+    }
+    function OnClickMoveUp()
+    {
+        if(m_globalLastClickJsonObj == null || m_globalLastClickJsonObj == undefined)
+        {
+            return;
+        }
+
+        MoveUpJsonObj(m_globalTreeUIJsonObj[0],m_globalLastClickJsonObj);
+
+        LoadUIConfigByJsonObj(m_globalTreeUIJsonObj);
+        OnFinishLoadUI();
+        HideAllContextMenu();
+    }
+    function OnClickMoveDown()
+    {
+        if(m_globalLastClickJsonObj == null || m_globalLastClickJsonObj == undefined)
+        {
+            return;
+        }
+
+        MoveDownJsonObj(m_globalTreeUIJsonObj[0],m_globalLastClickJsonObj);
+
+        LoadUIConfigByJsonObj(m_globalTreeUIJsonObj);
+        OnFinishLoadUI();
+        HideAllContextMenu();
+    }
+    function OnClickEditNode()
+    {
+        if(m_globalLastClickJsonObj == null || m_globalLastClickJsonObj == undefined)
+        {
+            return;
+        }
+
+        //OnLoadEditJsonFile();
+
+        //jiage
+
+    }
+    function AddNewNode(nodeType)
+    {
+        if(m_globalLastClickJsonObj == null || m_globalLastClickJsonObj == undefined)
+        {
+            return;
+        }
+
+        var newJsonObj = {};
+        newJsonObj.Name = "槽W2*R0.2-4.5RA1.6";
+        newJsonObj.ModifyParam = 1;
+        newJsonObj.MenuId = "myMenu_General2";
+        newJsonObj.ParamList = new Array();
+
+        switch(nodeType)
+        {
+            case 0:
+                //面
+                break;
+            case 1:
+                //孔
+                break;
+            case 2:
+                //倒角
+                break;
+            case 3:
+                //槽
+                break;
+            case 4:
+                //锥面
+                break;
+            default:
+                //类型不明
+                break;
+        }
+
+        var paramList = m_globalLastClickJsonObj.ParamList;
+        if(paramList == null || paramList == undefined)
+        {
+            m_globalLastClickJsonObj.ParamList = new array();
+        }
+
+        m_globalLastClickJsonObj.ParamList.push(newJsonObj);
+
+        LoadUIConfigByJsonObj(m_globalTreeUIJsonObj);
+        OnFinishLoadUI();
+        HideAllContextMenu();
+    }
+    function ReloadEditUI(uiConfigPath,onFinishedLoadingUI,onComboBoxChangedCallBack)
+    {
+        var scope = this;
+        var gui = null;
+
+        var loader = new THREE.FileLoader( scope.manager );
+        loader.load( uiConfigPath, function ( text ) {
+            var obj = eval('(' + text + ')');
+            var dja
+            //var menuObj = {};
+            gui = new dat.gui.GUI();
+            gui.remember(menuObj);
+
+            for(var i = 0; i < obj.Tab.length; i++) {
+                var tabObj = obj.Tab[i];
+                var tabName = tabObj.Name;
+
+                var guiTable = gui.addFolder(tabName);
+
+                menuObj[tabName] = {};
+                UpdateGUIByJsonObj(guiTable,tabObj,onComboBoxChangedCallBack);
+            }
+
+            menuObj["确定"] = function ()
+            {
+                //
+                //switch
+            }
+
+            gui.add(menuObj, '确定');
+
+            gui.domElement.style = 'position:absolute;top:300px;left:0px;background-color:#ffffff;visibility:hidden;';
+            gui.domElement.id = 'MenuParamDesign';
+            gui.OnClickClosePanel = GlobalOnClickClosePanel;
+
+            m_globalGui = gui;
+            m_globalGuiJsonObj = obj;
+            m_globalFuncUpdateModel = menuObj["更新模型"];
+        });
+    }
+    function OnClickAddNewNode(strNodeId)
+    {
+        var subMenu = document.getElementById("myMenu_addDetail");
+        if(subMenu == null || subMenu == undefined)
+        {
+            return;
+        }
+
+        var curMenu = document.getElementById(strNodeId);
+        subMenu.style.left = "" + (parseFloat(curMenu.style.left.split("px")[0]) + 205) + "px";
+        subMenu.style.top = curMenu.style.top;
+        subMenu.style.visibility = "visible";
+    }
+    function OnFinishLoadUI()
+    {
+        RebindContextMenuEvent(m_globalTreeUIJsonObj[0]);
     }
     function ReloadParamModifyUI(jsonObj)
     {
@@ -249,7 +577,6 @@ $(function (){
         var guiTable = gui.addFolder(jsonObj);
 
         //gui.remember(menuObj);
-
         for (var i = 0; i < obj.Tab.length; i++)
         {
             var tabObj = obj.Tab[i];
@@ -260,92 +587,11 @@ $(function (){
             menuObj[tabName] = {};
             UpdateGUIByJsonObj(guiTable,tabObj,onComboBoxChangedCallBack);
         }
-
-            menuObj["显示坐标轴"] = true;
-            menuObj["显示xz平面"] = false;
-            menuObj["显示xy平面"] = false;
-            menuObj["显示yz平面"] = false;
-
-            menuObj["更新模型"] = function () {
-                var jsonObj = obj;
-                var jsonMenuObj = menuObj;
-                var bServerCallBack = false;
-
-                onClickUpdateCallBack();
-
-                var result = JsonToIni(jsonObj);
-                var handleLength = parseFloat(jsonObj.Tab[0].ParamList[0]["总长"]);
-                //update here
-                $.ajax({
-                    type: 'POST',
-                    url: globalServerAddr + "api?getmodel=1",
-                    data: result,
-                    success: function (response) {
-                        callback(response, handleLength);
-                    },
-                    error: function (errs) {
-
-                        alert(errs.responseText);
-
-                    }
-                });
-            }
-
-                menuObj["保存模型到数据库"] = function () {
-
-                var jsonObj = obj;
-                var jsonMenuObj = menuObj;
-                var bServerCallBack = false;
-
-                onClickUpdateCallBack();
-
-                //var result = JsonToIni(jsonObj);
-
-                $.ajax({
-                    type: 'POST',
-                    url: globalServerAddr + "api?savemodel=1",
-                    data: jsonObj,
-                    success: function (response) {
-                        callback(response);
-                    },
-                    error: function (errs) {
-                        alert(errs.responseText);
-                    }
-                });
-            }
-
-            gui.add(menuObj, '更新模型');
-
-            gui.domElement.style = 'position:absolute;top:300px;left:0px;background-color:#ffffff;visibility:hidden;';
-            gui.domElement.id = 'MenuParamDesign';
-            gui.OnClickClosePanel = GlobalOnClickClosePanel;
-
-            m_globalGui = gui;
-            m_globalGuiJsonObj = obj;
-            m_globalFuncUpdateModel = menuObj["更新模型"];
-        });
     }
+    var m_globalTreeUIJsonObj = null;
+    var m_globalLastClickJsonObj = null;
+    var m_globalLastCopyJsonObj = null;
+    LoadLingJianUIByJson("config/LingJianTeZheng.json",OnFinishLoadUI);
 
-    LoadLingJianUIByJson("config/LingJianTeZheng.json");
-
-    /*
-    var div = document.getElementById("myDiv");
-    var menu = document.getElementById("myMenu");
-    //contextmenu事件
-    div.addEventListener("contextmenu",function(e){
-        //阻止默认的右键事件
-        e.preventDefault();
-        //新菜单位置跟随鼠标
-        menu.style.left = e.clientX+"px";
-        menu.style.top = e.clientY+"px";
-        //显示菜单
-        menu.style.visibility = "visible";
-    });
-
-    //鼠标单击，菜单取消
-    div.addEventListener("click",function(e){
-        menu.style.visibility = "hidden";
-    })
-    */
 </script>
 </html>
