@@ -591,10 +591,13 @@ function activateButton(id) {
     }
     else if(id == 'zhouCeView')
     {
-        camera.position.set( distance, distance, distance);
+    	distance = 300;
+        camera.position.set( -distance / 5.0, distance * 2, distance * 0.3);
         //orbitControls.setPolarAngle(0);
         //orbitControls.setAzimuthalAngle(Math.PI);
         orbitControls.setTargetPos(0,0,0);
+        orbitControls.setPolarAngle(45);
+        orbitControls.setAzimuthalAngle(45);
         orbitControls.update();
     }
 
@@ -964,28 +967,11 @@ function setEdges(solid,rebuild) {
 	if(rebuild)rebuildB.className = "button flash";
 }
 
-function Display3DModel()
-{
-	/*
-	<div id="gameCanvas" width="1280px" height="811"></div>
-						<div id="divPdfView" class="pdfView" style="visibility: hidden">
-	 */
-	document.getElementById("gameCanvas").style.visibility = "visible";
-	document.getElementById("divPdfView").style.visibility = "hidden";
 
-    document.getElementById("toolBox3D").style.visibility = "visible";
-    document.getElementById("toolBoxTuZhi").style.visibility = "hidden";
-
-    if(m_globalFuncUpdateModel != null && m_globalFuncUpdateModel != undefined)
-    {
-        //m_globalFuncUpdateModel();
-
-    }
-}
 function OnUpdateZuanTou(index)
 {
     //m_globalZuanTouSearchJsonResult
-    var id = m_globalDaoBinSearchJsonResult[index].ID;
+    var id = m_globalZuanTouSearchJsonResult[index].ID;
     //组装零件
     //
     if(m_globalGuiJsonObj == null || m_globalGuiJsonObj == undefined)
@@ -1076,48 +1062,8 @@ function OnZuZhuang(index)
             }
         });
 	}
-
 }
-function DisplayTuZhi()
-{
-    document.getElementById("gameCanvas").style.visibility = "hidden";
-    document.getElementById("divPdfView").style.visibility = "visible";
 
-    document.getElementById("toolBox3D").style.visibility = "hidden";
-    document.getElementById("toolBoxTuZhi").style.visibility = "visible";
-}
-function GenerateZuanTouByIndex(index,callback)
-{
-	if(m_globalZuanTouSearchJsonResult == null || m_globalZuanTouSearchJsonResult == undefined)
-	{
-		return;
-	}
-
-	var jsonObj = m_globalZuanTouSearchJsonResult[index];
-	if(jsonObj == null || jsonObj == undefined)
-	{
-		return;
-	}
-
-	var paramList = jsonObj.ParamList;
-	var zuanTouID = paramList[0].Value;
-	m_globalSelectedZuanTouId = zuanTouID;
-	var handleLength = jsonObj.ParamList[2].Value;
-    m_globalSelectedZuanTouHandleLength = handleLength;
-    //handleLength = 0;
-    onClickUpdateCallBack();
-    $.ajax({
-        type: 'POST',
-        url: globalServerAddr + "api?generateZuanTouBySearch=1&zuanTouId=" + zuanTouID,
-        //data: zuanTouID,
-        success: function (response) {
-            callback(response,handleLength);
-        },
-        error: function (errs) {
-            alert(errs.responseText);
-        }
-    });
-}
 function HideSearchResultPanel()
 {
 	var divElement = document.getElementById("SearchTable");
@@ -1139,7 +1085,54 @@ function SaveAndCommit()
         }
     });
 }
+function OnClickJiShuYaoQiu()
+{
+    CloseHandleSearchPanel();
+    CloseModelDesignPanel();
 
+    var docElement = document.getElementById("MenuParamDesign_jiShuYaoQiu");
+    if(docElement == null || docElement == undefined)
+    {
+        return;
+    }
+
+    var strVisible = docElement.style.visibility;
+
+    if(strVisible == "visible")
+    {
+        docElement.style.visibility = "hidden";
+        m_globalGui.closed = false;
+    }
+    else
+    {
+        docElement.style.visibility = "visible";
+        m_globalGui.closed = false;
+    }
+}
+function OnClickTuZhiMuBan()
+{
+    CloseHandleSearchPanel();
+    CloseModelDesignPanel();
+
+    var docElement = document.getElementById("MenuParamDesign_tuZhiMuBan");
+    if(docElement == null || docElement == undefined)
+    {
+        return;
+    }
+
+    var strVisible = docElement.style.visibility;
+
+    if(strVisible == "visible")
+    {
+        docElement.style.visibility = "hidden";
+        m_globalGui.closed = false;
+    }
+    else
+    {
+        docElement.style.visibility = "visible";
+        m_globalGui.closed = false;
+    }
+}
 function OnClickZuanTouSearch()
 {
     CloseHandleSearchPanel();
@@ -1164,7 +1157,58 @@ function OnClickZuanTouSearch()
         m_globalGui.closed = false;
     }
 }
+function OnClickParamDesign_Handle()
+{
 
+
+    var docElement = document.getElementById("MenuParamDesign_DaoBing");
+    if(docElement == null || docElement == undefined)
+    {
+        return;
+    }
+
+    var strVisible = docElement.style.visibility;
+
+    if(strVisible == "visible")
+    {
+        docElement.style.visibility = "hidden";
+        m_globalGui.closed = false;
+    }
+    else
+    {
+        CloseAllDataGUIPanel();
+        docElement.style.visibility = "visible";
+        m_globalGui.closed = false;
+    }
+}
+function OnClickParamDesign_YanChangGan()
+{
+    if(m_bYanChangGanBtnIsDisable == true)
+    {
+        return;
+    }
+
+    var docElement = document.getElementById("MenuParamDesign_YanChangGan");
+    if(docElement == null || docElement == undefined)
+    {
+        return;
+    }
+
+    var strVisible = docElement.style.visibility;
+
+    if(strVisible == "visible")
+    {
+        docElement.style.visibility = "hidden";
+        m_globalGui.closed = false;
+    }
+    else
+    {
+        CloseAllDataGUIPanel();
+
+        docElement.style.visibility = "visible";
+        m_globalGui.closed = false;
+    }
+}
 function OnClickParamDesign()
 {
     CloseHandleSearchPanel();
@@ -1200,6 +1244,33 @@ function CloseModelDesignPanel()
             m_globalHandleSearchGui.closed = false;
         }
     }
+
+    docElement = document.getElementById("MenuParamDesign_DaoBing");
+    if(docElement != null && docElement != undefined)
+    {
+        docElement.style.visibility = "hidden";
+
+        if(m_globalHandleSearchGui != null)
+        {
+            m_globalHandleSearchGui.closed = false;
+        }
+    }
+
+    docElement = document.getElementById("MenuParamDesign_YanChangGan");
+    if(docElement != null && docElement != undefined)
+    {
+        docElement.style.visibility = "hidden";
+
+        if(m_globalHandleSearchGui != null)
+        {
+            m_globalHandleSearchGui.closed = false;
+        }
+    }
+}
+function CloseAllDataGUIPanel()
+{
+	CloseHandleSearchPanel();
+	CloseModelDesignPanel();
 }
 function CloseHandleSearchPanel()
 {
@@ -1212,6 +1283,17 @@ function CloseHandleSearchPanel()
 		{
             m_globalHandleSearchGui.closed = false;
 		}
+    }
+
+    docElement = document.getElementById("MenuParamDesign_YanChangGanSearch");
+    if(docElement != null && docElement != undefined)
+    {
+        docElement.style.visibility = "hidden";
+
+        if(m_globalHandleSearchGui != null)
+        {
+            m_globalHandleSearchGui.closed = false;
+        }
     }
 }
 function OnJiaChiJieGouSelectionChanged()
@@ -1228,15 +1310,30 @@ function OnJiaChiJieGouSelectionChanged()
 	{
 		return;
 	}
+	var yanChangGanHtmlElement2 = document.getElementById("YanChangGanBtn2");
+    if(yanChangGanHtmlElement2 == null || yanChangGanHtmlElement2 == undefined)
+    {
+        //return;
+    }
 
 	if(selectHtmlElement.value == "0")
 	{
         yanChangGanHtmlElement.className = "graybutton";
+        if(yanChangGanHtmlElement2)
+		{
+            yanChangGanHtmlElement2.className = "graybutton";
+		}
+
         m_bYanChangGanBtnIsDisable = true;
 	}
 	else if(selectHtmlElement.value == "1")
 	{
         yanChangGanHtmlElement.className = "smallbutton";
+        if(yanChangGanHtmlElement2)
+		{
+            yanChangGanHtmlElement2.className = "smallbutton";
+		}
+
         m_bYanChangGanBtnIsDisable = false;
 
 	}
@@ -1247,6 +1344,27 @@ function OnClickYanChangGanSearch()
 	{
 		return;
 	}
+
+    CloseModelDesignPanel();
+
+    var docElement = document.getElementById("MenuParamDesign_YanChangGanSearch");
+    if(docElement == null || docElement == undefined)
+    {
+        return;
+    }
+
+    var strVisible = docElement.style.visibility;
+
+    if(strVisible == "visible")
+    {
+        docElement.style.visibility = "hidden";
+        m_globalGui.closed = false;
+    }
+    else
+    {
+        docElement.style.visibility = "visible";
+        m_globalGui.closed = false;
+    }
 }
 function OnClickHandleSearch()
 {
@@ -1286,7 +1404,24 @@ function addGridClickEvent(){
         $(this).addClass("selectCell");
     });
 }
+function RequestMaterialTypeJson()
+{
+    //var result = JsonToIni(m_globalGuiJsonObj);
+    var strJson = JSON.stringify(m_globalGuiJsonObj);
 
+    $.ajax({
+        type: 'POST',
+        url: globalServerAddr + "api?savemodel=1",
+        contentType: "application/x-www-form-urlencoded; charset=utf-8",
+        data: strJson,
+        success: function (response) {
+            callback(response);
+        },
+        error: function (errs) {
+            alert(errs.responseText);
+        }
+    });
+}
 function OnClickSaveThisModel()
 {
     //弹出确定提示框

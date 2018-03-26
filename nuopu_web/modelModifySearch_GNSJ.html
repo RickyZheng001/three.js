@@ -73,27 +73,48 @@
 					<div>
 						<div class="appName" style="position: absolute;margin-left: 40px;margin-top: 0px;">钻头</div>
 						<div class="appName2" style="position: absolute;margin-left: 50px;margin-top: 80px;">整体钻头</div>
-						<div class="smallbutton" style="position: absolute;margin-left: 10px;margin-top: 120px;" onclick="Display3DModel()">显示三维</div>
-						<div class="smallbutton" style="position: absolute;margin-left: 110px;margin-top: 120px;" onclick="DisplayTuZhi()">显示图纸</div>
-
-						<div class="smallbutton" style="position: absolute;margin-left: 10px;margin-top: 150px;cursor:default;">夹持结构 </div>
-
-						<select id="YanChangGanComboBox" style="position: absolute;margin-left: 100px;margin-top: 152px;width:116px;" onchange="OnJiaChiJieGouSelectionChanged()">
-							<option value ="0">刀柄</option>
-							<option value ="1">刀柄 + 延长杆</option>
+						<div class="smallbutton" style="position: absolute;margin-left: 10px;margin-top: 120px;width:100px;" onclick="Display3DModel()">更新显示三维</div>
+						<select id="SanWeiComboBox" style="position: absolute;margin-left: 130px;margin-top: 122px;width:80px;" onchange="OnSanWeiComboBoxChanged()">
+							<option value ="0">刀具</option>
+							<option value ="1">刀柄</option>
+							<option value ="2">延长杆</option>
+							<option value ="3">装配</option>
+						</select>
+						<div class="smallbutton" style="position: absolute;margin-left: 10px;margin-top: 150px;width:100px;" onclick="DisplayTuZhi()">更新显示二维</div>
+						<select id="ErComboBox" style="position: absolute;margin-left: 130px;margin-top: 152px;width:80px;" onchange="OnErWeiComboBoxChanged()">
+							<option value ="0">刀具</option>
+							<option value ="1">刀柄</option>
+							<option value ="2">延长杆</option>
+							<option value ="3">装配</option>
 						</select>
 
-						<div class="smallbutton" style="position: absolute;margin-left: 10px;margin-top: 180px;width:200px;" onclick="OnClickZuanTouSearch()">整体钻头  搜索</div>
-						<div class="smallbutton" style="position: absolute;margin-left: 10px;margin-top: 210px;width:200px;" onclick="OnClickHandleSearch()">刀柄搜索</div>
-						<div id="YanChangGanBtn" class="graybutton" style="position: absolute;margin-left: 10px;margin-top: 240px;width:200px;" onclick="OnClickYanChangGanSearch()">延长杆搜索</div>
-						<div class="smallbutton" style="position: absolute;margin-left: 10px;margin-top: 270px;width:200px;" onclick="OnClickSaveThisModel()">技术条件</div>
-						<div class="smallbutton" style="position: absolute;margin-left: 10px;margin-top: 300px;width:200px;" onclick="OnClickSaveThisModel()">图纸模板</div>
+						<div class="smallbutton" style="position: absolute;margin-left: 10px;margin-top: 180px;cursor:default;">夹持结构 </div>
+
+						<select id="YanChangGanComboBox" style="position: absolute;margin-left: 100px;margin-top: 182px;width:116px;" onchange="OnJiaChiJieGouSelectionChanged()">
+							<option value ="0">刀柄+刀具</option>
+							<option value ="1">刀柄+延长杆+刀具</option>
+						</select>
+
+						<div class="smallbutton" style="position: absolute;margin-left: 10px;margin-top: 210px;width:200px;" onclick="OnClickZuanTouSearch()">整体钻头  搜索</div>
+						<div class="smallbutton" style="position: absolute;margin-left: 10px;margin-top: 240px;width:100px;" onclick="OnClickZuanTouSearch()">刀具夹持长度</div>
+						<input style="position: absolute;margin-left: 130px;margin-top: 240px;width:50px;" type="text" name="jiaChiLength" />
+						<div style="position: absolute;margin-left: 190px;margin-top: 240px;width:40px;">mm</div>
+						<div class="smallbutton" style="position: absolute;margin-left: 10px;margin-top: 270px;width:200px;" onclick="OnClickHandleSearch()">刀柄搜索</div>
+						<div id="YanChangGanBtn" class="graybutton" style="position: absolute;margin-left: 10px;margin-top: 300px;width:200px;" onclick="OnClickYanChangGanSearch()">延长杆搜索</div>
+						<div class="smallbutton" style="position: absolute;margin-left: 10px;margin-top: 330px;width:100px;" onclick="OnClickZuanTouSearch()">延长杆夹持长度</div>
+						<input style="position: absolute;margin-left: 130px;margin-top: 330px;width:50px;" type="text" name="yanChangGanLength" />
+						<div style="position: absolute;margin-left: 190px;margin-top: 330px;width:40px;">mm</div>
+						<div class="smallbutton" style="position: absolute;margin-left: 10px;margin-top: 360px;width:200px;" onclick="OnClickJiShuYaoQiu()">技术条件</div>
+						<div class="smallbutton" style="position: absolute;margin-left: 10px;margin-top: 390px;width:200px;" onclick="OnClickTuZhiMuBan()">图纸模板</div>
 					</div>
 				</div>
 				<div id="canvas">
 					<div id="gameCanvas" width="1920px" height="1080px"></div>
 					<div id="divPdfView" class="pdfView" style="visibility: hidden">
 						<embed id="pdfCtrl" src="./pdf/test1.pdf" type="application/pdf" width="1440px" height="670"></embed>
+					</div>
+					<div class="JiShu">
+
 					</div>
 					<canvas id="myCanvas" width="500" height="150" style="position: absolute;left: 40%;top: 40px;visibility: hidden">Your browser does not have support for canvas.</canvas>
                     <div id="SearchTable" style="visibility: hidden">
@@ -160,6 +181,10 @@
                             </tr>
 					</table>
 				</div>
+					<div id="divParamList" style="position: absolute;z-index: 10;left: 320px;bottom: 220px;width: 400px;">
+					</div>
+					<div id="techRequest" style="position: absolute;z-index: 10;left: 520px;bottom: 220px;width: 600px;">
+					</div>
 
 				<div id="ModelGenerateProgressBar" style="visibility: hidden;position: absolute" left="200px" top="200px" ></div>
 
@@ -209,9 +234,9 @@
 					</div>
 					<div class="section section_material">
 						<div class="appLabel">价格</div>
-						<div style="width:80px;height:28px;margin-top: 2px;">5.00元</div>
-						<div style="width:80px;height:28px;margin-top: 2px;">5.00元</div>
-						<div style="width:80px;height:28px;margin-top: 2px;">10.00元</div>
+						<div style="width:80px;height:28px;margin-top: 2px;">8.00元</div>
+						<div style="width:80px;height:28px;margin-top: 2px;">7.00元</div>
+						<div style="width:80px;height:28px;margin-top: 2px;">15.00元</div>
 					</div>
 
 					<div class="nervousLogo noSel">
@@ -477,7 +502,10 @@
 			var lastModelColor;
             var menuObj = {};
             var searchMenuObj = {};
+            var yanChangGanSearchMenuObj = {};
             var zuanTouSearchMenuObj = {};
+            var tuZhiMuBanMenuObj = {};
+            var jiShuYaoQiuMenuObj = {};
             var textureCube;
             var reflectMaterial;
 			var m_globalGui = null;
@@ -487,6 +515,12 @@
             var m_globalHandleSearchGui = null;
             var m_globalHandleSearchJsonObj = null;
             var m_globalSelectedZuanTouId = null;
+            var m_globalYanChangGanSearchGui = null;
+            var m_globalYanChangGanSearchJsonObj = null;
+            var m_globalTuZhiSearchGui = null;
+            var m_globalTuZhiSearchJsonObj = null;
+            var m_globalJiShuYaoQiuGui = null;
+            var m_globalJiShuYaoQiuJsonObj = null;
             var m_globalSelectedZuanTouHandleLength = 0;
 			var mouseX = 0, mouseY = 0;
 
@@ -615,6 +649,43 @@
 			{
                 ReloadDesignGUI(m_globalGuiJsonObj);
 			}
+			function onSearchYanChangGanCallBack(strJson)
+			{
+                var jsonObj = eval('(' + strJson + ')');
+                m_globalYanChangGanSearchJsonObj = jsonObj;
+                var searchDiv = document.getElementById("SearchTable");
+                var strTableHtml = "<table class=\"editableTable\" border=\"0\" style=\"position: absolute;left: 300px;top: 200px;overflow:scroll;width: 800px;\">";
+                strTableHtml += "<tr class=\"editable simpleInput\">";
+                strTableHtml += "<th style=\"width: 60px;\">序号</th>";
+                strTableHtml += "<th style=\"width: 60px;\">ID</th>";
+                strTableHtml += "<th style=\"width: 60px;\">夹持类型</th>";
+                strTableHtml += "<th style=\"width: 60px;\">总长</th>";
+                strTableHtml += "<th style=\"width: 60px;\">夹持直径</th>";
+                strTableHtml += "<th style=\"width: 60px;\">";
+                strTableHtml += "<div class=\"closebutton\" style=\"position: absolute;width: 30px;margin-left: 14px;margin-top: -9px;padding-left: 0px;padding-top: 0px;\" onclick=\"HideSearchResultPanel()\">关闭</div>";
+                strTableHtml += "</th>";
+                strTableHtml += "</tr>";
+
+                for(var i = 0; i < jsonObj.length; i++)
+                {
+                    var paramList = jsonObj[i].ParamList;
+                    strTableHtml += "<tr class=\"editable simpleInput\">";
+                    strTableHtml += "<td>" + (i + 1) + "</td>";
+                    strTableHtml += "<td>" + paramList[0].Value + "</td>";
+                    strTableHtml += "<td>" + paramList[1].Value + "</td>";
+                    strTableHtml += "<td>" + paramList[2].Value + "</td>";
+                    strTableHtml += "<td>" + paramList[3].Value + "</td>";
+                    strTableHtml += "<td>" + "<div class=\"smallbutton\" style=\"position: absolute;width: 30px;margin-left: 14px;margin-top: -9px;padding-left: 0px;padding-top: 0px;\" onclick=\"OnZuZhuangByZuanTouId(" + i + ",onCallBack)\">更新</div>" + "</td>";
+                    strTableHtml += "</tr>";
+                }
+                strTableHtml += "</table>";
+
+                searchDiv.innerHTML = strTableHtml;
+
+                HideProgressBar();
+                var divElement = document.getElementById("SearchTable");
+                divElement.style.visibility = "visible";
+			}
             function onSearchDaoBingCallBack(strJson)
             {
                 var jsonObj = eval('(' + strJson + ')');
@@ -705,11 +776,16 @@
 			}
 
 			LoadZuanTouSearchGUI("config/zuantou_search_menu_1.json",zuanTouSearchMenuObj,onSearchZuanTouCallBack);
-            LoadHandleSearchGUI("config/handle_config_1.json",searchMenuObj,onSearchDaoBingCallBack);
+            LoadHandleSearchGUI("config/handle_config_1.json",searchMenuObj,onSearchDaoBingCallBack,null);
+            LoadYanChangGanSearchGUI("config/yanchanggan_config_1.json",yanChangGanSearchMenuObj,onSearchYanChangGanCallBack);
             LoadDesignGUI("config/config.json",onCallBack,menuObj,onClickUpdateCallBack,onUpdateMenu);
+            LoadTuZhiMuBanGUI("config/tuZhiMuBan.json",tuZhiMuBanMenuObj,onTuZhiMuBanClickQueDing);
+            LoadJiShuYaoQiuGUI("config/jiShuYaoQiu.json",jiShuYaoQiuMenuObj,onJiShuYaoQiuClickQueDing);
 
 			init();
 			animate();
+
+			UpdateParamList();
 
 			function init()
 			{

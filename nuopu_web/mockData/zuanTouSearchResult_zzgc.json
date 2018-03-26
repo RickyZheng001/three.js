@@ -1,0 +1,29 @@
+[
+	{
+		"ID":"TESTZP001",
+		"Name":"Φ6,3D螺旋槽钻头",
+		"ParamList":
+		[
+			{
+				"Name":"ID",
+				"Value":"TESTZP001"
+			},
+			{
+				"Name":"名称",
+				"Value":"Φ6,3D螺旋槽钻头"
+			},
+			{
+				"Name":"总长mm",
+				"Value":237
+			},
+			{
+				"Name":"工作直径mm",
+				"Value":12
+			},
+			{
+				"Name":"柄部直径mm",
+				"Value":20
+			}
+		]
+	}
+]

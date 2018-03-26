@@ -73,21 +73,39 @@
 					<div>
 						<div class="appName" style="position: absolute;margin-left: 40px;margin-top: 0px;">钻头</div>
 						<div class="appName2" style="position: absolute;margin-left: 50px;margin-top: 80px;">整体钻头</div>
-						<div class="smallbutton" style="width:80px;position: absolute;margin-left: 10px;margin-top: 120px;" onclick="Display3DModel()">更新显示三维</div>
-						<div class="smallbutton" style="width:80px;position: absolute;margin-left: 110px;margin-top: 120px;" onclick="DisplayTuZhi()">更新显示图纸</div>
-
-						<div class="smallbutton" style="position: absolute;margin-left: 10px;margin-top: 150px;cursor:default;">夹持结构 </div>
-
-						<select id="YanChangGanComboBox" style="position: absolute;margin-left: 100px;margin-top: 152px;width:116px;" onchange="OnJiaChiJieGouSelectionChanged()">
-							<option value ="0">刀柄</option>
-							<option value ="1">刀柄 + 延长杆</option>
+						<div class="smallbutton" style="position: absolute;margin-left: 10px;margin-top: 120px;width:100px;" onclick="Display3DModel()">更新显示三维</div>
+						<select id="SanWeiComboBox" style="position: absolute;margin-left: 130px;margin-top: 122px;width:80px;" onchange="OnSanWeiComboBoxChanged()">
+							<option value ="0">刀具</option>
+							<option value ="1">刀柄</option>
+							<option value ="2">延长杆</option>
+							<option value ="3">装配</option>
 						</select>
-						<div class="smallbutton" style="position: absolute;margin-left: 10px;margin-top: 180px;width:200px;" onclick="OnClickZuanTouSearch()">整体钻头  搜索</div>
-						<div class="smallbutton" style="position: absolute;margin-left: 10px;margin-top: 210px;width:200px;" onclick="OnClickParamDesign()">整体钻头  参数设计</div>
-						<div class="smallbutton" style="position: absolute;margin-left: 10px;margin-top: 240px;width:200px;" onclick="OnClickHandleSearch()">刀柄搜索</div>
-						<div id="YanChangGanBtn" class="graybutton" style="position: absolute;margin-left: 10px;margin-top: 270px;width:200px;" onclick="OnClickYanChangGanSearch()">延长杆搜索</div>
-						<div class="smallbutton" style="position: absolute;margin-left: 10px;margin-top: 300px;width:200px;" onclick="OnClickSaveThisModel()">技术条件</div>
-						<div class="smallbutton" style="position: absolute;margin-left: 10px;margin-top: 330px;width:200px;" onclick="OnClickSaveThisModel()">图纸模板</div>
+						<div class="smallbutton" style="position: absolute;margin-left: 10px;margin-top: 150px;width:100px;" onclick="DisplayTuZhi()">更新显示二维</div>
+						<select id="ErComboBox" style="position: absolute;margin-left: 130px;margin-top: 152px;width:80px;" onchange="OnErWeiComboBoxChanged()">
+							<option value ="0">刀具</option>
+							<option value ="1">刀柄</option>
+							<option value ="2">延长杆</option>
+							<option value ="3">装配</option>
+						</select>
+
+						<div class="smallbutton" style="position: absolute;margin-left: 10px;margin-top: 180px;cursor:default;">夹持结构 </div>
+
+						<select id="YanChangGanComboBox" style="position: absolute;margin-left: 100px;margin-top: 182px;width:116px;" onchange="OnJiaChiJieGouSelectionChanged()">
+							<option value ="0">刀柄+刀具</option>
+							<option value ="1">刀柄+延长杆+刀具</option>
+						</select>
+						<div class="smallbutton" style="position: absolute;margin-left: 10px;margin-top: 210px;width:200px;" onclick="OnClickZuanTouSearch()">整体钻头  搜索</div>
+						<div class="smallbutton" style="position: absolute;margin-left: 10px;margin-top: 240px;width:200px;" onclick="OnClickParamDesign()">整体钻头  参数设计</div>
+						<div class="smallbutton" style="position: absolute;margin-left: 10px;margin-top: 270px;width:100px;" onclick="OnClickZuanTouSearch()">刀具夹持长度</div>
+						<input style="position: absolute;margin-left: 130px;margin-top: 270px;width:50px;" type="text" name="jiaChiLength" />
+						<div style="position: absolute;margin-left: 190px;margin-top: 270px;width:40px;">mm</div>
+						<div class="smallbutton" style="position: absolute;margin-left: 10px;margin-top: 300px;width:200px;" onclick="OnClickHandleSearch()">刀柄搜索</div>
+						<div id="YanChangGanBtn" class="graybutton" style="position: absolute;margin-left: 10px;margin-top: 330px;width:200px;" onclick="OnClickYanChangGanSearch()">延长杆搜索</div>
+						<div class="smallbutton" style="position: absolute;margin-left: 10px;margin-top: 360px;width:100px;" onclick="OnClickZuanTouSearch()">延长杆夹持长度</div>
+						<input style="position: absolute;margin-left: 130px;margin-top: 360px;width:50px;" type="text" name="yanChangGanLength" />
+						<div style="position: absolute;margin-left: 190px;margin-top: 360px;width:40px;">mm</div>
+						<div class="smallbutton" style="position: absolute;margin-left: 10px;margin-top: 390px;width:200px;" onclick="OnClickJiShuYaoQiu()">技术条件</div>
+						<div class="smallbutton" style="position: absolute;margin-left: 10px;margin-top: 420px;width:200px;" onclick="OnClickTuZhiMuBan()">图纸模板</div>
 					</div>
 				</div>
 				<div id="canvas">
@@ -160,6 +178,10 @@
                             </tr>
 					</table>
 				</div>
+					<div id="divParamList" style="position: absolute;z-index: 10;left: 320px;bottom: 220px;width: 400px;">
+					</div>
+					<div id="techRequest" style="position: absolute;z-index: 10;left: 520px;bottom: 220px;width: 600px;">
+					</div>
 
 				<div id="ModelGenerateProgressBar" style="visibility: hidden;position: absolute" left="200px" top="200px" ></div>
 
@@ -209,9 +231,9 @@
 					</div>
 					<div class="section section_material">
 						<div class="appLabel">价格</div>
-						<div style="width:80px;height:28px;margin-top: 2px;">5.00元</div>
-						<div style="width:80px;height:28px;margin-top: 2px;">5.00元</div>
-						<div style="width:80px;height:28px;margin-top: 2px;">10.00元</div>
+						<div style="width:80px;height:28px;margin-top: 2px;">13.00元</div>
+						<div style="width:80px;height:28px;margin-top: 2px;">12.00元</div>
+						<div style="width:80px;height:28px;margin-top: 2px;">25.00元</div>
 					</div>
 
 					<div class="nervousLogo noSel">
@@ -459,6 +481,8 @@
             var menuObj = {};
             var searchMenuObj = {};
             var zuanTouSearchMenuObj = {};
+            var tuZhiMuBanMenuObj = {};
+            var jiShuYaoQiuMenuObj = {};
             var textureCube;
             var reflectMaterial;
 			var m_globalGui = null;
@@ -468,6 +492,12 @@
             var m_globalHandleSearchJsonObj = null;
             var m_globalDaoBinSearchJsonResult = null;
             var m_globalZuanTouSearchJsonResult = null;
+            var m_globalYanChangGanSearchGui = null;
+            var m_globalYanChangGanSearchJsonObj = null;
+            var m_globalTuZhiSearchGui = null;
+            var m_globalTuZhiSearchJsonObj = null;
+            var m_globalJiShuYaoQiuGui = null;
+            var m_globalJiShuYaoQiuJsonObj = null;
             var m_bYanChangGanBtnIsDisable = true;
 			var mouseX = 0, mouseY = 0;
 
@@ -592,9 +622,45 @@
 					onClickUpdateModel(geometry,handleLength);
 				},onProgress,onError);
 			}
-			function onUpdateMenu()
-			{
+            function onUpdateMenu()
+            {
                 ReloadDesignGUI(m_globalGuiJsonObj);
+            }
+
+			function DisplayModelParam()
+			{
+                var tableHtmlElement = document.getElementById("divParamList");
+
+                if(tableHtmlElement == null || tableHtmlElement == undefined)
+                {
+                    return;
+                }
+				/*
+				<div style="width:80%">
+					序号
+				</div>
+				* */
+				var strHtml = "<div style=\"width:80%\">" + "参数列表:" + "</div>";
+                strHtml += "<div style=\"width:80%\">" + "总长L1: " + 10 + "</div>";
+                strHtml += "<div style=\"width:80%\">" + "工作长度L2: " + 10 + "</div>";
+                strHtml += "<div style=\"width:80%\">" + "工作直径D1: " + 10 + "</div>";
+                strHtml += "<div style=\"width:80%\">" + " 柄部长度L3: " + 10 + "</div>";
+                strHtml += "<div style=\"width:80%\">" + "柄部直径D2: " + 10 + "</div>";
+
+                tableHtmlElement.innerHTML = strHtml;
+
+                tableHtmlElement.style.display = "display";
+			}
+			function HideModelParam()
+			{
+			    var tableHtmlElement = document.getElementById("SearchTable");
+
+			    if(tableHtmlElement == null || tableHtmlElement == undefined)
+				{
+				    return;
+				}
+
+				tableHtmlElement.style.display = "hidden";
 			}
             function onSearchDaoBingCallBack(strJson)
 			{
@@ -686,9 +752,15 @@
 			LoadZuanTouSearchGUI("config/zuantou_search_menu_1.json",zuanTouSearchMenuObj,onSearchZuanTouCallBack);
             LoadHandleSearchGUI("config/handle_config_1.json",searchMenuObj,onSearchDaoBingCallBack);
             LoadDesignGUI("config/config.json",onCallBack,menuObj,onClickUpdateCallBack,onUpdateMenu);
+            LoadTuZhiMuBanGUI("config/tuZhiMuBan.json",tuZhiMuBanMenuObj,onTuZhiMuBanClickQueDing);
+            LoadJiShuYaoQiuGUI("config/jiShuYaoQiu.json",jiShuYaoQiuMenuObj,onJiShuYaoQiuClickQueDing);
 
 			init();
 			animate();
+
+            //DisplayModelParam();
+            UpdateParamList();
+            DisplayTechRequest();
 
 			function init()
 			{

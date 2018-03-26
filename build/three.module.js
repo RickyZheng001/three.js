@@ -28501,7 +28501,6 @@ function LatheBufferGeometry( points, segments, phiStart, phiLength ) {
 
 	phiLength = _Math.clamp( phiLength, 0, Math.PI * 2 );
 
-
 	// buffers
 
 	var indices = [];

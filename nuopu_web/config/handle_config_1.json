@@ -9,7 +9,7 @@
 			[
 				{
 					"Name":"尾端类型",
-					"Choise":"长型",
+					"Choise":"HSK-63A,ISO-50,BT-40,BT-50,HSK-25E,HSK-32E,HSK-40E,HSK-50E",
 					"Type":"ComboBox",
 					"DefaultValue":"0",
 					"iniName":"l1",
@@ -18,7 +18,7 @@
 				},
 				{
 					"Name":"前段类型",
-					"Choise":"长型",
+					"Choise":"面铣刃,三面刃,单双侧固,热胀,增强型热胀刀柄,模具加工型热胀刀柄,液压,弹簧,高精度弹簧夹头,丝锥,万能钻夹头",
 					"Type":"ComboBox",
 					"DefaultValue":"0",
 					"iniName":"l2",
@@ -26,7 +26,7 @@
 					"SearchType":"0"
 				},
 				{
-					"Name":"夹持直径min",
+					"Name":"芯轴min",
 					"Type":"EditBox",
 					"DefaultValue":"0",
 					"iniName":"d1_cus",
@@ -34,7 +34,7 @@
 					"SearchType":"0"
 				},
 				{
-					"Name":"夹持直径max",
+					"Name":"芯轴max",
 					"Type":"EditBox",
 					"DefaultValue":"9999",
 					"iniName":"d1_cus",
@@ -42,7 +42,7 @@
 					"SearchType":"0"
 				},
 				{
-					"Name":"有效长度min",
+					"Name":"A有效长度min",
 					"Type":"EditBox",
 					"DefaultValue":"0",
 					"iniName":"d1_cus",
@@ -50,7 +50,7 @@
 					"SearchType":"-1"
 				},
 				{
-					"Name":"有效长度max",
+					"Name":"A有效长度max",
 					"Type":"EditBox",
 					"DefaultValue":"9999",
 					"iniName":"drill_point_angle",
