@@ -2762,6 +2762,27 @@ function OnClickLingJianCharacteristic_NobelTech(index)
 
     htmlObj.innerHTML = strHtml;
 
+    for(var i = 0; i < 5; i++)
+    {
+        var strHtmlId = "KuFilterBtn" + (i + 1);
+        var htmlObj = document.getElementById(strHtmlId);
+
+        if(htmlObj == null || htmlObj == undefined)
+        {
+            continue;
+        }
+
+        if(i == index)
+        {
+            htmlObj.style.backgroundColor = "#cccccc";
+        }
+        else
+        {
+            htmlObj.style.backgroundColor = "mediumpurple";
+        }
+
+    }
+
 }
 function OnClickParamList()
 {

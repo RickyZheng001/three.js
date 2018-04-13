@@ -186,20 +186,21 @@
 		</div>
 		<div id="canvas">
 			<div id="gameCanvas" width="1920px" height="1080px">
-				<div id="EditSlot"  style="position: absolute;left:360px;top:50px;">
-					<div class="smallbutton" style="width:30px;position: absolute;margin-left: 200px;margin-top: 20px;" onclick="OnClickLingJianCharacteristic_NobelTech(0)">孔</div>
-					<div class="smallbutton" style="width:30px;position: absolute;margin-left: 200px;margin-top: 20px;" onclick="OnClickLingJianCharacteristic_NobelTech(0)">关闭</div>
-					<section class="demo clearfix">
+				<div id="EditSlot"  style="position: absolute;left:360px;top:20px;border-width: 1px;">
+					<div style="background-color: #009fd7;position:absolute;left: 1px;top:1px;width:1480px;height:26px;margin: 0px;padding: 0px;z-index: 0;"></div>
+					<div class="smallbutton" style="width:30px;position: absolute;left: 20px;top: 0px;" onclick="OnClickLingJianCharacteristic_NobelTech(0)">孔</div>
+					<div class="smallbutton" style="width:30px;position: absolute;left: 1420px;top: 0px;background-color: red" onclick="OnClickLingJianCharacteristic_NobelTech(0)">关闭</div>
+					<section class="demo clearfix" style="margin-top: 40px;margin-left:20px;">
 						<div id="dragslot" class="container" style="width: 1500px;">
 							<div class="slot-title bg-red border-red">零件特征库</div>
 							<div class="slot-title bg-yellow border-yellow">零件设计</div>
 							<div class="slot-title bg-green border-green">帮助设计</div>
 
-							<div class="smallbutton" style="width:30px;position: absolute;margin-left: 200px;margin-top: 20px;" onclick="OnClickLingJianCharacteristic_NobelTech(0)">外形</div>
-							<div class="smallbutton" style="width:30px;position: absolute;margin-left: 240px;margin-top: 20px;" onclick="OnClickLingJianCharacteristic_NobelTech(1)">圆</div>
-							<div class="smallbutton" style="width:30px;position: absolute;margin-left: 280px;margin-top: 20px;" onclick="OnClickLingJianCharacteristic_NobelTech(2)">孔</div>
-							<div class="smallbutton" style="width:30px;position: absolute;margin-left: 320px;margin-top: 20px;" onclick="OnClickLingJianCharacteristic_NobelTech(3)">槽</div>
-							<div class="smallbutton" style="width:50px;position: absolute;margin-left: 360px;margin-top: 20px;" onclick="OnClickLingJianCharacteristic_NobelTech(4)">坐标系</div>
+							<div id="KuFilterBtn1" class="smallbutton" style="background-color:mediumpurple;width:30px;position: absolute;margin-left: 200px;margin-top: 20px;" onclick="OnClickLingJianCharacteristic_NobelTech(0)">外形</div>
+							<div id="KuFilterBtn2" class="smallbutton" style="background-color:mediumpurple;width:30px;position: absolute;margin-left: 240px;margin-top: 20px;" onclick="OnClickLingJianCharacteristic_NobelTech(1)">圆</div>
+							<div id="KuFilterBtn3" class="smallbutton" style="background-color:mediumpurple;width:30px;position: absolute;margin-left: 280px;margin-top: 20px;" onclick="OnClickLingJianCharacteristic_NobelTech(2)">孔</div>
+							<div id="KuFilterBtn4" class="smallbutton" style="background-color:mediumpurple;width:30px;position: absolute;margin-left: 320px;margin-top: 20px;" onclick="OnClickLingJianCharacteristic_NobelTech(3)">槽</div>
+							<div id="KuFilterBtn5" class="smallbutton" style="background-color:mediumpurple;width:50px;position: absolute;margin-left: 360px;margin-top: 20px;" onclick="OnClickLingJianCharacteristic_NobelTech(4)">坐标系</div>
 
 							<div class="smallbutton" style="width:80px;position: absolute;margin-left: 600px;margin-top: 20px;" onclick="OnClickDaoJuQingDan_NobelTech()">树形目录</div>
 							<div class="smallbutton" style="width:80px;position: absolute;margin-left: 690px;margin-top: 20px;" onclick="OnClickDaoJuQingDan_NobelTech()">清楚树形目录</div>
@@ -238,7 +239,7 @@
 
 										</div>
 									</div></li>
-									<li class="slot-item"><div class="slot-handler">
+									<li class="slot-item"><li class="slot-handler">
 										<div class="slot-handler clearfix">
 											<div class="avator">
 												<img src="img/avatar3.jpg"/>
@@ -250,7 +251,7 @@
 											</div>
 
 										</div>
-
+									</li>
 								</ul>
 							</div>
 
