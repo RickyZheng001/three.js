@@ -1,0 +1,1736 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>上海锘璞金属切削技术有限公司</title>
+	<!--图标样式-->
+
+	<!--主要样式-->
+
+	<script type="text/javascript" src="./js/jquery-ui-1.10.4.custom/js/jquery-1.10.2.js"></script>
+	<script type="text/javascript" src="./js/jquery-ui-1.10.4.custom/js/jquery-ui-1.10.4.custom.min.js"></script>
+	<script type="text/javascript" src="../dat.gui-master/build/dat.gui.js"></script>
+	<link rel="stylesheet" href="../dat.gui-master/build/dat.gui.css" type="text/css">
+	<script src="../build/three.js"></script>
+	<script src="../build/three.module.js"></script>
+	<script src="../examples/js/loaders/STLLoader.js"></script>
+	<script src="../examples/js/loaders/OBJLoader.js"></script>
+	<script src="../examples/js/loaders/PLYLoader.js"></script>
+	<script src="./utils/LoadGui.js"></script>
+	<link rel="stylesheet" type="text/css" href="./css/modifyModel2Style.css" />
+	<link rel="stylesheet" type="text/css" href="css/dragslot.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" href="style.css" type="text/css" media="screen">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+	<meta http-equiv="Access-Control-Allow-Origin" content="*">
+	<meta http-equiv="pragma" content="no-cache">
+	<meta http-equiv="cache-control" content="no-cache">
+	<meta http-equiv="expires" content="0">
+	<link href="https://fonts.googleapis.com/css?family=Electrolize:400" rel="stylesheet" type="text/css">
+	<script async="" src="//www.google-analytics.com/analytics.js"></script>
+	<script type="text/javascript" src="./js/jquery-ui-1.10.4.custom/js/jquery-1.10.2.js"></script>
+	<script type="text/javascript" src="./js/jquery-ui-1.10.4.custom/js/jquery-ui-1.10.4.custom.min.js"></script>
+	<script type="text/javascript" src="../dat.gui-master/build/dat.gui.js"></script>
+	<link rel="stylesheet" href="../dat.gui-master/build/dat.gui.css" type="text/css">
+	<link rel="stylesheet" href="./js/jquery-ui-1.10.4.custom/css_smoothness/jquery-ui.css">
+	<script type="text/javascript" src="gui.js"></script>
+	<script type="text/javascript" src="config.js"></script>
+
+	<script src="../build/three.js"></script>
+	<script src="../build/three.module.js"></script>
+
+	<script src="../examples/js/controls/OrbitControls.js"></script>
+	<script src="../examples/js/QuickHull.js"></script>
+	<script src="../examples/js/geometries/ConvexGeometry.js"></script>
+	<script src="../examples/js/Detector.js"></script>
+	<script src="../examples/js/libs/stats.min.js"></script>
+	<script src="../examples/js/loaders/STLLoader.js"></script>
+	<script src="../examples/js/loaders/OBJLoader.js"></script>
+	<script src="../examples/js/loaders/PLYLoader.js"></script>
+
+	<script src="./utils/LoadGui.js"></script>
+	<script type="text/javascript" src="js/dragslot.js"></script>
+
+	<script type="text/javascript">
+        $(function (){
+            return;
+            $('.tree li:has(ul)').addClass('parent_li').find(' > span').attr('title', 'Collapse this branch');
+            $('.tree li.parent_li > span').on('click', function (e) {
+                var children = $(this).parent('li.parent_li').find(' > ul > li');
+
+                var a = $(this).attr('id');
+                // if($(this).attr('id') == "menuitem")
+                {
+                    // return;
+                }
+
+                if (children.is(":visible")) {
+                    children.hide('fast');
+                    $(this).attr('title', 'Expand this branch').find(' > i').addClass('icon-plus-sign').removeClass('icon-minus-sign');
+                }
+                else
+                {
+                    children.show('fast');
+                    $(this).attr('title', 'Collapse this branch').find(' > i').addClass('icon-minus-sign').removeClass('icon-plus-sign');
+                }
+
+                e.stopPropagation();
+            });
+
+        });
+	</script>
+</head>
+
+<body class="unselectable">
+
+<div id="myMenu_General2" style="visibility: hidden;position: absolute;border: 1px;background-color: #ffffff;background: #ffffff;z-index: 99;width: 200px;">
+	<div id="menuitem" class="contextBtn" style="z-index: 100;" onclick="OnClickAddNewNode('myMenu_General2')">新增</div>
+	<div id="menuitem" class="contextBtn" style="z-index: 100;" onclick="OnClickRemoveCurNode()">删除</div>
+	<div id="menuitem" class="contextBtn" style="z-index: 100;" onclick="CopyNode('myMenu')">编辑</div>
+	<div id="menuitem" class="contextBtn" style="z-index: 100;" onclick="OnClickCopyCurNode()">拷贝</div>
+	<div id="menuitem" class="contextBtn" style="z-index: 100;" onclick="OnClickParseCurNode()">粘贴</div>
+	<div id="menuitem" class="contextBtn" style="z-index: 100;" onclick="OnClickMove('myMenu_General2')">移动</div>
+</div>
+<div id="myMenu_root" style="visibility: hidden;position: absolute;border: 1px;background-color: #ffffff;background: #ffffff;z-index: 99;width: 200px;">
+	<div id="menuitem" class="contextBtn" style="z-index: 100;" onclick="OnClickAddNewNode('myMenu_root')">增加</div>
+	<div id="menuitem" class="contextBtn" style="z-index: 100;" onclick="RemoveNode('myMenu')">编辑</div>
+	<div id="menuitem" class="contextBtn" style="z-index: 100;" onclick="CopyNode('myMenu')">更新</div>
+	<div id="menuitem" class="contextBtn" style="z-index: 100;" onclick="PasteNode('myMenu')">最终审核固化</div>
+	<div id="menuitem" class="contextBtn" style="z-index: 100;" onclick="PasteNode('myMenu')">撤销审核固化</div>
+	<div id="menuitem" class="contextBtn" style="z-index: 100;" onclick="PasteNode('myMenu')">零件特征清零</div>
+	<div id="menuitem" class="contextBtn" style="z-index: 100;" onclick="PasteNode('myMenu')">零件特征3D显示</div>
+	<div id="menuitem" class="contextBtn" style="z-index: 100;" onclick="PasteNode('myMenu')">零件特征图纸显示</div>
+</div>
+<div id="myMenu_addDetail" style="visibility: hidden;position: absolute;border: 1px;background-color: #ffffff;background: #ffffff;z-index: 99;width: 200px;">
+	<div id="menuitem" class="contextBtn" style="z-index: 100;" onclick="AddNewNode(0)">面</div>
+	<div id="menuitem" class="contextBtn" style="z-index: 100;" onclick="AddNewNode(1)">孔</div>
+	<div id="menuitem" class="contextBtn" style="z-index: 100;" onclick="AddNewNode(2)">倒角</div>
+	<div id="menuitem" class="contextBtn" style="z-index: 100;" onclick="AddNewNode(3)">槽</div>
+	<div id="menuitem" class="contextBtn" style="z-index: 100;" onclick="AddNewNode(4)">锥面</div>
+</div>
+<div id="myMenu_General" style="visibility: hidden;position: absolute;border: 1px;background-color: #ffffff;background: #ffffff;z-index: 99;width:200px;">
+	<div id="menuitem" class="contextBtn" style="z-index: 100;" onclick="AddNewNode('myMenu')">编辑</div>
+	<div id="menuitem" class="contextBtn" style="z-index: 100;" onclick="OnClickRemoveCurNode()">删除</div>
+</div>
+<div id="myMenu_MoveDetail" style="visibility: hidden;position: absolute;border: 1px;background-color: #ffffff;background: #ffffff;z-index: 99;width: 200px;">
+	<div id="menuitem" class="contextBtn" style="z-index: 100;" onclick="OnClickMoveUp()">上移</div>
+	<div id="menuitem" class="contextBtn" style="z-index: 100;" onclick="OnClickMoveDown()">下移</div>
+</div>
+<div id="content">
+	<div class="centeredDiv">
+		<div class="header">
+			<div><img src="./images/EdgeWinLogo_2.png" width="159px" style="margin-left: 20px;"></div>
+			<div><img src="./images/ZNGY_SearchLogo.png" width="159px" style="position: absolute;margin-left: 35%;margin-top:-12px;width: 388px;height:69px; "></div>
+			<div class="menu">
+				<ul class="menu">
+				</ul>
+			</div>
+			<div class="menu2">
+				<ul class="menu2">
+					<li>
+						<a color="#ffffff">账单查询</a>
+					</li>
+					<li>
+						<a>返回首页</a>
+					</li>
+					<li>
+						<a>退出</a>
+					</li>
+				</ul>
+			</div>
+			<ul class="info">
+				<li id="loginOrLogout" class="info"><a class="info" href="/shop/login.php">login</a></li>
+				<li id="myAccount" class="info" style="display:none;"><a class="info" href="/shop/account.php">my account</a></li>
+				<li id="cartLabel" class="info"><a class="info" href="/shop/shopping_cart.php">cart:</a>
+					<span id="cartContents" style="font-size:9px">
+						 0 items						 </span>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div class="app">
+		<div>
+			<img src="./img/JinDuTiaoGreen.png" style="position: absolute;margin-left: 6px;margin-top: 50px;z-index: 50;">
+			<img src="./img/JinDuTiaoGreen.png" style="position: absolute;margin-left: 6px;margin-top: 170px;z-index: 50;">
+			<img src="./img/JinDuTiaoGreen.png" style="position: absolute;margin-left: 6px;margin-top: 290px;z-index: 50;">
+			<img src="./img/JinDuTiaoGreen.png" style="position: absolute;margin-left: 6px;margin-top: 410px;z-index: 50;">
+			<img src="./img/JinDuTiaoGreen.png" style="position: absolute;margin-left: 6px;margin-top: 530px;z-index: 50;">
+
+			<img src="./img/JinDuTiaoCycleGreen.png" style="position: absolute;margin-left: 2px;margin-top: 50px;z-index: 50;">
+			<img src="./img/JinDuTiaoCycleGreen.png" style="position: absolute;margin-left: 2px;margin-top: 210px;z-index: 50;">
+			<img src="./img/JinDuTiaoCycleGreen.png" style="position: absolute;margin-left: 2px;margin-top: 350px;z-index: 50;">
+			<img src="./img/JinDuTiaoCycleGreen.png" style="position: absolute;margin-left: 2px;margin-top: 490px;z-index: 50;">
+			<img src="./img/JinDuTiaoCycleGreen.png" style="position: absolute;margin-left: 2px;margin-top: 630px;z-index: 50;">
+
+			<div style="position: absolute; margin-left:15px;margin-top: 50px;z-index: 50;font-size: smaller">零件图</div>
+			<div style="position: absolute; margin-left:15px;margin-top: 210px;z-index: 50;font-size: smaller">工序图</div>
+			<div style="position: absolute; margin-left:15px;margin-top: 350px;z-index: 50;font-size: smaller">工步图</div>
+			<div style="position: absolute; margin-left:15px;margin-top: 490px;z-index: 50;font-size: smaller">加工示意图</div>
+			<div style="position: absolute; margin-left:15px;margin-top: 630px;z-index: 50;font-size: smaller">刀具清单</div>
+		</div>
+		<!-- facebook like button stuff -->
+		<div id="fb-root"></div>
+		<!-- end facebook stuff -->
+		<div class="appTitle">
+			<div>
+				<div class="appName" style="position: absolute;margin-left: 60px;margin-top: 0px;font-size: xx-large">特征(加工中心)</div>
+				<div class="appName2" style="position: absolute;margin-left: 50px;margin-top: 60px;width:200px;font-size: 22px;height:30px;">孔</div>
+				<div class="appName2" style="position: absolute;margin-left: 10px;margin-top: 110px;width:150px;font-size: 16px;">工艺方案选择</div>
+				<select id="FangAnComboBox" style="position: absolute;margin-left: 180px;margin-top: 110px;width:116px;height:22px;font-size: 10px;" onchange="">
+					<option value ="0">A</option>
+					<option value ="1">B</option>
+				</select>
+				<div id="myUI" class="tree well" style="border-width: 0px; position: absolute;margin-left: 20px;margin-top: 140px;background: rgba(255,255,255,0.5);overflow:scroll;width:250px;height:660px;">
+				</div>
+			</div>
+		</div>
+		<div id="canvas">
+			<div id="gameCanvas" width="1920px" height="1080px">
+				<div id="EditSlot"  style="position: absolute;left:360px;top:50px;">
+					<div class="smallbutton" style="width:30px;position: absolute;margin-left: 200px;margin-top: 20px;" onclick="OnClickLingJianCharacteristic_NobelTech(0)">孔</div>
+					<div class="smallbutton" style="width:30px;position: absolute;margin-left: 200px;margin-top: 20px;" onclick="OnClickLingJianCharacteristic_NobelTech(0)">关闭</div>
+					<section class="demo clearfix">
+						<div id="dragslot" class="container" style="width: 1500px;">
+							<div class="slot-title bg-red border-red">零件特征库</div>
+							<div class="slot-title bg-yellow border-yellow">零件设计</div>
+							<div class="slot-title bg-green border-green">帮助设计</div>
+
+							<div class="smallbutton" style="width:30px;position: absolute;margin-left: 200px;margin-top: 20px;" onclick="OnClickLingJianCharacteristic_NobelTech(0)">外形</div>
+							<div class="smallbutton" style="width:30px;position: absolute;margin-left: 240px;margin-top: 20px;" onclick="OnClickLingJianCharacteristic_NobelTech(1)">圆</div>
+							<div class="smallbutton" style="width:30px;position: absolute;margin-left: 280px;margin-top: 20px;" onclick="OnClickLingJianCharacteristic_NobelTech(2)">孔</div>
+							<div class="smallbutton" style="width:30px;position: absolute;margin-left: 320px;margin-top: 20px;" onclick="OnClickLingJianCharacteristic_NobelTech(3)">槽</div>
+							<div class="smallbutton" style="width:50px;position: absolute;margin-left: 360px;margin-top: 20px;" onclick="OnClickLingJianCharacteristic_NobelTech(4)">坐标系</div>
+
+							<div class="smallbutton" style="width:80px;position: absolute;margin-left: 600px;margin-top: 20px;" onclick="OnClickDaoJuQingDan_NobelTech()">树形目录</div>
+							<div class="smallbutton" style="width:80px;position: absolute;margin-left: 690px;margin-top: 20px;" onclick="OnClickDaoJuQingDan_NobelTech()">清楚树形目录</div>
+							<div class="smallbutton" style="width:80px;position: absolute;margin-left: 780px;margin-top: 20px;" onclick="OnClickDaoJuQingDan_NobelTech()">更新三维</div>
+							<div class="smallbutton" style="width:80px;position: absolute;margin-left: 870px;margin-top: 20px;" onclick="OnClickDaoJuQingDan_NobelTech()">更新二维</div>
+
+							<div class="smallbutton" style="position: absolute;margin-left: 340px;margin-top: -20px;" onclick="RemoveAllZuHe()">全部清除</div>
+
+							<div class="smallbutton" style="width:50px;position: absolute;margin-left: 1200px;margin-top: 20px;" onclick="OnClickDaoJuQingDan_NobelTech()">帮助</div>
+							<div class="smallbutton" style="width:50px;position: absolute;margin-left: 1260px;margin-top: 20px;" onclick="OnClickDaoJuQingDan_NobelTech()">清空</div>
+							<div class="smallbutton" style="width:50px;position: absolute;margin-left: 1320px;margin-top: 20px;" onclick="OnClickDaoJuQingDan_NobelTech()">确认</div>
+
+
+							<div class="slot border-red">
+								<ul id="KuContainer" class="slot-list">
+									<li class="slot-item" id="a"><div class="slot-handler clearfix">
+										<div class="avator">
+											<img src="img/avatar1.jpg"/>
+										</div>
+										<div class="content">
+											<div class="item-title">外形和面(铣)</div>
+
+											<p>finish ui design of dashboard page</p>
+										</div>
+
+									</div></li>
+									<li class="slot-item"><div class="slot-handler">
+										<div class="slot-handler clearfix">
+											<div class="avator">
+												<img src="img/avatar2.jpg"/>
+											</div>
+											<div class="content">
+												<div class="item-title">孔(铣)</div>
+												<p>Fix bugs of demo page</p>
+											</div>
+
+										</div>
+									</div></li>
+									<li class="slot-item"><div class="slot-handler">
+										<div class="slot-handler clearfix">
+											<div class="avator">
+												<img src="img/avatar3.jpg"/>
+											</div>
+											<div class="content">
+												<div class="item-title">槽(铣)</div>
+
+												<p>implement list item drop function</p>
+											</div>
+
+										</div>
+
+								</ul>
+							</div>
+
+							<div class="slot border-yellow">
+								<ul id="LingJianDesign" class="slot-list">
+									<li class="slot-item"><div class="slot-handler">
+										<div class="slot-handler clearfix">
+											<div class="avator">
+												<img src="img/avatar5.jpg"/>
+											</div>
+											<div class="content">
+												<div class="item-title">倒角(铣)</div>
+
+												<p>design the area filter ui</p>
+											</div>
+
+										</div>
+									</div></li>
+									<li class="slot-item"><div class="slot-handler">
+										<div class="slot-handler clearfix">
+											<div class="avator">
+												<img src="img/avatar6.jpg"/>
+											</div>
+											<div class="content">
+												<div class="item-title">孔(铣)</div>
+
+												<p>implement sort of list data</p>
+											</div>
+
+										</div>
+									</div>
+								</ul>
+							</div>
+
+							<div class="slot border-green">
+								<ul id="ParamDesign"class="slot-list">
+									</li>
+									<li class="slot-item"><div class="slot-handler">
+										<div class="slot-handler clearfix">
+											<div class="avator">
+												<img src="img/avatar4.jpg"/>
+											</div>
+											<div class="content">
+												<div class="item-title">外形和面(铣)</div>
+
+												<p>design the Carousel with Teddy bear pictures</p>
+											</div>
+
+										</div>
+									</div></li>
+								</ul>
+							</div>
+						</div>
+					</section>
+				</div>
+			</div>
+			<canvas id="myCanvas" width="500" height="150" style="position: absolute;left: 40%;top: 40px;visibility: hidden">Your browser does not have support for canvas.</canvas>
+			<div id="SearchTable" style="visibility: hidden;position: absolute;left:330px;top:100px;width:100%;height:100%;max-width:400px;max-height:200px;overflow-y: auto;z-index: 100;" draggable="true">
+				<table class="editableTable" border="0" style="position: absolute;left: 300px;top: 200px;overflow:scroll;width: 800px;">
+					<tr class="editable simpleInput">
+						<th style="width: 60px;">清单列表</th>
+						<th style="width: 60px;">显示三维</th>
+						<th style="width: 60px;">显示图纸</th>
+					</tr>
+					<tr class="editable simpleInput">
+						<td>T1</td>
+						<td>
+							<div class="smallbutton" style="position: absolute;width: 30px;margin-left: 14px;margin-top: -9px;padding-left: 0px;padding-top: 0px;" onclick="DisplayTuZhi()">更新</div>
+						</td>
+						<td>
+							<div class="smallbutton" style="position: absolute;width: 30px;margin-left: 14px;margin-top: -9px;padding-left: 0px;padding-top: 0px;" onclick="DisplayTuZhi()">更新</div>
+						</td>
+					</tr>
+					<tr class="editable simpleInput">
+						<td>T2</td>
+						<td>
+							<div class="smallbutton" style="position: absolute;width: 30px;margin-left: 14px;margin-top: -9px;padding-left: 0px;padding-top: 0px;" onclick="DisplayTuZhi()">更新</div>
+						</td>
+						<td>
+							<div class="smallbutton" style="position: absolute;width: 30px;margin-left: 14px;margin-top: -9px;padding-left: 0px;padding-top: 0px;" onclick="DisplayTuZhi()">更新</div>
+						</td>
+					</tr>
+					<tr class="editable simpleInput">
+						<td>T3</td>
+						<td>
+							<div class="smallbutton" style="position: absolute;width: 30px;margin-left: 14px;margin-top: -9px;padding-left: 0px;padding-top: 0px;" onclick="DisplayTuZhi()">更新</div>
+						</td>
+						<td>
+							<div class="smallbutton" style="position: absolute;width: 30px;margin-left: 14px;margin-top: -9px;padding-left: 0px;padding-top: 0px;" onclick="DisplayTuZhi()">更新</div>
+						</td>
+					</tr>
+				</table>
+			</div>
+
+			<div id="ModelGenerateProgressBar" style="visibility: hidden;position: absolute" left="200px" top="200px" ></div>
+
+			<div id="toolBoxTuZhi" class="toolBox" style="visibility: hidden">
+				<div class="section section_material">
+					<div class="appLabel">二维工程图下载</div>
+					<div class="button" onclick="">PDF</div>
+					<div class="button" onclick="">DWG</div>
+					<div class="button" onclick="">打包下载</div>
+				</div>
+
+				<div class="nervousLogo noSel">
+					<img src="images/EdgeWinLogo_3.png">
+				</div>
+			</div>
+			<div id="toolBox3D" class="toolBox2">
+				<div class="section section_sculpt">
+					<div class="appLabel">视图</div>
+					<div class="panel">
+						<div class="smallbutton" style="width:60px;" onclick="activateButton('zhouCeView');">轴测图</div>
+						<div class="smallbutton" style="width:60px;" onclick="activateButton('mainView');">主视图</div>
+						<div class="smallbutton" style="width:60px;" onclick="activateButton('backView');">后视图</div>
+						<div class="smallbutton" style="width:60px;" onclick="activateButton('leftView');">左视图</div>
+						<div class="smallbutton" style="width:60px;" onclick="activateButton('rightView');">右视图</div>
+						<div class="smallbutton" style="width:60px;" onclick="activateButton('topView');">俯视图</div>
+						<div class="smallbutton" style="width:60px;" onclick="activateButton('bottomView');">仰视图</div>
+					</div>
+				</div>
+				<div class="section section_jizhunxianshi">
+					<div class="appLabel">基准</div>
+					<div class="smallbutton" onclick="OnClickDisplayZuoBiaoZhou();">坐标轴</div>
+					<div class="smallbutton" onclick="OnClickDisplayXZPlane();">xz平面</div>
+					<div class="smallbutton" onclick="OnClickDisplayYZPlane();">yz平面</div>
+					<div class="smallbutton" onclick="OnClickDisplayXYPlane();">xy平面</div>
+				</div>
+				<div class="section section_material">
+					<div class="appLabel">下载</div>
+					<div class="button" onclick="">加工节拍</div>
+					<div class="button" onclick="">加工示意图</div>
+				</div>
+				<div class="section section_material">
+					<div class="appLabel">价格</div>
+					<div style="width:80px;height:28px;margin-top: 4px;font-size: 14px;">100.00元</div>
+				</div>
+				<div class="section section_display">
+					<div class="appLabel">显示</div>
+					<div class="smallbutton" style="width:90px;position:absolute;margin-left: 0px;margin-top: 10px;" onclick="OnClickUpdate3dModel_NobelTech()">更新显示三维</div>
+					<select id="Update3dModelComboBox" style="position: absolute;margin-left: 105px;margin-top: 10px;width:94px;height:26px;font-size: 12px;" onchange="OnJiaChiJieGouSelectionChanged()">
+						<option value ="0">零件</option>
+						<option value ="1">工步(总)</option>
+					</select>
+					<div class="smallbutton" style="width:90px;position: absolute;margin-left: 0px;margin-top: 40px;" onclick="OnClickUpdateTuZhi_NobelTech()">更新显示图纸</div>
+					<select id="UpdateTuZhiComboBox" style="position: absolute;margin-left: 105px;margin-top: 40px;width:94px;height:26px;font-size: 12px;" onchange="OnJiaChiJieGouSelectionChanged()">
+						<option value ="0">零件</option>
+						<option value ="1">工步(总)</option>
+					</select>
+					<div class="smallbutton" style="width:90px;position: absolute;margin-left: 0px;margin-top: 70px;" onclick="OnClickJiaGongJiePai_NobelTech()">加工节拍</div>
+					<div class="smallbutton" style="width:90px;position: absolute;margin-left: 105px;margin-top: 70px;" onclick="OnClickDaoJuQingDan_NobelTech()">刀具清单</div>
+				</div>
+
+				<div class="nervousLogo noSel">
+					<img src="images/EdgeWinLogo_3.png">
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script>
+    //initBindGridEvent();
+
+    var progressBar = {};
+    var progress = 0;
+    var contextProgress = null;
+    var progressTimer = null;
+    progressBar.total_width = 300;
+    progressBar.total_height = 34;
+    progressBar.initial_x = 20;
+    progressBar.initial_y = 20;
+    progressBar.radius = progressBar.total_height * 0.5;
+    window.onload = function() {
+        var elem = document.getElementById('myCanvas');
+        if (!elem || !elem.getContext) {
+            return;
+        }
+
+        contextProgress = elem.getContext('2d');
+        if (!contextProgress) {
+            return;
+        }
+
+        // set font
+        contextProgress.font = "16px Verdana";
+
+        // Blue gradient for progress bar
+        var progress_lingrad = contextProgress.createLinearGradient(0,progressBar.initial_y + progressBar.total_height,0,0);
+        progress_lingrad.addColorStop(0, '#4DA4F3');
+        progress_lingrad.addColorStop(0.4, '#ADD9FF');
+        progress_lingrad.addColorStop(1, '#9ED1FF');
+        contextProgress.fillStyle = progress_lingrad;
+
+        updateProgress(0);
+    }
+
+    function onUpdateProgress()
+    {
+        progress += 0.003;
+        updateProgress(progress);
+    }
+    function updateProgress(progress) {
+        if(progress >= 0.99)
+        {
+            progress = 0.99;
+        }
+
+        var x = progress * progressBar.total_width;
+        // Clear everything before drawing
+        contextProgress.clearRect(progressBar.initial_x - 5,progressBar.initial_y - 5,progressBar.total_width + 15,progressBar.total_height + 15);
+        progressLayerRect(contextProgress, progressBar.initial_x, progressBar.initial_y, progressBar.total_width, progressBar.total_height, progressBar.radius);
+        progressBarRect(contextProgress, progressBar.initial_x, progressBar.initial_y, x, progressBar.total_height, progressBar.radius, progressBar.total_width);
+        progressText(contextProgress, progressBar.initial_x, progressBar.initial_y, x, progressBar.total_height, progressBar.radius, progressBar.total_width );
+    }
+
+    /**
+     * Draws a rounded rectangle.
+     * @param {CanvasContext} ctx
+     * @param {Number} x The top left x coordinate
+     * @param {Number} y The top left y coordinate
+     * @param {Number} width The width of the rectangle
+     * @param {Number} height The height of the rectangle
+     * @param {Number} radius The corner radius;
+     */
+    function roundRect(ctx, x, y, width, height, radius) {
+        ctx.beginPath();
+        ctx.moveTo(x + radius, y);
+        ctx.lineTo(x + width - radius, y);
+        ctx.arc(x+width-radius, y+radius, radius, -Math.PI/2, Math.PI/2, false);
+        ctx.lineTo(x + radius, y + height);
+        ctx.arc(x+radius, y+radius, radius, Math.PI/2, 3 * Math.PI/2, false);
+        ctx.closePath();
+        ctx.fill();
+    }
+
+    /**
+     * Draws a rounded rectangle.
+     * @param {CanvasContext} ctx
+     * @param {Number} x The top left x coordinate
+     * @param {Number} y The top left y coordinate
+     * @param {Number} width The width of the rectangle
+     * @param {Number} height The height of the rectangle
+     * @param {Number} radius The corner radius;
+     */
+    function roundInsetRect(ctx, x, y, width, height, radius) {
+        ctx.beginPath();
+        // Draw huge anti-clockwise box
+        ctx.moveTo(1000, 1000);
+        ctx.lineTo(1000, -1000);
+        ctx.lineTo(-1000, -1000);
+        ctx.lineTo(-1000, 1000);
+        ctx.lineTo(1000, 1000);
+        ctx.moveTo(x + radius, y);
+        ctx.lineTo(x + width - radius, y);
+        ctx.arc(x+width-radius, y+radius, radius, -Math.PI/2, Math.PI/2, false);
+        ctx.lineTo(x + radius, y + height);
+        ctx.arc(x+radius, y+radius, radius, Math.PI/2, 3*Math.PI/2, false);
+        ctx.closePath();
+        ctx.fill();
+    }
+
+    function progressLayerRect(ctx, x, y, width, height, radius) {
+        ctx.save();
+        // Set shadows to make some depth
+        ctx.shadowOffsetX = 2;
+        ctx.shadowOffsetY = 2;
+        ctx.shadowBlur = 5;
+        ctx.shadowColor = '#666';
+
+        // Create initial grey layer
+        ctx.fillStyle = 'rgba(189,189,189,1)';
+        roundRect(ctx, x, y, width, height, radius);
+
+        // Overlay with gradient
+        ctx.shadowColor = 'rgba(0,0,0,0)'
+        var lingrad = ctx.createLinearGradient(0,y+height,0,0);
+        lingrad.addColorStop(0, 'rgba(255,255,255, 0.1)');
+        lingrad.addColorStop(0.4, 'rgba(255,255,255, 0.7)');
+        lingrad.addColorStop(1, 'rgba(255,255,255,0.4)');
+        ctx.fillStyle = lingrad;
+        roundRect(ctx, x, y, width, height, radius);
+
+        ctx.fillStyle = 'white';
+        //roundInsetRect(ctx, x, y, width, height, radius);
+
+        ctx.restore();
+    }
+    /**
+     * Draws a half-rounded progress bar to properly fill rounded under-layer
+     * @param {CanvasContext} ctx
+     * @param {Number} x The top left x coordinate
+     * @param {Number} y The top left y coordinate
+     * @param {Number} width The width of the bar
+     * @param {Number} height The height of the bar
+     * @param {Number} radius The corner radius;
+     * @param {Number} max The under-layer total width;
+     */
+    function progressBarRect(ctx, x, y, width, height, radius, max) {
+        // var to store offset for proper filling when inside rounded area
+        var offset = 0;
+        ctx.beginPath();
+        if (width<radius) {
+            offset = radius - Math.sqrt(Math.pow(radius,2)-Math.pow((radius-width),2));
+            ctx.moveTo(x + width, y+offset);
+            ctx.lineTo(x + width, y+height-offset);
+            ctx.arc(x + radius, y + radius, radius, Math.PI - Math.acos((radius - width) / radius), Math.PI + Math.acos((radius - width) / radius), false);
+        }
+        else if (width+radius>max) {
+            offset = radius - Math.sqrt(Math.pow(radius,2)-Math.pow((radius - (max-width)),2));
+            ctx.moveTo(x + radius, y);
+            ctx.lineTo(x + width, y);
+            ctx.arc(x+max-radius, y + radius, radius, -Math.PI/2, -Math.acos((radius - (max-width)) / radius), false);
+            ctx.lineTo(x + width, y+height-offset);
+            ctx.arc(x+max-radius, y + radius, radius, Math.acos((radius - (max-width)) / radius), Math.PI/2, false);
+            ctx.lineTo(x + radius, y + height);
+            ctx.arc(x+radius, y+radius, radius, Math.PI/2, 3*Math.PI/2, false);
+        }
+        else {
+            ctx.moveTo(x + radius, y);
+            ctx.lineTo(x + width, y);
+            ctx.lineTo(x + width, y + height);
+            ctx.lineTo(x + radius, y + height);
+            ctx.arc(x+radius, y+radius, radius, Math.PI/2, 3*Math.PI/2, false);
+        }
+        ctx.closePath();
+        ctx.fill();
+
+        // draw progress bar right border shadow
+        if (width<max-1) {
+            ctx.save();
+            ctx.shadowOffsetX = 1;
+            ctx.shadowBlur = 1;
+            ctx.shadowColor = '#666';
+            if (width+radius>max)
+                offset = offset+1;
+            ctx.fillRect(x +width,y+offset,1,progressBar.total_height-offset*2);
+            ctx.restore();
+        }
+    }
+
+    /**
+     * Draws properly-positioned progress bar percent text
+     * @param {CanvasContext} ctx
+     * @param {Number} x The top left x coordinate
+     * @param {Number} y The top left y coordinate
+     * @param {Number} width The width of the bar
+     * @param {Number} height The height of the bar
+     * @param {Number} radius The corner radius;
+     * @param {Number} max The under-layer total width;
+     */
+    function progressText(ctx, x, y, width, height, radius, max) {
+        ctx.save();
+        ctx.fillStyle = 'white';
+        var text = Math.floor(width/max*100)+"%";
+        var text_width = ctx.measureText(text).width;
+        var text_x = x+width-text_width-radius/2;
+        if (width<=radius+text_width) {
+            text_x = x+radius/2;
+        }
+        ctx.fillText(text, text_x, y+22);
+        ctx.restore();
+    }
+
+
+    function AddAxisArrowHelper(scene)
+    {
+        var Xdir = new THREE.Vector3(1,0,0);
+        var Ydir = new THREE.Vector3(0,1,0);
+        var Zdir = new THREE.Vector3(0,0,1);
+
+        //确定原点，箭头长度，和箭头颜色，三个箭头同一设置
+        var origin = new THREE.Vector3(0,0,0);
+        var length = 2000;
+        var color = 0xffff00;
+
+        //建立三个方向上箭头辅助
+        var YarrowHelper = new THREE.ArrowHelper(Ydir,origin,length,0xff0000);
+        var ZarrowHelper = new THREE.ArrowHelper(Zdir,origin,length,0x0000ff);
+        var XarrowHelper = new THREE.ArrowHelper(Xdir,origin,length,0x00ff00);
+        //把箭头辅助加入 场景
+        scene.add(YarrowHelper);
+        scene.add(ZarrowHelper);
+        scene.add(XarrowHelper);
+    }
+
+    if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
+
+    var container;
+    var modelArray = new Array();
+    var camera, scene, renderer;
+    var orbitControls;
+    var modelNode;
+    var xzPlane,xyPlane,yzPlane;
+    var axisHelper;
+    var lastModelColor;
+    var menuObj = {};
+    var searchMenuObj = {};
+    var zuanTouSearchMenuObj = {};
+    var textureCube;
+    var reflectMaterial;
+    var m_globalGui = null;
+    var m_globalGuiJsonObj = null;
+    var m_globalFuncUpdateModel = null;
+    var m_globalHandleSearchGui = null;
+    var m_globalHandleSearchJsonObj = null;
+    var m_globalDaoBinSearchJsonResult = null;
+    var m_globalZuanTouSearchJsonResult = null;
+    var m_globalTuZhiSearchGui = null;
+    var m_globalTuZhiSearchJsonObj = null;
+    var m_globalJiaGongJiePaiSearchJsonResult = null;
+    var m_bYanChangGanBtnIsDisable = true;
+    var mouseX = 0, mouseY = 0;
+
+    var windowHalfX = window.innerWidth / 2;
+    var windowHalfY = window.innerHeight / 2;
+
+    function OnClickDisplayZuoBiaoZhou()
+    {
+        menuObj["显示坐标轴"] = !menuObj["显示坐标轴"];
+    }
+    function OnClickDisplayXYPlane()
+    {
+        menuObj["显示xy平面"] = !menuObj["显示xy平面"];
+    }
+    function OnClickDisplayYZPlane()
+    {
+        menuObj["显示yz平面"] = !menuObj["显示yz平面"];
+    }
+    function OnClickDisplayXZPlane()
+    {
+        menuObj["显示xz平面"] = !menuObj["显示xz平面"];
+    }
+    function OnClickUpdateModel()
+    {
+        menuObj["更新模型"]();
+    }
+    function CloseAllTab()
+    {
+        LoadGUIByConfig();
+
+    }
+    function OnClickDownloadObj()
+    {
+
+    }
+    function OnClickDownloadStp()
+    {
+
+    }
+    function OnClickDownloadAllModel()
+    {
+
+    }
+    function OnClickDownloadPdf()
+    {
+
+    }
+    function IsAccessibleToDownload()
+    {
+
+    }
+
+    function onClickUpdateModel(geometry,handleLength)
+    {
+        var material = null;
+        if (geometry.hasColors)
+        {
+            material = new THREE.MeshPhongMaterial({ opacity: geometry.alpha, vertexColors: THREE.VertexColors });
+        }
+        else
+        {
+            material = new THREE.MeshPhongMaterial( { color: 0xAAAAAA, specular: 0x111111, shininess: 0 } );
+        }
+
+        var mesh = new THREE.Mesh( geometry, material );
+
+        mesh.position.set(handleLength, 0, 0);
+        mesh.rotation.set( 0,0, 0 );
+        mesh.scale.set( 1,1,1 );
+
+        mesh.castShadow = true;
+        mesh.receiveShadow = true;
+
+        //object.position.y = - 95;
+        scene.add( mesh );
+        modelArray.push(mesh);
+
+        modelNode = mesh;
+    }
+    function removeAllSceneModel()
+    {
+        var i = 0;
+        for(i = 0; i < modelArray.length; i++)
+        {
+            scene.remove(modelArray[i]);
+        }
+
+        modelArray = new Array();
+    }
+    function HideProgressBar()
+    {
+        var elem = document.getElementById('myCanvas');
+        elem.style.visibility = "hidden";
+        clearInterval(progressTimer);
+    }
+    function onCallBack(response,handleLength)
+    {
+        var onProgress = function ( xhr ) {
+
+        };
+
+        var onError = function ( xhr ) {
+        };
+
+        var elem = document.getElementById('myCanvas');
+        elem.style.visibility = "hidden";
+        clearInterval(progressTimer);
+
+        removeAllSceneModel();
+
+        var jsonObj = eval('(' + response + ')');
+        var modelFileList = jsonObj.ModelFileList;
+        var pdfFile = jsonObj.PdfList;
+        var pdfCtrl = document.getElementById( 'pdfCtrl' );
+        pdfCtrl.src = globalServerAddr + pdfFile;
+
+        var i = 0;
+        var requestURL = globalServerAddr + modelFileList;
+
+        var loader = new THREE.STLLoader();
+        loader.load(requestURL, function ( geometry ){
+            onClickUpdateModel(geometry,handleLength);
+        },onProgress,onError);
+    }
+    function onUpdateMenu()
+    {
+        ReloadDesignGUI(m_globalGuiJsonObj);
+    }
+    function onSearchDaoBingCallBack(strJson)
+    {
+        var jsonObj = eval('(' + strJson + ')');
+        m_globalDaoBinSearchJsonResult = jsonObj;
+        var searchDiv = document.getElementById("SearchTable");
+        var strTableHtml = "<table class=\"editableTable\" border=\"0\" style=\"position: absolute;left: 300px;top: 200px;overflow:scroll;width: 800px;\">";
+        strTableHtml += "<tr class=\"editable simpleInput\">";
+        strTableHtml += "<th style=\"width: 60px;\">序号</th>";
+        strTableHtml += "<th style=\"width: 60px;\">ID</th>";
+        strTableHtml += "<th style=\"width: 60px;\">尾端类型</th>";
+        strTableHtml += "<th style=\"width: 60px;\">前段类型</th>";
+        strTableHtml += "<th style=\"width: 60px;\">夹持直径</th>";
+        strTableHtml += "<th style=\"width: 60px;\">有效长度</th>";
+        strTableHtml += "<th style=\"width: 60px;\">";
+        strTableHtml += "<div class=\"closebutton\" style=\"position: absolute;width: 30px;margin-left: 14px;margin-top: -9px;padding-left: 0px;padding-top: 0px;\" onclick=\"HideSearchResultPanel()\">关闭</div>";
+        strTableHtml += "</th>";
+        strTableHtml += "</tr>";
+
+        for(var i = 0; i < jsonObj.length; i++)
+        {
+            var paramList = jsonObj[i].ParamList;
+            strTableHtml += "<tr class=\"editable simpleInput\">";
+            strTableHtml += "<td>" + (i + 1) + "</td>";
+            strTableHtml += "<td>" + paramList[0].Value + "</td>";
+            strTableHtml += "<td>" + paramList[1].Value + "</td>";
+            strTableHtml += "<td>" + paramList[2].Value + "</td>";
+            strTableHtml += "<td>" + paramList[3].Value + "</td>";
+            strTableHtml += "<td>" + paramList[4].Value + "</td>";
+            strTableHtml += "<td>" + "<div class=\"smallbutton\" style=\"position: absolute;width: 30px;margin-left: 14px;margin-top: -9px;padding-left: 0px;padding-top: 0px;\" onclick=\"OnZuZhuang(" + i + ",onCallBack)\">更新</div>" + "</td>";
+            strTableHtml += "</tr>";
+        }
+        strTableHtml += "</table>";
+
+        searchDiv.innerHTML = strTableHtml;
+
+        HideProgressBar();
+        var divElement = document.getElementById("SearchTable");
+        divElement.style.visibility = "visible";
+    }
+    function onSearchZuanTouCallBack(strJson)
+    {
+        var jsonObj = eval('(' + strJson + ')');
+        m_globalZuanTouSearchJsonResult = jsonObj;
+        var searchDiv = document.getElementById("SearchTable");
+        var strTableHtml = "<table class=\"editableTable\" border=\"0\" style=\"position: absolute;left: 300px;top: 200px;overflow:scroll;width: 800px;\">";
+        strTableHtml += "<tr class=\"editable simpleInput\">";
+        strTableHtml += "<th style=\"width: 60px;\">序号</th>";
+        strTableHtml += "<th style=\"width: 60px;\">名称</th>";
+        strTableHtml += "<th style=\"width: 60px;\">总长</th>";
+        strTableHtml += "<th style=\"width: 60px;\">工作长度</th>";
+        strTableHtml += "<th style=\"width: 60px;\">直径</th>";
+        strTableHtml += "<th style=\"width: 60px;\">";
+        strTableHtml += "<div class=\"closebutton\" style=\"position: absolute;width: 30px;margin-left: 14px;margin-top: -9px;padding-left: 0px;padding-top: 0px;\" onclick=\"HideSearchResultPanel()\">关闭</div>";
+        strTableHtml += "</th>";
+        strTableHtml += "</tr>";
+
+        for(var i = 0; i < jsonObj.length; i++)
+        {
+            var paramList = jsonObj[i].ParamList;
+            strTableHtml += "<tr class=\"editable simpleInput\">";
+            strTableHtml += "<td>" + (i + 1) + "</td>";
+            strTableHtml += "<td>" + paramList[0].Value + "</td>";
+            strTableHtml += "<td>" + paramList[1].Value + "</td>";
+            strTableHtml += "<td>" + paramList[2].Value + "</td>";
+            strTableHtml += "<td>" + paramList[3].Value + "</td>";
+            strTableHtml += "<td>" + "<div class=\"smallbutton\" style=\"position: absolute;width: 30px;margin-left: 14px;margin-top: -9px;padding-left: 0px;padding-top: 0px;\" onclick=\"OnUpdateZuanTou(" + i +",onCallBack)\">更新</div>" + "</td>";
+            strTableHtml += "</tr>";
+        }
+        strTableHtml += "</table>";
+
+        searchDiv.innerHTML = strTableHtml;
+
+        HideProgressBar();
+        var divElement = document.getElementById("SearchTable");
+        divElement.style.visibility = "visible";
+    }
+    function onClickUpdateCallBack()
+    {
+        //这里显示进度条，并且把界面封印起来
+        progress = 0;
+
+        var elem = document.getElementById('myCanvas');
+        elem.style.visibility = "visible";
+
+        progressTimer = setInterval(onUpdateProgress,100);
+    }
+
+    LoadZuanTouSearchGUI("config/zuantou_search_menu_1.json",zuanTouSearchMenuObj,onSearchZuanTouCallBack);
+    LoadHandleSearchGUI("config/handle_config_1.json",searchMenuObj,onSearchDaoBingCallBack);
+    LoadDesignGUI("config/config.json",onCallBack,menuObj,onClickUpdateCallBack,onUpdateMenu);
+
+    init();
+    animate();
+    AddDragEventToSearchTable();
+
+    function init()
+    {
+        container = document.getElementById( 'gameCanvas');
+        //container.width = 800;
+        //container.height = 600;
+        //document.body.appendChild( container );
+
+        camera = new THREE.PerspectiveCamera( 45, 1920 / 820, 0.01, 2000 );
+        camera.position.z = 260;
+        camera.position.x = 0;
+
+        // scene
+
+        scene = new THREE.Scene();
+
+        var ambientLight = new THREE.AmbientLight( 0xcccccc, 0.4 );
+        scene.add( ambientLight );
+
+        var pointLight = new THREE.PointLight( 0xffffff, 0.8 );
+        camera.add( pointLight );
+        scene.add( camera );
+
+        axisHelper = new THREE.AxisHelper(1000);
+        axisHelper.material.depthTest = false;
+        scene.add(axisHelper);
+
+        var planeGeometry = new THREE.PlaneGeometry(60,40,10,10);
+        //平面材质，基本材质是渲染不出阴影的，下面的材质可以，仅仅指定颜色
+        var planeMaterial = new THREE.MeshLambertMaterial({color:0xff00dd});
+        planeMaterial.wireframe = true;
+        //以给定的尺寸和材质构建一个平面
+        xzPlane = new THREE.Mesh(planeGeometry,planeMaterial);
+        //指定平面的旋转角度，方便观察
+        xzPlane.rotation.x = -0.5 * Math.PI;
+        //平面的位置
+        xzPlane.position.x = 0;
+        xzPlane.position.y = 0;
+        xzPlane.position.z = 0;
+        //平面加入场景
+        scene.add(xzPlane);
+
+        planeMaterial = new THREE.MeshLambertMaterial({color:0x00ffdd});
+        planeMaterial.wireframe = true;
+        yzPlane = new THREE.Mesh(planeGeometry,planeMaterial);
+        yzPlane.rotation.y = -0.5 * Math.PI;
+        yzPlane.position.x = 0;
+        yzPlane.position.y = 0;
+        yzPlane.position.z = 0;
+        scene.add(yzPlane);
+
+        planeMaterial = new THREE.MeshLambertMaterial({color:0xffdd00});
+        planeMaterial.wireframe = true;
+        xyPlane = new THREE.Mesh(planeGeometry,planeMaterial);
+        //指定平面的旋转角度，方便观察
+        xyPlane.rotation.z = -0.5 * Math.PI;
+        //平面的位置
+        xyPlane.position.x = 0;
+        xyPlane.position.y = 0;
+        xyPlane.position.z = 0;
+        //平面加入场景
+        scene.add(xyPlane);
+
+        var path = "../examples/textures/cube/skybox/";
+        var urls = [
+            path + "px.jpg", path + "nx.jpg",
+            path + "py.jpg", path + "ny.jpg",
+            path + "pz.jpg", path + "nz.jpg"
+        ];
+
+        textureCube = new THREE.CubeTextureLoader().load( urls );
+        reflectMaterial = new THREE.MeshPhongMaterial( { color: 0xe4e4e4, envMap: textureCube, side: THREE.DoubleSide } );
+
+        //AddAxisArrowHelper(scene);
+
+        // texture
+
+        var manager = new THREE.LoadingManager();
+        manager.onProgress = function ( item, loaded, total ) {
+
+            console.log( item, loaded, total );
+
+        };
+
+        // model
+
+        var onProgress = function ( xhr ) {
+            if ( xhr.lengthComputable ) {
+                var percentComplete = xhr.loaded / xhr.total * 100;
+                console.log( Math.round(percentComplete, 2) + '% downloaded' );
+            }
+        };
+
+        var onError = function ( xhr ) {
+        };
+
+        //var loader = new THREE.OBJLoader( manager );
+        //var loader = new THREE.PLYLoader();
+        var material = new THREE.MeshPhongMaterial( { color: 0xAAAAAA, specular: 0x111111, shininess: 200 } );
+        var loader = new THREE.STLLoader();
+        //loader.load( 'obj/male02/male02.obj', function ( object ) {
+        loader.load( 'obj/test/EDGE_NOBELTEC.stl', function ( geometry ){
+            //loader.load( 'http://localhost:1337', function ( geometry ) {
+            onClickUpdateModel(geometry,0);
+        }, onProgress, onError );
+
+        //
+
+        renderer = new THREE.WebGLRenderer({
+            antialias: true,
+            alpha: true
+        });
+        this.renderer.setClearColor(0x000000, 0);
+        renderer.setPixelRatio( window.devicePixelRatio );
+        renderer.setSize( 1920,820 );
+        container.appendChild( renderer.domElement );
+
+        orbitControls = new THREE.OrbitControls( camera, renderer.domElement );
+        orbitControls.minDistance = 5;
+        orbitControls.maxDistance = 1000;
+        orbitControls.maxPolarAngle = Math.PI;
+
+        //document.addEventListener( 'mousemove', onDocumentMouseMove, false );
+
+        //
+
+        //window.addEventListener( 'resize', onWindowResize, false );
+
+    }
+
+    function onWindowResize() {
+
+        var width = 1920;
+        var height = 1080;
+        windowHalfX = window.innerWidth / 2;
+        windowHalfY = window.innerHeight / 2;
+
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+
+        renderer.setSize( window.innerWidth, window.innerHeight );
+
+    }
+
+    function onDocumentMouseMove( event ) {
+
+        mouseX = ( event.clientX - windowHalfX ) * 0.5;
+        mouseY = ( event.clientY - windowHalfY ) * 0.5;
+
+    }
+
+    //
+
+    function animate() {
+
+        requestAnimationFrame( animate );
+        render();
+    }
+
+    function update()
+    {
+        var i = 0;
+
+        for(i = 0; i < modelArray.length; i++)
+        {
+            modelArray[i].material = reflectMaterial;
+        }
+
+        axisHelper.visible = menuObj["显示坐标轴"];
+        xzPlane.visible = menuObj["显示xz平面"];
+        xyPlane.visible = menuObj["显示xy平面"];
+        yzPlane.visible = menuObj["显示yz平面"];
+    }
+    function render() {
+
+
+        update();
+        //camera.position.x += ( mouseX - camera.position.x ) * .05;
+        //camera.position.y += ( - mouseY - camera.position.y ) * .05;
+
+        //camera.lookAt( scene.position );
+        renderer.render( scene, camera );
+    }
+
+</script>
+<script>
+    function RebindOnClickEvent()
+    {
+        $('.tree li:has(ul)').addClass('parent_li').find(' > span').attr('title', 'Collapse this branch');
+        $('.tree li.parent_li > span').on('click', function (e) {
+            var children = $(this).parent('li.parent_li').find(' > ul > li');
+
+            var a = $(this).attr('id');
+            // if($(this).attr('id') == "menuitem")
+            {
+                // return;
+            }
+
+            if (children.is(":visible")) {
+                children.hide('fast');
+                $(this).attr('title', 'Expand this branch').find(' > i').addClass('icon-plus-sign').removeClass('icon-minus-sign');
+            }
+            else
+            {
+                children.show('fast');
+                $(this).attr('title', 'Collapse this branch').find(' > i').addClass('icon-minus-sign').removeClass('icon-plus-sign');
+            }
+
+            e.stopPropagation();
+        });
+    }
+    function HideAllContextMenu()
+    {
+        /*
+        myMenu
+myMenu_root
+myMenu_addDetail
+myMenu_General
+myMenu_MoveDetail
+        */
+        var menu = null;
+
+        menu = document.getElementById("myMenu_General2");
+        menu.style.visibility = "hidden";
+
+        menu = document.getElementById("myMenu_root");
+        menu.style.visibility = "hidden";
+
+        menu = document.getElementById("myMenu_addDetail");
+        menu.style.visibility = "hidden";
+
+        menu = document.getElementById("myMenu_General");
+        menu.style.visibility = "hidden";
+
+        menu = document.getElementById("myMenu_MoveDetail");
+        menu.style.visibility = "hidden";
+    }
+    function RebindContextMenuEvent(jsonObj)
+    {
+        if(jsonObj == null || jsonObj == undefined)
+        {
+            return;
+        }
+
+        var objId = jsonObj.id;
+        var menuId = jsonObj.MenuId;
+
+        var div = document.getElementById(objId);
+        var menu = document.getElementById(menuId);
+        //contextmenu事件
+        div.addEventListener("contextmenu",function(e){
+            //阻止默认的右键事件
+            e.preventDefault();
+
+            HideAllContextMenu();
+            //新菜单位置跟随鼠标
+            menu.style.left = e.clientX+"px";
+            menu.style.top = e.clientY+"px";
+            //显示菜单
+            menu.style.visibility = "visible";
+            m_globalLastClickJsonObj = jsonObj;
+        });
+
+        //鼠标单击，菜单取消
+        div.addEventListener("click",function(e){
+            HideAllContextMenu();
+        });
+
+        var globalDiv = document.getElementById("myUI");
+        globalDiv.addEventListener("click",function(e){
+            HideAllContextMenu();
+        });
+
+        var paramList = jsonObj.ParamList;
+        if(paramList == null || paramList == undefined)
+        {
+            return;
+        }
+
+        for(var i = 0; i < paramList.length; i++)
+        {
+            RebindContextMenuEvent(paramList[i]);
+        }
+    }
+    function GetHtmlStrByJsonObj(jsonObj,strPreffixId)
+    {
+        var result = "";
+
+        if(jsonObj == null || jsonObj == undefined)
+        {
+            return result;
+        }
+
+        /*
+        <span class="badge badge-success"><i class="icon-minus-sign"></i>P1 精铣平面</span> <a href="">三级节点// 右键：向下合并</a>
+         */
+        result += "<ul>";
+        for(var i = 0; i < jsonObj.length; i++)
+        {
+            result += "<li>";
+
+            var obj = jsonObj[i];
+            obj.id =  strPreffixId + "_" + i;
+            result += "<span id=\"" + obj.id + "\"><i class=\"icon-minus-sign\"></i>" + obj.Name + "</span>";
+            result += GetHtmlStrByJsonObj(obj.ParamList,obj.id);
+
+            result += "</li>";
+        }
+
+        result += "</ul>";
+
+        return result;
+    }
+    function LoadUIConfigByJsonObj(jsonObj)
+    {
+        var strHtml = GetHtmlStrByJsonObj(jsonObj,"_");
+
+        var doc = document.getElementById("myUI");
+        doc.innerHTML = strHtml;
+
+        RebindOnClickEvent();
+    }
+    function ParseSpecJsonObj(jsonObjRoot,jsonObjParentToBeParse,jsonObjCopyed)
+    {
+        if(jsonObjParentToBeParse == null || jsonObjParentToBeParse == undefined)
+        {
+            return;
+        }
+
+        if(jsonObjCopyed == null || jsonObjCopyed == undefined)
+        {
+            return;
+        }
+
+        var strJson = JSON.stringify(jsonObjCopyed);
+        var clonedJsonObj = JSON.parse(strJson);
+
+        if(jsonObjParentToBeParse.ParamList == null || jsonObjParentToBeParse.ParamList == undefined)
+        {
+            jsonObjParentToBeParse.ParamList = new Array();
+        }
+
+        jsonObjParentToBeParse.ParamList.push(clonedJsonObj);
+    }
+    function RemoveSpecJsonObj(jsonObjRoot,jsonObj)
+    {
+        if(jsonObjRoot == jsonObj)
+        {
+            //不应该在这里出现
+            return;
+        }
+
+        var paramList = jsonObjRoot.ParamList;
+
+        if(paramList == null || paramList == undefined)
+        {
+            return;
+        }
+
+        for(var i = 0; i < paramList.length; i++)
+        {
+            if(paramList[i] == jsonObj)
+            {
+                paramList.splice(i,1);
+                i--;
+                // paramList.removeChild()
+                // paramList.remove(jsonObj);
+            }
+            else
+            {
+                RemoveSpecJsonObj(paramList[i],jsonObj);
+            }
+        }
+    }
+    function OnClickCopyCurNode()
+    {
+        m_globalLastCopyJsonObj = m_globalLastClickJsonObj;
+
+        HideAllContextMenu();
+    }
+    function OnClickParseCurNode()
+    {
+        ParseSpecJsonObj(m_globalTreeUIJsonObj,m_globalLastClickJsonObj,m_globalLastCopyJsonObj);
+
+        LoadUIConfigByJsonObj(m_globalTreeUIJsonObj);
+        OnFinishLoadUI();
+        HideAllContextMenu();
+
+        m_globalLastCopyJsonObj = null;
+    }
+    function OnClickRemoveCurNode()
+    {
+        if(m_globalLastClickJsonObj == null || m_globalLastClickJsonObj == undefined)
+        {
+            return;
+        }
+
+        RemoveSpecJsonObj(m_globalTreeUIJsonObj[0],m_globalLastClickJsonObj);
+
+        LoadUIConfigByJsonObj(m_globalTreeUIJsonObj);
+        OnFinishLoadUI();
+        HideAllContextMenu();
+    }
+    function OnClickMove(strNodeId)
+    {
+        var subMenu = document.getElementById("myMenu_MoveDetail");
+        if(subMenu == null || subMenu == undefined)
+        {
+            return;
+        }
+
+        var curMenu = document.getElementById(strNodeId);
+        subMenu.style.left = "" + (parseFloat(curMenu.style.left.split("px")[0]) + 205) + "px";
+        subMenu.style.top = "" + (parseFloat(curMenu.style.top.split("px")[0]) + 140) + "px";
+        subMenu.style.visibility = "visible";
+    }
+    function MoveUpJsonObj(jsonObjRoot,jsonObjToMoveUp)
+    {
+        if(jsonObjRoot == null || jsonObjRoot == undefined)
+        {
+            return;
+        }
+
+        if(jsonObjToMoveUp == null || jsonObjToMoveUp == undefined)
+        {
+            return;
+        }
+
+        var paramList = jsonObjRoot.ParamList;
+        if(paramList == null || paramList == undefined)
+        {
+            return;
+        }
+
+        for(var i = 0; i < paramList.length; i++)
+        {
+            if(paramList[i] == jsonObjToMoveUp)
+            {
+                if(i == 0)
+                {
+                    //已经是第一个了，不需要操作
+                    break;
+                }
+                else
+                {
+                    var tempObj = paramList[i - 1];
+                    paramList[i - 1] = paramList[i];
+                    paramList[i] = tempObj;
+                    break;
+                }
+            }
+            else
+            {
+                MoveUpJsonObj(paramList[i],jsonObjToMoveUp);
+            }
+        }
+    }
+    function MoveDownJsonObj(jsonObjRoot,jsonObjToMoveUp)
+    {
+        if(jsonObjRoot == null || jsonObjRoot == undefined)
+        {
+            return;
+        }
+
+        if(jsonObjToMoveUp == null || jsonObjToMoveUp == undefined)
+        {
+            return;
+        }
+
+        var paramList = jsonObjRoot.ParamList;
+        if(paramList == null || paramList == undefined)
+        {
+            return;
+        }
+
+        for(var i = 0; i < paramList.length; i++)
+        {
+            if(paramList[i] == jsonObjToMoveUp)
+            {
+                if(i == paramList.length - 1)
+                {
+                    //已经是最后，不需要操作
+                    break;
+                }
+                else
+                {
+                    var tempObj = paramList[i + 1];
+                    paramList[i + 1] = paramList[i];
+                    paramList[i] = tempObj;
+                    break;
+                }
+            }
+            else
+            {
+                MoveDownJsonObj(paramList[i],jsonObjToMoveUp);
+            }
+        }
+    }
+    function OnClickMoveUp()
+    {
+        if(m_globalLastClickJsonObj == null || m_globalLastClickJsonObj == undefined)
+        {
+            return;
+        }
+
+        MoveUpJsonObj(m_globalTreeUIJsonObj[0],m_globalLastClickJsonObj);
+
+        LoadUIConfigByJsonObj(m_globalTreeUIJsonObj);
+        OnFinishLoadUI();
+        HideAllContextMenu();
+    }
+    function OnClickMoveDown()
+    {
+        if(m_globalLastClickJsonObj == null || m_globalLastClickJsonObj == undefined)
+        {
+            return;
+        }
+
+        MoveDownJsonObj(m_globalTreeUIJsonObj[0],m_globalLastClickJsonObj);
+
+        LoadUIConfigByJsonObj(m_globalTreeUIJsonObj);
+        OnFinishLoadUI();
+        HideAllContextMenu();
+    }
+    function OnClickEditNode()
+    {
+        if(m_globalLastClickJsonObj == null || m_globalLastClickJsonObj == undefined)
+        {
+            return;
+        }
+
+        //OnLoadEditJsonFile();
+
+        //jiage
+
+    }
+    function AddNewNode(nodeType)
+    {
+        if(m_globalLastClickJsonObj == null || m_globalLastClickJsonObj == undefined)
+        {
+            return;
+        }
+
+        var newJsonObj = {};
+        newJsonObj.Name = "槽W2*R0.2-4.5RA1.6";
+        newJsonObj.ModifyParam = 1;
+        newJsonObj.MenuId = "myMenu_General2";
+        newJsonObj.ParamList = new Array();
+
+        switch(nodeType)
+        {
+            case 0:
+                //面
+                break;
+            case 1:
+                //孔
+                break;
+            case 2:
+                //倒角
+                break;
+            case 3:
+                //槽
+                break;
+            case 4:
+                //锥面
+                break;
+            default:
+                //类型不明
+                break;
+        }
+
+        var paramList = m_globalLastClickJsonObj.ParamList;
+        if(paramList == null || paramList == undefined)
+        {
+            m_globalLastClickJsonObj.ParamList = new array();
+        }
+
+        m_globalLastClickJsonObj.ParamList.push(newJsonObj);
+
+        LoadUIConfigByJsonObj(m_globalTreeUIJsonObj);
+        OnFinishLoadUI();
+        HideAllContextMenu();
+    }
+    function ReloadEditUI(uiConfigPath,onFinishedLoadingUI,onComboBoxChangedCallBack)
+    {
+        var scope = this;
+        var gui = null;
+
+        var loader = new THREE.FileLoader( scope.manager );
+        loader.load( uiConfigPath, function ( text ) {
+            var obj = eval('(' + text + ')');
+            var dja
+            //var menuObj = {};
+            gui = new dat.gui.GUI();
+            gui.remember(menuObj);
+
+            for(var i = 0; i < obj.Tab.length; i++) {
+                var tabObj = obj.Tab[i];
+                var tabName = tabObj.Name;
+
+                var guiTable = gui.addFolder(tabName);
+
+                menuObj[tabName] = {};
+                UpdateGUIByJsonObj(guiTable,tabObj,onComboBoxChangedCallBack);
+            }
+
+            menuObj["确定"] = function ()
+            {
+                //
+                //switch
+            }
+
+            gui.add(menuObj, '确定');
+
+            gui.domElement.style = 'position:absolute;top:300px;left:0px;background-color:#ffffff;visibility:hidden;';
+            gui.domElement.id = 'MenuParamDesign';
+            gui.OnClickClosePanel = GlobalOnClickClosePanel;
+
+            m_globalGui = gui;
+            m_globalGuiJsonObj = obj;
+            m_globalFuncUpdateModel = menuObj["更新模型"];
+        });
+    }
+    function OnClickAddNewNode(strNodeId)
+    {
+        var subMenu = document.getElementById("myMenu_addDetail");
+        if(subMenu == null || subMenu == undefined)
+        {
+            return;
+        }
+
+        var curMenu = document.getElementById(strNodeId);
+        subMenu.style.left = "" + (parseFloat(curMenu.style.left.split("px")[0]) + 205) + "px";
+        subMenu.style.top = curMenu.style.top;
+        subMenu.style.visibility = "visible";
+    }
+    function OnFinishLoadUI()
+    {
+        RebindContextMenuEvent(m_globalTreeUIJsonObj[0]);
+    }
+    function ReloadParamModifyUI(jsonObj)
+    {
+        var scope = this;
+        var gui = null;
+
+        var obj = jsonObj;
+
+        var menuObj = {};
+        gui = new dat.gui.GUI();
+        gui.remember(menuObj);
+
+        var guiTable = gui.addFolder(jsonObj);
+
+        //gui.remember(menuObj);
+        for (var i = 0; i < obj.Tab.length; i++)
+        {
+            var tabObj = obj.Tab[i];
+            var tabName = tabObj.Name;
+
+            var guiTable = gui.addFolder(tabName);
+
+            menuObj[tabName] = {};
+            UpdateGUIByJsonObj(guiTable,tabObj,onComboBoxChangedCallBack);
+        }
+    }
+    function RemoveAllZuHe()
+    {
+        var m_globalZuHeContainer = new Array();
+    }
+    function UpdateZuHeHtmlElement()
+    {
+        var zuHeHtmlElement = document.getElementById("ZuHeContainer");
+
+        if(zuHeHtmlElement == null || zuHeHtmlElement == undefined)
+        {
+            return;
+        }
+
+        var strHtml = "";
+        for(var i = 0; i < m_globalZuHeContainer.length; i++)
+        {
+            strHtml += m_globalZuHeContainer[i].GenerateHtmlStr();
+        }
+
+        zuHeHtmlElement.innerHTML = strHtml;
+    }
+    function CreateElementKu(jsonObj)
+    {
+        return ElementKu(jsonObj);
+    }
+    function ElementKu(jsonObj)
+    {
+        var mInstance = new Object;
+        mInstance.m_imagePath = jsonObj.ImagePath; //jsonObj.ImagePath
+        mInstance.m_name = jsonObj.Name;	//jsonObj.Name
+        mInstance.m_type = jsonObj.Type;
+
+        mInstance.GenerateHtmlStr = function()
+        {
+            /*
+            <li class="slot-item"><div class="slot-handler">
+                <div class="slot-handler clearfix">
+            <div class="avator">
+                <img src="img/avatar2.jpg"/>
+            </div>
+            <div class="content">
+                <div class="item-title">孔(铣)</div>
+
+                <p>Fix bugs of demo page</p>
+            </div>
+
+
+            </div>
+            </div></li>
+            * */
+            /*
+                {
+        "Name":"融合特征",
+        "ImagePath":"3.png"
+    },
+            * */
+            var result = "";
+
+            result += "<li class=\"slot-item\"><div class=\"slot-handler\">";
+            result += "<div class=\"slot-handler clearfix\">";
+            result += "<div class=\"avator\">";
+            result += "<img src=\"img/" + mInstance.m_imagePath + "\"/>";
+            result += "</div>";
+            result += "<div class=\"content\">";
+            result += "<div class=\"item-title\">" + mInstance.m_name +"</div>"
+            result += "</div>";
+            result += "</div>";
+            result += "</div>";
+            result += "</li>";
+
+            return result;
+        };
+        return mInstance;
+    }
+    function CreateElementZuHe(jsonObj)
+    {
+        return ElementZuHe(jsonObj);
+    }
+    function ElementZuHe(jsonObj)
+    {
+        var mInstance = new Object;
+        mInstance.m_imagePath = "123.png";
+        mInstance.m_name = "外形和面";
+        mInstance.GenerateHtmlStr = function()
+        {
+            var result = "";
+
+            result += "<li class=\"slot-item\"><div class=\"slot-handler\">";
+            result += "<div class=\"slot-handler clearfix\">";
+            result += "<div class=\"avator\">";
+            result += "<img src=\"img/" + mInstance.m_imagePath + "\"/>";
+            result += "</div>";
+            result += "<div class=\"content\">";
+            result += "<div class=\"item-title\">" + mInstance.m_name +"</div>"
+            result += "</div>";
+            result += "</div>";
+            result += "</div>";
+            result += "</li>";
+
+            return result;
+        };
+        return mInstance;
+    }
+    function ElementParamDesign()
+    {
+        var mInstance = new Object;
+        mInstance.m_imagePath = "123.png";
+        mInstance.m_name = "外形和面";
+        mInstance.GenerateHtmlStr = function()
+        {
+            var result = "";
+            return result;
+        };
+        return mInstance;
+    }
+    function LoadKuUIConfig(strJsonFilePath,onFinishedCallBack)
+    {
+        var scope = this;
+
+        var loader = new THREE.FileLoader( scope.manager );
+        loader.load( strJsonFilePath, function ( text ) {
+            //var objArray =i eval('(' + text + ')');
+            var objArray = JSON.parse(text);
+
+            for(var i = 0; i < objArray.length; i++)
+            {
+                var elementKu = CreateElementKu(objArray[i]);
+                m_globalKuContainer.push(elementKu);
+                //hp generate = kaf
+            }
+            onFinishedCallBack();
+        });
+    }
+
+    var m_globalTreeUIJsonObj = null;
+    var m_globalLastClickJsonObj = null;
+    var m_globalLastCopyJsonObj = null;
+    LoadLingJianUIByJson("config/LingJianTeZheng.json",OnFinishLoadUI);
+
+    jQuery(function($){
+        $('#dragslot').dragslot({
+            dropCallback: function(el){
+                //	alert(el);
+				var htmlDesSlot = el.destinationSlot;
+
+				var a = 3;
+				a = 4;
+            }
+        });
+    });
+
+    var m_globalKuContainer = new Array();
+    var m_globalZuHeContainer = new Array();
+    var m_globalParamDesign = new Array();
+
+    LoadKuUIConfig("./config/LingJian/Ku.json",function(){
+        var htmlObj = document.getElementById("KuContainer");
+        if(htmlObj == null || htmlObj == undefined)
+        {
+            return;//；
+        }
+
+        var strHtml = "";
+        for(var i = 0; i < m_globalKuContainer.length; i++)
+        {
+            strHtml += m_globalKuContainer[i].GenerateHtmlStr();
+        }
+
+        htmlObj.innerHTML = strHtml;
+
+        OnClickLingJianCharacteristic_NobelTech(0);
+
+    });
+    /*
+    LoadZuHeUIConfig("./config/LingJian/ZuHe.json",function(){
+
+	});
+    LoadParamDesignConfig("./config/LingJian/ParamDesign.json",function(){
+
+	});
+	*/
+</script>
+</body>
+
+</html>

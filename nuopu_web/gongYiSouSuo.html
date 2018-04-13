@@ -11,172 +11,11 @@
 	<link rel="stylesheet" href="style.css" type="text/css" media="screen">
 	<script src="../build/three.js"></script>
 	<script src="../build/three.module.js"></script>
-
+	<script src="./utils/LoadGui.js"></script>
 </head>
 <body>
 <script>
-	function RemoveAllZuHe()
-	{
-        var m_globalZuHeContainer = new Array();
-	}
-	function UpdateZuHeHtmlElement()
-	{
-	    var zuHeHtmlElement = document.getElementById("ZuHeContainer");
 
-	    if(zuHeHtmlElement == null || zuHeHtmlElement == undefined)
-		{
-		    return;
-		}
-
-        var strHtml = "";
-        for(var i = 0; i < m_globalZuHeContainer.length; i++)
-        {
-            strHtml += m_globalZuHeContainer[i].GenerateHtmlStr();
-        }
-
-        zuHeHtmlElement.innerHTML = strHtml;
-	}
-	function CreateElementKu(jsonObj)
-	{
-	    return ElementKu(jsonObj);
-	}
-    function ElementKu(jsonObj)
-	{
-        var mInstance = new Object;
-        mInstance.m_imagePath = jsonObj.ImagePath; //jsonObj.ImagePath
-        mInstance.m_name = jsonObj.Name;	//jsonObj.Name
-
-        mInstance.GenerateHtmlStr = function()
-		{
-		    /*
-		    <li class="slot-item"><div class="slot-handler">
-				<div class="slot-handler clearfix">
-			<div class="avator">
-				<img src="img/avatar2.jpg"/>
-			</div>
-			<div class="content">
-				<div class="item-title">孔(铣)</div>
-
-				<p>Fix bugs of demo page</p>
-			</div>
-
-
-			</div>
-			</div></li>
-		    * */
-		    /*
-		    	{
-		"Name":"融合特征",
-		"ImagePath":"3.png"
-	},
-		    * */
-		    var result = "";
-
-		    result += "<li class=\"slot-item\"><div class=\"slot-handler\">";
-		    result += "<div class=\"slot-handler clearfix\">";
-		    result += "<div class=\"avator\">";
-		    result += "<img src=\"img/" + mInstance.m_imagePath + "\"/>";
-		    result += "</div>";
-		    result += "<div class=\"content\">";
-		    result += "<div class=\"item-title\">" + mInstance.m_name +"</div>"
-		    result += "</div>";
-		    result += "</div>";
-			result += "</div>";
-			result += "</li>";
-
-		    return result;
-        };
-        return mInstance;
-    }
-    function CreateElementZuHe(jsonObj)
-    {
-        return ElementZuHe(jsonObj);
-    }
-    function ElementZuHe(jsonObj)
-	{
-        var mInstance = new Object;
-        mInstance.m_imagePath = "123.png";
-        mInstance.m_name = "外形和面";
-        mInstance.GenerateHtmlStr = function()
-        {
-            var result = "";
-
-            result += "<li class=\"slot-item\"><div class=\"slot-handler\">";
-            result += "<div class=\"slot-handler clearfix\">";
-            result += "<div class=\"avator\">";
-            result += "<img src=\"img/" + mInstance.m_imagePath + "\"/>";
-            result += "</div>";
-            result += "<div class=\"content\">";
-            result += "<div class=\"item-title\">" + mInstance.m_name +"</div>"
-            result += "</div>";
-            result += "</div>";
-            result += "</div>";
-            result += "</li>";
-
-            return result;
-        };
-        return mInstance;
-	}
-	function ElementParamDesign()
-	{
-        var mInstance = new Object;
-        mInstance.m_imagePath = "123.png";
-        mInstance.m_name = "外形和面";
-        mInstance.GenerateHtmlStr = function()
-        {
-            var result = "";
-            return result;
-        };
-        return mInstance;
-	}
-	function LoadKuUIConfig(strJsonFilePath,onFinishedCallBack)
-	{
-        var scope = this;
-
-        var loader = new THREE.FileLoader( scope.manager );
-        loader.load( strJsonFilePath, function ( text ) {
-            //var objArray = eval('(' + text + ')');
-            var objArray = JSON.parse(text);
-
-            for(var i = 0; i < objArray.length; i++)
-			{
-                var elementKu = CreateElementKu(objArray[i]);
-                m_globalKuContainer.push(elementKu);
-			}
-
-            onFinishedCallBack();
-        });
-	}
-	var m_globalKuContainer = new Array();
-	var m_globalZuHeContainer = new Array();
-	var m_globalParamDesign = new Array();
-   // var elementKu1 = ElementKu();
- //   var elementKu2 = ElementKu();
-   // var elementKu3 = ElementKu();
-
-    LoadKuUIConfig("./config/LingJian/Ku.json",function(){
-        var htmlObj = document.getElementById("KuContainer");
-        if(htmlObj == null || htmlObj == undefined)
-		{
-		    return;
-		}
-
-		var strHtml = "";
-        for(var i = 0; i < m_globalKuContainer.length; i++)
-		{
-		    strHtml += m_globalKuContainer[i].GenerateHtmlStr();
-		}
-
-		htmlObj.innerHTML = strHtml;
-	});
-    /*
-    LoadZuHeUIConfig("./config/LingJian/ZuHe.json",function(){
-
-	});
-    LoadParamDesignConfig("./config/LingJian/ParamDesign.json",function(){
-
-	});
-	*/
 </script>
 <div style="text-align:center;clear:both;">
 
@@ -184,13 +23,27 @@
 
 <section class="demo clearfix">
 	<div id="dragslot" class="container">
+	<div class="slot-title bg-red border-red">零件特征库</div>
+		<div class="slot-title bg-yellow border-yellow">零件设计</div>
+		<div class="slot-title bg-green border-green">帮助设计</div>
 
-	<div class="slot-title bg-red border-red">库</div>
-	<div class="slot-title bg-yellow border-yellow">组合
+		<div class="smallbutton" style="width:30px;position: absolute;margin-left: 200px;margin-top: 20px;" onclick="OnClickLingJianCharacteristic_NobelTech(0)">外形</div>
+		<div class="smallbutton" style="width:30px;position: absolute;margin-left: 240px;margin-top: 20px;" onclick="OnClickLingJianCharacteristic_NobelTech(1)">圆</div>
+		<div class="smallbutton" style="width:30px;position: absolute;margin-left: 280px;margin-top: 20px;" onclick="OnClickLingJianCharacteristic_NobelTech(2)">孔</div>
+		<div class="smallbutton" style="width:30px;position: absolute;margin-left: 320px;margin-top: 20px;" onclick="OnClickLingJianCharacteristic_NobelTech(3)">槽</div>
+		<div class="smallbutton" style="width:50px;position: absolute;margin-left: 360px;margin-top: 20px;" onclick="OnClickLingJianCharacteristic_NobelTech(4)">坐标系</div>
+
+		<div class="smallbutton" style="width:80px;position: absolute;margin-left: 600px;margin-top: 20px;" onclick="OnClickDaoJuQingDan_NobelTech()">树形目录</div>
+		<div class="smallbutton" style="width:80px;position: absolute;margin-left: 690px;margin-top: 20px;" onclick="OnClickDaoJuQingDan_NobelTech()">清楚树形目录</div>
+		<div class="smallbutton" style="width:80px;position: absolute;margin-left: 780px;margin-top: 20px;" onclick="OnClickDaoJuQingDan_NobelTech()">更新三维</div>
+		<div class="smallbutton" style="width:80px;position: absolute;margin-left: 870px;margin-top: 20px;" onclick="OnClickDaoJuQingDan_NobelTech()">更新二维</div>
+
 		<div class="smallbutton" style="position: absolute;margin-left: 340px;margin-top: -20px;" onclick="RemoveAllZuHe()">全部清除</div>
-	</div>
 
-	<div class="slot-title bg-green border-green">参数设计</div>
+		<div class="smallbutton" style="width:50px;position: absolute;margin-left: 1200px;margin-top: 20px;" onclick="OnClickDaoJuQingDan_NobelTech()">帮助</div>
+		<div class="smallbutton" style="width:50px;position: absolute;margin-left: 1260px;margin-top: 20px;" onclick="OnClickDaoJuQingDan_NobelTech()">清空</div>
+		<div class="smallbutton" style="width:50px;position: absolute;margin-left: 1320px;margin-top: 20px;" onclick="OnClickDaoJuQingDan_NobelTech()">确认</div>
+
 
 	<div class="slot border-red">
 		<ul id="KuContainer" class="slot-list">
@@ -212,10 +65,9 @@
 			</div>
 			<div class="content">
 				<div class="item-title">孔(铣)</div>
-
 				<p>Fix bugs of demo page</p>
 			</div>
-				
+
 			</div>
 			</div></li>
 			<li class="slot-item"><div class="slot-handler">
@@ -246,7 +98,7 @@
 
 				<p>design the area filter ui</p>
 			</div>
-				
+
 			</div>
 			</div></li>
 			<li class="slot-item"><div class="slot-handler">
@@ -296,6 +148,170 @@
 			}
 		});
 	});
+
+    function RemoveAllZuHe()
+    {
+        var m_globalZuHeContainer = new Array();
+    }
+    function UpdateZuHeHtmlElement()
+    {
+        var zuHeHtmlElement = document.getElementById("ZuHeContainer");
+
+        if(zuHeHtmlElement == null || zuHeHtmlElement == undefined)
+        {
+            return;
+        }
+
+        var strHtml = "";
+        for(var i = 0; i < m_globalZuHeContainer.length; i++)
+        {
+            strHtml += m_globalZuHeContainer[i].GenerateHtmlStr();
+        }
+
+        zuHeHtmlElement.innerHTML = strHtml;
+    }
+    function CreateElementKu(jsonObj)
+    {
+        return ElementKu(jsonObj);
+    }
+    function ElementKu(jsonObj)
+    {
+        var mInstance = new Object;
+        mInstance.m_imagePath = jsonObj.ImagePath; //jsonObj.ImagePath
+        mInstance.m_name = jsonObj.Name;	//jsonObj.Name
+        mInstance.m_type = jsonObj.Type;
+
+        mInstance.GenerateHtmlStr = function()
+        {
+            /*
+            <li class="slot-item"><div class="slot-handler">
+                <div class="slot-handler clearfix">
+            <div class="avator">
+                <img src="img/avatar2.jpg"/>
+            </div>
+            <div class="content">
+                <div class="item-title">孔(铣)</div>
+
+                <p>Fix bugs of demo page</p>
+            </div>
+
+
+            </div>
+            </div></li>
+            * */
+            /*
+                {
+        "Name":"融合特征",
+        "ImagePath":"3.png"
+    },
+            * */
+            var result = "";
+
+            result += "<li class=\"slot-item\"><div class=\"slot-handler\">";
+            result += "<div class=\"slot-handler clearfix\">";
+            result += "<div class=\"avator\">";
+            result += "<img src=\"img/" + mInstance.m_imagePath + "\"/>";
+            result += "</div>";
+            result += "<div class=\"content\">";
+            result += "<div class=\"item-title\">" + mInstance.m_name +"</div>"
+            result += "</div>";
+            result += "</div>";
+            result += "</div>";
+            result += "</li>";
+
+            return result;
+        };
+        return mInstance;
+    }
+    function CreateElementZuHe(jsonObj)
+    {
+        return ElementZuHe(jsonObj);
+    }
+    function ElementZuHe(jsonObj)
+    {
+        var mInstance = new Object;
+        mInstance.m_imagePath = "123.png";
+        mInstance.m_name = "外形和面";
+        mInstance.GenerateHtmlStr = function()
+        {
+            var result = "";
+
+            result += "<li class=\"slot-item\"><div class=\"slot-handler\">";
+            result += "<div class=\"slot-handler clearfix\">";
+            result += "<div class=\"avator\">";
+            result += "<img src=\"img/" + mInstance.m_imagePath + "\"/>";
+            result += "</div>";
+            result += "<div class=\"content\">";
+            result += "<div class=\"item-title\">" + mInstance.m_name +"</div>"
+            result += "</div>";
+            result += "</div>";
+            result += "</div>";
+            result += "</li>";
+
+            return result;
+        };
+        return mInstance;
+    }
+    function ElementParamDesign()
+    {
+        var mInstance = new Object;
+        mInstance.m_imagePath = "123.png";
+        mInstance.m_name = "外形和面";
+        mInstance.GenerateHtmlStr = function()
+        {
+            var result = "";
+            return result;
+        };
+        return mInstance;
+    }
+    function LoadKuUIConfig(strJsonFilePath,onFinishedCallBack)
+    {
+        var scope = this;
+
+        var loader = new THREE.FileLoader( scope.manager );
+        loader.load( strJsonFilePath, function ( text ) {
+            //var objArray =i eval('(' + text + ')');
+            var objArray = JSON.parse(text);
+
+            for(var i = 0; i < objArray.length; i++)
+            {
+                var elementKu = CreateElementKu(objArray[i]);
+                m_globalKuContainer.push(elementKu);
+                //hp generate = kaf
+            }
+            onFinishedCallBack();
+        });
+    }
+    var m_globalKuContainer = new Array();
+    var m_globalZuHeContainer = new Array();
+    var m_globalParamDesign = new Array();
+
+    LoadKuUIConfig("./config/LingJian/Ku.json",function(){
+        var htmlObj = document.getElementById("KuContainer");
+        if(htmlObj == null || htmlObj == undefined)
+        {
+            return;//；
+        }
+
+        var strHtml = "";
+        for(var i = 0; i < m_globalKuContainer.length; i++)
+        {
+            strHtml += m_globalKuContainer[i].GenerateHtmlStr();
+        }
+
+        htmlObj.innerHTML = strHtml;
+
+        OnClickLingJianCharacteristic_NobelTech(0);
+
+    });
+    /*
+    LoadZuHeUIConfig("./config/LingJian/ZuHe.json",function(){
+
+	});
+    LoadParamDesignConfig("./config/LingJian/ParamDesign.json",function(){
+
+	});
+	*/
 </script>
 
 </body>

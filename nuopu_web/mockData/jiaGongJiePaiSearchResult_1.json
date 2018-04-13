@@ -1,0 +1,27 @@
+[
+	{
+		"Name":"OP10-T1",
+		"ModelFullPath":"1.stl",
+		"PdfFullPath":"1.pdf"
+	},
+	{
+		"Name":"OP10-T2",
+		"ModelFullPath":"2.stl",
+		"PdfFullPath":"2.pdf"
+	},
+	{
+		"Name":"OP-T3",
+		"ModelFullPath":"3.stl",
+		"PdfFullPath":"3.pdf"
+	},
+	{
+		"Name":"OP-T4",
+		"ModelFullPath":"4.stl",
+		"PdfFullPath":"4.pdf"
+	},
+	{
+		"Name":"OP-T5",
+		"ModelFullPath":"5.stl",
+		"PdfFullPath":"5.pdf"
+	}
+]

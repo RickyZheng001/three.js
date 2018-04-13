@@ -57,13 +57,30 @@
 		_dragStart : function(e){
 			var target = $(e.target),
 			 dragItem = target.closest('.' + this.options.slotItemClass);
+            this.slotlist = target.closest('.' + this.options.slotListClass);
+
+            var fromSlotListId = this.slotlist.attr("id");
+            if(fromSlotListId == "LingJianDesign" || fromSlotListId == "ParamDesign")
+            {
+            	this.slotlist = null;
+                this.dragElement = null;
+				return;
+                //ResetKuContainer();
+            }
+
 			this.placeholder.css('height', dragItem.height());
 			this.dragElement = $(document.createElement('div')).addClass(this.options.dragItemClass);
-			this.slotlist = target.closest('.' + this.options.slotListClass);
+
 			dragItem.after(this.placeholder);
 			dragItem.css('width',dragItem.width() + 'px');
+
+			if(dragItem[0] == null || dragItem[0] == undefined)
+			{
+				return;
+			}
+
 			if(dragItem[0].parentNode){
-				dragItem[0].parentNode.removeChild(dragItem[0]);
+				//dragItem[0].parentNode.removeChild(dragItem[0]);
 			}
 			dragItem.appendTo(this.dragElement);
 			$(document.body).append(this.dragElement);
@@ -93,7 +110,7 @@
                 this.pointEl = this.pointEl.closest('.' + this.options.slotItemClass);
                  var before = e.pageY < (this.pointEl.offset().top + this.pointEl.height() / 2);
                     parent = this.placeholder.parent();
-             
+
                 if (before) {
                     this.pointEl.before(this.placeholder);
                 }
@@ -114,7 +131,36 @@
 		},
 		_dragEnd : function(e){
 			var self = this;
+
+            if(self.slotlist == null || self.dragElement == null)
+            {
+                return;
+            }
+
 			var el = self.dragElement.children('.' + self.options.slotItemClass).first();
+
+			if(el == null || el == undefined || el[0] == null || el[0] == undefined)
+			{
+				return;
+			}
+
+            var fromSlotListId = this.slotlist.attr("id");
+
+			if(fromSlotListId != "KuContainer")
+			{
+
+                //el[0].parentNode.removeChild(el[0]);
+                //this.placeholder.replaceWith(el);
+                if(self.dragElement) {
+                    self.dragElement.remove();
+                }
+
+                self.dragElement = null;
+                self.pointEl = null;
+
+				return;
+			}
+
             el[0].parentNode.removeChild(el[0]);
             this.placeholder.replaceWith(el);
             

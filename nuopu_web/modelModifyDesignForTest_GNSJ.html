@@ -33,6 +33,7 @@
 		<script src="../examples/js/loaders/PLYLoader.js"></script>
 
 		<script src="./utils/LoadGui.js"></script>
+		<script src="./js/GlobalDefine.js"></script>
 	</head>
 
 	<body class="unselectable">
@@ -230,8 +231,8 @@
 					</div>
 					<div class="section section_tuceng">
 						<div class="appLabel">显示</div>
-						<div class="smallbutton" onclick="">参数表</div>
-						<div class="smallbutton" onclick="">技术条件</div>
+						<div class="smallbutton" onclick="OnClickParamList()">参数表</div>
+						<div class="smallbutton" onclick="OnClickTechRequest()">技术条件</div>
 						<div class="smallbutton" onclick="">图纸模板</div>
 					</div>
 					<div class="section section_material">
@@ -691,6 +692,7 @@
             LoadTuZhiMuBanGUI("config/tuZhiMuBan.json",tuZhiMuBanMenuObj,onTuZhiMuBanClickQueDing);
             LoadJiShuYaoQiuGUI("config/jiShuYaoQiu.json",jiShuYaoQiuMenuObj,onJiShuYaoQiuClickQueDing);
 
+            //litchking
 			init();
 			animate();
 

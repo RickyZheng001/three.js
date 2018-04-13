@@ -615,7 +615,8 @@ function UpdateTechRequest()
 
     tableHtmlElement.innerHTML = strHtml;
 
-    tableHtmlElement.style.display = "display";
+    tableHtmlElement.style.visibility = "visible";
+    g_bDisplayTechRequest = true;
 }
 function DisplayTechRequest()
 {
@@ -641,7 +642,8 @@ function DisplayTechRequest()
     strHtml += "<div style=\"width:80%\">" + "7.加工精度: 孔表面粗糙度3.2, 位置度 ±0.1" + "</div>";
     tableHtmlElement.innerHTML = strHtml;
 
-    tableHtmlElement.style.display = "display";
+    tableHtmlElement.style.visibility = "visible";
+    g_bDisplayTechRequest = true;
 }
 function LoadJiShuYaoQiuGUI(tuZhiMoBanPath,menuObj,onClickQueDing)
 {
@@ -1051,10 +1053,10 @@ function LoadDetailDesignGUIMockData(configFileURL,callback,menuObj,onClickUpdat
 
             //onClickUpdateCallBack();
             var pdfCtrl = document.getElementById( 'pdfCtrl' );
-            pdfCtrl.src = "./obj/test/TESTZP001.pdf";
+            pdfCtrl.src = "./obj/test/zuantou655.pdf";
 
             var loader = new THREE.STLLoader();
-            loader.load("./obj/test/TESTZP001.stl", function ( geometry ){
+            loader.load("./obj/test/zuantou655.stl", function ( geometry ){
                 onClickUpdateCallBack();
                 var elem = document.getElementById('myCanvas');
                 elem.style.visibility = "hidden";
@@ -1595,7 +1597,8 @@ function UpdateParamList()
 
     tableHtmlElement.innerHTML = strHtml;
 
-    tableHtmlElement.style.display = "display";
+    tableHtmlElement.style.visibility = "visible";
+    g_bDisplayParamList = true;
 }
 function GenerateYanChangGanByIndexMockData(index,callback)
 {
@@ -2035,14 +2038,15 @@ function DisplayTuZhi()
     htmlElement = document.getElementById("toolBox3D");
     if(htmlElement != null && htmlElement != undefined)
     {
-        htmlElement.style.visibility = "hidden";
+        htmlElement.style.visibility = "visible";
     }
-
+/*
     htmlElement = document.getElementById("toolBoxTuZhi");
     if(htmlElement != null && htmlElement != undefined)
     {
         htmlElement.style.visibility = "visible";
     }
+    */
 
     htmlElement = document.getElementById("divParamList");
     if(htmlElement != null && htmlElement != undefined)
@@ -2370,3 +2374,439 @@ function onClickUpdateModel(geometry,handleLength,yRotate)
 
     modelNode = mesh;
 }
+
+function OnLoadDaoJuQingDanMockData(strJson)
+{
+    var jsonObj = JSON.parse(strJson);
+
+    m_globalDaoJuQingDanSearchJsonResult = jsonObj;
+    var searchDiv = document.getElementById("SearchTable");
+    var strTableHtml = "<div class=\"closebutton\" style=\"position:absolute;left:6px;top:2px;z-index: 50;width:30px;\"onclick=\"HideSearchTable()\">关闭</div>";
+    strTableHtml += "<table class=\"editableTable\" border=\"0\" style=\"position: absolute;left: 0px;top: 0px;margin:0px;padding:0px;overflow-y:auto;width: 400px;max-height:600px;\">";
+    strTableHtml += "<tr class=\"editable simpleInput\">";
+    strTableHtml += "<th style=\"width: 160px;\">清单列表</th>";
+    strTableHtml += "<th style=\"width: 100px;\">显示三维</th>";
+    strTableHtml += "<th style=\"width: 100px;\">显示图纸</th>";
+    strTableHtml += "</tr>";
+
+    for(var i = 0; i < jsonObj.length; i++)
+    {
+        var paramList = jsonObj[i].ParamList;
+        strTableHtml += "<tr class=\"editable simpleInput\">";
+        strTableHtml += "<td>" + jsonObj[i].Name + "</td>";
+        strTableHtml += "<td>" + "<div class=\"smallbutton\" style=\"position: absolute;width: 30px;margin-left: 24px;margin-top: -9px;padding-left: 0px;padding-top: 0px;\" onclick=\"GenerateDaoJuQingDan3dModelByIndexMockData(" + i + ")\">更新</div>" + "</td>";
+        strTableHtml += "<td>" + "<div class=\"smallbutton\" style=\"position: absolute;width: 30px;margin-left: 24px;margin-top: -9px;padding-left: 0px;padding-top: 0px;\" onclick=\"GenerateDaoJuQingDanTuZhiByIndexMockData(" + i + ")\">更新</div>" + "</td>";
+    }
+    strTableHtml += "</table>";
+
+    searchDiv.innerHTML = strTableHtml;
+
+    HideProgressBar();
+    var divElement = document.getElementById("SearchTable");
+    divElement.style.visibility = "visible";
+}
+function OnClickJiaGongJiePai_NobelTech()
+{
+    var fangAnComboBoxHtml = document.getElementById("FangAnComboBox");
+    if(fangAnComboBoxHtml == null || fangAnComboBoxHtml == undefined)
+    {
+        return;
+    }
+
+    var fangAnIndex = parseInt(fangAnComboBoxHtml.value);
+    var strFangAnConfig = "./mockData/jiaGongJiePaiSearchResult_" + (fangAnIndex + 1) + ".json";
+
+    var scope = this;
+    var mockDataLoader = new THREE.FileLoader( scope.manager );
+    mockDataLoader.load( strFangAnConfig, function ( text ) {
+        OnLoadJiaGongJiePaiMockData(text);
+    });
+}
+function OnClickDaoJuQingDan_NobelTech()
+{
+    var fangAnComboBoxHtml = document.getElementById("FangAnComboBox");
+    if(fangAnComboBoxHtml == null || fangAnComboBoxHtml == undefined)
+    {
+        return;
+    }
+
+    var fangAnIndex = parseInt(fangAnComboBoxHtml.value);
+    var strFangAnConfig = "./mockData/daoJuQingDanSearchResult_" + (fangAnIndex + 1) + ".json";
+
+    var scope = this;
+    var mockDataLoader = new THREE.FileLoader( scope.manager );
+    mockDataLoader.load( strFangAnConfig, function ( text ) {
+        OnLoadDaoJuQingDanMockData(text);
+    });
+}
+function DisplayDaoJuQingDan3dModel()
+{
+    var modelComboBoxHtml = document.getElementById("");
+    if(modelComboBoxHtml == null || modelComboBoxHtml == undefined)
+    {
+        return;
+    }
+
+
+}
+function DisplayDaoJuQingDanTuZhi()
+{
+
+}
+function OnClickUpdate3dModel_NobelTech()
+{
+    var modelComboBoxHtml = document.getElementById("Update3dModelComboBox");
+    if(modelComboBoxHtml == null || modelComboBoxHtml == undefined)
+    {
+        return;
+    }
+
+    var fangAnComboBoxHtml = document.getElementById("FangAnComboBox");
+    if(fangAnComboBoxHtml == null || fangAnComboBoxHtml == undefined)
+    {
+        return;
+    }
+
+    var fangAnIndex = parseInt(fangAnComboBoxHtml.value);
+    var strFangAn = String.fromCharCode("A".charCodeAt() + fangAnIndex);
+
+    if(modelComboBoxHtml.value == "0")
+    {
+        //零件
+        LoadLingJianByNameMockData("prt");
+    }
+    else if(modelComboBoxHtml.value == "1")
+    {
+        //显示工步
+        var fullPath = "./obj/nobeltech-tiyan/" + strFangAn + "/step/prt_tec.stl";
+        Load3dModelByFullPathMockData(fullPath);
+    }
+
+    Display3DModel();
+}
+function OnClickUpdate3dModelByComboBoxValue_NobelTech(comboBoxValue)
+{
+    var modelComboBoxHtml = document.getElementById("Update3dModelComboBox");
+    if(modelComboBoxHtml == null || modelComboBoxHtml == undefined)
+    {
+        return;
+    }
+
+    var fangAnComboBoxHtml = document.getElementById("FangAnComboBox");
+    if(fangAnComboBoxHtml == null || fangAnComboBoxHtml == undefined)
+    {
+        return;
+    }
+
+    var fangAnIndex = parseInt(fangAnComboBoxHtml.value);
+    var strFangAn = String.fromCharCode("A".charCodeAt() + fangAnIndex);
+
+    if(comboBoxValue == 0)
+    {
+        //零件
+        LoadLingJianByNameMockData("prt");
+    }
+    else if(comboBoxValue == 1)
+    {
+        //显示工步
+        var fullPath = "./obj/nobeltech-tiyan/" + strFangAn + "/step/prt_tec.stl";
+        Load3dModelByFullPathMockData(fullPath);
+    }
+
+    Display3DModel();
+}
+function GenerateJiaGongJiePaiTuZhiByIndexMockData(index)
+{
+    GenerateJiaGongJiePai3dModelByIndexMockData(index);
+
+    DisplayTuZhi();
+}
+function GenerateJiaGongJiePai3dModelByIndexMockData(index)
+{
+    if(m_globalJiaGongJiePaiSearchJsonResult == null || m_globalJiaGongJiePaiSearchJsonResult == undefined)
+    {
+        return;
+    }
+
+    var jsonObj = m_globalJiaGongJiePaiSearchJsonResult[index];
+
+    if(jsonObj == null || jsonObj == undefined)
+    {
+        return;
+    }
+
+    var fangAnComboBoxHtml = document.getElementById("FangAnComboBox");
+    if(fangAnComboBoxHtml == null || fangAnComboBoxHtml == undefined)
+    {
+        return;
+    }
+
+    var fangAnIndex = parseInt(fangAnComboBoxHtml.value);
+    var strFangAn = String.fromCharCode("A".charCodeAt() + fangAnIndex);
+
+    var fullPath = "./obj/nobeltech-tiyan/" + strFangAn + "/jiagongshiyi/step_asm_" + (index + 1) + "/step_asm_" + (index + 1) + ".stl";
+    Load3dModelByFullPathMockData(fullPath);
+
+    //obj\nobeltech-tiyan\A\jiagongshiyi\step_asm_1
+    var strPdfPath = "./obj/nobeltech-tiyan/" + strFangAn + "/jiagongshiyi/step_asm_" + (index + 1) + "/step_asm_" + (index + 1) + ".pdf";
+    var pdfCtrl = document.getElementById( 'pdfCtrl' );
+    pdfCtrl.src = strPdfPath;
+
+    Display3DModel();
+    //DisplayTuZhi();
+}
+function GenerateDaoJuQingDan3dModelByIndexMockData(index)
+{
+    if(m_globalDaoJuQingDanSearchJsonResult == null || m_globalDaoJuQingDanSearchJsonResult == undefined)
+    {
+        return;
+    }
+
+    var jsonObj = m_globalDaoJuQingDanSearchJsonResult[index];
+
+    if(jsonObj == null || jsonObj == undefined)
+    {
+        return;
+    }
+
+    var fangAnComboBoxHtml = document.getElementById("FangAnComboBox");
+    if(fangAnComboBoxHtml == null || fangAnComboBoxHtml == undefined)
+    {
+        return;
+    }
+
+    var fangAnIndex = parseInt(fangAnComboBoxHtml.value);
+    var strFangAn = String.fromCharCode("A".charCodeAt() + fangAnIndex);
+
+    //obj\nobeltech-tiyan\A\jiagongshiyi\step_asm_1
+    var strModelPath = "./obj/nobeltech-tiyan/" + strFangAn + "/tool/tool_" + (index + 1) + "/tool_" + (index + 1) + ".stl";
+    var strPdf = "./obj/nobeltech-tiyan/" + strFangAn + "/tool/tool_" + (index + 1) + "/tool_" + (index + 1) + ".pdf";
+
+    Load3dModelByFullPathMockData(strModelPath);
+
+
+    var pdfCtrl = document.getElementById( 'pdfCtrl' );
+    pdfCtrl.src = strPdf;
+
+    Display3DModel();
+}
+function GenerateDaoJuQingDanTuZhiByIndexMockData(index)
+{
+    GenerateDaoJuQingDan3dModelByIndexMockData(index);
+
+    DisplayTuZhi();
+}
+function OnLoadJiaGongJiePaiMockData(strJson)
+{
+    var jsonObj = JSON.parse(strJson);
+
+    m_globalJiaGongJiePaiSearchJsonResult = jsonObj;
+    var searchDiv = document.getElementById("SearchTable");
+    var strTableHtml = "<div class=\"closebutton\" style=\"position:absolute;left:6px;top:2px;z-index: 50;width:30px;\"onclick=\"HideSearchTable()\">关闭</div>";
+    strTableHtml += "<table class=\"editableTable\" border=\"0\" style=\"position: absolute;left: 0px;top: 0px;margin:0px;padding:0px;overflow-y:auto;width: 400px;max-height:600px;\">";
+    strTableHtml += "<tr class=\"editable simpleInput\">";
+    strTableHtml += "<th style=\"width: 160px;\">清单列表</th>";
+    strTableHtml += "<th style=\"width: 100px;\">显示三维</th>";
+    strTableHtml += "<th style=\"width: 100px;\">显示图纸</th>";
+    strTableHtml += "</tr>";
+
+    for(var i = 0; i < jsonObj.length; i++)
+    {
+        var paramList = jsonObj[i].ParamList;
+        strTableHtml += "<tr class=\"editable simpleInput\">";
+        strTableHtml += "<td>" + jsonObj[i].Name + "</td>";
+        strTableHtml += "<td>" + "<div class=\"smallbutton\" style=\"position: absolute;width: 30px;margin-left: 24px;margin-top: -9px;padding-left: 0px;padding-top: 0px;\" onclick=\"GenerateJiaGongJiePai3dModelByIndexMockData(" + i + ")\">更新</div>" + "</td>";
+        strTableHtml += "<td>" + "<div class=\"smallbutton\" style=\"position: absolute;width: 30px;margin-left: 24px;margin-top: -9px;padding-left: 0px;padding-top: 0px;\" onclick=\"GenerateJiaGongJiePaiTuZhiByIndexMockData(" + i + ")\">更新</div>" + "</td>";
+    }
+    strTableHtml += "</table>";
+
+    searchDiv.innerHTML = strTableHtml;
+
+    HideProgressBar();
+    var divElement = document.getElementById("SearchTable");
+    divElement.style.visibility = "visible";
+
+}
+function OnClickUpdateTuZhi_NobelTech(name,callBack)
+{
+
+    var modelComboBoxHtml = document.getElementById("UpdateTuZhiComboBox");
+    if(modelComboBoxHtml == null || modelComboBoxHtml == undefined)
+    {
+        return;
+    }
+
+    var fangAnComboBoxHtml = document.getElementById("FangAnComboBox");
+    if(fangAnComboBoxHtml == null || fangAnComboBoxHtml == undefined)
+    {
+        return;
+    }
+
+    var fangAnIndex = parseInt(fangAnComboBoxHtml.value);
+    var strFangAn = String.fromCharCode("A".charCodeAt() + fangAnIndex);
+
+    if(modelComboBoxHtml.value == "0")
+    {
+        //零件
+        LoadLingJianByNameMockData("prt");
+    }
+    else if(modelComboBoxHtml.value == "1")
+    {
+        //显示工步
+        var fullPath = "./obj/nobeltech-tiyan/" + strFangAn + "/step/prt_tec.stl";
+        Load3dModelByFullPathMockData(fullPath);
+    }
+
+    DisplayTuZhi();
+
+}
+function Load3dModelByFullPathMockData(fullPath,callBack)
+{
+    //handleLength = 0;
+    onClickUpdateCallBack();
+    var elem = document.getElementById('myCanvas');
+    elem.style.visibility = "hidden";
+    clearInterval(progressTimer);
+
+    removeAllSceneModel();
+
+    var modelFileList = "" + fullPath;
+    var pdfFile = "." + fullPath.split(".")[1] + ".pdf";
+    var pdfCtrl = document.getElementById( 'pdfCtrl' );
+    pdfCtrl.src = pdfFile;
+
+    var loader = new THREE.STLLoader();
+    loader.load(modelFileList, function ( geometry ){
+        onClickUpdateModel(geometry,0);
+    },null,null);
+}
+function LoadLingJianByNameMockData(name,callBack)
+{
+    //handleLength = 0;
+    onClickUpdateCallBack();
+    var elem = document.getElementById('myCanvas');
+    elem.style.visibility = "hidden";
+    clearInterval(progressTimer);
+
+    removeAllSceneModel();
+
+    var modelFileList = "./obj/nobeltech-tiyan/prt/" + name + ".stl";
+    var pdfFile = "" + name + ".pdf";
+    var pdfCtrl = document.getElementById( 'pdfCtrl' );
+    pdfCtrl.src = "./obj/nobeltech-tiyan/prt/" + pdfFile;
+
+    var loader = new THREE.STLLoader();
+    loader.load(modelFileList, function ( geometry ){
+        onClickUpdateModel(geometry,0);
+    },null,null);
+}
+function AddDragEventToSearchTable()
+{
+    var searchListHtml = document.getElementById("SearchTable");
+    if(searchListHtml == null || searchListHtml == undefined)
+    {
+        return;
+    }
+
+    var offsetX = 0;
+    var offsetY = 0;
+
+    searchListHtml.ondragstart=function(e){
+        var dt = e.dataTransfer;
+        dt.effectAllowed = 'none';
+
+        console.log('事件源p3开始拖动');
+        //记录刚一拖动时，鼠标在飞机上的偏移量
+        offsetX= e.offsetX;
+        offsetY= e.offsetY;
+    }
+    searchListHtml.ondrag=function(e){
+        e.preventDefault();
+
+        //return;
+        console.log('事件源p3拖动中');
+        var x= e.pageX;
+        var y= e.pageY;
+        console.log(x + '-' + y);
+        //drag事件最后一刻，无法读取鼠标的坐标，pageX和pageY都变为0
+        if(x == 0 && y == 0){
+            return; //不处理拖动最后一刻X和Y都为0的情形
+        }
+        x -= offsetX;
+        y -= offsetY + 82;
+
+        searchListHtml.style.left = x + 'px';
+        searchListHtml.style.top = y + 'px';
+    }
+    searchListHtml.ondragend = function(){
+        //e.preventDefault();
+        console.log('源对象p3拖动结束');
+    }
+}
+function OnClickLingJianCharacteristic_NobelTech(index)
+{
+    var htmlObj = document.getElementById("KuContainer");
+    if(htmlObj == null || htmlObj == undefined)
+    {
+        return;//；
+    }
+
+    var strHtml = "";
+    for(var i = 0; i < m_globalKuContainer.length; i++)
+    {
+        if(m_globalKuContainer[i].m_type == index)
+        {
+            strHtml += m_globalKuContainer[i].GenerateHtmlStr();
+        }
+    }
+
+    htmlObj.innerHTML = strHtml;
+
+}
+function OnClickParamList()
+{
+    var htmlElement = document.getElementById("divParamList");
+    if(htmlElement == null || htmlElement == undefined)
+    {
+        return;
+    }
+
+    g_bDisplayParamList = !g_bDisplayParamList;
+
+    if(g_bDisplayParamList == true)
+    {
+        htmlElement.style.visibility = "visible";
+    }
+    else
+    {
+        htmlElement.style.visibility = "hidden";
+    }
+}
+function OnClickTechRequest()
+{
+    var htmlElement = document.getElementById("techRequest");
+    if(htmlElement == null || htmlElement == undefined)
+    {
+        return;
+    }
+
+    g_bDisplayTechRequest = !g_bDisplayTechRequest;
+
+    if(g_bDisplayTechRequest == true)
+    {
+        htmlElement.style.visibility = "visible";
+    }
+    else
+    {
+        htmlElement.style.visibility = "hidden";
+    }
+}
+function OnClickTreeDir_NobelTech()
+{
+
+}
+function OnClickPurgeTreeDir_NobelTech()
+{
+
+}
+//function

@@ -15,7 +15,10 @@
     list-style-type:none;
     margin:0;
     padding:10px 5px 0 5px;
-    position:relative
+    position:relative;
+    width:100%;
+    height: auto;
+    min-width: 60px;
 }
 .tree li::before, .tree li::after {
     content:'';
@@ -111,4 +114,35 @@
 }
 .contextBtn:hover {
     background-color:#eeeeee;z-index:100;
+}
+
+
+.editableTable{
+    width: 220px;
+    padding: 10px;
+    background-color: #DDEEF6;
+    border:1px solid #DDEEF6;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+}
+.editableTable thead{
+    background:#FFFFCC;
+}
+td {
+    text-align:center; /*设置水平居中*/
+    vertical-align:middle;/*设置垂直居中*/
+}
+tr{
+    background:#66CCFF;
+    /*cursor:pointer;*/
+}
+.selectCell{
+    background:#6699FF;
+}
+
+.unselectable {
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
 }

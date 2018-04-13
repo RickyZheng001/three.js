@@ -1,22 +1,137 @@
 [
 	{
-		"Name":"外形和面（铣）",
-		"ImagePath":"avatar1.jpg"
+		"Name":"圆柱(标)",
+		"ImagePath":"avatar1.jpg",
+		"Type":0
 	},
 	{
-		"Name":"孔和槽（铣）",
-		"ImagePath":"avatar2.jpg"
+		"Name":"长方体(标)",
+		"ImagePath":"avatar2.jpg",
+		"Type":0
 	},
 	{
-		"Name":"融合特征",
-		"ImagePath":"avatar3.jpg"
+		"Name":"框体(标)",
+		"ImagePath":"avatar3.jpg",
+		"Type":0
 	},
 	{
-		"Name":"组合特征",
-		"ImagePath":"avatar4.jpg"
+		"Name":"球体(标)",
+		"ImagePath":"avatar4.jpg",
+		"Type":0
 	},
 	{
-		"Name":"外形和面（铣）",
-		"ImagePath":"avatar5.jpg"
+		"Name":"圆柱+圆柱(变)",
+		"ImagePath":"avatar5.jpg",
+		"Type":0
+	},
+	{
+		"Name":"长方体+圆柱(变)",
+		"ImagePath":"avatar5.jpg",
+		"Type":0
+	},
+	{
+		"Name":"框体+圆柱(变)",
+		"ImagePath":"avatar5.jpg",
+		"Type":0
+	},
+	{
+		"Name":"入口面",
+		"ImagePath":"avatar5.jpg",
+		"Type":1
+	},
+	{
+		"Name":"出口面",
+		"ImagePath":"avatar5.jpg",
+		"Type":1
+	},
+	{
+		"Name":"中间状态",
+		"ImagePath":"avatar5.jpg",
+		"Type":1
+	},
+	{
+		"Name":"定位面",
+		"ImagePath":"avatar5.jpg",
+		"Type":1
+	},
+	{
+		"Name":"内倒角",
+		"ImagePath":"avatar5.jpg",
+		"Type":2
+	},
+	{
+		"Name":"外倒角",
+		"ImagePath":"avatar5.jpg",
+		"Type":2
+	},
+	{
+		"Name":"通孔",
+		"ImagePath":"avatar5.jpg",
+		"Type":2
+	},
+	{
+		"Name":"盲孔",
+		"ImagePath":"avatar5.jpg",
+		"Type":2
+	},
+	{
+		"Name":"內倒圆",
+		"ImagePath":"avatar5.jpg",
+		"Type":2
+	},
+	{
+		"Name":"外倒圆",
+		"ImagePath":"avatar5.jpg",
+		"Type":2
+	},
+	{
+		"Name":"内锥面",
+		"ImagePath":"avatar5.jpg",
+		"Type":2
+	},
+	{
+		"Name":"外锥面",
+		"ImagePath":"avatar5.jpg",
+		"Type":2
+	},
+	{
+		"Name":"内螺纹",
+		"ImagePath":"avatar5.jpg",
+		"Type":3
+	},
+	{
+		"Name":"外螺纹",
+		"ImagePath":"avatar5.jpg",
+		"Type":3
+	},
+	{
+		"Name":"端面方槽",
+		"ImagePath":"avatar5.jpg",
+		"Type":3
+	},
+	{
+		"Name":"内方槽",
+		"ImagePath":"avatar5.jpg",
+		"Type":3
+	},
+	{
+		"Name":"端面圆槽",
+		"ImagePath":"avatar5.jpg",
+		"Type":3
+	},
+	{
+		"Name":"内圆槽",
+		"ImagePath":"avatar5.jpg",
+		"Type":3
+	},
+	{
+		"Name":"外方槽",
+		"ImagePath":"avatar5.jpg",
+		"Type":3
+	},
+	{
+		"Name": "外圆槽",
+		"ImagePath": "avatar5.jpg",
+		"Type": 3
 	}
 ]
