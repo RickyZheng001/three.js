@@ -1,0 +1,285 @@
+{
+	"ID":"123456",
+	"Name":"车刀",
+	"Tab":
+	[
+		{
+			"Name": "主表(单位:mm)",
+			"ParamList": [
+				{
+					"Name": "刀具类型",
+					"Type": "ComboBox",
+					"Choise": "C刀片wn",
+					"DefaultValue": "0",
+					"iniName": "tool_type",
+					"iniType": "string"
+				},
+				{
+					"Name": "刀具品牌",
+					"Choise": "nuopu,Seco,Prawet",
+					"Type": "ComboBox",
+					"DefaultValue": "0",
+					"iniName": "company_name",
+					"iniType": "string"
+				},
+				{
+					"Name": "订货型号",
+					"Type": "EditBox",
+					"DefaultValue": "0",
+					"iniName": "No",
+					"iniType": "string"
+				},
+				{
+					"Name": "文件名",
+					"Type": "EditBox",
+					"DefaultValue": "",
+					"iniName": "FN",
+					"iniType": "string",
+					"ServerGenerateID": 1
+				},
+				{
+					"Name": "更新文件名",
+					"Type": "GenerateServerID",
+					"DefaultValue": ""
+				}
+			]
+		},
+		{
+			"Name":"样本参数(单位:mm)",
+			"ParamList":
+			[
+				{
+					"Name":"b",
+					"Type":"EditBox",
+					"DefaultValue":"8",
+					"iniName":"b",
+					"iniType":"Float"
+				},
+				{
+					"Name":"h",
+					"Type":"EditBox",
+					"DefaultValue":"8",
+					"iniName":"h",
+					"iniType":"Float"
+				},
+				{
+					"Name":"f1",
+					"Type":"EditBox",
+					"DefaultValue":"8.7",
+					"iniName":"f1",
+					"iniType":"Float"
+				},
+				{
+					"Name":"l3",
+					"Type":"EditBox",
+					"DefaultValue":"9",
+					"iniName":"l3",
+					"iniType":"Float"
+				},
+				{
+					"Name":"l1",
+					"Type":"EditBox",
+					"DefaultValue":"125",
+					"iniName":"l1",
+					"iniType":"Float"
+				}
+			]
+		},
+		{
+			"Name":"柄部和刀片类型(单位:mm)",
+			"ParamList":
+			[
+				{
+					"Name": "柄部类型",
+					"Type": "ComboBox",
+					"Choise": "普通方形",
+					"DefaultValue": "0",
+					"iniName": "Handle_Type",
+					"iniType": "string"
+				},
+				{
+					"Name": "刀片类型",
+					"Choise":
+						[
+							{
+								"Name":"CCGT.06",
+								"ParamList":
+									[
+										{
+											"Name":"d",
+											"Type":"EditBox",
+											"DefaultValue":"6.35",
+											"iniName":"tool_d",
+											"iniType":"Float"
+										},
+										{
+											"Name":"i",
+											"Type":"EditBox",
+											"DefaultValue":"6.5",
+											"iniName":"tool_i",
+											"iniType":"Float"
+										},
+										{
+											"Name":"s",
+											"Type":"EditBox",
+											"DefaultValue":"2.38",
+											"iniName":"tool_s",
+											"iniType":"Float"
+										},
+										{
+											"Name":"h",
+											"Type":"EditBox",
+											"DefaultValue":"2.8",
+											"iniName":"tool_h",
+											"iniType":"Float"
+										},
+										{
+											"Name":"r",
+											"Type":"EditBox",
+											"DefaultValue":"0.4",
+											"iniName":"tool_r",
+											"iniType":"Float"
+										}
+									]
+							},
+							{
+								"Name":"CCGT.09",
+								"ParamList":
+								[
+									{
+										"Name":"d",
+										"Type":"EditBox",
+										"DefaultValue":"9.525",
+										"iniName":"tool_d",
+										"iniType":"Float"
+									},
+									{
+										"Name":"i",
+										"Type":"EditBox",
+										"DefaultValue":"9.7",
+										"iniName":"tool_i",
+										"iniType":"Float"
+									},
+									{
+										"Name":"s",
+										"Type":"EditBox",
+										"DefaultValue":"3.97",
+										"iniName":"tool_s",
+										"iniType":"Float"
+									},
+									{
+										"Name":"h",
+										"Type":"EditBox",
+										"DefaultValue":"5.5",
+										"iniName":"tool_h",
+										"iniType":"Float"
+									},
+									{
+										"Name":"r",
+										"Type":"EditBox",
+										"DefaultValue":"0.4",
+										"iniName":"tool_r",
+										"iniType":"Float"
+									}
+								]
+							},
+							{
+								"Name":"CCGT.12",
+								"ParamList":
+								[
+									{
+										"Name":"d",
+										"Type":"EditBox",
+										"DefaultValue":"12.7",
+										"iniName":"tool_d",
+										"iniType":"Float"
+									},
+									{
+										"Name":"i",
+										"Type":"EditBox",
+										"DefaultValue":"12.9",
+										"iniName":"tool_i",
+										"iniType":"Float"
+									},
+									{
+										"Name":"s",
+										"Type":"EditBox",
+										"DefaultValue":"4.76",
+										"iniName":"tool_s",
+										"iniType":"Float"
+									},
+									{
+										"Name":"h",
+										"Type":"EditBox",
+										"DefaultValue":"5.5",
+										"iniName":"tool_h",
+										"iniType":"Float"
+									},
+									{
+										"Name":"r",
+										"Type":"EditBox",
+										"DefaultValue":"0.8",
+										"iniName":"tool_r",
+										"iniType":"Float"
+									}
+								]
+							}
+						],
+					"Type": "ComboBox",
+					"DefaultValue": "0",
+					"iniName": "dp_type",
+					"iniType": "string"
+				},
+				{
+					"Name":"方向",
+					"Type":"ComboBox",
+					"Choise":"左,右",
+					"DefaultValue":"0",
+					"iniName":"director",
+					"iniType":"Float"
+				}
+			]
+		},
+		{
+			"Name":"附加参数(单位:mm)",
+			"ParamList":
+			[
+				{
+					"Name":"angle",
+					"Type":"EditBox",
+					"DefaultValue":"0.001",
+					"iniName":"angle",
+					"iniType":"Float"
+				},
+				{
+					"Name":"angle1",
+					"Type":"EditBox",
+					"DefaultValue":"0.001",
+					"iniName":"angle1",
+					"iniType":"Float"
+				},
+				{
+					"Name":"tool_angle1",
+					"Type":"EditBox",
+					"DefaultValue":"80",
+					"iniName":"tool_angle1",
+					"iniType":"Float"
+				},
+				{
+					"Name":"tool_draft",
+					"Type":"EditBox",
+					"DefaultValue":"7",
+					"iniName":"tool_draft",
+					"iniType":"Float"
+				},
+				{
+					"Name":"Kar",
+					"Type":"EditBox",
+					"DefaultValue":"90",
+					"iniName":"Kar",
+					"iniType":"Float"
+				}
+			]
+		}
+	]
+}

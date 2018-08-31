@@ -1,0 +1,317 @@
+{
+  "ID": "123456",
+  "Name": "钻头",
+  "Tab": [
+    {
+      "Name": "主表(单位:mm)",
+      "ParamList": [
+        {
+          "Name": "刀具类型",
+          "Type": "ComboBox",
+          "Choise": "可转位钻头W",
+          "DefaultValue": "0",
+          "iniName": "tool_type",
+          "iniType": "string"
+        },
+        {
+          "Name": "刀具品牌",
+          "Choise":"nuopu,Seco,Prawet",
+          "Type": "ComboBox",
+          "DefaultValue": "0",
+          "iniName": "company_name",
+          "iniType": "Float"
+        },
+        {
+          "Name": "订货型号",
+          "Type": "EditBox",
+          "DefaultValue": "0",
+          "iniName": "No",
+          "iniType": "string"
+        },
+        {
+          "Name": "文件名",
+          "Type": "EditBox",
+          "DefaultValue": "",
+          "iniName": "FN",
+          "iniType": "string",
+          "ServerGenerateID": 1
+        },
+        {
+          "Name": "更新文件名",
+          "Type": "GenerateServerID",
+          "DefaultValue": ""
+        }
+      ]
+    },
+    {
+      "Name": "样本参数(单位:mm)",
+      "ParamList":
+      [
+        {
+          "Name": "D5m",
+          "Type": "EditBox",
+          "DefaultValue": "42",
+          "iniName": "D5m",
+          "iniType": "Float"
+        },
+        {
+          "Name": "Dc",
+          "Type": "EditBox",
+          "DefaultValue": "15",
+          "iniName": "dc",
+          "iniType": "Float"
+        },
+        {
+          "Name": "dmm",
+          "Type": "EditBox",
+          "DefaultValue": "25",
+          "iniName": "dmm",
+          "iniType": "Float"
+        },
+        {
+          "Name": "l4",
+          "Type": "EditBox",
+          "DefaultValue": "30",
+          "iniName": "l4",
+          "iniType": "Float"
+        },
+        {
+          "Name": "l2",
+          "Type": "EditBox",
+          "DefaultValue": "121",
+          "iniName": "l2",
+          "iniType": "Float"
+        },
+        {
+          "Name": "l3s",
+          "Type": "EditBox",
+          "DefaultValue": "35",
+          "iniName": "l3s",
+          "iniType": "Float"
+        },
+        {
+          "Name": "l1s",
+          "Type": "EditBox",
+          "DefaultValue": "65",
+          "iniName": "l1s",
+          "iniType": "Float"
+        },
+        {
+          "Name": "lc",
+          "Type": "EditBox",
+          "DefaultValue": "56",
+          "iniName": "lc",
+          "iniType": "Float"
+        }
+      ]
+    },
+    {
+      "Name": "柄部、冷却与刀片类型(单位:mm)",
+      "ParamList": [
+        {
+          "Name": "柄部类型",
+          "Type": "ComboBox",
+          "Choise": "侧固",
+          "DefaultValue": "0",
+          "iniName": "Handle_Type",
+          "iniType": "String"
+        },
+        {
+          "Name": "冷却方式",
+          "Type": "ComboBox",
+          "Choise": "双螺旋",
+          "DefaultValue": "0",
+          "iniName": "Hole_Type",
+          "iniType": "String"
+        },
+        {
+          "Name": "刀片类型",
+          "Type": "ComboBox",
+          "Choise": [
+            {
+              "Name": "wcmx.03",
+              "ParamList": [
+                {
+                  "Name": "s",
+                  "Type": "EditBox",
+                  "DefaultValue": "2.38",
+                  "iniName": "tool_s",
+                  "iniType": "Float"
+                },
+                {
+                  "Name": "d",
+                  "Type": "EditBox",
+                  "DefaultValue": "5.56",
+                  "iniName": "tool_d",
+                  "iniType": "Float"
+                },
+                {
+                  "Name": "i",
+                  "Type": "EditBox",
+                  "DefaultValue": "2.38",
+                  "iniName": "tool_i",
+                  "iniType": "Float"
+                },
+                {
+                  "Name": "r",
+                  "Type": "EditBox",
+                  "DefaultValue": "0.8",
+                  "iniName": "tool_r",
+                  "iniType": "Float"
+                }
+              ]
+            },
+            {
+              "Name": "wcmx.04",
+              "ParamList": [
+                {
+                  "Name": "s",
+                  "Type": "EditBox",
+                  "DefaultValue": "2.38",
+                  "iniName": "tool_s",
+                  "iniType": "Float"
+                },
+                {
+                  "Name": "d",
+                  "Type": "EditBox",
+                  "DefaultValue": "6.35",
+                  "iniName": "tool_d",
+                  "iniType": "Float"
+                },
+                {
+                  "Name": "i",
+                  "Type": "EditBox",
+                  "DefaultValue": "2.38",
+                  "iniName": "tool_i",
+                  "iniType": "Float"
+                },
+                {
+                  "Name": "r",
+                  "Type": "EditBox",
+                  "DefaultValue": "0.8",
+                  "iniName": "tool_r",
+                  "iniType": "Float"
+                }
+              ]
+            },
+            {
+              "Name": "wcmx.05",
+              "ParamList": [
+                {
+                  "Name": "s",
+                  "Type": "EditBox",
+                  "DefaultValue": "3.18",
+                  "iniName": "tool_s",
+                  "iniType": "Float"
+                },
+                {
+                  "Name": "d",
+                  "Type": "EditBox",
+                  "DefaultValue": "7.94",
+                  "iniName": "tool_d",
+                  "iniType": "Float"
+                },
+                {
+                  "Name": "i",
+                  "Type": "EditBox",
+                  "DefaultValue": "3.18",
+                  "iniName": "tool_i",
+                  "iniType": "Float"
+                },
+                {
+                  "Name": "r",
+                  "Type": "EditBox",
+                  "DefaultValue": "0.8",
+                  "iniName": "tool_r",
+                  "iniType": "Float"
+                }
+              ]
+            },
+            {
+              "Name": "wcmx.06",
+              "ParamList": [
+                {
+                  "Name": "s",
+                  "Type": "EditBox",
+                  "DefaultValue": "3.97",
+                  "iniName": "tool_s",
+                  "iniType": "Float"
+                },
+                {
+                  "Name": "d",
+                  "Type": "EditBox",
+                  "DefaultValue": "9.525",
+                  "iniName": "tool_d",
+                  "iniType": "Float"
+                },
+                {
+                  "Name": "i",
+                  "Type": "EditBox",
+                  "DefaultValue": "3.97",
+                  "iniName": "tool_i",
+                  "iniType": "Float"
+                },
+                {
+                  "Name": "r",
+                  "Type": "EditBox",
+                  "DefaultValue": "0.8",
+                  "iniName": "tool_r",
+                  "iniType": "Float"
+                }
+              ]
+            },
+            {
+              "Name": "wcmx.08",
+              "ParamList": [
+                {
+                  "Name": "s",
+                  "Type": "EditBox",
+                  "DefaultValue": "4.76",
+                  "iniName": "tool_s",
+                  "iniType": "Float"
+                },
+                {
+                  "Name": "d",
+                  "Type": "EditBox",
+                  "DefaultValue": "12.7",
+                  "iniName": "tool_d",
+                  "iniType": "Float"
+                },
+                {
+                  "Name": "i",
+                  "Type": "EditBox",
+                  "DefaultValue": "4.76",
+                  "iniName": "tool_i",
+                  "iniType": "Float"
+                },
+                {
+                  "Name": "r",
+                  "Type": "EditBox",
+                  "DefaultValue": "1.2",
+                  "iniName": "tool_r",
+                  "iniType": "Float"
+                }
+              ]
+            }
+          ],
+          "DefaultValue": "0",
+          "iniName": "dp_type",
+          "iniType": "String"
+        }
+      ]
+    },
+    {
+      "Name": "附加参数(单位:mm)",
+      "ParamList":
+      [
+        {
+          "Name": "tool_draft",
+          "Type": "EditBox",
+          "DefaultValue": "7",
+          "iniName": "tool_draft",
+          "iniType": "Float"
+        }
+      ]
+    }
+          ]
+}

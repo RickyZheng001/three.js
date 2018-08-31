@@ -1,0 +1,100 @@
+{
+  "ID":"123",
+  "Name":"刀盘刀杆搜索",
+  "Tab":
+  [
+    {
+      "Name":"刀盘搜索(单位:mm)",
+      "ParamList":
+      [
+        {
+          "Name": "刀具品牌",
+          "Choise":"nuopu,Seco,Prawet",
+          "Type": "ComboBox",
+          "DefaultValue": "0",
+          "iniName": "l1",
+          "iniType": "Float"
+        },
+        {
+          "Name": "订货型号",
+          "Type": "EditBox",
+          "DefaultValue": "0",
+          "iniName": "l2",
+          "iniType": "Float"
+        },
+        {
+          "Name": "类型",
+          "Choise": "左,右",
+          "Type": "ComboBox",
+          "DefaultValue": "0",
+          "iniName": "l1",
+          "iniType": "Float"
+        },
+        {
+          "Name":"有效直径Dc-min",
+          "Type":"EditBox",
+          "DefaultValue":"10",
+          "iniName":"",
+          "iniType":"Float"
+        },
+        {
+          "Name":"有效直径Dc-max",
+          "Type":"EditBox",
+          "DefaultValue":"10",
+          "iniName":"",
+          "iniType":"Float"
+        },
+        {
+          "Name":"主偏角-min",
+          "Type":"EditBox",
+          "DefaultValue":"10",
+          "iniName":"",
+          "iniType":"Float"
+        },
+        {
+          "Name":"主偏角-max",
+          "Type":"EditBox",
+          "DefaultValue":"10",
+          "iniName":"",
+          "iniType":"Float"
+        },
+        {
+          "Name":"有效齿数Z-min",
+          "Type":"EditBox",
+          "DefaultValue":"10",
+          "iniName":"",
+          "iniType":"Float"
+        },
+        {
+          "Name":"有效齿数Z-max",
+          "Type":"EditBox",
+          "DefaultValue":"10",
+          "iniName":"",
+          "iniType":"Float"
+        },
+        {
+          "Name":"ap-min",
+          "Type":"EditBox",
+          "DefaultValue":"10",
+          "iniName":"",
+          "iniType":"Float"
+        },
+        {
+          "Name":"ap-max",
+          "Type":"EditBox",
+          "DefaultValue":"10",
+          "iniName":"",
+          "iniType":"Float"
+        },
+        {
+          "Name": "修光刃",
+          "Choise": "Y,N",
+          "Type": "ComboBox",
+          "DefaultValue": "0",
+          "iniName": "l1",
+          "iniType": "Float"
+        }
+      ]
+    }
+  ]
+}

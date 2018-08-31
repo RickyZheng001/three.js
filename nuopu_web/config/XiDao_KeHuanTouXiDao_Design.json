@@ -1,0 +1,534 @@
+{
+	"ID":"123456",
+	"Name":"钻头",
+	"Tab":
+	[
+		{
+			"Name": "主表(单位:mm)",
+			"ParamList": [
+				{
+					"Name": "刀具类型",
+					"Type": "ComboBox",
+					"Choise": "可换头铣刀",
+					"DefaultValue": "0",
+					"iniName": "tool_type",
+					"iniType": "string"
+				},
+				{
+					"Name": "刀具品牌",
+					"Choise": "nuopu,Seco,Prawet",
+					"Type": "ComboBox",
+					"DefaultValue": "0",
+					"iniName": "company_name",
+					"iniType": "Float"
+				},
+				{
+					"Name": "订货型号",
+					"Type": "EditBox",
+					"DefaultValue": "0",
+					"iniName": "No",
+					"iniType": "string"
+				},
+				{
+					"Name": "文件名",
+					"Type": "EditBox",
+					"DefaultValue": "",
+					"iniName": "FN",
+					"iniType": "string",
+					"ServerGenerateID": 1
+				},
+				{
+					"Name": "更新文件名",
+					"Type": "GenerateServerID",
+					"DefaultValue": ""
+				}
+			]
+		},
+		{
+			"Name":"样本参数(单位:mm)",
+			"ParamList":
+				[
+					{
+						"Name": "刀杆类型",
+						"Type": "ComboBox",
+						"Choise": [
+							{
+								"Name": "设计1",
+								"ParamList": [
+									{
+										"Name": "D5t",
+										"Type": "EditBox",
+										"DefaultValue": "11.4",
+										"iniName": "D5t",
+										"iniType": "Float"
+									},
+									{
+										"Name": "dm",
+										"Type": "EditBox",
+										"DefaultValue": "16",
+										"iniName": "dm",
+										"iniType": "Float"
+									},
+									{
+										"Name": "Bate",
+										"Type": "EditBox",
+										"DefaultValue": "60",
+										"iniName": "Bate",
+										"iniType": "Float"
+									},
+									{
+										"Name": "l1",
+										"Type": "EditBox",
+										"DefaultValue": "0",
+										"iniName": "l1",
+										"iniType": "Float"
+									},
+									{
+										"Name": "l2",
+										"Type": "EditBox",
+										"DefaultValue": "65",
+										"iniName": "l2",
+										"iniType": "Float"
+									},
+									{
+										"Name": "lp",
+										"Type": "EditBox",
+										"DefaultValue": "17",
+										"iniName": "lp",
+										"iniType": "Float"
+									}
+								]
+							},
+							{
+								"Name": "设计2",
+								"ParamList": [
+									{
+										"Name": "D5t",
+										"Type": "EditBox",
+										"DefaultValue": "11.4",
+										"iniName": "D5t",
+										"iniType": "Float"
+									},
+									{
+										"Name": "dm",
+										"Type": "EditBox",
+										"DefaultValue": "20",
+										"iniName": "dm",
+										"iniType": "Float"
+									},
+									{
+										"Name": "Bate",
+										"Type": "EditBox",
+										"DefaultValue": "0",
+										"iniName": "Bate",
+										"iniType": "Float"
+									},
+									{
+										"Name": "l1",
+										"Type": "EditBox",
+										"DefaultValue": "12",
+										"iniName": "l1",
+										"iniType": "Float"
+									},
+									{
+										"Name": "l2",
+										"Type": "EditBox",
+										"DefaultValue": "80",
+										"iniName": "l2",
+										"iniType": "Float"
+									},
+									{
+										"Name": "lp",
+										"Type": "EditBox",
+										"DefaultValue": "30",
+										"iniName": "lp",
+										"iniType": "Float"
+									}
+								]
+							},
+							{
+								"Name": "设计3",
+								"ParamList": [
+									{
+										"Name": "D5t",
+										"Type": "EditBox",
+										"DefaultValue": "11.5",
+										"iniName": "D5t",
+										"iniType": "Float"
+									},
+									{
+										"Name": "dm",
+										"Type": "EditBox",
+										"DefaultValue": "12",
+										"iniName": "dm",
+										"iniType": "Float"
+									},
+									{
+										"Name": "Bate",
+										"Type": "EditBox",
+										"DefaultValue": "0",
+										"iniName": "Bate",
+										"iniType": "Float"
+									},
+									{
+										"Name": "l1",
+										"Type": "EditBox",
+										"DefaultValue": "8.5",
+										"iniName": "l1",
+										"iniType": "Float"
+									},
+									{
+										"Name": "l2",
+										"Type": "EditBox",
+										"DefaultValue": "55",
+										"iniName": "l2",
+										"iniType": "Float"
+									},
+									{
+										"Name": "lp",
+										"Type": "EditBox",
+										"DefaultValue": "10",
+										"iniName": "lp",
+										"iniType": "Float"
+									}
+								]
+							},
+							{
+								"Name": "设计4",
+								"ParamList": [
+									{
+										"Name": "D5t",
+										"Type": "EditBox",
+										"DefaultValue": "11.5",
+										"iniName": "D5t",
+										"iniType": "Float"
+									},
+									{
+										"Name": "dm",
+										"Type": "EditBox",
+										"DefaultValue": "12",
+										"iniName": "dm",
+										"iniType": "Float"
+									},
+									{
+										"Name": "Bate",
+										"Type": "EditBox",
+										"DefaultValue": "0",
+										"iniName": "Bate",
+										"iniType": "Float"
+									},
+									{
+										"Name": "l1",
+										"Type": "EditBox",
+										"DefaultValue": "8.5",
+										"iniName": "l1",
+										"iniType": "Float"
+									},
+									{
+										"Name": "l2",
+										"Type": "EditBox",
+										"DefaultValue": "70",
+										"iniName": "l2",
+										"iniType": "Float"
+									},
+									{
+										"Name": "lp",
+										"Type": "EditBox",
+										"DefaultValue": "25",
+										"iniName": "lp",
+										"iniType": "Float"
+									}
+								]
+							},
+							{
+								"Name": "设计5",
+								"ParamList": [
+									{
+										"Name": "D5t",
+										"Type": "EditBox",
+										"DefaultValue": "11.4",
+										"iniName": "D5t",
+										"iniType": "Float"
+									},
+									{
+										"Name": "dm",
+										"Type": "EditBox",
+										"DefaultValue": "20",
+										"iniName": "dm",
+										"iniType": "Float"
+									},
+									{
+										"Name": "Bate",
+										"Type": "EditBox",
+										"DefaultValue": "3",
+										"iniName": "Bate",
+										"iniType": "Float"
+									},
+									{
+										"Name": "l1",
+										"Type": "EditBox",
+										"DefaultValue": "27",
+										"iniName": "l1",
+										"iniType": "Float"
+									},
+									{
+										"Name": "l2",
+										"Type": "EditBox",
+										"DefaultValue": "95",
+										"iniName": "l2",
+										"iniType": "Float"
+									},
+									{
+										"Name": "lp",
+										"Type": "EditBox",
+										"DefaultValue": "45",
+										"iniName": "lp",
+										"iniType": "Float"
+									}
+								]
+							},
+							{
+								"Name": "设计5",
+								"ParamList": [
+									{
+										"Name": "D5t",
+										"Type": "EditBox",
+										"DefaultValue": "11.4",
+										"iniName": "D5t",
+										"iniType": "Float"
+									},
+									{
+										"Name": "dm",
+										"Type": "EditBox",
+										"DefaultValue": "20",
+										"iniName": "dm",
+										"iniType": "Float"
+									},
+									{
+										"Name": "Bate",
+										"Type": "EditBox",
+										"DefaultValue": "3",
+										"iniName": "Bate",
+										"iniType": "Float"
+									},
+									{
+										"Name": "l1",
+										"Type": "EditBox",
+										"DefaultValue": "27",
+										"iniName": "l1",
+										"iniType": "Float"
+									},
+									{
+										"Name": "l2",
+										"Type": "EditBox",
+										"DefaultValue": "95",
+										"iniName": "l2",
+										"iniType": "Float"
+									},
+									{
+										"Name": "lp",
+										"Type": "EditBox",
+										"DefaultValue": "45",
+										"iniName": "lp",
+										"iniType": "Float"
+									}
+								]
+							},
+							{
+								"Name": "设计6",
+								"ParamList": [
+									{
+										"Name": "D5t",
+										"Type": "EditBox",
+										"DefaultValue": "11.4",
+										"iniName": "D5t",
+										"iniType": "Float"
+									},
+									{
+										"Name": "dm",
+										"Type": "EditBox",
+										"DefaultValue": "20",
+										"iniName": "dm",
+										"iniType": "Float"
+									},
+									{
+										"Name": "Bate",
+										"Type": "EditBox",
+										"DefaultValue": "5",
+										"iniName": "Bate",
+										"iniType": "Float"
+									},
+									{
+										"Name": "l1",
+										"Type": "EditBox",
+										"DefaultValue": "49.1",
+										"iniName": "l1",
+										"iniType": "Float"
+									},
+									{
+										"Name": "l2",
+										"Type": "EditBox",
+										"DefaultValue": "150",
+										"iniName": "l2",
+										"iniType": "Float"
+									},
+									{
+										"Name": "lp",
+										"Type": "EditBox",
+										"DefaultValue": "100",
+										"iniName": "lp",
+										"iniType": "Float"
+									}
+								]
+							},
+							{
+								"Name": "设计7",
+								"ParamList": [
+									{
+										"Name": "D5t",
+										"Type": "EditBox",
+										"DefaultValue": "11.4",
+										"iniName": "D5t",
+										"iniType": "Float"
+									},
+									{
+										"Name": "dm",
+										"Type": "EditBox",
+										"DefaultValue": "32",
+										"iniName": "dm",
+										"iniType": "Float"
+									},
+									{
+										"Name": "Bate",
+										"Type": "EditBox",
+										"DefaultValue": "10",
+										"iniName": "Bate",
+										"iniType": "Float"
+									},
+									{
+										"Name": "l1",
+										"Type": "EditBox",
+										"DefaultValue": "58.4",
+										"iniName": "l1",
+										"iniType": "Float"
+									},
+									{
+										"Name": "l2",
+										"Type": "EditBox",
+										"DefaultValue": "250",
+										"iniName": "l2",
+										"iniType": "Float"
+									},
+									{
+										"Name": "lp",
+										"Type": "EditBox",
+										"DefaultValue": "190",
+										"iniName": "lp",
+										"iniType": "Float"
+									}
+								]
+							},
+							{
+								"Name": "设计8",
+								"ParamList": [
+									{
+										"Name": "D5t",
+										"Type": "EditBox",
+										"DefaultValue": "11.4",
+										"iniName": "D5t",
+										"iniType": "Float"
+									},
+									{
+										"Name": "dm",
+										"Type": "EditBox",
+										"DefaultValue": "16",
+										"iniName": "dm",
+										"iniType": "Float"
+									},
+									{
+										"Name": "Bate",
+										"Type": "EditBox",
+										"DefaultValue": "1",
+										"iniName": "Bate",
+										"iniType": "Float"
+									},
+									{
+										"Name": "l1",
+										"Type": "EditBox",
+										"DefaultValue": "40",
+										"iniName": "l1",
+										"iniType": "Float"
+									},
+									{
+										"Name": "l2",
+										"Type": "EditBox",
+										"DefaultValue": "170",
+										"iniName": "l2",
+										"iniType": "Float"
+									},
+									{
+										"Name": "lp",
+										"Type": "EditBox",
+										"DefaultValue": "122",
+										"iniName": "lp",
+										"iniType": "Float"
+									}
+								]
+							},
+							{
+								"Name": "设计9",
+								"ParamList": [
+									{
+										"Name": "D5t",
+										"Type": "EditBox",
+										"DefaultValue": "11.4",
+										"iniName": "D5t",
+										"iniType": "Float"
+									},
+									{
+										"Name": "dm",
+										"Type": "EditBox",
+										"DefaultValue": "20",
+										"iniName": "dm",
+										"iniType": "Float"
+									},
+									{
+										"Name": "Bate",
+										"Type": "EditBox",
+										"DefaultValue": "1",
+										"iniName": "Bate",
+										"iniType": "Float"
+									},
+									{
+										"Name": "l1",
+										"Type": "EditBox",
+										"DefaultValue": "60",
+										"iniName": "l1",
+										"iniType": "Float"
+									},
+									{
+										"Name": "l2",
+										"Type": "EditBox",
+										"DefaultValue": "250",
+										"iniName": "l2",
+										"iniType": "Float"
+									},
+									{
+										"Name": "lp",
+										"Type": "EditBox",
+										"DefaultValue": "200",
+										"iniName": "lp",
+										"iniType": "Float"
+									}
+								]
+							}
+						],
+						"DefaultValue":"0",
+						"String":"ZiFu",
+						"iniName":"Shape_Type",
+						"iniType":"string"
+					}
+				]
+		}
+	]
+}

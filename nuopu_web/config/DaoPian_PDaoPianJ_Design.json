@@ -1,0 +1,84 @@
+{
+	"ID":"123456",
+	"Name":"刀片",
+	"Tab":
+	[
+		{
+			"Name": "主表(单位:mm)",
+			"ParamList": [
+				{
+					"Name": "刀具类型",
+					"Type": "ComboBox",
+					"Choise": "P刀片j",
+					"DefaultValue": "0",
+					"iniName": "tool_type",
+					"iniType": "string"
+				},
+				{
+					"Name": "刀具品牌",
+					"Choise":"nuopu,Seco,Prawet",
+					"Type": "ComboBox",
+					"DefaultValue": "0",
+					"iniName": "company_name",
+					"iniType": "string"
+				},
+				{
+					"Name": "订货型号",
+					"Type": "EditBox",
+					"DefaultValue": "0",
+					"iniName": "No",
+					"iniType": "string"
+				},
+				{
+					"Name": "文件名",
+					"Type": "EditBox",
+					"DefaultValue": "",
+					"iniName": "FN",
+					"iniType": "string",
+					"ServerGenerateID": 1
+				},
+				{
+					"Name": "更新文件名",
+					"Type": "GenerateServerID",
+					"DefaultValue": ""
+				}
+			]
+		},
+		{
+			"Name": "样本参数(单位:mm)",
+			"ParamList":
+			[
+				{
+					"Name": "宽度",
+					"Type": "EditBox",
+					"DefaultValue": "2.5",
+					"iniName": "w",
+					"iniType": "Float"
+				},
+				{
+					"Name": "长度",
+					"Type": "EditBox",
+					"DefaultValue": "20",
+					"iniName": "i",
+					"iniType": "Float"
+				},
+				{
+					"Name": "厚度",
+					"Type": "EditBox",
+					"DefaultValue": "1.2",
+					"iniName": "s",
+					"iniType": "Float"
+				},
+				{
+					"Name":"材质",
+					"Type":"ComboBox",
+					"Choise":"H12,CP15,CP20,CF",
+					"DefaultValue":"0",
+					"iniName":"material",
+					"intType":"string"
+				}
+
+			]
+		}
+	]
+}

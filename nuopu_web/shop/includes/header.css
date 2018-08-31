@@ -41,7 +41,7 @@ a.info  {font-weight:bold;font-size:10pt;text-decoration:none;}
 }
 .menu2 {
     position: absolute;
-    left: 60%;
+    left: 54%;
     display: flex;
     align-items: center;
     width: 500px;
@@ -57,7 +57,7 @@ ul.menu2 {
     display: flex;
 }
 
-ul.menu2 li {
+ul.menu2 .lis{
     text-align: center;
     list-style-type: none;
     color: #ffffff;
@@ -66,6 +66,28 @@ ul.menu2 li {
     background-color: #009fd7;
     border-radius: 4px;
     width:60px;
+}
+#menu2_a,#menu2_b {
+    text-align: center;
+    list-style-type: none;
+    color: #ffffff;
+    margin: 6px;
+    padding: 2px 0px;
+}
+#menu2_a {
+    width: 130px;
+}
+#menu2_b {
+    width: 120px;
+}
+#liid {
+    position: absolute;
+    color: white;
+    top: 23px;
+    left: 295px;
+    font-size: 14px;
+    list-style: none;
+    width: 450px;
 }
 ul.menu2 li a, ul.menu2 li a:visited {color:#ffffff;font-weight:normal;text-decoration:none;}
 

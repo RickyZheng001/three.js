@@ -1,0 +1,193 @@
+{
+	"ID":"123",
+	"Name":"刀柄搜索",
+	"Tab":
+	[
+		{
+			"Name":"刀柄搜索(单位:mm)",
+			"ParamList":
+		[
+			{
+				"Name": "刀具品牌",
+				"Choise":"nuopu,Seco,Prawet",
+				"Type": "ComboBox",
+				"DefaultValue": "0",
+				"iniName": "l1",
+				"iniType": "Float",
+				"SearchType": "0"
+			},
+			{
+				"Name": "订货型号",
+				"Type": "EditBox",
+				"DefaultValue": "0",
+				"iniName": "l1",
+				"iniType": "Float"
+			},
+			{
+				"Name":"尾端类型",
+				"Type":"ComboBox",
+				"Choise":
+				[
+					{
+						"Name":"BT_JIS_B_6339_1",
+						"ParamList":
+						[
+							{
+								"Name":"尾端规格",
+								"Type":"ComboBox",
+								"Choise":"30,40,50",
+								"DefaultValue":"0",
+								"iniName":"D_value",
+								"iniType":"Float"
+							}
+						]
+					},
+					{
+						"Name":"DIN_69871_1",
+						"ParamList":
+						[
+							{
+								"Name":"尾端规格",
+								"Type":"ComboBox",
+								"Choise":"30,40,50",
+								"DefaultValue":"1",
+								"iniName":"D_value",
+								"iniType":"Float"
+							}
+						]
+					},
+					{
+						"Name":"HSK_A_ISO_12164_1",
+						"ParamList":
+						[
+							{
+								"Name":"尾端规格",
+								"Type":"ComboBox",
+								"Choise":"32,40,63,100",
+								"DefaultValue":"2",
+								"iniName":"D_value",
+								"iniType":"Float"
+							}
+						]
+					},
+					{
+						"Name":"HSK_E",
+						"ParamList":
+						[
+							{
+								"Name":"尾端规格",
+								"Type":"ComboBox",
+								"Choise":"25,32,40,50",
+								"DefaultValue":"0",
+								"iniName":"D_value",
+								"iniType":"Float"
+							}
+						]
+					},
+					{
+						"Name":"capto",
+						"ParamList":
+						[
+							{
+								"Name":"尾端规格",
+								"Type":"ComboBox",
+								"Choise":"c4,c5,c6,c8",
+								"DefaultValue":"0",
+								"iniName":"D_value",
+								"iniType":"Float"
+							}
+						]
+					}
+				],
+				"DefaultValue":"2",
+				"iniName":"h_type",
+				"iniType":"string"
+			},
+			{
+				"Name": "前端主类型",
+				"Choise":
+			[
+				{
+					"Name":"热胀刀柄",
+					"ParamList":
+					[
+						{
+							"Name":"前段子类型",
+							"Type":"ComboBox",
+                            "DefaultValue": "0",
+							"Choise":"DIN型,增强型,保护系统的增强型,模具加工型",
+							"iniName":"",
+							"iniType":"Float"
+						}
+					]
+				},
+				{
+					"Name":"液压刀柄",
+					"ParamList":
+					[
+						{
+							"Name":"前段子类型",
+							"Type":"ComboBox",
+                            "DefaultValue": "0",
+							"Choise":"增强型,普通,高强度",
+							"iniName":"",
+							"iniType":"Float"
+						}
+					]
+				},
+				{
+					"Name":"弹簧夹头刀柄",
+					"ParamList":
+					[
+						{
+							"Name":"前段子类型",
+							"Type":"ComboBox",
+                            "DefaultValue": "0",
+							"Choise":"高精度,ER弹簧夹头,OZ弹簧夹头",
+							"iniName":"",
+							"iniType":"Float"
+						}
+					]
+				},
+				{
+					"Name":"侧固式刀柄",
+					"ParamList":
+					[
+						{
+							"Name":"前段子类型",
+							"Type":"ComboBox",
+                            "DefaultValue": "0",
+							"Choise":"Weldon设计1,Weldon设计2,Weldon短型设计1,Weldon短型设计2",
+							"iniName":"",
+							"iniType":"Float"
+						}
+					]
+				}
+			],
+				"Type": "ComboBox",
+				"DefaultValue": "0",
+				"iniName": "l2",
+				"iniType": "Float",
+				"SearchType": "0"
+			},
+			{
+				"Name": "A有效长度min",
+				"Type": "EditBox",
+				"DefaultValue": "0",
+				"iniName": "d1_cus",
+				"iniType": "Float",
+				"SearchType": "-1"
+			},
+			{
+				"Name": "A有效长度max",
+				"Type": "EditBox",
+				"DefaultValue": "9999",
+				"iniName": "drill_point_angle",
+				"iniType": "Float",
+				"SearchType": "1"
+			}
+		]
+		}
+
+	]
+}

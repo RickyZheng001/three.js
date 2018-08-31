@@ -1,0 +1,23 @@
+{
+	"ParamsArray":
+	[
+		{
+			"Name": "槽类型",
+			"Type": "ComboBox",
+			"Choise": "单槽,双槽",
+			"DefaultValue": "0"
+		},
+		{
+			"Name":"槽直径",
+			"Type":"EditBox",
+			"DefaultValue":10,
+			"DanWeiString":"mm"
+		},
+		{
+			"Name":"槽宽度",
+			"Type":"EditBox",
+			"DefaultValue":5,
+			"DanWeiString":"mm"
+		}
+	]
+}

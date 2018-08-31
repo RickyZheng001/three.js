@@ -1,0 +1,68 @@
+{
+	"ID":"123456",
+	"Name":"镗刀",
+	"Tab":
+	[
+		{
+			"Name": "主表(单位:mm)",
+			"ParamList": [
+				{
+					"Name": "刀具类型",
+					"Type": "ComboBox",
+					"Choise": "90°CC",
+					"DefaultValue": "0",
+					"iniName": "tool_type",
+					"iniType": "string"
+				},
+				{
+					"Name": "刀具品牌",
+					"Choise": "nuopu,Seco,Prawet",
+					"Type": "ComboBox",
+					"DefaultValue": "0",
+					"iniName": "company_name",
+					"iniType": "Float"
+				},
+				{
+					"Name": "订货型号",
+					"Type": "EditBox",
+					"DefaultValue": "0",
+					"iniName": "No",
+					"iniType": "string"
+				},
+				{
+					"Name": "文件名",
+					"Type": "EditBox",
+					"DefaultValue": "",
+					"iniName": "FN",
+					"iniType": "string",
+					"ServerGenerateID": 1
+				},
+				{
+					"Name": "更新文件名",
+					"Type": "GenerateServerID",
+					"DefaultValue": ""
+				}
+			]
+		},
+		{
+			"Name":"样本参数(单位:mm)",
+			"ParamList":
+			[
+				{
+					"Name":"l1",
+					"Type":"EditBox",
+					"DefaultValue":"22.5",
+					"iniName":"l1",
+					"iniType":"Float"
+				},
+				{
+					"Name":"b",
+					"Type":"EditBox",
+					"DefaultValue":"16.5",
+					"iniName":"b",
+					"iniType":"Float"
+				}
+			]
+		}
+	]
+}

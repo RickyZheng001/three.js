@@ -1,0 +1,121 @@
+{
+	"ID":"123456",
+	"Name":"刀片",
+	"Tab":
+	[
+		{
+			"Name": "主表(单位:mm)",
+			"ParamList": [
+				{
+					"Name": "刀具类型",
+					"Type": "ComboBox",
+					"Choise": "LC圆刀片",
+					"DefaultValue": "0",
+					"iniName": "tool_type",
+					"iniType": "string"
+				},
+				{
+					"Name": "刀具品牌",
+					"Choise":"nuopu,Seco,Prawet",
+					"Type": "ComboBox",
+					"DefaultValue": "0",
+					"iniName": "company_name",
+					"iniType": "string"
+				},
+				{
+					"Name": "订货型号",
+					"Type": "EditBox",
+					"DefaultValue": "0",
+					"iniName": "No",
+					"iniType": "string"
+				},
+				{
+					"Name": "文件名",
+					"Type": "EditBox",
+					"DefaultValue": "",
+					"iniName": "FN",
+					"iniType": "string",
+					"ServerGenerateID": 1
+				},
+				{
+					"Name": "更新文件名",
+					"Type": "GenerateServerID",
+					"DefaultValue": ""
+				}
+			]
+		},
+		{
+			"Name": "样本参数(单位:mm)",
+			"ParamList":
+			[
+				{
+					"Name":"形状",
+					"Type":"ComboBox",
+					"Choise":"L",
+					"DefaultValue":"0",
+					"iniName":"dp_shape",
+					"intType":"string"
+				},
+				{
+					"Name": "后角",
+					"Type": "EditBox",
+					"DefaultValue": "7",
+					"iniName": "draft",
+					"iniType": "Float"
+				},
+				{
+					"Name":"公差",
+					"Type":"ComboBox",
+					"Choise":"G,M",
+					"DefaultValue":"0",
+					"iniName":"deviation",
+					"intType":"string"
+				},
+				{
+					"Name":"刀片类型",
+					"Type":"ComboBox",
+					"Choise":"R,F",
+					"DefaultValue":"0",
+					"iniName":"cutting_Type",
+					"intType":"string"
+				},
+				{
+					"Name": "刀片啮合长度",
+					"Type": "EditBox",
+					"DefaultValue": "16.98",
+					"iniName": "l",
+					"iniType": "Float"
+				},
+				{
+					"Name": "刀尖圆角",
+					"Type": "EditBox",
+					"DefaultValue": "1.5",
+					"iniName": "rep",
+					"iniType": "Float"
+				},
+				{
+					"Name": "刀片宽度",
+					"Type": "EditBox",
+					"DefaultValue": "3",
+					"iniName": "ap",
+					"iniType": "Float"
+				},
+				{
+					"Name": "厚度",
+					"Type": "EditBox",
+					"DefaultValue": "4.3",
+					"iniName": "s",
+					"iniType": "Float"
+				},
+				{
+					"Name":"切削方向",
+					"Type":"ComboBox",
+					"Choise":"R,L,N",
+					"DefaultValue":"2",
+					"iniName":"direction",
+					"intType":"string"
+				}
+			]
+		}
+	]
+}

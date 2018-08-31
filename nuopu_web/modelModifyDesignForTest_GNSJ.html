@@ -16,6 +16,7 @@
 		<link rel="stylesheet" href="../dat.gui-master/build/dat.gui.css" type="text/css">
 		<link rel="stylesheet" href="style.css" type="text/css" media="screen">
 		<link rel="stylesheet" href="./js/jquery-ui-1.10.4.custom/css_smoothness/jquery-ui.css">
+		<link rel="stylesheet" href="right_menu.css">
 		<script type="text/javascript" src="gui.js"></script>
 		<script type="text/javascript" src="config.js"></script>
 
@@ -88,7 +89,6 @@
 						<div class="smallbutton" style="position: absolute;margin-left: 10px;margin-top: 200px;cursor:default;">夹持结构 </div>
 
 						<select id="YanChangGanComboBox" style="position: absolute;margin-left: 100px;margin-top: 202px;width:116px;" onchange="OnJiaChiJieGouSelectionChanged()">
-							<option value ="0">刀柄+刀具</option>
 							<option value ="1">刀柄+延长杆+刀具</option>
 						</select>
 
@@ -105,8 +105,8 @@
 
 						<HR width="80%" color=#bbbbbb SIZE=2 style="position: absolute;margin-top: 425px;margin-left: 10px;"/>
 
-						<div id="YanChangGanBtn" class="graybutton" style="position: absolute;margin-left: 10px;margin-top: 440px;width:200px;" onclick="OnClickYanChangGanSearch()">延长杆&nbsp;&nbsp;&nbsp;&nbsp;Search</div>
-						<div id="YanChangGanBtn2" class="graybutton" style="position: absolute;margin-left: 10px;margin-top: 470px;width:200px;" onclick="OnClickParamDesign_YanChangGan()">延长杆&nbsp;&nbsp;&nbsp;&nbsp;Design</div>
+						<div id="YanChangGanBtn" class="smallbutton" style="position: absolute;margin-left: 10px;margin-top: 440px;width:200px;" onclick="OnClickYanChangGanSearch()">延长杆&nbsp;&nbsp;&nbsp;&nbsp;Search</div>
+						<div id="YanChangGanBtn2" class="smallbutton" style="position: absolute;margin-left: 10px;margin-top: 470px;width:200px;" onclick="OnClickParamDesign_YanChangGan()">延长杆&nbsp;&nbsp;&nbsp;&nbsp;Design</div>
 						<div class="smallbutton" style="position: absolute;margin-left: 10px;margin-top: 500px;width:120px;" onclick="">延长杆夹持长度更新</div>
 						<input style="position: absolute;margin-left: 150px;margin-top: 500px;width:30px;" type="text" name="yanChangGanLength" />
 						<div style="position: absolute;margin-left: 190px;margin-top: 500px;width:40px;">mm</div>
@@ -120,7 +120,7 @@
 				<div id="canvas">
 					<div id="gameCanvas" width="1920px" height="1080px"></div>
 					<div id="divPdfView" class="pdfView" style="visibility: hidden">
-						<embed id="pdfCtrl" src="./pdf/test1.pdf" type="application/pdf" width="1440px" height="670"></embed>
+						<embed id="pdfCtrl" src="./pdf/test1.pdf" type="application/pdf" width="1440px" height="600"></embed>
 					</div>
 					<div class="JiShu">
 
@@ -209,58 +209,59 @@
 						<img src="images/EdgeWinLogo_3.png">
 					</div>
 				</div>
-				<div id="toolBox3D" class="toolBox2">
-					<div class="section section_sculpt">
-						<div class="appLabel">视图</div>
-						<div class="panel">
-							<div class="smallbutton" onclick="activateButton('zhouCeView');">轴测图</div>
-							<div class="smallbutton" onclick="activateButton('mainView');">主视图</div>
-							<div class="smallbutton" onclick="activateButton('backView');">后视图</div>
-							<div class="smallbutton" onclick="activateButton('leftView');">左视图</div>
-							<div class="smallbutton" onclick="activateButton('rightView');">右视图</div>
-							<div class="smallbutton" onclick="activateButton('topView');">俯视图</div>
-							<div class="smallbutton" onclick="activateButton('bottomView');">仰视图</div>
+					<div id="toolBox3D">
+						<div class="section section_sculpt">
+							<div class="appLabel">
+								<table class="tab">
+									<tr>
+										<td class="right_td">刀具</td><td class="right_td">Design</td>
+									</tr>
+									<tr>
+										<td class="right_td">刀柄</td><td class="right_td">Search</td>
+									</tr>
+									<tr>
+										<td class="right_td">延长杆</td><td class="right_td">Search</td>
+									</tr>
+									<tr>
+										<td class="right_td"></td><td class="right_td"></td>
+									</tr>
+									<tr>
+										<td class="right_td"></td><td class="right_td"></td>
+									</tr>
+									<tr>
+										<td class="right_td"></td><td class="right_td"></td>
+									</tr>
+									<tr>
+										<td class="right_td"></td><td class="right_td"></td>
+									</tr>
+								</table>
+							</div>
+							<div  ><img style="margin-top:10px;position:absolute;border: #009fd7" src="images/bji.png"
+										height="184" width="169	"/></div>
+							<div class="panel" style="width:170px;margin-top: 10px;position:absolute;z-index: 1"><div class="smallbutton" style="position:absolute;left:0px;top:-30px;" onclick="QueryServerState()">Check</div><div class="smallbutton" style="position:absolute;left:84px;top:-30px;" onclick="Help()">Help</div>
+
+								<div class="right_t" onclick="activateButton('zhouCeView');"></div>
+								<div class="right_t" onclick="activateButton('rightView');"></div>
+								<div class="right_t" onclick="OnClickDisplayZuoBiaoZhou();"></div>
+								<div class="right_t" onclick="activateButton('mainView');"></div>
+								<div class="right_t" onclick="activateButton('topView');"></div>
+								<div class="right_t" onclick="OnClickDisplayXZPlane();"></div>
+								<div class="right_t" onclick="activateButton('backView');"></div>
+								<div class="right_t" onclick="activateButton('bottomView');"></div>
+								<div class="right_t" onclick="OnClickDisplayYZPlane()"></div>
+								<div class="right_t" onclick="activateButton('leftView');"></div>
+								<div class="right_t"></div>
+								<div class="right_t" onclick="OnClickDisplayXYPlane()"></div>
+
+
+								<div id="button" style="margin-top: 35px">下载</div>
+							</div>
+							<div class="nervousLogo noSel" style="position: absolute;right: 615px;bottom: -377px">
+								<img src="images/EdgeWinLogo_3.png">
+							</div>
+
 						</div>
 					</div>
-					<div class="section section_jizhunxianshi">
-						<div class="appLabel">基准</div>
-						<div class="smallbutton" onclick="OnClickDisplayZuoBiaoZhou();">坐标轴</div>
-						<div class="smallbutton" onclick="OnClickDisplayXZPlane();">xz平面</div>
-						<div class="smallbutton" onclick="OnClickDisplayYZPlane()">yz平面</div>
-						<div class="smallbutton" onclick="OnClickDisplayXYPlane()">xy平面</div>
-					</div>
-					<div class="section section_tuceng">
-						<div class="appLabel">显示</div>
-						<div class="smallbutton" onclick="OnClickParamList()">参数表</div>
-						<div class="smallbutton" onclick="OnClickTechRequest()">技术条件</div>
-						<div class="smallbutton" onclick="">图纸模板</div>
-					</div>
-					<div class="section section_material">
-						<div class="appLabel">下载</div>
-						<div class="button" onclick="">STP + DWG</div>
-						<div class="button" onclick="OnClickDownloadObj();">STL + PDF</div>
-						<div class="button" onclick="">全部</div>
-					</div>
-					<div class="section section_material">
-						<div class="appLabel">价格</div>
-						<div style="width:80px;height:28px;margin-top: 2px;">8.00元</div>
-						<div style="width:80px;height:28px;margin-top: 2px;">7.00元</div>
-						<div style="width:80px;height:28px;margin-top: 2px;">15.00元</div>
-					</div>
-					<div class="section section_material" style="width: 150px;">
-						<div class="appLabel">当前状态</div>
-						<div class="smallbutton" style="position:absolute;top:30px;width: 40px;" onclick="">刀具</div>
-						<div style="position:absolute;top:30px;margin-left:60px;width:50px;margin-top: 2px;">Design1</div>
-						<div class="smallbutton" style="position:absolute;top:60px;width: 40px;" onclick="">刀柄</div>
-						<div style="position:absolute;top:60px;margin-left:60px;width:80px;margin-top: 2px;">Search</div>
-						<div class="smallbutton" style="position:absolute;top:90px;width: 40px;" onclick="">延长杆</div>
-						<div style="position:absolute;top:90px;margin-left:60px;width:80px;margin-top: 2px;">Search</div>
-					</div>
-
-					<div class="nervousLogo noSel">
-						<img src="images/EdgeWinLogo_3.png">
-					</div>
-				</div>
 			</div>
 		</div>
 
@@ -551,7 +552,7 @@
             var m_globalZuanTouSearchJsonResult = null;
             var m_globalDaoBinSearchJsonResult = null;
             var m_globalYanChangGanSearchJsonResult = null;
-            var m_bYanChangGanBtnIsDisable = true;
+            var m_bYanChangGanBtnIsDisable = false;
 			var mouseX = 0, mouseY = 0;
 
 			var windowHalfX = window.innerWidth / 2;
@@ -671,6 +672,7 @@
 			{
                 ReloadDesignGUI(m_globalGuiJsonObj);
 			}
+
 			function onClickUpdateCallBack()
 			{
 			    //这里显示进度条，并且把界面封印起来
@@ -682,10 +684,10 @@
 
                 progressTimer = setInterval(onUpdateProgress,100);
 			}
-
+			
 			LoadZuanTouSearchGUIMockData("config/zuantou_search_menu_1.json",zuanTouSearchMenuObj,onSearchZuanTouCallBackMockData);
             LoadHandleSearchGUIMockData("config/handle_config_1.json",searchMenuObj,onSearchDaoBingCallBackMockData);
-            LoadYanChangGanSearchGUIMockData("config/yanchanggan_config_1.json",yanChangGanSearchMenuObj,onSearchYanChangGanCallBackMockData);
+            LoadYanChangGanSearchGUIMockData("config/yanchanggan_config_1.json",yanChangGanSearchMenuObj,onSearchYanChangGanCallBackMockData,ReloadYanChangGanSearchMenu);
             LoadDesignGUIMockData("config/config.json",onCallBack,zuanTouDesignMenuObj,onClickUpdateCallBack,onUpdateMenu);
             LoadDaoBingDesignGUIMockData("config/HandleDesignConfig1.json",onCallBack,daoBingDesignMenuObj,onClickUpdateCallBack,onUpdateMenu);
             LoadYanChangGanDesignGUIMockData("config/YanChangGanDesignConfig1.json",onCallBack,yanChangGanDesignMenuObj,onClickUpdateCallBack,onUpdateMenu);

@@ -1,0 +1,131 @@
+{
+  "ID":"123",
+  "Name":"切削参数",
+  "Tab":
+  [
+    {
+      "Name": "加工材料",
+      "ParamList": [
+        {
+          "Name": "材料类别",
+          "Type": "ComboBox",
+          "Choise": "1,2,3,4,5",
+          "DefaultValue": "0",
+          "iniName": "",
+          "iniType": "string",
+          "SearchType": "0"
+        },
+        {
+          "Name": "材料小类",
+          "Type": "ComboBox",
+          "Choise": "0,1,2,3",
+          "DefaultValue": "0",
+          "iniName": "",
+          "iniType": "string",
+          "SearchType": "0"
+        },
+        {
+          "Name": "材料牌号",
+          "Type": "ComboBox",
+          "Choise": "0,1,2,3",
+          "DefaultValue": "0",
+          "iniName": "",
+          "iniType": "string",
+          "SearchType": "0"
+        }
+      ]
+    },
+    {
+      "Name":"刀具材料及涂层",
+      "ParamList":
+      [
+        {
+          "Name":"刀具材料",
+          "Type":"ComboBox",
+          "Choise":"硬质合金,高速钢,CBN,PCD,陶瓷,金属陶瓷",
+          "DefaultValue":"0",
+          "iniName":"",
+          "iniType":"string",
+          "SearchType":"0"
+        },
+        {
+          "Name":"涂层",
+          "Type":"ComboBox",
+          "Choise":"PVD,CVD,PCD",
+          "DefaultValue":"0",
+          "iniName":"",
+          "iniType":"string",
+          "SearchType":"0"
+        },
+        {
+          "Name":"刀具结构",
+          "Type":"ComboBox",
+          "Choise":"整体,焊接,可转位",
+          "DefaultValue":"0",
+          "iniName":"",
+          "iniType":"string",
+          "SearchType":"0"
+        }
+      ]
+    },
+    {
+      "Name":"切削参数计算",
+      "ParamList":
+      [
+        {
+          "Name":"线速度 m/min",
+          "Type":"EditBox",
+          "DefaultValue":"0",
+          "OnChange":"XianSuDu",
+          "iniName":"",
+          "iniType":"string",
+          "SearchType":"0"
+        },
+        {
+          "Name":"转速 rpm",
+          "Type":"EditBox",
+          "DefaultValue":"0",
+          "listen":"XianSuDus()",
+          "iniName":"",
+          "iniType":"string",
+          "SearchType":"0"
+        },
+        {
+          "Name":"每齿进给量 mm/tooth",
+          "Type":"EditBox",
+          "DefaultValue":"0",
+          "OnChange":"MeiChiJinJiLiang",
+          "iniName":"",
+          "iniType":"string",
+          "SearchType":"0"
+        },
+        {
+          "Name":"每分钟进给量 mm/min",
+          "Type":"EditBox",
+          "DefaultValue":"0",
+          "listen":"JinJiLiangs()",
+          "iniName":"",
+          "iniType":"string",
+          "SearchType":"0"
+        },
+        {
+          "Name":"加工长度 mm",
+          "Type":"EditBox",
+          "DefaultValue":"0",
+          "iniName":"",
+          "iniType":"string",
+          "SearchType":"0"
+        },
+        {
+          "Name":"加工时间 sec",
+          "Type":"EditBox",
+          "DefaultValue":"0",
+          "listen":"JiaGongChangDus()",
+          "iniName":"",
+          "iniType":"string",
+          "SearchType":"0"
+        }
+      ]
+    }
+  ]
+}

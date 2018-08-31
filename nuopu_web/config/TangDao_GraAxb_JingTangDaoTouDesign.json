@@ -1,0 +1,93 @@
+{
+	"ID":"123456",
+	"Name":"镗刀",
+	"Tab":
+	[
+		{
+			"Name": "主表(单位:mm)",
+			"ParamList": [
+				{
+					"Name": "刀具类型",
+					"Type": "ComboBox",
+					"Choise": "Gra-Axb 0.3-108",
+					"DefaultValue": "0",
+					"iniName": "tool_type",
+					"iniType": "string"
+				},
+				{
+					"Name": "刀具品牌",
+					"Choise":"nuopu,Seco,Prawet",
+					"Type": "ComboBox",
+					"DefaultValue": "0",
+					"iniName": "company_name",
+					"iniType": "Float"
+				},
+				{
+					"Name": "订货型号",
+					"Type": "EditBox",
+					"DefaultValue": "0",
+					"iniName": "No",
+					"iniType": "string"
+				},
+				{
+					"Name": "文件名",
+					"Type": "EditBox",
+					"DefaultValue": "",
+					"iniName": "FN",
+					"iniType": "string",
+					"ServerGenerateID": 1
+				},
+				{
+					"Name": "Graflex规格",
+					"Choise": "G2,G3,G5",
+					"Type": "ComboBox",
+					"DefaultValue": "0",
+					"iniName": "Graflex",
+					"iniType": "Float"
+				},
+				{
+					"Name": "范围C",
+					"Choise": "0.3-8,2-20,6-108",
+					"Type": "ComboBox",
+					"DefaultValue": "0",
+					"iniName": "C_type",
+					"iniType": "Float"
+				}
+			]
+		},
+		{
+			"Name":"详情参数(单位:mm)",
+			"ParamList":
+			[
+				{
+					"Name":"A",
+					"Type":"EditBox",
+					"DefaultValue":"25",
+					"iniName":"A",
+					"iniType":"Float"
+				},
+				{
+					"Name":"D",
+					"Type":"EditBox",
+					"DefaultValue":"25",
+					"iniName":"D",
+					"iniType":"Float"
+				},
+				{
+					"Name":"L",
+					"Type":"EditBox",
+					"DefaultValue":"41",
+					"iniName":"L",
+					"iniType":"Float"
+				},
+				{
+					"Name":"d1",
+					"Type":"EditBox",
+					"DefaultValue":"6",
+					"iniName":"d1",
+					"iniType":"Float"
+				}
+			]
+		}
+	]
+}

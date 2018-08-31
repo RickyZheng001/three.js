@@ -1,0 +1,551 @@
+{
+	"ID":"123456",
+	"Name":"铰刀",
+	"Tab":
+	[
+		{
+			"Name":"主表(单位:mm)",
+			"ParamList":
+			[
+				{
+					"Name":"刀具类型",
+					"Type":"ComboBox",
+					"Choise":"直槽阶梯铰刀",
+					"DefaultValue":"0",
+					"iniName":"tool_type",
+					"iniType":"string"
+				},
+				{
+					"Name":"刀具品牌",
+					"Choise":"nuopu,Seco,Prawet",
+					"Type":"ComboBox",
+					"DefaultValue":"0",
+					"iniName":"company_name",
+					"iniType":"Float"
+				},
+				{
+					"Name":"订货型号",
+					"Type":"EditBox",
+					"DefaultValue":"0",
+					"iniName":"No",
+					"iniType":"string"
+				},
+				{
+					"Name":"文件名",
+					"Type":"EditBox",
+					"DefaultValue":"",
+					"iniName":"FN",
+					"iniType":"string",
+					"ServerGenerateID":1
+				},
+				{
+					"Name":"更新文件名",
+					"Type":"GenerateServerID",
+					"DefaultValue":""
+				}
+			]
+		},
+		{
+			"Name":"样本参数(单位:mm)",
+			"ParamList":
+			[
+				{
+					"Name": "阶数",
+					"Type": "ComboBox",
+					"Choise":
+					[
+						{
+							"Name": "一阶",
+							"ParamList":
+							[
+								{
+									"Name": "dm1",
+									"Type": "EditBox",
+									"DefaultValue": "7",
+									"iniName": "dm1",
+									"iniType": "Float"
+								},
+								{
+									"Name": "l2",
+									"Type": "EditBox",
+									"DefaultValue": "80",
+									"iniName": "l2",
+									"iniType": "Float"
+								},
+								{
+									"Name": "l6",
+									"Type": "EditBox",
+									"DefaultValue": "25",
+									"iniName": "l6",
+									"iniType": "Float"
+								},
+								{
+									"Name": "Dc",
+									"Type": "EditBox",
+									"DefaultValue": "6.01",
+									"iniName": "Dc",
+									"iniType": "Float"
+								},
+								{
+									"Name": "lw1",
+									"Type": "EditBox",
+									"DefaultValue": "15",
+									"iniName": "lw1",
+									"iniType": "Float"
+								},
+								{
+									"Name": "Angle1",
+									"Type": "EditBox",
+									"DefaultValue": "90",
+									"iniName": "Angle1",
+									"iniType": "Float"
+								}
+							]
+						},
+						{
+							"Name": "二阶",
+							"ParamList":
+							[
+								{
+									"Name": "dm1",
+									"Type": "EditBox",
+									"DefaultValue": "7.8",
+									"iniName": "dm1",
+									"iniType": "Float"
+								},
+								{
+									"Name": "l2",
+									"Type": "EditBox",
+									"DefaultValue": "110",
+									"iniName": "l2",
+									"iniType": "Float"
+								},
+								{
+									"Name": "l6",
+									"Type": "EditBox",
+									"DefaultValue": "55",
+									"iniName": "l6",
+									"iniType": "Float"
+								},
+								{
+									"Name": "Dc",
+									"Type": "EditBox",
+									"DefaultValue": "6.01",
+									"iniName": "Dc",
+									"iniType": "Float"
+								},
+								{
+									"Name": "lw1",
+									"Type": "EditBox",
+									"DefaultValue": "15",
+									"iniName": "lw1",
+									"iniType": "Float"
+								},
+								{
+									"Name": "Angle1",
+									"Type": "EditBox",
+									"DefaultValue": "90",
+									"iniName": "Angle1",
+									"iniType": "Float"
+								},
+								{
+									"Name": "dw2",
+									"Type": "EditBox",
+									"DefaultValue": "7",
+									"iniName": "dw2",
+									"iniType": "Float"
+								},
+								{
+									"Name": "Lw2",
+									"Type": "EditBox",
+									"DefaultValue": "15",
+									"iniName": "Lw2",
+									"iniType": "Float"
+								},
+								{
+									"Name": "Angle2",
+									"Type": "EditBox",
+									"DefaultValue": "90",
+									"iniName": "Angle2",
+									"iniType": "Float"
+								}
+							]
+						},
+						{
+							"Name":"三阶",
+							"ParamList":
+							[
+								{
+									"Name": "dm1",
+									"Type": "EditBox",
+									"DefaultValue": "7.8",
+									"iniName": "dm1",
+									"iniType": "Float"
+								},
+								{
+									"Name": "l2",
+									"Type": "EditBox",
+									"DefaultValue": "110",
+									"iniName": "l2",
+									"iniType": "Float"
+								},
+								{
+									"Name": "l6",
+									"Type": "EditBox",
+									"DefaultValue": "55",
+									"iniName": "l6",
+									"iniType": "Float"
+								},
+								{
+									"Name": "Dc",
+									"Type": "EditBox",
+									"DefaultValue": "6.01",
+									"iniName": "Dc",
+									"iniType": "Float"
+								},
+								{
+									"Name": "lw1",
+									"Type": "EditBox",
+									"DefaultValue": "15",
+									"iniName": "lw1",
+									"iniType": "Float"
+								},
+								{
+									"Name": "Angle1",
+									"Type": "EditBox",
+									"DefaultValue": "90",
+									"iniName": "Angle1",
+									"iniType": "Float"
+								},
+								{
+									"Name": "dw2",
+									"Type": "EditBox",
+									"DefaultValue": "7",
+									"iniName": "dw2",
+									"iniType": "Float"
+								},
+								{
+									"Name": "Lw2",
+									"Type": "EditBox",
+									"DefaultValue": "15",
+									"iniName": "Lw2",
+									"iniType": "Float"
+								},
+								{
+									"Name": "Angle2",
+									"Type": "EditBox",
+									"DefaultValue": "90",
+									"iniName": "Angle2",
+									"iniType": "Float"
+								},
+								{
+									"Name": "dw3",
+									"Type": "EditBox",
+									"DefaultValue": "7.5",
+									"iniName": "dw3",
+									"iniType": "Float"
+								},
+								{
+									"Name": "Lw3",
+									"Type": "EditBox",
+									"DefaultValue": "15",
+									"iniName": "Lw3",
+									"iniType": "Float"
+								},
+								{
+									"Name": "Angle3",
+									"Type": "EditBox",
+									"DefaultValue": "90",
+									"iniName": "Angle3",
+									"iniType": "Float"
+								}
+							]
+						},
+						{
+							"Name":"四阶",
+							"ParamList":
+							[
+								{
+									"Name": "dm1",
+									"Type": "EditBox",
+									"DefaultValue": "7.9",
+									"iniName": "dm1",
+									"iniType": "Float"
+								},
+								{
+									"Name": "l2",
+									"Type": "EditBox",
+									"DefaultValue": "130",
+									"iniName": "l2",
+									"iniType": "Float"
+								},
+								{
+									"Name": "l6",
+									"Type": "EditBox",
+									"DefaultValue": "70",
+									"iniName": "l6",
+									"iniType": "Float"
+								},
+								{
+									"Name": "Dc",
+									"Type": "EditBox",
+									"DefaultValue": "6.01",
+									"iniName": "Dc",
+									"iniType": "Float"
+								},
+								{
+									"Name": "lw1",
+									"Type": "EditBox",
+									"DefaultValue": "15",
+									"iniName": "lw1",
+									"iniType": "Float"
+								},
+								{
+									"Name": "Angle1",
+									"Type": "EditBox",
+									"DefaultValue": "90",
+									"iniName": "Angle1",
+									"iniType": "Float"
+								},
+								{
+									"Name": "dw2",
+									"Type": "EditBox",
+									"DefaultValue": "7",
+									"iniName": "dw2",
+									"iniType": "Float"
+								},
+								{
+									"Name": "Lw2",
+									"Type": "EditBox",
+									"DefaultValue": "15",
+									"iniName": "Lw2",
+									"iniType": "Float"
+								},
+								{
+									"Name": "Angle2",
+									"Type": "EditBox",
+									"DefaultValue": "90",
+									"iniName": "Angle2",
+									"iniType": "Float"
+								},
+								{
+									"Name": "dw3",
+									"Type": "EditBox",
+									"DefaultValue": "7.5",
+									"iniName": "dw3",
+									"iniType": "Float"
+								},
+								{
+									"Name": "Lw3",
+									"Type": "EditBox",
+									"DefaultValue": "15",
+									"iniName": "Lw3",
+									"iniType": "Float"
+								},
+								{
+									"Name": "Angle3",
+									"Type": "EditBox",
+									"DefaultValue": "90",
+									"iniName": "Angle3",
+									"iniType": "Float"
+								},
+								{
+									"Name": "dw4",
+									"Type": "EditBox",
+									"DefaultValue": "7.8",
+									"iniName": "dw4",
+									"iniType": "Float"
+								},
+								{
+									"Name": "Lw4",
+									"Type": "EditBox",
+									"DefaultValue": "15",
+									"iniName": "Lw4",
+									"iniType": "Float"
+								},
+								{
+									"Name": "Angle4",
+									"Type": "EditBox",
+									"DefaultValue": "90",
+									"iniName": "Angle4",
+									"iniType": "Float"
+								}
+							]
+						},
+						{
+							"Name":"多阶",
+							"ParamList":
+							[
+								{
+									"Name": "dm1",
+									"Type": "EditBox",
+									"DefaultValue": "8",
+									"iniName": "dm1",
+									"iniType": "Float"
+								},
+								{
+									"Name": "l2",
+									"Type": "EditBox",
+									"DefaultValue": "150",
+									"iniName": "l2",
+									"iniType": "Float"
+								},
+								{
+									"Name": "l6",
+									"Type": "EditBox",
+									"DefaultValue": "80",
+									"iniName": "l6",
+									"iniType": "Float"
+								},
+								{
+									"Name": "Dc",
+									"Type": "EditBox",
+									"DefaultValue": "6.01",
+									"iniName": "Dc",
+									"iniType": "Float"
+								},
+								{
+									"Name": "lw1",
+									"Type": "EditBox",
+									"DefaultValue": "15",
+									"iniName": "lw1",
+									"iniType": "Float"
+								},
+								{
+									"Name": "Angle1",
+									"Type": "EditBox",
+									"DefaultValue": "90",
+									"iniName": "Angle1",
+									"iniType": "Float"
+								},
+								{
+									"Name": "dw2",
+									"Type": "EditBox",
+									"DefaultValue": "7",
+									"iniName": "dw2",
+									"iniType": "Float"
+								},
+								{
+									"Name": "Lw2",
+									"Type": "EditBox",
+									"DefaultValue": "15",
+									"iniName": "Lw2",
+									"iniType": "Float"
+								},
+								{
+									"Name": "Angle2",
+									"Type": "EditBox",
+									"DefaultValue": "90",
+									"iniName": "Angle2",
+									"iniType": "Float"
+								},
+								{
+									"Name": "dw3",
+									"Type": "EditBox",
+									"DefaultValue": "7.5",
+									"iniName": "dw3",
+									"iniType": "Float"
+								},
+								{
+									"Name": "Lw3",
+									"Type": "EditBox",
+									"DefaultValue": "15",
+									"iniName": "Lw3",
+									"iniType": "Float"
+								},
+								{
+									"Name": "Angle3",
+									"Type": "EditBox",
+									"DefaultValue": "90",
+									"iniName": "Angle3",
+									"iniType": "Float"
+								},
+								{
+									"Name": "dw4",
+									"Type": "EditBox",
+									"DefaultValue": "7.8",
+									"iniName": "dw4",
+									"iniType": "Float"
+								},
+								{
+									"Name": "Lw4",
+									"Type": "EditBox",
+									"DefaultValue": "15",
+									"iniName": "Lw4",
+									"iniType": "Float"
+								},
+								{
+									"Name": "Angle4",
+									"Type": "EditBox",
+									"DefaultValue": "90",
+									"iniName": "Angle4",
+									"iniType": "Float"
+								},
+								{
+									"Name": "dw5",
+									"Type": "EditBox",
+									"DefaultValue": "7.9",
+									"iniName": "dw5",
+									"iniType": "Float"
+								},
+								{
+									"Name": "Lw5",
+									"Type": "EditBox",
+									"DefaultValue": "15",
+									"iniName": "Lw5",
+									"iniType": "Float"
+								},
+								{
+									"Name": "Angle5",
+									"Type": "EditBox",
+									"DefaultValue": "90",
+									"iniName": "Angle5",
+									"iniType": "Float"
+								}
+							]
+						}
+					],
+					"DefaultValue":"0",
+					"iniName":"Steps_Type",
+					"iniType":"String"
+				}
+			]
+		},
+		{
+			"Name":"冷却类型(单位:mm)",
+			"ParamList":
+			[
+					{
+						"Name":"冷却方式",
+						"Type":"ComboBox",
+						"Choise":"内冷,外冷",
+						"DefaultValue":"0",
+						"iniName":"Hole_Type",
+						"iniType":"String"
+					},
+					{
+						"Name":"dm",
+						"Type":"EditBox",
+						"DefaultValue":"9",
+						"iniName":"dm",
+						"iniType":"Float"
+					},
+					{
+						"Name":"lc",
+						"Type":"EditBox",
+						"DefaultValue":"50",
+						"iniName":"lc",
+						"iniType":"Float"
+					},
+					{
+						"Name":"Zn",
+						"Choise":"2,3,4,5,6",
+						"Type":"ComboBox",
+						"DefaultValue":"0",
+						"iniName":"Zn",
+						"iniType":"string"
+					}
+				]
+		}
+	]
+}

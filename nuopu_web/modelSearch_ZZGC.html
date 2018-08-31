@@ -16,6 +16,7 @@
 		<link rel="stylesheet" href="../dat.gui-master/build/dat.gui.css" type="text/css">
 		<link rel="stylesheet" href="style.css" type="text/css" media="screen">
 		<link rel="stylesheet" href="./js/jquery-ui-1.10.4.custom/css_smoothness/jquery-ui.css">
+		<link rel="stylesheet" href="right_menu.css">
 		<script type="text/javascript" src="gui.js"></script>
 		<script type="text/javascript" src="config.js"></script>
 
@@ -180,50 +181,59 @@
 						<img src="images/EdgeWinLogo_3.png">
 					</div>
 				</div>
-				<div id="toolBox3D" class="toolBox2">
-					<div class="section section_sculpt">
-						<div class="appLabel">视图</div>
-						<div class="panel">
-							<div class="smallbutton" onclick="activateButton('zhouCeView');">轴测图</div>
-							<div class="smallbutton" onclick="activateButton('mainView');">主视图</div>
-							<div class="smallbutton" onclick="activateButton('backView');">后视图</div>
-							<div class="smallbutton" onclick="activateButton('leftView');">左视图</div>
-							<div class="smallbutton" onclick="activateButton('rightView');">右视图</div>
-							<div class="smallbutton" onclick="activateButton('topView');">俯视图</div>
-							<div class="smallbutton" onclick="activateButton('bottomView');">仰视图</div>
+					<div id="toolBox3D">
+						<div class="section section_sculpt">
+							<div class="appLabel">
+								<table class="tab">
+									<tr>
+										<td class="right_td">刀具</td><td class="right_td">Design</td>
+									</tr>
+									<tr>
+										<td class="right_td">刀柄</td><td class="right_td">Search</td>
+									</tr>
+									<tr>
+										<td class="right_td">延长杆</td><td class="right_td">Search</td>
+									</tr>
+									<tr>
+										<td class="right_td"></td><td class="right_td"></td>
+									</tr>
+									<tr>
+										<td class="right_td"></td><td class="right_td"></td>
+									</tr>
+									<tr>
+										<td class="right_td"></td><td class="right_td"></td>
+									</tr>
+									<tr>
+										<td class="right_td"></td><td class="right_td"></td>
+									</tr>
+								</table>
+							</div>
+							<div  ><img style="margin-top:10px;position:absolute;border: #009fd7" src="images/bji.png"
+										height="184" width="169	"/></div>
+							<div class="panel" style="width:170px;margin-top: 10px;position:absolute;z-index: 1"><div class="smallbutton" style="position:absolute;left:0px;top:-30px;" onclick="QueryServerState()">Check</div><div class="smallbutton" style="position:absolute;left:84px;top:-30px;" onclick="Help()">Help</div>
+
+								<div class="right_t" onclick="activateButton('zhouCeView');"></div>
+								<div class="right_t" onclick="activateButton('rightView');"></div>
+								<div class="right_t" onclick="OnClickDisplayZuoBiaoZhou();"></div>
+								<div class="right_t" onclick="activateButton('mainView');"></div>
+								<div class="right_t" onclick="activateButton('topView');"></div>
+								<div class="right_t" onclick="OnClickDisplayXZPlane();"></div>
+								<div class="right_t" onclick="activateButton('backView');"></div>
+								<div class="right_t" onclick="activateButton('bottomView');"></div>
+								<div class="right_t" onclick="OnClickDisplayYZPlane()"></div>
+								<div class="right_t" onclick="activateButton('leftView');"></div>
+								<div class="right_t"></div>
+								<div class="right_t" onclick="OnClickDisplayXYPlane()"></div>
+
+
+								<div id="button" style="margin-top: 35px">下载</div>
+							</div>
+							<div class="nervousLogo noSel" style="position: absolute;right: 615px;bottom: -377px">
+								<img src="images/EdgeWinLogo_3.png">
+							</div>
+
 						</div>
 					</div>
-					<div class="section section_jizhunxianshi">
-						<div class="appLabel">基准</div>
-						<div class="smallbutton" onclick="OnClickDisplayZuoBiaoZhou();">坐标轴</div>
-						<div class="smallbutton" onclick="OnClickDisplayXZPlane();">xz平面</div>
-						<div class="smallbutton" onclick="OnClickDisplayYZPlane()">yz平面</div>
-						<div class="smallbutton" onclick="OnClickDisplayXYPlane()">xy平面</div>
-					</div>
-					<div class="section section_tuceng">
-						<div class="appLabel">显示</div>
-						<div class="smallbutton" onclick="">槽型</div>
-						<div class="smallbutton" onclick="">螺旋线</div>
-						<div class="smallbutton" onclick="">参数表</div>
-						<div class="smallbutton" onclick="">内冷孔</div>
-					</div>
-					<div class="section section_material">
-						<div class="appLabel">下载</div>
-						<div class="button" onclick="">STP + DWG</div>
-						<div class="button" onclick="OnClickDownloadObj();">STL + PDF</div>
-						<div class="button" onclick="">全部打包</div>
-					</div>
-					<div class="section section_material">
-						<div class="appLabel">价格</div>
-						<div style="width:80px;height:28px;margin-top: 2px;">5.00元</div>
-						<div style="width:80px;height:28px;margin-top: 2px;">5.00元</div>
-						<div style="width:80px;height:28px;margin-top: 2px;">10.00元</div>
-					</div>
-
-					<div class="nervousLogo noSel">
-						<img src="images/EdgeWinLogo_3.png">
-					</div>
-				</div>
 			</div>
 		</div>
 

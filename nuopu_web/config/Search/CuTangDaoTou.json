@@ -1,0 +1,131 @@
+{
+  "Name":"粗镗头",
+  "ParamsArray":
+  [
+    {
+      "Name":"刀具品牌",
+      "HtmlCtrlId":"company_name",
+      "Type":"ComboBox",
+      "Choise":"所有,nuopu,Seco,Prawet",
+      "DefaultValue":"0",
+      "DanWeiString":"",
+      "IniName":"company_name",
+      "CanBeEdited":1
+    },
+    {
+      "Name":"订货型号",
+      "HtmlCtrlId":"No",
+      "Type":"EditBox",
+      "DefaultValue":"",
+      "IniName":"No",
+      "CanBeEdited":1
+    },
+    {
+      "Name":"前端类型",
+      "HtmlCtrlId":"tool_type",
+      "Type":"ComboBox",
+      "Choise":
+      [
+        {
+          "Name":"Graflex18-205",
+          "ParamsArray": [
+            {
+              "Name":"Graflex规格",
+              "HtmlCtrlId":"Graflex",
+              "Type":"ComboBox",
+              "Choise":"所有,G0,G1,G2,G3,G4,G5,G6,G7",
+              "DefaultValue": "0",
+              "IniName": "Graflex",
+              "CanBeEdited": 1
+            },
+            {
+              "Name":"范围C",
+              "HtmlCtrlId":"C_type",
+              "Type":"ComboBox",
+              "Choise":"所有,18-24,23-31,30-40,39-51,50-65,64-86,85-144,114-205",
+              "DefaultValue":"0",
+              "IniName":"C_type",
+              "CanBeEdited":1
+            }
+          ]
+        },
+        {
+          "Name":"CAPTO39-205",
+          "ParamsArray":[
+            {
+              "Name":"Capto规格",
+              "HtmlCtrlId":"Graflex",
+              "Type":"ComboBox",
+              "Choise":"所有,C3,C4,C5,C6,C8,C10",
+              "DefaultValue":"0",
+              "IniName":"Graflex",
+              "CanBeEdited":1
+            },
+            {
+              "Name":"范围C",
+              "HtmlCtrlId":"C_type",
+              "Type":"ComboBox",
+              "Choise":"所有,39-51,50-65,64-86,85-144,114-205",
+              "DefaultValue":"0",
+              "IniName":"C_type",
+              "CanBeEdited":1
+            }
+          ]
+        },
+        {
+          "Name": "紧凑型39-115",
+          "ParamsArray": [
+            {
+              "Name":"Graflex规格",
+              "HtmlCtrlId":"Graflex",
+              "Type":"ComboBox",
+              "Choise":"所有,G0,G1,G2,G3,G4,G5,G6,G7",
+              "DefaultValue": "0",
+              "IniName": "Graflex",
+              "CanBeEdited": 1
+            },
+            {
+              "Name":"范围C",
+              "HtmlCtrlId":"C_type",
+              "Type":"ComboBox",
+              "Choise":"所有,39-51,50-65,64-86,85-115",
+              "DefaultValue":"0",
+              "IniName":"C_type",
+              "CanBeEdited":1
+            }
+          ]
+        }
+      ],
+      "DefaultValue": "0",
+      "iniName": "tool_type",
+      "CanBeEdited":1
+    },
+    {
+      "Name":"A有效长度min",
+      "HtmlCtrlId":"A_min",
+      "Type":"EditBox",
+      "DefaultValue":"",
+      "DanWeiString":"mm",
+      "IniName":"A_Max",
+      "CanBeEdited":1
+    },
+    {
+      "Name":"A有效长度max",
+      "HtmlCtrlId":"A_max",
+      "Type":"EditBox",
+      "DefaultValue":"",
+      "DanWeiString":"mm",
+      "IniName":"A_max",
+      "CanBeEdited":1
+    },
+    {
+      "Name":"干涉直径max",
+      "HtmlCtrlId":"D_max",
+      "Type":"EditBox",
+      "DefaultValue":"",
+      "DanWeiString":"mm",
+      "IniName":"D_max",
+      "CanBeEdited":1
+    }
+  ]
+}

@@ -207,13 +207,15 @@
             * */
             var result = "";
 
-            result += "<li class=\"slot-item\"><div class=\"slot-handler\">";
+            result += "<li class=\"slot-item\">";
+			result += "<div class=\"slot-handler\">";
             result += "<div class=\"slot-handler clearfix\">";
             result += "<div class=\"avator\">";
             result += "<img src=\"img/" + mInstance.m_imagePath + "\"/>";
             result += "</div>";
             result += "<div class=\"content\">";
             result += "<div class=\"item-title\">" + mInstance.m_name +"</div>"
+            result += "<div class=\"smallbutton\" style=\"width:30px;position: absolute;left: 60px;top: 0px;\" onclick=\"\">子集</div>"
             result += "</div>";
             result += "</div>";
             result += "</div>";

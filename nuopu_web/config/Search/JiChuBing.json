@@ -1,0 +1,413 @@
+{
+  "Name":"基础柄",
+  "ParamsArray":
+  [
+    {
+      "Name":"刀具品牌",
+      "HtmlCtrlId":"company_name",
+      "Type":"ComboBox",
+      "Choise":"所有,nuopu,Seco,Prawet",
+      "DefaultValue":"0",
+      "IniName":"company_name",
+      "CanBeEdited":1
+    },
+    {
+      "Name":"订货型号",
+      "HtmlCtrlId":"No",
+      "Type":"EditBox",
+      "DefaultValue":"",
+      "IniName":"No",
+      "CanBeEdited":1
+    },
+    {
+      "Name":"前端类型",
+      "HtmlCtrlId":"tool_type",
+      "Type":"ComboBox",
+      "Choise":
+      [
+        {
+          "Name":"螺纹接口j",
+          "ParamsArray":
+          [
+            {
+              "Name": "尾端类型",
+              "HtmlCtrlId":"h_type",
+              "Type": "ComboBox",
+              "Choise": [
+                {
+                  "Name": "所有",
+                  "ParamsArray": [
+                    {
+                      "Name": "尾端规格",
+                      "HtmlCtrlId":"D_value",
+                      "Type": "ComboBox",
+                      "Choise": "所有",
+                      "DefaultValue": "0",
+                      "IniName": "D_value",
+                      "CanBeEdited":1
+                    }
+                  ]
+                },
+                {
+                  "Name": "BT_JIS_B_6339_1",
+                  "ParamsArray": [
+                    {
+                      "Name": "尾端规格",
+                      "HtmlCtrlId":"D_value",
+                      "Type": "ComboBox",
+                      "Choise": "所有,30,40,50",
+                      "DefaultValue": "0",
+                      "IniName": "D_value",
+                      "CanBeEdited":1
+                    }
+                  ]
+                },
+                {
+                  "Name": "DIN_69871_1",
+                  "ParamsArray": [
+                    {
+                      "Name": "尾端规格",
+                      "HtmlCtrlId":"D_value",
+                      "Type": "ComboBox",
+                      "Choise": "所有,30,40,50",
+                      "DefaultValue": "0",
+                      "IniName": "D_value",
+                      "CanBeEdited":1
+                    }
+                  ]
+                },
+                {
+                  "Name": "HSK_A_ISO_12164_1",
+                  "ParamsArray": [
+                    {
+                      "Name": "尾端规格",
+                      "HtmlCtrlId":"D_value",
+                      "Type": "ComboBox",
+                      "Choise": "所有,32,40,63,100",
+                      "DefaultValue": "0",
+                      "IniName": "D_value",
+                      "CanBeEdited":1
+                    }
+                  ]
+                },
+                {
+                  "Name": "HSK_E",
+                  "ParamsArray": [
+                    {
+                      "Name": "尾端规格",
+                      "HtmlCtrlId":"D_value",
+                      "Type": "ComboBox",
+                      "Choise": "所有,25,32,40,50",
+                      "DefaultValue": "0",
+                      "IniName": "D_value",
+                      "CanBeEdited":1
+                    }
+                  ]
+                }
+              ],
+              "DefaultValue": "0",
+              "IniName": "h_type",
+              "CanBeEdited":1
+            },
+            {
+              "Name":"设计类型",
+              "HtmlCtrlId":"Design_Type",
+              "Type":"ComboBox",
+              "Choise":"所有,设计1,设计2",
+              "DefaultValue":"0",
+              "IniName":"Design_Type",
+              "CanBeEdited":1
+            },
+            {
+              "Name": "干涉直径max",
+              "HtmlCtrlId":"D4_max",
+              "Type": "EditBox",
+              "DefaultValue": "",
+              "DanWeiString":"mm",
+              "IniName": "D4_max",
+              "CanBeEdited":1
+            }
+          ]
+        },
+        {
+          "Name":"GRAFLEXj",
+          "ParamsArray":
+          [
+            {
+              "Name": "尾端类型",
+              "HtmlCtrlId":"h_type",
+              "Type": "ComboBox",
+              "Choise": [
+                {
+                  "Name": "所有",
+                  "ParamsArray": [
+                    {
+                      "Name": "尾端规格",
+                      "HtmlCtrlId":"D_value",
+                      "Type": "ComboBox",
+                      "Choise": "所有",
+                      "DefaultValue": "0",
+                      "IniName": "D_value",
+                      "CanBeEdited":1
+                    }
+                  ]
+                },
+                {
+                  "Name": "BT_JIS_B_6339_1",
+                  "ParamsArray": [
+                    {
+                      "Name": "尾端规格",
+                      "HtmlCtrlId":"D_value",
+                      "Type": "ComboBox",
+                      "Choise": "所有,30,40,50",
+                      "DefaultValue": "0",
+                      "IniName": "D_value",
+                      "CanBeEdited":1
+                    }
+                  ]
+                },
+                {
+                  "Name": "DIN_69871_1",
+                  "ParamsArray": [
+                    {
+                      "Name": "尾端规格",
+                      "HtmlCtrlId":"D_value",
+                      "Type": "ComboBox",
+                      "Choise": "所有,30,40,50",
+                      "DefaultValue": "0",
+                      "IniName": "D_value",
+                      "CanBeEdited":1
+                    }
+                  ]
+                },
+                {
+                  "Name": "HSK_A_ISO_12164_1",
+                  "ParamsArray": [
+                    {
+                      "Name": "尾端规格",
+                      "HtmlCtrlId":"D_value",
+                      "Type": "ComboBox",
+                      "Choise": "所有,32,40,63,100",
+                      "DefaultValue": "0",
+                      "IniName": "D_value",
+                      "CanBeEdited":1
+                    }
+                  ]
+                },
+                {
+                  "Name": "HSK_E",
+                  "ParamsArray": [
+                    {
+                      "Name": "尾端规格",
+                      "HtmlCtrlId":"D_value",
+                      "Type": "ComboBox",
+                      "Choise": "所有,25,32,40,50",
+                      "DefaultValue": "0",
+                      "IniName": "D_value",
+                      "CanBeEdited":1
+                    }
+                  ]
+                },
+                {
+                  "Name": "CAPTO",
+                  "ParamsArray":
+                  [
+                    {
+                      "Name": "尾端规格",
+                      "Type": "ComboBox",
+                      "HtmlCtrlId":"D_value",
+                      "Choise": "所有,C3,C4,C5,C6,C8,C10",
+                      "DefaultValue": "0",
+                      "IniName": "D_value",
+                      "CanBeEdited":1
+                    }
+                  ]
+                }
+              ],
+              "DefaultValue": "0",
+              "IniName": "h_type",
+              "CanBeEdited":1
+            },
+            {
+              "Name":"设计类型",
+              "HtmlCtrlId":"Design_Type",
+              "Type":"ComboBox",
+              "Choise":"所有,设计1,设计2",
+              "DefaultValue":"0",
+              "IniName":"Design_Type",
+              "CanBeEdited":1
+            },
+            {
+              "Name":"Graflex孔规格",
+              "HtmlCtrlId":"G_Hole",
+              "Type":"ComboBox",
+              "Choise":"所有,G0,G1,G2,G3,G4,G5,G6,G7",
+              "DefaultValue":"0",
+              "IniName":"G_Hole",
+              "CanBeEdited":1
+            },
+            {
+              "Name": "干涉直径max",
+              "HtmlCtrlId":"D_max",
+              "Type": "EditBox",
+              "DefaultValue": "",
+              "DanWeiString":"mm",
+              "IniName": "D_max",
+              "CanBeEdited":1
+            }
+          ]
+        },
+        {
+          "Name":"CAPTOj",
+          "ParamsArray":
+          [
+            {
+              "Name": "尾端类型",
+              "HtmlCtrlId":"h_type",
+              "Type": "ComboBox",
+              "Choise": [
+                {
+                  "Name": "所有",
+                  "ParamsArray": [
+                    {
+                      "Name": "尾端规格",
+                      "HtmlCtrlId":"D_value",
+                      "Type": "ComboBox",
+                      "Choise": "所有",
+                      "DefaultValue": "0",
+                      "IniName": "D_value",
+                      "CanBeEdited":1
+                    }
+                  ]
+                },
+                {
+                  "Name": "BT_JIS_B_6339_1",
+                  "ParamsArray": [
+                    {
+                      "Name": "尾端规格",
+                      "HtmlCtrlId":"D_value",
+                      "Type": "ComboBox",
+                      "Choise": "所有,30,40,50",
+                      "DefaultValue": "0",
+                      "IniName": "D_value",
+                      "CanBeEdited":1
+                    }
+                  ]
+                },
+                {
+                  "Name": "DIN_69871_1",
+                  "ParamsArray": [
+                    {
+                      "Name": "尾端规格",
+                      "HtmlCtrlId":"D_value",
+                      "Type": "ComboBox",
+                      "Choise": "所有,30,40,50",
+                      "DefaultValue": "0",
+                      "IniName": "D_value",
+                      "CanBeEdited":1
+                    }
+                  ]
+                },
+                {
+                  "Name": "HSK_A_ISO_12164_1",
+                  "ParamsArray": [
+                    {
+                      "Name": "尾端规格",
+                      "HtmlCtrlId":"D_value",
+                      "Type": "ComboBox",
+                      "Choise": "所有,32,40,63,100",
+                      "DefaultValue": "0",
+                      "IniName": "D_value",
+                      "CanBeEdited":1
+                    }
+                  ]
+                },
+                {
+                  "Name": "HSK_E",
+                  "ParamsArray": [
+                    {
+                      "Name": "尾端规格",
+                      "HtmlCtrlId":"D_value",
+                      "Type": "ComboBox",
+                      "Choise": "所有,25,32,40,50",
+                      "DefaultValue": "0",
+                      "IniName": "D_value",
+                      "CanBeEdited":1
+                    }
+                  ]
+                },
+                {
+                  "Name": "CAPTO",
+                  "ParamsArray":
+                  [
+                    {
+                      "Name": "尾端规格",
+                      "Type": "ComboBox",
+                      "HtmlCtrlId":"D_value",
+                      "Choise": "所有,C3,C4,C5,C6,C8,C10",
+                      "DefaultValue": "0",
+                      "IniName": "D_value",
+                      "CanBeEdited":1
+                    }
+                  ]
+                }
+              ],
+              "DefaultValue": "0",
+              "IniName": "h_type",
+              "CanBeEdited":1
+            },
+            {
+              "Name":"设计类型",
+              "HtmlCtrlId":"Design_Type",
+              "Type":"ComboBox",
+              "Choise":"设计1",
+              "DefaultValue":"0",
+              "IniName":"Design_Type",
+              "CanBeEdited":1
+            },
+            {
+              "Name":"Capto孔规格",
+              "HtmlCtrlId":"C_Hole",
+              "Type":"ComboBox",
+              "Choise":"所有,C3,C4,C5,C6,C8,C10",
+              "DefaultValue":"0",
+              "IniName":"C_Hole",
+              "CanBeEdited":1
+            },
+            {
+              "Name": "干涉直径max",
+              "HtmlCtrlId":"D_max",
+              "Type": "EditBox",
+              "DefaultValue": "",
+              "DanWeiString":"mm",
+              "IniName": "D_max",
+              "CanBeEdited":1
+            }
+          ]
+        }
+      ],
+      "DefaultValue":"0",
+      "IniName":"tool_type",
+      "CanBeEdited":1
+    },
+
+    {
+      "Name": "A有效长度min",
+      "HtmlCtrlId":"A_min",
+      "Type": "EditBox",
+      "DefaultValue": "",
+      "DanWeiString":"mm",
+      "IniName": "A_min",
+      "CanBeEdited":1
+    },
+    {
+      "Name": "A有效长度max",
+      "HtmlCtrlId":"A_max",
+      "Type": "EditBox",
+      "DefaultValue": "",
+      "DanWeiString":"mm",
+      "IniName": "A_max",
+      "CanBeEdited":1
+    }
+  ]
+}

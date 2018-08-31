@@ -1,0 +1,20 @@
+{
+	"Name":"圆柱",
+	"ParamsArray":
+	[
+		{
+			"Name":"直径",
+			"Type":"EditBox",
+			"DefaultValue":20,
+			"DanWeiString":"mm",
+			"IniName":"R"
+		},
+		{
+			"Name":"高度",
+			"Type":"EditBox",
+			"DefaultValue":30,
+			"DanWeiString":"mm",
+			"IniName":"L"
+		}
+	]
+}

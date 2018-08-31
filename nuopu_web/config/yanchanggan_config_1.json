@@ -4,49 +4,180 @@
 	"Tab":
 	[
 		{
-			"Name":"延长杆搜索",
+			"Name":"延长杆搜索(单位:mm)",
 			"ParamList":
 			[
 				{
+					"Name": "刀具品牌",
+					"Choise":"nuopu,Seco,Prawet",
+					"Type": "ComboBox",
+					"DefaultValue": "0",
+					"iniName": "l1",
+					"iniType": "Float"
+				},
+				{
+					"Name": "订货型号",
+					"Type": "EditBox",
+					"DefaultValue": "0",
+					"iniName": "l2",
+					"iniType": "Float"
+				},
+				{
 					"Name":"夹持类型",
-					"Choise":"热胀延长杆,弹簧延长杆",
 					"Type":"ComboBox",
+					"Choise":
+					[
+
+						{
+							"Name":"热胀1",
+							"ParamList":
+							[
+								{
+									"Name":"夹持直径min",
+									"Type":"EditBox",
+									"DefaultValue":"10",
+									"iniName":"",
+									"iniType":"Float"
+								},
+								{
+									"Name":"夹持直径max",
+									"Type":"EditBox",
+									"DefaultValue":"10",
+									"iniName":"",
+									"iniType":"Float"
+								},
+								{
+									"Name":"柄部直径min",
+									"Type":"EditBox",
+									"DefaultValue":"10",
+									"iniName":"",
+									"iniType":"Float"
+								},
+								{
+									"Name":"柄部直径max",
+									"Type":"EditBox",
+									"DefaultValue":"10",
+									"iniName":"",
+									"iniType":"Float"
+								},
+								{
+									"Name":"总长min",
+									"Type":"EditBox",
+									"DefaultValue":"10",
+									"iniName":"lc",
+									"iniType":"Float"
+								},
+								{
+									"Name":"总长max",
+									"Type":"EditBox",
+									"DefaultValue":"10",
+									"iniName":"lc",
+									"iniType":"Float"
+								}
+							]
+						},
+						{
+							"Name":"热胀2",
+							"ParamList":
+								[
+									{
+										"Name":"夹持直径min",
+										"Type":"EditBox",
+										"DefaultValue":"10",
+										"iniName":"",
+										"iniType":"Float"
+									},
+									{
+										"Name":"夹持直径max",
+										"Type":"EditBox",
+										"DefaultValue":"10",
+										"iniName":"",
+										"iniType":"Float"
+									},
+									{
+										"Name":"柄部直径min",
+										"Type":"EditBox",
+										"DefaultValue":"10",
+										"iniName":"",
+										"iniType":"Float"
+									},
+									{
+										"Name":"柄部直径max",
+										"Type":"EditBox",
+										"DefaultValue":"10",
+										"iniName":"",
+										"iniType":"Float"
+									},
+									{
+										"Name":"总长min",
+										"Type":"EditBox",
+										"DefaultValue":"10",
+										"iniName":"lc",
+										"iniType":"Float"
+									},
+									{
+										"Name":"总长max",
+										"Type":"EditBox",
+										"DefaultValue":"10",
+										"iniName":"lc",
+										"iniType":"Float"
+									}
+								]
+						},
+						{
+							"Name":"弹簧夹套",
+							"ParamList":
+							[
+								{
+									"Name":"夹套类型",
+									"Type":"ComboBox",
+									"Choise":"ER,ER-UP",
+									"DefaultValue":"0",
+									"iniName":"",
+									"iniType":"String"
+								},
+								{
+									"Name":"夹套规格",
+									"Type":"ComboBox",
+									"Choise":"08,,10",
+									"DefaultValue":"0",
+									"iniName":"",
+									"iniType":"String"
+								},
+								{
+									"Name":"柄部直径min",
+									"Type":"EditBox",
+									"DefaultValue":"10",
+									"iniName":"",
+									"iniType":"Float"
+								},
+								{
+									"Name":"柄部直径max",
+									"Type":"EditBox",
+									"DefaultValue":"10",
+									"iniName":"",
+									"iniType":"Float"
+								},
+								{
+									"Name":"总长min",
+									"Type":"EditBox",
+									"DefaultValue":"10",
+									"iniName":"lc",
+									"iniType":"Float"
+								},
+								{
+									"Name":"总长max",
+									"Type":"EditBox",
+									"DefaultValue":"10",
+									"iniName":"lc",
+									"iniType":"Float"
+								}
+							]
+						}
+					],
 					"DefaultValue":"0",
-					"iniName":"l1",
-					"iniType":"Float",
-					"SearchType":"0"
-				},
-				{
-					"Name":"总长min",
-					"Type":"EditBox",
-					"DefaultValue":"0",
-					"iniName":"d1_cus",
-					"iniType":"Float",
-					"SearchType":"0"
-				},
-				{
-					"Name":"总长max",
-					"Type":"EditBox",
-					"DefaultValue":"9999",
-					"iniName":"d1_cus",
-					"iniType":"Float",
-					"SearchType":"0"
-				},
-				{
-					"Name":"柄部直径min",
-					"Type":"EditBox",
-					"DefaultValue":"0",
-					"iniName":"d1_cus",
-					"iniType":"Float",
-					"SearchType":"-1"
-				},
-				{
-					"Name":"柄部直径max",
-					"Type":"EditBox",
-					"DefaultValue":"9999",
-					"iniName":"drill_point_angle",
-					"iniType":"Float",
-					"SearchType":"1"
+					"iniName":"",
+					"iniType":"String"
 				}
 			]
 		}

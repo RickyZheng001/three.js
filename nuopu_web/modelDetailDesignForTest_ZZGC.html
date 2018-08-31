@@ -16,6 +16,7 @@
 		<link rel="stylesheet" href="../dat.gui-master/build/dat.gui.css" type="text/css">
 		<link rel="stylesheet" href="style.css" type="text/css" media="screen">
 		<link rel="stylesheet" href="./js/jquery-ui-1.10.4.custom/css_smoothness/jquery-ui.css">
+		<link rel="stylesheet" href="right_menu.css">
 		<script type="text/javascript" src="gui.js"></script>
 		<script type="text/javascript" src="config.js"></script>
 
@@ -33,6 +34,7 @@
 		<script src="../examples/js/loaders/PLYLoader.js"></script>
 
 		<script src="./utils/LoadGui.js"></script>
+		<script src="./js/GlobalDefine.js"></script>
 	</head>
 
 	<body class="unselectable">
@@ -40,18 +42,12 @@
 			<div class="centeredDiv">
 				<div class="header">
 					<div><img src="./images/EdgeWinLogo_2.png" width="159px" style="margin-left: 20px;"></div>
-					<div><img src="./images/ZZGC_DesignLogo.png" width="159px" style="position: absolute;margin-left: 35%;margin-top:-7px;width: 291px;height:72px; "></div>
+					<div><img src="./images/ZZGC_DesignLogoTest.png" width="159px" style="position: absolute;margin-left: 30%;margin-top:-7px;width: 440px;height:70px; "></div>
 
 					<div class="menu2">
 						<ul class="menu2">
 							<li>
-								<a color="#ffffff">账单查询</a>
-							</li>
-							<li>
 								<a>返回首页</a>
-							</li>
-							<li>
-								<a>退出</a>
 							</li>
 						</ul>
 					</div>
@@ -73,32 +69,54 @@
 					<div>
 						<div class="appName" style="position: absolute;margin-left: 40px;margin-top: 0px;">钻头</div>
 						<div class="appName2" style="position: absolute;margin-left: 50px;margin-top: 80px;">整体钻头</div>
-						<div class="smallbutton" style="position: absolute;margin-left: 10px;margin-top: 120px;width: 80px;" onclick="Display3DModel()">更新显示三维</div>
-						<div class="smallbutton" style="position: absolute;margin-left: 110px;margin-top: 120px;width: 80px;" onclick="DisplayTuZhi()">更新显示图纸</div>
-
-						<div class="smallbutton" style="position: absolute;margin-left: 10px;margin-top: 150px;cursor:default;">加工材料</div>
-
-						<div class="smallbutton" style="position: absolute;margin-left: 10px;margin-top: 180px;cursor:default;">材料类别</div>
-						<select id="MaterialTypeComboBox" style="position: absolute;margin-left: 110px;margin-top: 182px;width:86px;" onchange="OnJiaChiJieGouSelectionChanged()">
-							<option value="0">钢</option>
-							<option value="1">铝合金</option>
+						<div class="smallbutton" style="position: absolute;margin-left: 10px;margin-top: 120px;width: 80px;" onclick="Display3DModelForTest_ZZGC()">更新显示三维</div>
+						<select id="Display3dModelComboBox" style="position: absolute;margin-left: 110px;margin-top: 122px;width:86px;" onchange="OnJiaChiJieGouSelectionChanged()">
+							<option value="0">刀具</option>
+							<option value="1">槽形</option>
 						</select>
-						<div class="smallbutton" style="position: absolute;margin-left: 10px;margin-top: 210px;cursor:default;">材料小类</div>
-						<select id="MaterialSubTypeComboBox" style="position: absolute;margin-left: 110px;margin-top: 212px;width:86px;" onchange="OnJiaChiJieGouSelectionChanged()">
-							<option value="0">钢</option>
-							<option value="1">铝合金</option>
+						<div class="smallbutton" style="position: absolute;margin-left: 10px;margin-top: 150px;width: 80px;" onclick="DisplayTuZhiForTest_ZZGC()">更新显示图纸</div>
+						<select id="DisplayTuZhiComboBox" style="position: absolute;margin-left: 110px;margin-top: 152px;width:86px;" onchange="OnJiaChiJieGouSelectionChanged()">
+							<option value="0">刀具</option>
+							<option value="1">槽形</option>
+							<option value="2">参数表</option>
 						</select>
-						<div class="smallbutton" style="position: absolute;margin-left: 10px;margin-top: 240px;cursor:default;">材料名称</div>
 
-						<div class="smallbutton" style="position: absolute;margin-left: 10px;margin-top: 270px;width:200px;" onclick="OnClickZuanTouSearch()">整体钻头搜索</div>
-						<div class="smallbutton" style="position: absolute;margin-left: 10px;margin-top: 300px;width:200px;" onclick="OnClickParamDesign()">整体钻头  参数设计</div>
+						<div class="smallbutton" style="position: absolute;margin-left: 10px;margin-top: 180px;cursor:default;">加工材料</div>
+
+						<div class="smallbutton" style="position: absolute;margin-left: 10px;margin-top: 210px;cursor:default;">材料类别</div>
+						<select id="MaterialTypeComboBox" style="position: absolute;margin-left: 110px;margin-top: 212px;width:86px;" onchange="OnMaterialTypeComboBoxChanged()">
+							<option value="0">P钢件、铁素体和马氏体不锈钢</option>
+							<option value="1">M易切、奥氏体与双相不锈钢</option>
+							<option value="2">K铸铁</option>
+							<option value="3">S高温合金与钛合金</option>
+						</select>
+						<div class="smallbutton" style="position: absolute;margin-left: 10px;margin-top: 240px;cursor:default;">材料小类</div>
+						<select id="MaterialSubTypeComboBox" style="position: absolute;margin-left: 110px;margin-top: 242px;width:86px;" onchange="OnMaterialSubTypeComboBoxChanged()">
+							<option value="0">P4</option>
+							<option value="1">M3</option>
+							<option value="2">K5</option>
+							<option value="3">S1</option>
+						</select>
+						<div class="smallbutton" style="position: absolute;margin-left: 10px;margin-top: 270px;cursor:default;">材料名称</div>
+						<div id="MaterialName" style="position: absolute;margin-left: 110px;margin-top: 270px;width:130px;height:90px;border-width: 1px;border-style: solid;border-color: darkgrey">低合金普通结构钢，0.25%&lt;C&lt;0.67%wt 低合金调质钢</div>
+
+						<div class="smallbutton" style="position: absolute;margin-left: 10px;margin-top: 370px;cursor:default;">材料牌号</div>
+						<select id="MaterialIdComboBox" style="position: absolute;margin-left: 110px;margin-top: 372px;width:86px;" onchange="OnMaterialIdComboBoxChanged()">
+							<option value="0">P4</option>
+							<option value="1">M3</option>
+							<option value="2">K5</option>
+							<option value="3">S1</option>
+						</select>
+
+						<div class="smallbutton" style="position: absolute;margin-left: 10px;margin-top: 400px;width:200px;" onclick="OnClickZuanTouSearch()">整体钻头&nbsp;&nbsp;&nbsp;&nbsp;Search</div>
+						<div class="smallbutton" style="position: absolute;margin-left: 10px;margin-top: 430px;width:200px;" onclick="OnClickParamDesign()">整体钻头&nbsp;&nbsp;&nbsp;&nbsp;Design</div>
 
 					</div>
 				</div>
 				<div id="canvas">
 					<div id="gameCanvas" width="1920px" height="1080px"></div>
 					<div id="divPdfView" class="pdfView" style="visibility: hidden">
-						<embed id="pdfCtrl" src="./pdf/test1.pdf" type="application/pdf" width="1440px" height="670"></embed>
+						<embed id="pdfCtrl" src="./pdf/test1.pdf" type="application/pdf" width="1440px" height="600"></embed>
 					</div>
 					<canvas id="myCanvas" width="500" height="150" style="position: absolute;left: 40%;top: 40px;visibility: hidden">Your browser does not have support for canvas.</canvas>
                     <div id="SearchTable" style="visibility: hidden">
@@ -180,50 +198,59 @@
 						<img src="images/EdgeWinLogo_3.png">
 					</div>
 				</div>
-				<div id="toolBox3D" class="toolBox2">
-					<div class="section section_sculpt">
-						<div class="appLabel">视图</div>
-						<div class="panel">
-							<div class="smallbutton" onclick="activateButton('zhouCeView');">轴测图</div>
-							<div class="smallbutton" onclick="activateButton('mainView');">主视图</div>
-							<div class="smallbutton" onclick="activateButton('backView');">后视图</div>
-							<div class="smallbutton" onclick="activateButton('leftView');">左视图</div>
-							<div class="smallbutton" onclick="activateButton('rightView');">右视图</div>
-							<div class="smallbutton" onclick="activateButton('topView');">俯视图</div>
-							<div class="smallbutton" onclick="activateButton('bottomView');">仰视图</div>
+					<div id="toolBox3D">
+						<div class="section section_sculpt">
+							<div class="appLabel">
+								<table class="tab">
+									<tr>
+										<td class="right_td">刀具</td><td class="right_td">Design</td>
+									</tr>
+									<tr>
+										<td class="right_td">刀柄</td><td class="right_td">Search</td>
+									</tr>
+									<tr>
+										<td class="right_td">延长杆</td><td class="right_td">Search</td>
+									</tr>
+									<tr>
+										<td class="right_td"></td><td class="right_td"></td>
+									</tr>
+									<tr>
+										<td class="right_td"></td><td class="right_td"></td>
+									</tr>
+									<tr>
+										<td class="right_td"></td><td class="right_td"></td>
+									</tr>
+									<tr>
+										<td class="right_td"></td><td class="right_td"></td>
+									</tr>
+								</table>
+							</div>
+							<div  ><img style="margin-top:10px;position:absolute;" src="images/bji.png"
+										height="185" width="169	"/></div>
+							<div class="panel" style="width:170px;margin-top: 10px;position:absolute;z-index: 1"><div class="smallbutton" style="position:absolute;left:0px;top:-30px;" onclick="QueryServerState()">Check</div><div class="smallbutton" style="position:absolute;left:84px;top:-30px;" onclick="Help()">Help</div>
+
+								<div class="right_t" onclick="activateButton('zhouCeView');"></div>
+								<div class="right_t" onclick="activateButton('rightView');"></div>
+								<div class="right_t" onclick="OnClickDisplayZuoBiaoZhou();"></div>
+								<div class="right_t" onclick="activateButton('mainView');"></div>
+								<div class="right_t" onclick="activateButton('topView');"></div>
+								<div class="right_t" onclick="OnClickDisplayXZPlane();"></div>
+								<div class="right_t" onclick="activateButton('backView');"></div>
+								<div class="right_t" onclick="activateButton('bottomView');"></div>
+								<div class="right_t" onclick="OnClickDisplayYZPlane()"></div>
+								<div class="right_t" onclick="activateButton('leftView');"></div>
+								<div class="right_t"></div>
+								<div class="right_t" onclick="OnClickDisplayXYPlane()"></div>
+
+
+								<div id="button" style="margin-top: 35px">下载</div>
+							</div>
+							<div class="nervousLogo noSel" style="position: absolute;right: 615px;bottom: -377px">
+								<img src="images/EdgeWinLogo_3.png">
+							</div>
+
 						</div>
 					</div>
-					<div class="section section_jizhunxianshi">
-						<div class="appLabel">基准</div>
-						<div class="smallbutton" onclick="OnClickDisplayZuoBiaoZhou();">坐标轴</div>
-						<div class="smallbutton" onclick="OnClickDisplayXZPlane();">xz平面</div>
-						<div class="smallbutton" onclick="OnClickDisplayYZPlane()">yz平面</div>
-						<div class="smallbutton" onclick="OnClickDisplayXYPlane()">xy平面</div>
-					</div>
-					<div class="section section_tuceng">
-						<div class="appLabel">显示</div>
-						<div class="smallbutton" onclick="">槽型</div>
-						<div class="smallbutton" onclick="">螺旋线</div>
-						<div class="smallbutton" onclick="">参数表</div>
-						<div class="smallbutton" onclick="">内冷孔</div>
-					</div>
-					<div class="section section_material">
-						<div class="appLabel">下载</div>
-						<div class="button" onclick="">STP + DWG</div>
-						<div class="button" onclick="OnClickDownloadObj();">STL + PDF</div>
-						<div class="button" onclick="">全部打包</div>
-					</div>
-					<div class="section section_material">
-						<div class="appLabel">价格</div>
-						<div style="width:80px;height:28px;margin-top: 2px;">5.00元</div>
-						<div style="width:80px;height:28px;margin-top: 2px;">5.00元</div>
-						<div style="width:80px;height:28px;margin-top: 2px;">10.00元</div>
-					</div>
-
-					<div class="nervousLogo noSel">
-						<img src="images/EdgeWinLogo_3.png">
-					</div>
-				</div>
 			</div>
 		</div>
 
@@ -668,7 +695,7 @@
 			LoadZuanTouSearchGUIMockData_ZZGC("config/zuantou_search_menu_1.json",zuanTouSearchMenuObj,onSearchZuanTouCallBackMockData);
             LoadHandleSearchGUIMockData("config/handle_config_1.json",searchMenuObj,onSearchDaoBingCallBack);
             //LoadDesignGUI("config/config.json",onCallBack,menuObj,onClickUpdateCallBack,onUpdateMenu);
-            LoadDetailDesignGUIMockData("config/DetailConfig.json",onCallBack,menuObj,onClickUpdateCallBack,onUpdateMenu);
+            LoadDetailDesignGUIMockData("config/DetailConfigForTest.json",onCallBack,menuObj,onClickUpdateCallBack,onUpdateMenu);
 			init();
 			animate();
 

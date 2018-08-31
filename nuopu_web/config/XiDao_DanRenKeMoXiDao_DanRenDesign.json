@@ -1,0 +1,101 @@
+{
+  "ID": "123456",
+  "Name": "铣刀",
+  "Tab": [
+    {
+      "Name": "主表(单位:mm)",
+      "ParamList": [
+        {
+          "Name": "刀具类型",
+          "Type": "ComboBox",
+          "Choise": "单刃刻模铣刀",
+          "DefaultValue": "0",
+          "iniName": "tool_type",
+          "iniType": "string"
+        },
+        {
+          "Name": "刀具品牌",
+          "Choise":"nuopu,Seco,Prawet",
+          "Type": "ComboBox",
+          "DefaultValue": "0",
+          "iniName": "company_name",
+          "iniType": "Float"
+        },
+        {
+          "Name": "订货型号",
+          "Type": "EditBox",
+          "DefaultValue": "0",
+          "iniName": "No",
+          "iniType": "string"
+        },
+        {
+          "Name": "文件名",
+          "Type": "EditBox",
+          "DefaultValue": "",
+          "iniName": "FN",
+          "iniType": "string",
+          "ServerGenerateID": 1
+        },
+        {
+          "Name": "更新文件名",
+          "Type": "GenerateServerID",
+          "DefaultValue": ""
+        }
+      ]
+    },
+    {
+      "Name": "样本参数(单位:mm)",
+      "ParamList": [
+        {
+          "Name": "ap",
+          "Type": "EditBox",
+          "DefaultValue": "5.2",
+          "iniName": "ap",
+          "iniType": "Float"
+        },
+        {
+          "Name": "l2",
+          "Type": "EditBox",
+          "DefaultValue": "50",
+          "iniName": "l2",
+          "iniType": "Float"
+        },
+        {
+          "Name": "B",
+          "Type": "EditBox",
+          "DefaultValue": "60",
+          "iniName": "B",
+          "iniType": "Float"
+        }
+      ]
+    },
+    {
+      "Name": "柄部类型(单位:mm)",
+      "ParamList": [
+        {
+          "Name": "柄部类型",
+          "Type": "ComboBox",
+          "Choise": "圆柱,侧固",
+          "DefaultValue": "0",
+          "iniName": "Handle_Type",
+          "iniType": "Float"
+        },
+        {
+          "Name": "刀具形状",
+          "Type": "ComboBox",
+          "Choise": "D",
+          "DefaultValue": "0",
+          "iniName": "Shape_Type",
+          "iniType": "Float"
+        },
+        {
+          "Name": "dm",
+          "Type": "EditBox",
+          "DefaultValue": "6",
+          "iniName": "dm",
+          "iniType": "Float"
+        }
+      ]
+    }
+  ]
+}

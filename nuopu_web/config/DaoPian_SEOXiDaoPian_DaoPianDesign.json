@@ -1,0 +1,176 @@
+{
+	"ID":"123456",
+	"Name":"刀片",
+	"Tab":
+	[
+		{
+			"Name": "主表(单位:mm)",
+			"ParamList": [
+				{
+					"Name": "刀具类型",
+					"Type": "ComboBox",
+					"Choise": "铣刀片",
+					"DefaultValue": "0",
+					"iniName": "tool_type",
+					"iniType": "string"
+				},
+				{
+					"Name": "刀具品牌",
+					"Choise":"nuopu,Seco,Prawet",
+					"Type": "ComboBox",
+					"DefaultValue": "0",
+					"iniName": "company_name",
+					"iniType": "string"
+				},
+				{
+					"Name": "订货型号",
+					"Type": "EditBox",
+					"DefaultValue": "0",
+					"iniName": "No",
+					"iniType": "string"
+				},
+				{
+					"Name": "文件名",
+					"Type": "EditBox",
+					"DefaultValue": "",
+					"iniName": "FN",
+					"iniType": "string",
+					"ServerGenerateID": 1
+				},
+				{
+					"Name": "更新文件名",
+					"Type": "GenerateServerID",
+					"DefaultValue": ""
+				}
+			]
+		},
+		{
+			"Name": "样本参数(单位:mm)",
+			"ParamList":
+			[
+				{
+					"Name": "刃口长度",
+					"Type": "EditBox",
+					"DefaultValue": "15.88",
+					"iniName": "tool_i",
+					"iniType": "Float"
+				},
+				{
+					"Name": "厚度",
+					"Type": "EditBox",
+					"DefaultValue": "6.56",
+					"iniName": "tool_s",
+					"iniType": "Float"
+				}
+			]
+		},
+		{
+			"Name":"附加参数(单位:mm)",
+			"ParamList":
+			[
+				{
+					"Name":"形状",
+					"Type":"ComboBox",
+					"Choise":"A,B,C,D,E,K,L,M,O,P,R,S,T,V,W",
+					"DefaultValue":"11",
+					"String":"ZiFu",
+					"iniName":"dp_shape",
+					"intType":"string"
+				},
+				{
+					"Name":"后角",
+					"Type":"ComboBox",
+					"Choise":"A,B,C,D,E,F,G,N,P",
+					"DefaultValue":"4",
+					"String":"ZiFu",
+					"iniName":"draft",
+					"intType":"string"
+				},
+				{
+					"Name":"公差",
+					"Type":"ComboBox",
+					"Choise":"A,E,F,G,H,J,K,M,U",
+					"DefaultValue":"1",
+					"iniName":"deviation",
+					"intType":"string"
+				},
+				{
+					"Name":"内孔",
+					"Type":"ComboBox",
+					"Choise":"A,N,T",
+					"DefaultValue":"0",
+					"String":"ZiFu",
+					"iniName":"hole",
+					"intType":"string"
+				},
+				{
+					"Name":"特殊代码",
+					"Type":"EditBox",
+					"DefaultValue":"0",
+					"iniName":"special",
+					"intType":"string"
+				},
+				{
+					"Name":"刀尖类型",
+					"Type":"ComboBox",
+					"Choise":
+					[
+						{
+							"Name":"倒圆",
+							"ParamList":
+							[
+								{
+									"Name":"r",
+									"Type":"EditBox",
+									"DefaultValue":"0.4",
+									"iniName":"r",
+									"intType":"Float"
+								}
+							]
+						},
+						{
+							"Name":"C角",
+							"ParamList":
+							[
+								{
+									"Name":"B",
+									"Type":"EditBox",
+									"DefaultValue":"1.5",
+									"iniName":"tool_b",
+									"intType":"string"
+								}
+							]
+						}
+					],
+					"DefaultValue":"1",
+					"iniName":"round_type",
+					"intType":"string"
+				},
+				{
+					"Name":"切削方向",
+					"Type":"ComboBox",
+					"Choise":"R,L,N",
+					"DefaultValue":"2",
+					"iniName":"direction",
+					"intType":"string"
+				},
+				{
+					"Name":"槽型",
+					"Type":"ComboBox",
+					"Choise":"A",
+					"DefaultValue":"0",
+					"iniName":"cell_type",
+					"intType":"string"
+				},
+				{
+					"Name":"材质",
+					"Type":"ComboBox",
+					"Choise":"A",
+					"DefaultValue":"0",
+					"iniName":"Material",
+					"intType":"string"
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,148 @@
+{
+  "ID": "123456",
+  "Name": "丝锥",
+  "Tab": [
+    {
+      "Name": "主表(单位:mm)",
+      "ParamList": [
+        {
+          "Name": "刀具类型",
+          "Type": "ComboBox",
+          "Choise": "挤压丝锥A",
+          "DefaultValue": "0",
+          "iniName": "tool_type",
+          "iniType": "string"
+        },
+        {
+          "Name": "刀具品牌",
+          "Choise":"nuopu,Seco,Prawet",
+          "Type": "ComboBox",
+          "DefaultValue": "0",
+          "iniName": "company_name",
+          "iniType": "Float"
+        },
+        {
+          "Name": "订货型号",
+          "Type": "EditBox",
+          "DefaultValue": "0",
+          "iniName": "No",
+          "iniType": "string"
+        },
+        {
+          "Name": "文件名",
+          "Type": "EditBox",
+          "DefaultValue": "",
+          "iniName": "FN",
+          "iniType": "string",
+          "ServerGenerateID": 1
+        },
+        {
+          "Name": "更新文件名",
+          "Type": "GenerateServerID",
+          "DefaultValue": ""
+        }
+      ]
+    },
+    {
+      "Name": "样本参数(单位:mm)",
+      "ParamList":
+      [
+        {
+          "Name": "tdz",
+          "Type": "EditBox",
+          "DefaultValue": "10",
+          "iniName": "tdz",
+          "iniType": "Float"
+        },
+        {
+          "Name": "mm",
+          "Type": "EditBox",
+          "DefaultValue": "1.5",
+          "iniName": "mm",
+          "iniType": "Float"
+        },
+        {
+          "Name": "THLGTH",
+          "Type": "EditBox",
+          "DefaultValue": "19.8",
+          "iniName": "THLGTH",
+          "iniType": "Float"
+        },
+        {
+          "Name": "lf",
+          "Type": "EditBox",
+          "DefaultValue": "100",
+          "iniName": "lf",
+          "iniType": "Float"
+        },
+        {
+          "Name": "lu",
+          "Type": "EditBox",
+          "DefaultValue": "40",
+          "iniName": "lu",
+          "iniType": "Float"
+        }
+      ]
+    },
+    {
+      "Name": "颈部和冷却类型(单位:mm)",
+      "ParamList": [
+        {
+          "Name": "颈部类型",
+          "Type": "ComboBox",
+          "Choise": [
+            {
+              "Name": "有油槽",
+              "ParamList": [
+                {
+                  "Name": "槽数",
+                  "Choise": "4,5,6",
+                  "Type": "ComboBox",
+                  "DefaultValue": "0",
+                  "iniName": "Zn",
+                  "iniType": "Float"
+                }
+              ]
+            },
+            {
+              "Name": "无油槽",
+              "ParamList":[]
+            }
+          ],
+          "DefaultValue": "0",
+          "iniName": "Shape_Type",
+          "iniType": "String"
+        },
+        {
+          "Name": "冷却方式",
+          "Choise": "外冷,内冷",
+          "Type": "ComboBox",
+          "DefaultValue": "0",
+          "iniName": "Hole_Type",
+          "iniType": "Float"
+        },
+        {
+          "Name": "dm",
+          "Type": "EditBox",
+          "DefaultValue": "9",
+          "iniName": "dm",
+          "iniType": "Float"
+        },
+        {
+          "Name": "CZC_L",
+          "Type": "EditBox",
+          "DefaultValue": "7",
+          "iniName": "CZC_L",
+          "iniType": "Float"
+        },
+        {
+          "Name": "CZC_W",
+          "Type": "EditBox",
+          "DefaultValue": "5.5",
+          "iniName": "CZC_W",
+          "iniType": "Float"
+        }
+      ]
+    }
+          ]
+}

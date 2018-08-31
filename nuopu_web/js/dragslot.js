@@ -23,93 +23,171 @@
 		this.init();
 	}
 	Dragslot.prototype = {
-		init : function(){
-			var slotContainer = this;
-			slotContainer.placeholder = $('<div class="'+ slotContainer.options.placeholderClass +'"/>');
-			var dragStartEvent = function(e){
-				var item = $(e.target);
-				if(!item.closest('.' + slotContainer.options.slotItemClass)){
-					return;
-				}
+        init: function () {
+            var slotContainer = this;
+            slotContainer.placeholder = $('<div class="' + slotContainer.options.placeholderClass + '"/>');
+            var dragStartEvent = function (e) {
+                var item = $(e.target);
+                if (!item.closest('.' + slotContainer.options.slotItemClass)) {
+                    return;
+                }
 
-				e.preventDefault();
-				slotContainer._dragStart(e);
-				
-			};
-			var dragMoveEvent = function(e){
-				if(slotContainer.dragElement){
-						e.preventDefault();
-						slotContainer._dragMove(e);
-					}
-			};
-			var dragEndEvent = function(e){
-				if(slotContainer.dragElement){
-						e.preventDefault();
-						slotContainer._dragEnd(e);
-					}
-				
-			};
-			slotContainer.element.on(eStart, dragStartEvent);
-			$(window).on(eMove, dragMoveEvent);
-			$(window).on(eEnd, dragEndEvent);
+                var target = $(e.target);
+                this.slotlist = target.closest('.' + slotContainer.options.slotListClass);
 
-		},
-		_dragStart : function(e){
-			var target = $(e.target),
-			 dragItem = target.closest('.' + this.options.slotItemClass);
+                var fromSlotListId = this.slotlist.attr("id");
+                if(fromSlotListId == null || fromSlotListId == undefined)
+                {
+                    return;
+                }
+
+                if (fromSlotListId == "KuContainer"
+                    || fromSlotListId == "CuJiaGongContainer"
+                    || fromSlotListId == "BanJingJiaGongContainer"
+                    || fromSlotListId == "JingJiaGongContainer"
+                    || fromSlotListId == "ChaoJingJiaGongContainer")
+                {
+                    if(g_isInGongYiEditMode == true)
+                    {
+
+                    }
+                    else
+                    {
+                        e.preventDefault();
+                        slotContainer._dragStart(e);
+                    }
+
+                }
+                else if(fromSlotListId == "LingJianDesign")
+                {
+                    var target = $(e.target);
+                    var clickItem = target.closest('.' + slotContainer.options.slotItemClass);
+                    var htmlObj = clickItem[0];
+
+                    if(htmlObj == null || htmlObj == undefined)
+                    {
+                        return;
+                    }
+
+                    var pa = htmlObj.parentNode;
+
+                    for(var i = 0; i < htmlObj.parentNode.childNodes.length; i++)
+                    {
+                        if(htmlObj.parentNode.childNodes[i].style != null && htmlObj.parentNode.childNodes[i].style != undefined)
+                        {
+                            htmlObj.parentNode.childNodes[i].style.backgroundColor = "#ffffff";
+                        }
+                    }
+
+                    htmlObj.style.backgroundColor = "#ccccff";
+
+                    OnSelectLingJian_NobelTech(htmlObj);
+                    //htmlObj.parentNode.removeChild(htmlObj);
+                    //htmlObj.innerHtml = "";
+                }
+            };
+            var dragMoveEvent = function (e) {
+                if (slotContainer.dragElement) {
+                    e.preventDefault();
+                    slotContainer._dragMove(e);
+                }
+            };
+            var dragEndEvent = function (e) {
+                if (slotContainer.dragElement) {
+                    e.preventDefault();
+                    slotContainer._dragEnd(e);
+                }
+
+            };
+            slotContainer.element.on(eStart, dragStartEvent);
+            $(window).on(eMove, dragMoveEvent);
+            $(window).on(eEnd, dragEndEvent);
+        },
+        _dragStart: function (e) {
+            var target = $(e.target);
+            dragItem = target.closest('.' + this.options.slotItemClass);
             this.slotlist = target.closest('.' + this.options.slotListClass);
 
             var fromSlotListId = this.slotlist.attr("id");
-            if(fromSlotListId == "LingJianDesign" || fromSlotListId == "ParamDesign")
-            {
-            	this.slotlist = null;
+
+            if (fromSlotListId == null || fromSlotListId == undefined || fromSlotListId == "LingJianDesign" || fromSlotListId == "ParamDesign") {
+                this.slotlist = null;
                 this.dragElement = null;
-				return;
+                return;
                 //ResetKuContainer();
             }
 
-			this.placeholder.css('height', dragItem.height());
-			this.dragElement = $(document.createElement('div')).addClass(this.options.dragItemClass);
+            //this.placeholder.css('height', dragItem.height());
+            this.dragElement = $(document.createElement('div')).addClass(this.options.dragItemClass);
 
-			dragItem.after(this.placeholder);
-			dragItem.css('width',dragItem.width() + 'px');
+            dragItem.after(this.placeholder);
+            dragItem.css('width', dragItem.width() + 'px');
 
-			if(dragItem[0] == null || dragItem[0] == undefined)
-			{
-				return;
-			}
+            if (dragItem[0] == null || dragItem[0] == undefined) {
+                return;
+            }
 
-			if(dragItem[0].parentNode){
-				//dragItem[0].parentNode.removeChild(dragItem[0]);
-			}
-			dragItem.appendTo(this.dragElement);
-			$(document.body).append(this.dragElement);
-			clientX = e.clientX + (document.body.scrollLeft || document.documentElement.scrollLeft);
-			clientY = e.clientY + (document.body.scrollTop || document.documentElement.scrollTop); 
-			this.dragElement.css({
-				'left' : clientX,
-				'top'  : clientY
-			});
-		},
-		_dragMove : function(e){
-			var newClientX = e.clientX + (document.body.scrollLeft || document.documentElement.scrollLeft),
-			newClientY = e.clientY + (document.body.scrollTop || document.documentElement.scrollTop);
-			var left = parseInt(this.dragElement[0].style.left) || 0;
-			var top = parseInt(this.dragElement[0].style.top) || 0;
-			this.dragElement[0].style.left = left + (newClientX - clientX) + 'px';
-			this.dragElement[0].style.top = top + (newClientY - clientY) + 'px';
-			clientX = newClientX;
-			clientY = newClientY;
+            if(fromSlotListId == "CuJiaGongContainer"
+                || fromSlotListId == "BanJingJiaGongContainer"
+                || fromSlotListId == "JingJiaGongContainer"
+                || fromSlotListId == "ChaoJingJiaGongContainer")
+            {
+                if (dragItem[0].parentNode)
+                {
+                    dragItem[0].parentNode.removeChild(dragItem[0]);
+                }
+            }
+
+            var ctrlId = dragItem[0].id;
+            var idArray = ctrlId.split("_");
+            var strIdSuffix = "";
+            for(var i = 2; i < idArray.length; i++)
+            {
+                strIdSuffix += idArray[i];
+                if(i != idArray.length - 1)
+                {
+                    strIdSuffix += "_";
+                }
+            }
+            var newId = idArray[0] + "_" + GenerateUUID() + "_" + strIdSuffix;
+            var newCtrl = dragItem.clone();
+            newCtrl[0].id = newId;
+
+
+            this.dragElement.append(newCtrl);
+            dragItem.onclick = "";
+
+            //dragItem.appendTo(this.dragElement);
+            $(document.body).append(this.dragElement);
+            clientX = e.clientX + (document.body.scrollLeft || document.documentElement.scrollLeft);
+            clientY = e.clientY + (document.body.scrollTop || document.documentElement.scrollTop);
+            this.dragElement.css({
+                'left': clientX,
+                'top': clientY
+            });
+        },
+        _dragMove: function (e) {
+            var newClientX = e.clientX + (document.body.scrollLeft || document.documentElement.scrollLeft),
+                newClientY = e.clientY + (document.body.scrollTop || document.documentElement.scrollTop);
+            var left = parseInt(this.dragElement[0].style.left) || 0;
+            var top = parseInt(this.dragElement[0].style.top) || 0;
+            this.dragElement[0].style.left = left + (newClientX - clientX) + 'px';
+            this.dragElement[0].style.top = top + (newClientY - clientY) + 'px';
+            clientX = newClientX;
+            clientY = newClientY;
 
             this.dragElement[0].style.visibility = 'hidden';
-			this.pointEl = $(document.elementFromPoint(e.pageX - (document.body.scrollLeft || document.documentElement.scrollLeft), e.pageY - (document.body.scrollTop || document.documentElement.scrollTop)));
+            this.pointEl = $(document.elementFromPoint(e.pageX - (document.body.scrollLeft || document.documentElement.scrollLeft), e.pageY - (document.body.scrollTop || document.documentElement.scrollTop)));
 
             this.dragElement[0].style.visibility = 'visible';
 
-			if (this.pointEl.closest('.' + this.options.slotHandlerClass).length || this.pointEl.closest('.' + this.options.slotItemClass).length) {
+            if (this.pointEl.closest('.' + this.options.slotHandlerClass).length
+                || this.pointEl.closest('.' + this.options.slotItemClass).length)
+                //|| this.pointEl.closest('.' + this.options.slotListClass).length)
+            {
                 this.pointEl = this.pointEl.closest('.' + this.options.slotItemClass);
-                 var before = e.pageY < (this.pointEl.offset().top + this.pointEl.height() / 2);
-                    parent = this.placeholder.parent();
+                var before = e.pageY < (this.pointEl.offset().top + this.pointEl.height() / 2);
+                parent = this.placeholder.parent();
 
                 if (before) {
                     this.pointEl.before(this.placeholder);
@@ -118,75 +196,113 @@
                     this.pointEl.after(this.placeholder);
                 }
             } else if (this.pointEl.hasClass(this.options.emptySlotClass)) {
-                    list = $(document.createElement(this.options.slotList)).addClass(this.options.slotListClass);
-                    list.append(this.placeholder);
-                    this.pointEl.append(list);
-                }else if(this.pointEl.hasClass(this.options.slotClass)){
-            		this.pointEl = this.pointEl.children(this.options.slotList).children().last();
-            		this.pointEl.after(this.placeholder);
+                list = $(document.createElement(this.options.slotList)).addClass(this.options.slotListClass);
+                list.append(this.placeholder);
+                this.pointEl.append(list);
+            } else if (this.pointEl.hasClass(this.options.slotClass)) {
+                this.pointEl = this.pointEl.children(this.options.slotList).children().last();
+                this.pointEl.after(this.placeholder);
             } else {
                 return;
             }
             this.toSlot = this.pointEl.closest('.' + this.options.slotClass);
-		},
-		_dragEnd : function(e){
-			var self = this;
+        },
+        _dragEnd: function (e) {
+            var self = this;
 
-            if(self.slotlist == null || self.dragElement == null)
-            {
+            if (self.slotlist == null || self.dragElement == null) {
                 return;
             }
 
-			var el = self.dragElement.children('.' + self.options.slotItemClass).first();
+            var el = self.dragElement.children('.' + self.options.slotItemClass).first();
 
-			if(el == null || el == undefined || el[0] == null || el[0] == undefined)
-			{
-				return;
-			}
+            if (el == null || el == undefined || el[0] == null || el[0] == undefined) {
+                return;
+            }
 
             var fromSlotListId = this.slotlist.attr("id");
 
-			if(fromSlotListId != "KuContainer")
-			{
+            if (fromSlotListId != "KuContainer"
+                && fromSlotListId != "CuJiaGongContainer"
+                && fromSlotListId != "BanJingJiaGongContainer"
+                && fromSlotListId != "JingJiaGongContainer"
+                && fromSlotListId != "ChaoJingJiaGongContainer"
+            ) {
 
                 //el[0].parentNode.removeChild(el[0]);
                 //this.placeholder.replaceWith(el);
-                if(self.dragElement) {
+                if (self.dragElement) {
                     self.dragElement.remove();
                 }
 
                 self.dragElement = null;
                 self.pointEl = null;
 
-				return;
-			}
+                return;
+            }
 
-            el[0].parentNode.removeChild(el[0]);
-            this.placeholder.replaceWith(el);
-            
+            if (self.toSlot == null || self.toSlot == undefined) {
+                return;
+            }
+
+            var a = self.toSlot;
+            //var toSlotHtmlObjId = self.toSlot.parent().attr("id");
+            var toSlotHtmlObjId = self.placeholder.parent().attr("id");
+
+            if(toSlotHtmlObjId == "LingJianDesign"
+                || fromSlotListId == "CuJiaGongContainer"
+                || fromSlotListId == "BanJingJiaGongContainer"
+                || fromSlotListId == "JingJiaGongContainer"
+                || fromSlotListId == "ChaoJingJiaGongContainer")
+            {
+                el[0].parentNode.removeChild(el[0]);
+                this.placeholder.replaceWith(el);
+            }
+
+            if (toSlotHtmlObjId == "LingJianDesign") {
+                //self.toSlot.innerHTML = "";
+
+                if(g_isInLingJianSearchMode)
+                {
+                    OnSelectLingJian_NobelTech(el[0]);
+                }
+                else
+                {
+                    OnSelectLingJianInEditMode_NobelTech(el[0]);
+                }
+
+                setTimeout("UpdateTree_NobelTech()",50);
+                //UpdateTree_NobelTech();
+
+                var smallBtnsArray = el.children().first().children().first().children(".content").children(".smallbutton");
+                smallBtnsArray.css("visibility","inherit");
+                for(var i = 0; i < smallBtnsArray.length; i++)
+                {
+                    smallBtnsArray[i].style.visibility = "inherit";
+                }
+            }
+
             self.dragElement.remove();
-            if($.isFunction(self.options.dropCallback)) {
-              var itemInfo = {
-              	dragItem : el,
-              	sourceSlot : self.slotlist.closest('.slot'),
-              	destinationSlot : self.toSlot,
-              	dragItemId : el.attr('id') 
-              } 
-              self.options.dropCallback.call(self, itemInfo);
+            if ($.isFunction(self.options.dropCallback)) {
+                var itemInfo = {
+                    dragItem: el,
+                    sourceSlot: self.slotlist.closest('.slot'),
+                    destinationSlot: self.toSlot,
+                    dragItemId: el.attr('id')
+                }
+                self.options.dropCallback.call(self, itemInfo);
             }
             self.dragElement = null;
             self.pointEl = null;
-            if (self.toSlot.hasClass(self.options.emptySlotClass))
-            {
+            if (self.toSlot.hasClass(self.options.emptySlotClass)) {
                 self.toSlot.removeClass(self.options.emptySlotClass);
             }
-            if(self.slotlist.children().length==0){
-            	self.slotlist.closest('.' + self.options.slotClass).addClass(self.options.emptySlotClass);
-            	self.slotlist[0].parentNode.removeChild(self.slotlist[0]);
+            if (self.slotlist.children().length == 0) {
+                self.slotlist.closest('.' + self.options.slotClass).addClass(self.options.emptySlotClass);
+                self.slotlist[0].parentNode.removeChild(self.slotlist[0]);
             }
-		}
-	}
-	
+        }
+    }
 
 	$.fn.dragslot = function(options){
 		new Dragslot(this,options);

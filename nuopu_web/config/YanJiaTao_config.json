@@ -1,0 +1,58 @@
+{
+	"ID":"123",
+	"Name":"延长杆夹套搜索",
+	"Tab":
+	[
+				{
+					"Name":"延长杆夹套搜索(单位:mm)",
+					"ParamList":
+					[
+						{
+							"Name": "刀具品牌",
+							"Choise":"nuopu,Seco,Prawet",
+							"Type": "ComboBox",
+							"DefaultValue": "0",
+							"iniName": "l1",
+							"iniType": "Float",
+							"SearchType": "0"
+						},
+						{
+							"Name": "订货型号",
+							"Type": "EditBox",
+							"DefaultValue": "0",
+							"iniName": "l1",
+							"iniType": "Float",
+							"SearchType": "0"
+						},
+						{
+							"Name": "夹套类型",
+							"Choise": "ER,ER-UP",
+							"Type": "ComboBox",
+							"DefaultValue": "0",
+							"iniName": "l1",
+							"iniType": "Float",
+							"SearchType": "0"
+						},
+						{
+							"Name": "夹套规格",
+							"Choise": "16,25,32",
+							"Type": "ComboBox",
+							"DefaultValue": "0",
+							"iniName": "l2",
+							"iniType": "Float",
+							"SearchType": "0"
+						},
+						{
+							"Name": "夹套尺寸",
+							"Choise": "2,,3,4,5,6,7,8,9,10",
+							"Type": "ComboBox",
+							"DefaultValue": "0",
+							"iniName": "l2",
+							"iniType": "Float",
+							"SearchType": "0"
+						}
+					]
+				}
+
+	]
+}

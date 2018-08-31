@@ -1,0 +1,24 @@
+{
+	"Name":"定位面",
+	"ParamsArray":
+	[
+		{
+			"Name": "类型",
+			"Type": "ComboBox",
+			"Choise": "4",
+			"DefaultValue": "0"
+		},
+		{
+			"Name":"子特征数据",
+			"Type":"EditBox",
+			"DefaultValue":1,
+			"DanWeiString":""
+		},
+		{
+			"Name":"位置深度",
+			"Type":"EditBox",
+			"DefaultValue":7.5,
+			"DanWeiString":"mm"
+		}
+	]
+}

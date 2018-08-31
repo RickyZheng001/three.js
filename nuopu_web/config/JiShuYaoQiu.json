@@ -4,71 +4,79 @@
 	"Tab":
 	[
 		{
-			"Name":"技术要求",
+			"Name":"技术要求(单位:mm)",
 			"ParamList":
 			[
 				{
 					"Name":"加工材料",
 					"Type":"EditBox",
 					"DefaultValue":"",
-					"iniName":"l1",
-					"iniType":"Float",
+					"iniName":"加工材料",
+					"iniType":"string",
 					"SearchType":"0"
 				},
 				{
 					"Name":"机床",
 					"Type":"EditBox",
 					"DefaultValue":"",
-					"iniName":"d1_cus",
-					"iniType":"Float",
+					"iniName":"机床",
+					"iniType":"string",
 					"SearchType":"0"
 				},
 				{
 					"Name":"刀具结构",
 					"Type":"EditBox",
 					"DefaultValue":"",
-					"iniName":"d1_cus",
-					"iniType":"Float",
+					"iniName":"刀具结构",
+					"iniType":"string",
 					"SearchType":"0"
 				},
 				{
 					"Name":"涂层要求",
 					"Type":"EditBox",
 					"DefaultValue":"",
-					"iniName":"d1_cus",
-					"iniType":"Float",
+					"iniName":"涂层要求",
+					"iniType":"string",
 					"SearchType":"0"
 				},
 				{
 					"Name":"内冷要求",
 					"Type":"EditBox",
 					"DefaultValue":"",
-					"iniName":"d1_cus",
-					"iniType":"Float",
+					"iniName":"内冷要求",
+					"iniType":"string",
 					"SearchType":"0"
 				},
 				{
 					"Name":"加工内容",
 					"Type":"EditBox",
 					"DefaultValue":"",
-					"iniName":"d1_cus",
-					"iniType":"Float",
+					"iniName":"加工内容",
+					"iniType":"string",
 					"SearchType":"0"
 				},
 				{
 					"Name":"加工精度",
 					"Type":"EditBox",
 					"DefaultValue":"",
-					"iniName":"d1_cus",
-					"iniType":"Float",
+					"iniName":"加工精度",
+					"iniType":"string",
+					"SearchType":"0"
+				},
+				{
+					"Name":"公司名称",
+					"Type":"EditBox",
+					"DefaultValue":"",
+					"iniName":"公司名称",
+					"iniType":"string",
 					"SearchType":"0"
 				},
 				{
 					"Name":"其他",
 					"Type":"EditBox",
 					"DefaultValue":"",
-					"iniName":"d1_cus",
-					"iniType":"Float",
+					"iniName":"其他",
+					"iniType":"string",
 					"SearchType":"0"
 				}
 			]

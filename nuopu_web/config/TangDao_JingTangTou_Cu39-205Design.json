@@ -1,0 +1,91 @@
+{
+	"ID":"123456",
+	"Name":"镗刀",
+	"Tab":
+	[
+		{
+			"Name": "主表(单位:mm)",
+			"ParamList": [
+				{
+					"Name": "刀具类型",
+					"Type": "ComboBox",
+					"Choise": "CAPTO39-205",
+					"DefaultValue": "0",
+					"iniName": "tool_type",
+					"iniType": "string"
+				},
+				{
+					"Name": "刀具品牌",
+					"Choise": "nuopu,Seco,Prawet",
+					"Type": "ComboBox",
+					"DefaultValue": "0",
+					"iniName": "company_name",
+					"iniType": "Float"
+				},
+				{
+					"Name": "订货型号",
+					"Type": "EditBox",
+					"DefaultValue": "0",
+					"iniName": "No",
+					"iniType": "string"
+				},
+				{
+					"Name": "文件名",
+					"Type": "EditBox",
+					"DefaultValue": "",
+					"iniName": "FN",
+					"iniType": "string",
+					"ServerGenerateID": 1
+				},
+				{
+					"Name": "更新文件名",
+					"Type": "GenerateServerID",
+					"DefaultValue": ""
+				}
+			]
+		},
+		{
+			"Name":"样本参数(单位:mm)",
+			"ParamList":
+			[
+				{
+					"Name":"Graflex规格",
+					"Type":"ComboBox",
+					"Choise":"C3,C4,C5,C6,C8",
+					"DefaultValue":"3",
+					"iniName":"Graflex",
+					"iniType":"Float"
+				},
+				{
+					"Name": "范围C",
+					"Type": "ComboBox",
+					"Choise": "39-51,50-65,64-86,85-144,144-205",
+					"DefaultValue":"0",
+					"iniName": "C_type",
+					"iniType": "string"
+				},
+				{
+					"Name":"A",
+					"Type":"EditBox",
+					"DefaultValue":"29",
+					"iniName":"A",
+					"iniType":"Float"
+				},
+				{
+					"Name":"D",
+					"Type":"EditBox",
+					"DefaultValue":"35",
+					"iniName":"D",
+					"iniType":"Float"
+				},
+				{
+					"Name":"L",
+					"Type":"EditBox",
+					"DefaultValue":"73.1",
+					"iniName":"L",
+					"iniType":"Float"
+				}
+			]
+		}
+	]
+}

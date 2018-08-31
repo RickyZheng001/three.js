@@ -50,6 +50,7 @@
 
 	<script src="./utils/LoadGui.js"></script>
 	<script type="text/javascript" src="js/dragslot.js"></script>
+	<script src="./js/GlobalDefine.js"></script>
 
 	<script type="text/javascript">
         $(function (){
@@ -120,7 +121,7 @@
 	<div class="centeredDiv">
 		<div class="header">
 			<div><img src="./images/EdgeWinLogo_2.png" width="159px" style="margin-left: 20px;"></div>
-			<div><img src="./images/ZNGY_SearchLogo.png" width="159px" style="position: absolute;margin-left: 35%;margin-top:-12px;width: 388px;height:69px; "></div>
+			<div><img src="./images/ZNGY_SearchLogoTest.png" width="159px" style="position: absolute;margin-left: 24%;margin-top:-12px;width: 670px;height:69px; "></div>
 			<div class="menu">
 				<ul class="menu">
 				</ul>
@@ -128,13 +129,7 @@
 			<div class="menu2">
 				<ul class="menu2">
 					<li>
-						<a color="#ffffff">账单查询</a>
-					</li>
-					<li>
 						<a>返回首页</a>
-					</li>
-					<li>
-						<a>退出</a>
 					</li>
 				</ul>
 			</div>
@@ -149,32 +144,13 @@
 		</div>
 	</div>
 	<div class="app">
-		<div>
-			<img src="./img/JinDuTiaoGreen.png" style="position: absolute;margin-left: 6px;margin-top: 50px;z-index: 50;">
-			<img src="./img/JinDuTiaoGreen.png" style="position: absolute;margin-left: 6px;margin-top: 170px;z-index: 50;">
-			<img src="./img/JinDuTiaoGreen.png" style="position: absolute;margin-left: 6px;margin-top: 290px;z-index: 50;">
-			<img src="./img/JinDuTiaoGreen.png" style="position: absolute;margin-left: 6px;margin-top: 410px;z-index: 50;">
-			<img src="./img/JinDuTiaoGreen.png" style="position: absolute;margin-left: 6px;margin-top: 530px;z-index: 50;">
-
-			<img src="./img/JinDuTiaoCycleGreen.png" style="position: absolute;margin-left: 2px;margin-top: 50px;z-index: 50;">
-			<img src="./img/JinDuTiaoCycleGreen.png" style="position: absolute;margin-left: 2px;margin-top: 210px;z-index: 50;">
-			<img src="./img/JinDuTiaoCycleGreen.png" style="position: absolute;margin-left: 2px;margin-top: 350px;z-index: 50;">
-			<img src="./img/JinDuTiaoCycleGreen.png" style="position: absolute;margin-left: 2px;margin-top: 490px;z-index: 50;">
-			<img src="./img/JinDuTiaoCycleGreen.png" style="position: absolute;margin-left: 2px;margin-top: 630px;z-index: 50;">
-
-			<div style="position: absolute; margin-left:15px;margin-top: 50px;z-index: 50;font-size: smaller">零件图</div>
-			<div style="position: absolute; margin-left:15px;margin-top: 210px;z-index: 50;font-size: smaller">工序图</div>
-			<div style="position: absolute; margin-left:15px;margin-top: 350px;z-index: 50;font-size: smaller">工步图</div>
-			<div style="position: absolute; margin-left:15px;margin-top: 490px;z-index: 50;font-size: smaller">加工示意图</div>
-			<div style="position: absolute; margin-left:15px;margin-top: 630px;z-index: 50;font-size: smaller">刀具清单</div>
-		</div>
 		<!-- facebook like button stuff -->
 		<div id="fb-root"></div>
 		<!-- end facebook stuff -->
 		<div class="appTitle">
 			<div>
-				<div class="appName" style="position: absolute;margin-left: 60px;margin-top: 0px;font-size: xx-large">特征(加工中心)</div>
-				<div class="appName2" style="position: absolute;margin-left: 50px;margin-top: 60px;width:200px;font-size: 22px;height:30px;">孔</div>
+				<div class="appName" style="position: absolute;margin-left: 60px;margin-top: 0px;font-size: x-large">特征(加工中心)</div>
+				<div class="appName2" style="position: absolute;margin-left: 50px;margin-top: 70px;width:200px;font-size: 22px;height:30px;" onclick="OpenSlotPanel_NobelTech();">孔</div>
 				<div class="appName2" style="position: absolute;margin-left: 10px;margin-top: 110px;width:150px;font-size: 16px;">工艺方案选择</div>
 				<select id="FangAnComboBox" style="position: absolute;margin-left: 180px;margin-top: 110px;width:116px;height:22px;font-size: 10px;" onchange="">
 					<option value ="0">A</option>
@@ -186,10 +162,15 @@
 		</div>
 		<div id="canvas">
 			<div id="gameCanvas" width="1920px" height="1080px">
+				<div id="divPdfView" class="pdfView" style="visibility: hidden;width: 1440px;height:610px;overflow-y: scroll;">
+					<embed id="pdfCtrl" src="./pdf/test1.pdf" type="application/pdf" style="width:1440px;height:610px;"></embed>
+				</div>
 				<div id="EditSlot"  style="position: absolute;left:360px;top:20px;border-width: 1px;">
 					<div style="background-color: #009fd7;position:absolute;left: 1px;top:1px;width:1480px;height:26px;margin: 0px;padding: 0px;z-index: 0;"></div>
 					<div class="smallbutton" style="width:30px;position: absolute;left: 20px;top: 0px;" onclick="OnClickLingJianCharacteristic_NobelTech(0)">孔</div>
-					<div class="smallbutton" style="width:30px;position: absolute;left: 1420px;top: 0px;background-color: red" onclick="OnClickLingJianCharacteristic_NobelTech(0)">关闭</div>
+					<div class="smallbutton" style="width:30px;position: absolute;left: 1420px;top: 0px;background-color: red" onclick="OnClickCloseSlotPanel_NobelTech()">关闭</div>
+					<div class="smallbutton" style="width:80px;height:20px;position: absolute;left: 1300px;top: 620px;" onclick="OnClickLingJianCharacteristic_NobelTech(0)">Cancel</div>
+					<div class="smallbutton" style="width:80px;height:20px;position: absolute;left: 1400px;top: 620px;" onclick="OnClickSearchLingJian_NobelTech()">Search</div>
 					<section class="demo clearfix" style="margin-top: 40px;margin-left:20px;">
 						<div id="dragslot" class="container" style="width: 1500px;">
 							<div class="slot-title bg-red border-red">零件特征库</div>
@@ -202,17 +183,14 @@
 							<div id="KuFilterBtn4" class="smallbutton" style="background-color:mediumpurple;width:30px;position: absolute;margin-left: 320px;margin-top: 20px;" onclick="OnClickLingJianCharacteristic_NobelTech(3)">槽</div>
 							<div id="KuFilterBtn5" class="smallbutton" style="background-color:mediumpurple;width:50px;position: absolute;margin-left: 360px;margin-top: 20px;" onclick="OnClickLingJianCharacteristic_NobelTech(4)">坐标系</div>
 
-							<div class="smallbutton" style="width:80px;position: absolute;margin-left: 600px;margin-top: 20px;" onclick="OnClickDaoJuQingDan_NobelTech()">树形目录</div>
-							<div class="smallbutton" style="width:80px;position: absolute;margin-left: 690px;margin-top: 20px;" onclick="OnClickDaoJuQingDan_NobelTech()">清楚树形目录</div>
-							<div class="smallbutton" style="width:80px;position: absolute;margin-left: 780px;margin-top: 20px;" onclick="OnClickDaoJuQingDan_NobelTech()">更新三维</div>
-							<div class="smallbutton" style="width:80px;position: absolute;margin-left: 870px;margin-top: 20px;" onclick="OnClickDaoJuQingDan_NobelTech()">更新二维</div>
+							<div class="smallbutton" style="width:80px;position: absolute;margin-left: 600px;margin-top: 20px;" onclick="OnClickDisplayTree_NobelTech()">树形目录</div>
+							<div class="smallbutton" style="width:80px;position: absolute;margin-left: 690px;margin-top: 20px;" onclick="OnClickClearTree_NobelTech()">清除树形目录</div>
+							<div class="smallbutton" style="width:80px;position: absolute;margin-left: 780px;margin-top: 20px;" onclick="OnClickDisplay3dModelInPanel_NobelTech()">更新三维</div>
+							<div class="smallbutton" style="width:80px;position: absolute;margin-left: 870px;margin-top: 20px;" onclick="OnClickDisplayTuZhiModelInPanel_NobelTech()">更新二维</div>
 
-							<div class="smallbutton" style="position: absolute;margin-left: 340px;margin-top: -20px;" onclick="RemoveAllZuHe()">全部清除</div>
-
-							<div class="smallbutton" style="width:50px;position: absolute;margin-left: 1200px;margin-top: 20px;" onclick="OnClickDaoJuQingDan_NobelTech()">帮助</div>
-							<div class="smallbutton" style="width:50px;position: absolute;margin-left: 1260px;margin-top: 20px;" onclick="OnClickDaoJuQingDan_NobelTech()">清空</div>
-							<div class="smallbutton" style="width:50px;position: absolute;margin-left: 1320px;margin-top: 20px;" onclick="OnClickDaoJuQingDan_NobelTech()">确认</div>
-
+							<div class="smallbutton" style="width:50px;position: absolute;margin-left: 1200px;margin-top: 20px;" onclick="">帮助</div>
+							<div class="smallbutton" style="width:50px;position: absolute;margin-left: 1260px;margin-top: 20px;" onclick="">清空</div>
+							<div class="smallbutton" style="width:50px;position: absolute;margin-left: 1320px;margin-top: 20px;" onclick="OnClickSaveParam_NobelTech()">确认</div>
 
 							<div class="slot border-red">
 								<ul id="KuContainer" class="slot-list">
@@ -222,7 +200,6 @@
 										</div>
 										<div class="content">
 											<div class="item-title">外形和面(铣)</div>
-
 											<p>finish ui design of dashboard page</p>
 										</div>
 
@@ -257,51 +234,13 @@
 
 							<div class="slot border-yellow">
 								<ul id="LingJianDesign" class="slot-list">
-									<li class="slot-item"><div class="slot-handler">
-										<div class="slot-handler clearfix">
-											<div class="avator">
-												<img src="img/avatar5.jpg"/>
-											</div>
-											<div class="content">
-												<div class="item-title">倒角(铣)</div>
-
-												<p>design the area filter ui</p>
-											</div>
-
-										</div>
-									</div></li>
-									<li class="slot-item"><div class="slot-handler">
-										<div class="slot-handler clearfix">
-											<div class="avator">
-												<img src="img/avatar6.jpg"/>
-											</div>
-											<div class="content">
-												<div class="item-title">孔(铣)</div>
-
-												<p>implement sort of list data</p>
-											</div>
-
-										</div>
-									</div>
+									<li class='slot-item'><div class='slot-handler'><div class='slot-handler clearfix'></div></div></li>
 								</ul>
 							</div>
 
 							<div class="slot border-green">
-								<ul id="ParamDesign"class="slot-list">
-									</li>
-									<li class="slot-item"><div class="slot-handler">
-										<div class="slot-handler clearfix">
-											<div class="avator">
-												<img src="img/avatar4.jpg"/>
-											</div>
-											<div class="content">
-												<div class="item-title">外形和面(铣)</div>
+								<ul id="ParamDesign" class="slot-list-nopointer">
 
-												<p>design the Carousel with Teddy bear pictures</p>
-											</div>
-
-										</div>
-									</div></li>
 								</ul>
 							</div>
 						</div>
@@ -416,6 +355,8 @@
 <script>
     //initBindGridEvent();
 
+    var g_curSelectedHtmlCtrlId = null;
+	var g_lingJianParamMap = {};
     var progressBar = {};
     var progress = 0;
     var contextProgress = null;
@@ -554,7 +495,7 @@
         // var to store offset for proper filling when inside rounded area
         var offset = 0;
         ctx.beginPath();
-        if (width<radius) {
+        if(width<radius) {
             offset = radius - Math.sqrt(Math.pow(radius,2)-Math.pow((radius-width),2));
             ctx.moveTo(x + width, y+offset);
             ctx.lineTo(x + width, y+height-offset);
@@ -692,11 +633,10 @@
     function CloseAllTab()
     {
         LoadGUIByConfig();
-
     }
     function OnClickDownloadObj()
     {
-
+        //on click hahaha
     }
     function OnClickDownloadStp()
     {
@@ -777,7 +717,10 @@
         var modelFileList = jsonObj.ModelFileList;
         var pdfFile = jsonObj.PdfList;
         var pdfCtrl = document.getElementById( 'pdfCtrl' );
-        pdfCtrl.src = globalServerAddr + pdfFile;
+        if(pdfCtrl != null && pdfCtrl != undefined)
+		{
+            pdfCtrl.src = globalServerAddr + pdfFile;
+		}
 
         var i = 0;
         var requestURL = globalServerAddr + modelFileList;
@@ -1198,7 +1141,7 @@ myMenu_MoveDetail
 
         return result;
     }
-    function LoadUIConfigByJsonObj(jsonObj)
+    function LoadUIConfigByJsonObj_NobelTech(jsonObj)
     {
         var strHtml = GetHtmlStrByJsonObj(jsonObj,"_");
 
@@ -1581,40 +1524,25 @@ myMenu_MoveDetail
         mInstance.m_imagePath = jsonObj.ImagePath; //jsonObj.ImagePath
         mInstance.m_name = jsonObj.Name;	//jsonObj.Name
         mInstance.m_type = jsonObj.Type;
+        mInstance.m_idSuffix = jsonObj.IdSuffix;
 
-        mInstance.GenerateHtmlStr = function()
+        mInstance.GenerateHtmlStr = function(index)
         {
-            /*
-            <li class="slot-item"><div class="slot-handler">
-                <div class="slot-handler clearfix">
-            <div class="avator">
-                <img src="img/avatar2.jpg"/>
-            </div>
-            <div class="content">
-                <div class="item-title">孔(铣)</div>
-
-                <p>Fix bugs of demo page</p>
-            </div>
-
-
-            </div>
-            </div></li>
-            * */
-            /*
-                {
-        "Name":"融合特征",
-        "ImagePath":"3.png"
-    },
-            * */
             var result = "";
+            var idPreffix = "SlotItemKu_";
 
-            result += "<li class=\"slot-item\"><div class=\"slot-handler\">";
+            var strId = "" + (idPreffix + index) + this.m_idSuffix;
+
+            result += "<li id=\"" + strId + "\" class=\"slot-item\"><div class=\"slot-handler\">";
             result += "<div class=\"slot-handler clearfix\">";
             result += "<div class=\"avator\">";
             result += "<img src=\"img/" + mInstance.m_imagePath + "\"/>";
             result += "</div>";
             result += "<div class=\"content\">";
-            result += "<div class=\"item-title\">" + mInstance.m_name +"</div>"
+            result += "<div class=\"item-title\">" + mInstance.m_name +"</div>";
+            result += "<div class=\"smallbutton\" style=\"visibility:hidden;width:30px;margin-left: 160px;margin-top: -25px;\" onclick=\"OnClickZiJi_NobelTech(this)\">子级</div>";
+            result += "<div class=\"smallbutton\" style=\"visibility:hidden;width:30px;margin-left: 200px;margin-top: -25px;background-color: red\" onclick=\"OnClickRemove_NobelTech(this)\">删除</div>";
+            //result += "<div class=\"smallbutton\" style=\"width:30px;margin-left: 200px;margin-top: -25px;z-index:10;background-color: red\" onclick=\"\">删除</div>";
             result += "</div>";
             result += "</div>";
             result += "</div>";
@@ -1715,14 +1643,33 @@ myMenu_MoveDetail
         var strHtml = "";
         for(var i = 0; i < m_globalKuContainer.length; i++)
         {
-            strHtml += m_globalKuContainer[i].GenerateHtmlStr();
+            strHtml += m_globalKuContainer[i].GenerateHtmlStr(i);
         }
 
         htmlObj.innerHTML = strHtml;
+        htmlObj.m_jsonConfigObj = m_globalKuContainer[i];
 
         OnClickLingJianCharacteristic_NobelTech(0);
 
     });
+    function LoadKuUIConfig(strJsonFilePath,onFinishedCallBack)
+    {
+        var scope = this;
+
+        var loader = new THREE.FileLoader( scope.manager );
+        loader.load( strJsonFilePath, function ( text ) {
+            //var objArray =i eval('(' + text + ')');
+            var objArray = JSON.parse(text);
+
+            for(var i = 0; i < objArray.length; i++)
+            {
+                var elementKu = CreateElementKu(objArray[i]);
+                m_globalKuContainer.push(elementKu);
+                //hp generate = kaf
+            }
+            onFinishedCallBack();
+        });
+    }
     /*
     LoadZuHeUIConfig("./config/LingJian/ZuHe.json",function(){
 

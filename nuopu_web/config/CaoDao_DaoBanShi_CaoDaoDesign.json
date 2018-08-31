@@ -1,0 +1,124 @@
+{
+	"ID":"123456",
+	"Name":"槽刀",
+	"Tab":
+	[
+		{
+			"Name": "主表(单位:mm)",
+			"ParamList": [
+				{
+					"Name": "刀具类型",
+					"Type": "ComboBox",
+					"Choise": "刀板式切断刀",
+					"DefaultValue": "0",
+					"iniName": "tool_type",
+					"iniType": "string"
+				},
+				{
+					"Name": "刀具品牌",
+					"Choise": "nuopu,Seco,Prawet",
+					"Type": "ComboBox",
+					"DefaultValue": "0",
+					"iniName": "company_name",
+					"iniType": "string"
+				},
+				{
+					"Name": "订货型号",
+					"Type": "EditBox",
+					"DefaultValue": "0",
+					"iniName": "No",
+					"iniType": "string"
+				},
+				{
+					"Name": "文件名",
+					"Type": "EditBox",
+					"DefaultValue": "",
+					"iniName": "FN",
+					"iniType": "string",
+					"ServerGenerateID": 1
+				},
+				{
+					"Name": "更新文件名",
+					"Type": "GenerateServerID",
+					"DefaultValue": ""
+				}
+			]
+		},
+		{
+			"Name": "样本参数(单位:mm)",
+			"ParamList": [
+				{
+					"Name": "b2",
+					"Type": "EditBox",
+					"DefaultValue": "2.4",
+					"iniName": "b2",
+					"iniType": "Float"
+				},
+				{
+					"Name": "h",
+					"Type": "EditBox",
+					"DefaultValue": "32",
+					"iniName": "h",
+					"iniType": "Float"
+				},
+				{
+					"Name": "h1",
+					"Type": "EditBox",
+					"DefaultValue": "24.8",
+					"iniName": "h1",
+					"iniType": "Float"
+				},
+				{
+					"Name": "l2",
+					"Type": "EditBox",
+					"DefaultValue": "150",
+					"iniName": "l2",
+					"iniType": "Float"
+				}
+			]
+		},
+		{
+			"Name":"柄部类型和刀片类型(单位:mm)",
+			"ParamList":
+			[
+				{
+					"Name":"柄部类型",
+					"Type":"ComboBox",
+					"Choise":"刀板式",
+					"DefaultValue":"0",
+					"iniName":"Handle_Type",
+					"iniType":"String"
+				},
+				{
+					"Name":"刀片类型",
+					"Type":"ComboBox",
+					"Choise":"LC",
+					"DefaultValue":"0",
+					"iniName":"dp_type",
+					"iniType":"String"
+				},
+				{
+					"Name": "ap",
+					"Type": "EditBox",
+					"DefaultValue": "3",
+					"iniName": "tool_ap",
+					"iniType": "Float"
+				},
+				{
+					"Name": "i",
+					"Type": "EditBox",
+					"DefaultValue": "15.9",
+					"iniName": "tool_i",
+					"iniType": "Float"
+				},
+				{
+					"Name": "s",
+					"Type": "EditBox",
+					"DefaultValue": "4.5",
+					"iniName": "tool_s",
+					"iniType": "Float"
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,119 @@
+{
+	"ID":"123456",
+	"Name":"刀片",
+	"Tab":
+	[
+		{
+			"Name": "主表(单位:mm)",
+			"ParamList": [
+				{
+					"Name": "刀具类型",
+					"Type": "ComboBox",
+					"Choise": "SP铣刀片x",
+					"DefaultValue": "0",
+					"iniName": "tool_type",
+					"iniType": "string"
+				},
+				{
+					"Name": "刀具品牌",
+					"Choise":"nuopu,Seco,Prawet",
+					"Type": "ComboBox",
+					"DefaultValue": "0",
+					"iniName": "company_name",
+					"iniType": "string"
+				},
+				{
+					"Name": "订货型号",
+					"Type": "EditBox",
+					"DefaultValue": "0",
+					"iniName": "No",
+					"iniType": "string"
+				},
+				{
+					"Name": "文件名",
+					"Type": "EditBox",
+					"DefaultValue": "",
+					"iniName": "FN",
+					"iniType": "string",
+					"ServerGenerateID": 1
+				},
+				{
+					"Name": "更新文件名",
+					"Type": "GenerateServerID",
+					"DefaultValue": ""
+				}
+			]
+		},
+		{
+			"Name": "样本参数(单位:mm)",
+			"ParamList":
+			[
+				{
+					"Name": "B",
+					"Type": "EditBox",
+					"DefaultValue": "12",
+					"iniName": "B",
+					"iniType": "Float"
+				},
+				{
+					"Name": "l",
+					"Type": "EditBox",
+					"DefaultValue": "20",
+					"iniName": "l",
+					"iniType": "Float"
+				},
+				{
+					"Name": "re",
+					"Type": "EditBox",
+					"DefaultValue": "0.5",
+					"iniName": "re",
+					"iniType": "Float"
+				},
+				{
+					"Name": "s",
+					"Type": "EditBox",
+					"DefaultValue": "6.35",
+					"iniName": "s",
+					"iniType": "Float"
+				}
+			]
+		},
+		{
+			"Name":"附加参数(单位:mm)",
+			"ParamList":
+			[
+				{
+					"Name":"材质",
+					"Type":"ComboBox",
+					"Choise":"MP1500,MP2500,MP3000,MH1000,MM4500,MK1500,MK2050,MS2050,MS2500,T350M,F15M,F25M,F40M,HX,H15,H25,MP1020",
+					"DefaultValue":"0",
+					"iniName":"Material",
+					"intType":"string"
+				},
+				{
+					"Name":"槽型",
+					"Type":"ComboBox",
+					"Choise":"A",
+					"DefaultValue":"0",
+					"iniName":"cell_type",
+					"intType":"string"
+				},
+				{
+					"Name":"切削前角",
+					"Type":"EditBox",
+					"DefaultValue":"0",
+					"iniName":"qianjiao_type",
+					"intType":"string"
+				},
+				{
+					"Name":"切削方向",
+					"Type":"ComboBox",
+					"Choise":"R,L,N",
+					"DefaultValue":"2",
+					"iniName":"direction",
+					"intType":"string"
+				}
+			]
+		}
+	]
+}

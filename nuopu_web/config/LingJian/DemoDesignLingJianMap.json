@@ -1,0 +1,1378 @@
+{
+  "SlotItemKu_8144f375-c3e5-4715-b26c-aa6a0a27b83f_YuanZhuParamDesignPanel.json": {
+    "Name": "圆柱",
+    "ParamsArray": [
+      {
+        "Name": "直径",
+        "Type": "EditBox",
+        "DefaultValue": 20,
+        "DanWeiString": "mm",
+        "IniName": "R",
+        "htmlCtrlId": "92355c94-1d2c-42e2-8558-70a5a3b32286",
+        "Value": "20"
+      },
+      {
+        "Name": "高度",
+        "Type": "EditBox",
+        "DefaultValue": 30,
+        "DanWeiString": "mm",
+        "IniName": "L",
+        "htmlCtrlId": "ca2b45fa-9c31-417b-84f0-4154b52cc82e",
+        "Value": "30"
+      }
+    ],
+    "htmlCtrlId": "SlotItemKu_8144f375-c3e5-4715-b26c-aa6a0a27b83f_YuanZhuParamDesignPanel.json"
+  },
+  "SlotItemKu_98a20c26-8202-4065-a607-958a33288971_DingWeiMianParamDesignPanel.json": {
+    "Name": "定位面",
+    "ParamsArray": [],
+    "htmlCtrlId": "SlotItemKu_98a20c26-8202-4065-a607-958a33288971_DingWeiMianParamDesignPanel.json"
+  },
+  "SlotItemKu_fa683f85-16ab-4169-8c64-f369bde818b3_JiaJuLingJianGanSheChiCunParamDesignPanel.json": {
+    "Name": "零件夹具干涉",
+    "ParamsArray": [
+      {
+        "Name": "夹具干涉高度",
+        "Type": "EditBox",
+        "DefaultValue": 5,
+        "DanWeiString": "",
+        "Value": "5",
+        "htmlCtrlId": "9d769f47-be34-4038-b983-172dab860367"
+      },
+      {
+        "Name": "夹具干涉孔距",
+        "Type": "EditBox",
+        "DefaultValue": 8,
+        "DanWeiString": "mm",
+        "Value": "8",
+        "htmlCtrlId": "b1e4afde-7074-433f-8f35-a18ffacecd7a"
+      },
+      {
+        "Name": "零件干涉高度",
+        "Type": "EditBox",
+        "DefaultValue": 10,
+        "DanWeiString": "mm",
+        "Value": "10",
+        "htmlCtrlId": "9ec6573a-adee-49e3-8236-f8dddd281a91"
+      },
+      {
+        "Name": "零件干涉孔距",
+        "Type": "EditBox",
+        "DefaultValue": 7,
+        "DanWeiString": "mm",
+        "Value": "7",
+        "htmlCtrlId": "65a748c5-eba0-4bb6-887b-483c1d79a401"
+      }
+    ],
+    "htmlCtrlId": "SlotItemKu_fa683f85-16ab-4169-8c64-f369bde818b3_JiaJuLingJianGanSheChiCunParamDesignPanel.json"
+  },
+  "SlotItemKu_813990d6-4f1b-4b06-8d3b-96bf36cfe68a_RuKouMianParamDesignPanel.json": {
+    "Name": "入口面",
+    "ParamsArray": [],
+    "htmlCtrlId": "SlotItemKu_813990d6-4f1b-4b06-8d3b-96bf36cfe68a_RuKouMianParamDesignPanel.json"
+  },
+  "SlotItemKu_ec54a237-4a30-4b0c-9bc1-bf55032f0ec1_NeiDaoJiaoParamDesignPanel.json": {
+    "Name": "倒角",
+    "ParamsArray": [
+      {
+        "Name": "基准",
+        "Type": "EditBox",
+        "Choise": "4",
+        "DefaultValue": "0",
+        "htmlCtrlId": "dbe4747a-f5dc-440a-959b-d869e4916f74",
+        "Value": "0"
+      },
+      {
+        "Name": "中心点X",
+        "Type": "EditBox",
+        "DefaultValue": 1,
+        "DanWeiString": "",
+        "htmlCtrlId": "2371cb90-59c3-490c-b356-b72f3ed822d2",
+        "Value": "1"
+      },
+      {
+        "Name": "中心点Y",
+        "Type": "EditBox",
+        "DefaultValue": 7.5,
+        "DanWeiString": "",
+        "htmlCtrlId": "55e10d77-302f-4e7d-9f11-f0315324096b",
+        "Value": "7.5"
+      },
+      {
+        "Name": "倒角深度",
+        "Type": "EditBox",
+        "DefaultValue": 7.5,
+        "DanWeiString": "",
+        "htmlCtrlId": "fe14befc-1d17-4173-9f6e-937e3b0e66ab",
+        "Value": "7.5"
+      },
+      {
+        "Name": "深度精度",
+        "Type": "EditBox",
+        "DefaultValue": 7.5,
+        "DanWeiString": "",
+        "htmlCtrlId": "35ab3b8e-8a01-4f57-83eb-a29a192276d8",
+        "Value": "7.5"
+      },
+      {
+        "Name": "倒角角度",
+        "Type": "EditBox",
+        "DefaultValue": 7.5,
+        "DanWeiString": "",
+        "htmlCtrlId": "4196f07c-de11-4575-8da3-1a9acefa73ad",
+        "Value": "7.5"
+      },
+      {
+        "Name": "角度精度",
+        "Type": "EditBox",
+        "DefaultValue": 7.5,
+        "DanWeiString": "",
+        "htmlCtrlId": "64aab97a-67f6-4d71-b3be-c1c6c131ea6c",
+        "Value": "7.5"
+      },
+      {
+        "Name": "孔上下面",
+        "Type": "EditBox",
+        "DefaultValue": 7.5,
+        "DanWeiString": "",
+        "htmlCtrlId": "32c4b291-5d61-4930-95e6-0aea8a1597fe",
+        "Value": "7.5"
+      },
+      {
+        "Name": "表面粗糙度",
+        "Type": "EditBox",
+        "DefaultValue": 7.5,
+        "DanWeiString": "",
+        "htmlCtrlId": "236a86ba-6341-4d8b-8071-8eb007922cfd",
+        "Value": "7.5"
+      },
+      {
+        "Name": "形位公差1",
+        "Type": "EditBox",
+        "DefaultValue": 7.5,
+        "DanWeiString": "",
+        "htmlCtrlId": "d84c5899-09da-49bb-80de-028a2043336d",
+        "Value": "7.5"
+      },
+      {
+        "Name": "形位公差2",
+        "Type": "EditBox",
+        "DefaultValue": 7.5,
+        "DanWeiString": "",
+        "htmlCtrlId": "f83e1789-89b4-4dfc-8e5e-bc0ff6161e68",
+        "Value": "7.5"
+      },
+      {
+        "Name": "形位公差3",
+        "Type": "EditBox",
+        "DefaultValue": 7.5,
+        "DanWeiString": "",
+        "htmlCtrlId": "03cf776d-fcd2-4b36-827b-c7feb1c577cf",
+        "Value": "7.5"
+      }
+    ],
+    "htmlCtrlId": "SlotItemKu_ec54a237-4a30-4b0c-9bc1-bf55032f0ec1_NeiDaoJiaoParamDesignPanel.json"
+  },
+  "SlotItemKu_6f2d6b10-908e-4332-8d04-1cbd4504efaa_TongKongParamDesignPanel.json": {
+    "Name": "孔",
+    "ParamsArray": [
+      {
+        "Name": "类型",
+        "Type": "ComboBox",
+        "Choise": "1",
+        "DefaultValue": "0",
+        "Value": "0",
+        "htmlCtrlId": "94b216c7-671f-44d4-a79b-c525d7e04c4f"
+      },
+      {
+        "Name": "子特征数据",
+        "Type": "EditBox",
+        "DefaultValue": 1,
+        "DanWeiString": "",
+        "Value": "1",
+        "htmlCtrlId": "86a84501-7852-40bf-8e93-b1cad3580161"
+      },
+      {
+        "Name": "直径",
+        "Type": "EditBox",
+        "DefaultValue": 7.5,
+        "DanWeiString": "mm",
+        "Value": "7.5",
+        "htmlCtrlId": "87b2a660-0cd4-4547-8299-e68007a1ee80"
+      },
+      {
+        "Name": "深度",
+        "Type": "EditBox",
+        "DefaultValue": 10,
+        "DanWeiString": "mm",
+        "Value": "10",
+        "htmlCtrlId": "92b45bd5-41d0-4ae3-8ef5-745a3d7c652a"
+      },
+      {
+        "Name": "是否通孔",
+        "Type": "ComboBox",
+        "Choise": "1,0",
+        "DefaultValue": 0,
+        "DanWeiString": "mm",
+        "Value": "0",
+        "htmlCtrlId": "0035c021-8bc5-4dbc-a133-e3a6d1611637"
+      },
+      {
+        "Name": "顶角",
+        "Type": "EditBox",
+        "DefaultValue": 100,
+        "DanWeiString": "度",
+        "Value": "100",
+        "htmlCtrlId": "1e88b726-5e35-4491-9e73-98898d26c34f"
+      },
+      {
+        "Name": "X",
+        "Type": "EditBox",
+        "DefaultValue": 0,
+        "DanWeiString": "mm",
+        "Value": "0",
+        "htmlCtrlId": "9803fca1-5edb-41f3-aba9-3ca2e1ae74ec"
+      },
+      {
+        "Name": "Y",
+        "Type": "EditBox",
+        "DefaultValue": 0,
+        "DanWeiString": "mm",
+        "Value": "0",
+        "htmlCtrlId": "1a78d1fa-68fc-4e1d-a89e-1fdb22ad8095"
+      }
+    ],
+    "htmlCtrlId": "SlotItemKu_6f2d6b10-908e-4332-8d04-1cbd4504efaa_TongKongParamDesignPanel.json"
+  },
+  "SlotItemKu_288e664f-a451-4d7c-8fbe-1c881b805a66_NeiLuoWenParamDesignPanel.json": {
+    "Name": "内螺纹",
+    "ParamsArray": [
+      {
+        "Name": "基准",
+        "Type": "EditBox",
+        "Choise": "4",
+        "DefaultValue": "0",
+        "htmlCtrlId": "3cebc119-b99e-424f-9f40-96187068437e",
+        "Value": "0"
+      },
+      {
+        "Name": "中心点X",
+        "Type": "EditBox",
+        "DefaultValue": 1,
+        "DanWeiString": "",
+        "htmlCtrlId": "d37a59ce-0d33-4fbb-abfe-6e4896cb92c7",
+        "Value": "1"
+      },
+      {
+        "Name": "中心点Y",
+        "Type": "EditBox",
+        "DefaultValue": 7.5,
+        "DanWeiString": "",
+        "htmlCtrlId": "96be5c43-6944-43d1-99e4-d49891cbdebc",
+        "Value": "7.5"
+      },
+      {
+        "Name": "螺纹型号",
+        "Type": "EditBox",
+        "DefaultValue": 7.5,
+        "DanWeiString": "",
+        "htmlCtrlId": "4558d882-a65d-4f02-9334-d27e2e10842f",
+        "Value": "7.5"
+      },
+      {
+        "Name": "深度b",
+        "Type": "EditBox",
+        "DefaultValue": 7.5,
+        "DanWeiString": "",
+        "htmlCtrlId": "ae36bbda-383a-4dce-801a-d63f0b3caad2",
+        "Value": "7.5"
+      },
+      {
+        "Name": "深度精度",
+        "Type": "EditBox",
+        "DefaultValue": 7.5,
+        "DanWeiString": "",
+        "htmlCtrlId": "ddd1058a-0676-4510-9597-a203f754981e",
+        "Value": "7.5"
+      },
+      {
+        "Name": "底孔深度",
+        "Type": "EditBox",
+        "DefaultValue": 7.5,
+        "DanWeiString": "",
+        "htmlCtrlId": "66b79483-13ec-4e42-8a5a-f87a9aac006a",
+        "Value": "7.5"
+      },
+      {
+        "Name": "底孔深度精度",
+        "Type": "EditBox",
+        "DefaultValue": 7.5,
+        "DanWeiString": "",
+        "htmlCtrlId": "8826ded7-87de-4d1e-abe7-6daea959ec13",
+        "Value": "7.5"
+      },
+      {
+        "Name": "底孔直径",
+        "Type": "EditBox",
+        "DefaultValue": 7.5,
+        "DanWeiString": "",
+        "htmlCtrlId": "a4efa03c-2eac-471a-8f93-9a0f968496f8",
+        "Value": "7.5"
+      },
+      {
+        "Name": "底孔直径精度",
+        "Type": "EditBox",
+        "DefaultValue": 7.5,
+        "DanWeiString": "",
+        "htmlCtrlId": "0d60bc86-c08b-4a06-b0c7-b25fda826ce0",
+        "Value": "7.5"
+      },
+      {
+        "Name": "表面粗糙度",
+        "Type": "EditBox",
+        "DefaultValue": 7.5,
+        "DanWeiString": "",
+        "htmlCtrlId": "13d91011-ba61-425b-9e59-82f2be2f39b2",
+        "Value": "7.5"
+      },
+      {
+        "Name": "形位公差1",
+        "Type": "EditBox",
+        "DefaultValue": 7.5,
+        "DanWeiString": "",
+        "htmlCtrlId": "2631199f-f0ff-403a-8928-7dd54b14b7ea",
+        "Value": "7.5"
+      },
+      {
+        "Name": "形位公差2",
+        "Type": "EditBox",
+        "DefaultValue": 7.5,
+        "DanWeiString": "",
+        "htmlCtrlId": "b7fff2d1-f923-44b2-8028-6bf07d2fc290",
+        "Value": "7.5"
+      },
+      {
+        "Name": "形位公差3",
+        "Type": "EditBox",
+        "DefaultValue": 7.5,
+        "DanWeiString": "",
+        "htmlCtrlId": "4bab348a-910f-48f6-8060-f852e9e7662d",
+        "Value": "7.5"
+      }
+    ],
+    "htmlCtrlId": "SlotItemKu_288e664f-a451-4d7c-8fbe-1c881b805a66_NeiLuoWenParamDesignPanel.json"
+  },
+  "SlotItemKu_479977c1-d6e6-4e36-b04a-1a1d92c1c91d_KongDiMianParamDesignPanel.json": {
+    "Name": "孔底面",
+    "ParamsArray": [
+      {
+        "Name": "基准",
+        "Type": "EditBox",
+        "Choise": "4",
+        "DefaultValue": "0",
+        "htmlCtrlId": "1ec32dc3-03aa-4b21-8ad8-d0fa3d9f6991",
+        "Value": "0"
+      },
+      {
+        "Name": "槽位置",
+        "Type": "EditBox",
+        "DefaultValue": 1,
+        "DanWeiString": "",
+        "htmlCtrlId": "05fae441-986f-468a-996e-5cd6b48130d7",
+        "Value": "1"
+      },
+      {
+        "Name": "中心点X",
+        "Type": "EditBox",
+        "DefaultValue": 1,
+        "DanWeiString": "",
+        "htmlCtrlId": "037358a5-99b5-42c1-829d-748aec7b94be",
+        "Value": "1"
+      },
+      {
+        "Name": "中心点Y",
+        "Type": "EditBox",
+        "DefaultValue": 1,
+        "DanWeiString": "",
+        "htmlCtrlId": "7b4b07fc-f7a8-4043-8ac0-7798760d638a",
+        "Value": "1"
+      },
+      {
+        "Name": "槽底宽度a1",
+        "Type": "EditBox",
+        "DefaultValue": 1,
+        "DanWeiString": "",
+        "htmlCtrlId": "0dc38480-3162-41f5-9db1-6c3d4c2362ad",
+        "Value": "1"
+      },
+      {
+        "Name": "宽度精度",
+        "Type": "EditBox",
+        "DefaultValue": 7.5,
+        "DanWeiString": "",
+        "htmlCtrlId": "587251e7-0c4f-4d36-b4a9-84add4959f01",
+        "Value": "7.5"
+      },
+      {
+        "Name": "槽顶宽度a2",
+        "Type": "EditBox",
+        "DefaultValue": 1,
+        "DanWeiString": "",
+        "htmlCtrlId": "9b3e9e8a-602c-4305-8e5f-7a4a1bd7cbbf",
+        "Value": "1"
+      },
+      {
+        "Name": "宽度精度",
+        "Type": "EditBox",
+        "DefaultValue": 1,
+        "DanWeiString": "",
+        "htmlCtrlId": "908127de-8d0b-4eef-84bd-05b4b7765a4f",
+        "Value": "1"
+      },
+      {
+        "Name": "槽深度b1",
+        "Type": "EditBox",
+        "DefaultValue": 1,
+        "DanWeiString": "",
+        "htmlCtrlId": "b6a02ecb-76a6-4242-8328-80dea97e79eb",
+        "Value": "1"
+      },
+      {
+        "Name": "槽精度",
+        "Type": "EditBox",
+        "DefaultValue": 1,
+        "DanWeiString": "",
+        "htmlCtrlId": "c7b010cf-b055-458f-80b0-7bc99c57f39e",
+        "Value": "1"
+      },
+      {
+        "Name": "深度b2",
+        "Type": "EditBox",
+        "DefaultValue": 1,
+        "DanWeiString": "",
+        "htmlCtrlId": "34ef8423-64fe-439b-81a3-6ec982aff99b",
+        "Value": "1"
+      },
+      {
+        "Name": "深度精度",
+        "Type": "EditBox",
+        "DefaultValue": 1,
+        "DanWeiString": "",
+        "htmlCtrlId": "939142a4-b402-4e5b-97e6-eb7e05dfb032",
+        "Value": "1"
+      },
+      {
+        "Name": "角度e",
+        "Type": "EditBox",
+        "DefaultValue": 1,
+        "DanWeiString": "",
+        "htmlCtrlId": "a9c08a63-52a5-4bd4-ac1f-a4d650be8318",
+        "Value": "1"
+      },
+      {
+        "Name": "角度精度",
+        "Type": "EditBox",
+        "DefaultValue": 1,
+        "DanWeiString": "",
+        "htmlCtrlId": "c94af9ce-3f12-41bc-89f4-1e913741f4ae",
+        "Value": "1"
+      },
+      {
+        "Name": "底部圆弧R1",
+        "Type": "EditBox",
+        "DefaultValue": 1,
+        "DanWeiString": "",
+        "htmlCtrlId": "60dbed85-db45-46f5-bab1-a7f47029894d",
+        "Value": "1"
+      },
+      {
+        "Name": "底部圆弧精度",
+        "Type": "EditBox",
+        "DefaultValue": 1,
+        "DanWeiString": "",
+        "htmlCtrlId": "95bd2b6e-ea0c-4b25-a211-c4bb11530f9b",
+        "Value": "1"
+      },
+      {
+        "Name": "底部圆弧R2",
+        "Type": "EditBox",
+        "DefaultValue": 1,
+        "DanWeiString": "",
+        "htmlCtrlId": "97e0521e-33da-4eb8-8a39-f51331d5de93",
+        "Value": "1"
+      },
+      {
+        "Name": "底部圆弧精度",
+        "Type": "EditBox",
+        "DefaultValue": 1,
+        "DanWeiString": "",
+        "htmlCtrlId": "02276068-8601-4418-8e0b-dd7c1956a015",
+        "Value": "1"
+      },
+      {
+        "Name": "槽中心线距入口面距离",
+        "Type": "EditBox",
+        "DefaultValue": 1,
+        "DanWeiString": "",
+        "htmlCtrlId": "879b0f18-9daa-473a-a207-1c916175073b",
+        "Value": "1"
+      },
+      {
+        "Name": "底部表面粗糙度",
+        "Type": "EditBox",
+        "DefaultValue": 1,
+        "DanWeiString": "",
+        "htmlCtrlId": "d7681066-9d67-4845-8142-da76d75476f4",
+        "Value": "1"
+      },
+      {
+        "Name": "侧边表面粗糙度",
+        "Type": "EditBox",
+        "DefaultValue": 1,
+        "DanWeiString": "",
+        "htmlCtrlId": "45a77dd1-f8ff-4f67-8453-9635cf8db5be",
+        "Value": "1"
+      },
+      {
+        "Name": "形位公差1",
+        "Type": "EditBox",
+        "DefaultValue": 1,
+        "DanWeiString": "",
+        "htmlCtrlId": "221df586-fe6a-4ac3-8787-464f9d67ec1b",
+        "Value": "1"
+      },
+      {
+        "Name": "形位公差2",
+        "Type": "EditBox",
+        "DefaultValue": 1,
+        "DanWeiString": "",
+        "htmlCtrlId": "3da5eabc-af8d-4474-ba33-ae82acc58b92",
+        "Value": "1"
+      },
+      {
+        "Name": "形位公差3",
+        "Type": "EditBox",
+        "DefaultValue": 1,
+        "DanWeiString": "",
+        "htmlCtrlId": "fc736d42-c29c-40d0-a93d-6f666055e7f3",
+        "Value": "1"
+      }
+    ],
+    "htmlCtrlId": "SlotItemKu_479977c1-d6e6-4e36-b04a-1a1d92c1c91d_KongDiMianParamDesignPanel.json"
+  },
+  "SlotItemKu_64057490-466d-4e46-82bf-19d574ea8b06_NeiLuoWenParamDesignPanel.json": {
+    "Name": "内螺纹",
+    "ParamsArray": [
+      {
+        "Name": "基准",
+        "Type": "EditBox",
+        "Choise": "4",
+        "DefaultValue": "0",
+        "htmlCtrlId": "90fda6ac-c88d-4c92-8956-fe46bf55150d",
+        "Value": "0"
+      },
+      {
+        "Name": "中心点X",
+        "Type": "EditBox",
+        "DefaultValue": 1,
+        "DanWeiString": "",
+        "htmlCtrlId": "479dda76-5d9c-46a2-a26c-c46097375b46",
+        "Value": "1"
+      },
+      {
+        "Name": "中心点Y",
+        "Type": "EditBox",
+        "DefaultValue": 7.5,
+        "DanWeiString": "",
+        "htmlCtrlId": "02a11731-9685-4031-8e95-82f4c74a67c9",
+        "Value": "7.5"
+      },
+      {
+        "Name": "螺纹型号",
+        "Type": "EditBox",
+        "DefaultValue": 7.5,
+        "DanWeiString": "",
+        "htmlCtrlId": "a1308ebe-33b2-411b-8ef2-7948ab621b8a",
+        "Value": "7.5"
+      },
+      {
+        "Name": "深度b",
+        "Type": "EditBox",
+        "DefaultValue": 7.5,
+        "DanWeiString": "",
+        "htmlCtrlId": "29d6c062-3abf-4eb4-8a1d-5a00bbf81a0a",
+        "Value": "7.5"
+      },
+      {
+        "Name": "深度精度",
+        "Type": "EditBox",
+        "DefaultValue": 7.5,
+        "DanWeiString": "",
+        "htmlCtrlId": "6cfa1df5-e3eb-454a-b2db-3149a6bd3e42",
+        "Value": "7.5"
+      },
+      {
+        "Name": "底孔深度",
+        "Type": "EditBox",
+        "DefaultValue": 7.5,
+        "DanWeiString": "",
+        "htmlCtrlId": "c124e0fd-a3b7-4350-8bac-362243fbb6c0",
+        "Value": "7.5"
+      },
+      {
+        "Name": "底孔深度精度",
+        "Type": "EditBox",
+        "DefaultValue": 7.5,
+        "DanWeiString": "",
+        "htmlCtrlId": "a09823ed-c94b-4c5d-a664-849a4823ff37",
+        "Value": "7.5"
+      },
+      {
+        "Name": "底孔直径",
+        "Type": "EditBox",
+        "DefaultValue": 7.5,
+        "DanWeiString": "",
+        "htmlCtrlId": "4a894ffb-a18a-4e5f-a2bc-5bad5e5c0f97",
+        "Value": "7.5"
+      },
+      {
+        "Name": "底孔直径精度",
+        "Type": "EditBox",
+        "DefaultValue": 7.5,
+        "DanWeiString": "",
+        "htmlCtrlId": "095a7bb0-6ae0-4b50-8959-157338bb3a2b",
+        "Value": "7.5"
+      },
+      {
+        "Name": "表面粗糙度",
+        "Type": "EditBox",
+        "DefaultValue": 7.5,
+        "DanWeiString": "",
+        "htmlCtrlId": "e5943236-d543-43bc-8dd3-53058c3be338",
+        "Value": "7.5"
+      },
+      {
+        "Name": "形位公差1",
+        "Type": "EditBox",
+        "DefaultValue": 7.5,
+        "DanWeiString": "",
+        "htmlCtrlId": "1d37cedf-ca3d-49d8-8845-c557ae0237d6",
+        "Value": "7.5"
+      },
+      {
+        "Name": "形位公差2",
+        "Type": "EditBox",
+        "DefaultValue": 7.5,
+        "DanWeiString": "",
+        "htmlCtrlId": "a16d4514-c0f7-4124-82a4-53cb22334d3e",
+        "Value": "7.5"
+      },
+      {
+        "Name": "形位公差3",
+        "Type": "EditBox",
+        "DefaultValue": 7.5,
+        "DanWeiString": "",
+        "htmlCtrlId": "a9893e43-cce1-402e-bad1-0ea0f9df9680",
+        "Value": "7.5"
+      }
+    ],
+    "htmlCtrlId": "SlotItemKu_64057490-466d-4e46-82bf-19d574ea8b06_NeiLuoWenParamDesignPanel.json"
+  },
+  "SlotItemKu_51a1d291-4bc8-4759-9f14-f19878cb5d1e_KongDiMianParamDesignPanel.json": {
+    "Name": "孔底面",
+    "ParamsArray": [
+      {
+        "Name": "基准",
+        "Type": "EditBox",
+        "Choise": "4",
+        "DefaultValue": "0",
+        "htmlCtrlId": "814f0b54-f8c2-44c6-b58e-6e007f91b4a0",
+        "Value": "0"
+      },
+      {
+        "Name": "槽位置",
+        "Type": "EditBox",
+        "DefaultValue": 1,
+        "DanWeiString": "",
+        "htmlCtrlId": "b3227bc4-f404-4d8d-8692-75e88ec8e898",
+        "Value": "1"
+      },
+      {
+        "Name": "中心点X",
+        "Type": "EditBox",
+        "DefaultValue": 1,
+        "DanWeiString": "",
+        "htmlCtrlId": "b15e03bb-03e4-4319-82e1-41889f5fd693",
+        "Value": "1"
+      },
+      {
+        "Name": "中心点Y",
+        "Type": "EditBox",
+        "DefaultValue": 1,
+        "DanWeiString": "",
+        "htmlCtrlId": "e2063747-dcb3-43cf-98e1-7d89b38e3282",
+        "Value": "1"
+      },
+      {
+        "Name": "槽底宽度a1",
+        "Type": "EditBox",
+        "DefaultValue": 1,
+        "DanWeiString": "",
+        "htmlCtrlId": "2c04b7f1-47c8-426c-8914-84dfb3579e5e",
+        "Value": "1"
+      },
+      {
+        "Name": "宽度精度",
+        "Type": "EditBox",
+        "DefaultValue": 7.5,
+        "DanWeiString": "",
+        "htmlCtrlId": "880465f8-17a2-4a4a-b4aa-88ac21b992e7",
+        "Value": "7.5"
+      },
+      {
+        "Name": "槽顶宽度a2",
+        "Type": "EditBox",
+        "DefaultValue": 1,
+        "DanWeiString": "",
+        "htmlCtrlId": "c033031f-e247-4a13-800b-eca15f30c680",
+        "Value": "1"
+      },
+      {
+        "Name": "宽度精度",
+        "Type": "EditBox",
+        "DefaultValue": 1,
+        "DanWeiString": "",
+        "htmlCtrlId": "ca2bc86c-9b39-4668-8ddd-8dae542b18b6",
+        "Value": "1"
+      },
+      {
+        "Name": "槽深度b1",
+        "Type": "EditBox",
+        "DefaultValue": 1,
+        "DanWeiString": "",
+        "htmlCtrlId": "76b7f51d-3666-42e8-a13c-2b081da66f21",
+        "Value": "1"
+      },
+      {
+        "Name": "槽精度",
+        "Type": "EditBox",
+        "DefaultValue": 1,
+        "DanWeiString": "",
+        "htmlCtrlId": "41e91b38-ec25-40d8-80c2-8543094f3a90",
+        "Value": "1"
+      },
+      {
+        "Name": "深度b2",
+        "Type": "EditBox",
+        "DefaultValue": 1,
+        "DanWeiString": "",
+        "htmlCtrlId": "a64e3ed6-a660-4944-b713-ada7010863c7",
+        "Value": "1"
+      },
+      {
+        "Name": "深度精度",
+        "Type": "EditBox",
+        "DefaultValue": 1,
+        "DanWeiString": "",
+        "htmlCtrlId": "6e2ebfe3-4e99-47e3-8c63-81d9a1bcae1c",
+        "Value": "1"
+      },
+      {
+        "Name": "角度e",
+        "Type": "EditBox",
+        "DefaultValue": 1,
+        "DanWeiString": "",
+        "htmlCtrlId": "a55cd057-5dd5-4a8d-989e-d5471dc7ccca",
+        "Value": "1"
+      },
+      {
+        "Name": "角度精度",
+        "Type": "EditBox",
+        "DefaultValue": 1,
+        "DanWeiString": "",
+        "htmlCtrlId": "908b0ca3-f43d-4c71-88dd-12252dffbbaa",
+        "Value": "1"
+      },
+      {
+        "Name": "底部圆弧R1",
+        "Type": "EditBox",
+        "DefaultValue": 1,
+        "DanWeiString": "",
+        "htmlCtrlId": "ebbebda2-4a17-41f7-b091-1388d1a5f45d",
+        "Value": "1"
+      },
+      {
+        "Name": "底部圆弧精度",
+        "Type": "EditBox",
+        "DefaultValue": 1,
+        "DanWeiString": "",
+        "htmlCtrlId": "47cf2f0e-fcf9-455a-9f6f-030857fbeaee",
+        "Value": "1"
+      },
+      {
+        "Name": "底部圆弧R2",
+        "Type": "EditBox",
+        "DefaultValue": 1,
+        "DanWeiString": "",
+        "htmlCtrlId": "3d9cb40c-7ac2-4fef-be9a-7a6926f7c757",
+        "Value": "1"
+      },
+      {
+        "Name": "底部圆弧精度",
+        "Type": "EditBox",
+        "DefaultValue": 1,
+        "DanWeiString": "",
+        "htmlCtrlId": "f314ce81-4faf-4479-8e4d-04d05f761208",
+        "Value": "1"
+      },
+      {
+        "Name": "槽中心线距入口面距离",
+        "Type": "EditBox",
+        "DefaultValue": 1,
+        "DanWeiString": "",
+        "htmlCtrlId": "39e07bf6-5810-415d-8ff5-81d3643189b4",
+        "Value": "1"
+      },
+      {
+        "Name": "底部表面粗糙度",
+        "Type": "EditBox",
+        "DefaultValue": 1,
+        "DanWeiString": "",
+        "htmlCtrlId": "f9b1c0d1-45cc-4d3a-8001-c80293c4d52b",
+        "Value": "1"
+      },
+      {
+        "Name": "侧边表面粗糙度",
+        "Type": "EditBox",
+        "DefaultValue": 1,
+        "DanWeiString": "",
+        "htmlCtrlId": "47afcd45-8cf9-4dba-959c-add120430d22",
+        "Value": "1"
+      },
+      {
+        "Name": "形位公差1",
+        "Type": "EditBox",
+        "DefaultValue": 1,
+        "DanWeiString": "",
+        "htmlCtrlId": "b427ee3b-484a-4620-b50c-12aadba398d8",
+        "Value": "1"
+      },
+      {
+        "Name": "形位公差2",
+        "Type": "EditBox",
+        "DefaultValue": 1,
+        "DanWeiString": "",
+        "htmlCtrlId": "8b40315d-ffc1-4818-9e1a-ea3718e04ea3",
+        "Value": "1"
+      },
+      {
+        "Name": "形位公差3",
+        "Type": "EditBox",
+        "DefaultValue": 1,
+        "DanWeiString": "",
+        "htmlCtrlId": "0da87aae-082d-48e8-89c6-ab50118da7d1",
+        "Value": "1"
+      }
+    ],
+    "htmlCtrlId": "SlotItemKu_51a1d291-4bc8-4759-9f14-f19878cb5d1e_KongDiMianParamDesignPanel.json"
+  },
+  "SlotItemKu_0da0f74c-ce61-4623-88e0-ebf4e0e50f8d_TongKongParamDesignPanel.json": {
+    "Name": "孔",
+    "ParamsArray": [
+      {
+        "Name": "类型",
+        "Type": "ComboBox",
+        "Choise": "1",
+        "DefaultValue": "0",
+        "Value": "0",
+        "htmlCtrlId": "a64ce50a-0006-4a16-ac9f-54e806de2d7c"
+      },
+      {
+        "Name": "子特征数据",
+        "Type": "EditBox",
+        "DefaultValue": 1,
+        "DanWeiString": "",
+        "Value": "1",
+        "htmlCtrlId": "4b019af0-4bf9-4598-884c-602da2e5abea"
+      },
+      {
+        "Name": "直径",
+        "Type": "EditBox",
+        "DefaultValue": 7.5,
+        "DanWeiString": "mm",
+        "Value": "7.5",
+        "htmlCtrlId": "e3b03374-7c7c-4df4-814b-480b84acde19"
+      },
+      {
+        "Name": "深度",
+        "Type": "EditBox",
+        "DefaultValue": 10,
+        "DanWeiString": "mm",
+        "Value": "10",
+        "htmlCtrlId": "2d6104e9-d17c-48e3-8f5f-f4d280c0f8ed"
+      },
+      {
+        "Name": "是否通孔",
+        "Type": "ComboBox",
+        "Choise": "1,0",
+        "DefaultValue": 0,
+        "DanWeiString": "mm",
+        "Value": "0",
+        "htmlCtrlId": "592901a2-deff-45a5-8d01-3585d9c49221"
+      },
+      {
+        "Name": "顶角",
+        "Type": "EditBox",
+        "DefaultValue": 100,
+        "DanWeiString": "度",
+        "Value": "100",
+        "htmlCtrlId": "1a5044b5-e8d1-4025-81ed-ac0599fb1bfb"
+      },
+      {
+        "Name": "X",
+        "Type": "EditBox",
+        "DefaultValue": 0,
+        "DanWeiString": "mm",
+        "Value": "0",
+        "htmlCtrlId": "295a1911-33c2-4e2f-8fe9-f5f0d981c5d7"
+      },
+      {
+        "Name": "Y",
+        "Type": "EditBox",
+        "DefaultValue": 0,
+        "DanWeiString": "mm",
+        "Value": "0",
+        "htmlCtrlId": "e1d7c271-92ee-4ff2-93db-f4e5f97c1f24"
+      }
+    ],
+    "htmlCtrlId": "SlotItemKu_0da0f74c-ce61-4623-88e0-ebf4e0e50f8d_TongKongParamDesignPanel.json"
+  },
+  "SlotItemKu_70e7e80d-e578-48fe-8039-027ac3f16eaa_FanDaoJiaoParamDesignPanel.json": {
+    "Name": "倒角",
+    "ParamsArray": [
+      {
+        "Name": "基准",
+        "Type": "EditBox",
+        "Choise": "4",
+        "DefaultValue": "0",
+        "htmlCtrlId": "562d188c-8c06-49d0-82f7-ac4528dd02e3",
+        "Value": "0"
+      },
+      {
+        "Name": "中心点X",
+        "Type": "EditBox",
+        "DefaultValue": 1,
+        "DanWeiString": "",
+        "htmlCtrlId": "4949c12c-d602-440e-8439-af44bbbc8d2d",
+        "Value": "1"
+      },
+      {
+        "Name": "中心点Y",
+        "Type": "EditBox",
+        "DefaultValue": 7.5,
+        "DanWeiString": "",
+        "htmlCtrlId": "65a65985-d170-47b2-8367-24c6f2d53df9",
+        "Value": "7.5"
+      },
+      {
+        "Name": "倒角深度",
+        "Type": "EditBox",
+        "DefaultValue": 7.5,
+        "DanWeiString": "",
+        "htmlCtrlId": "e5c886ba-c964-458e-81f6-cc91c2c13dce",
+        "Value": "7.5"
+      },
+      {
+        "Name": "深度精度",
+        "Type": "EditBox",
+        "DefaultValue": 7.5,
+        "DanWeiString": "",
+        "htmlCtrlId": "bfb51453-fea2-4b92-b4e4-48e438c4093c",
+        "Value": "7.5"
+      },
+      {
+        "Name": "倒角角度",
+        "Type": "EditBox",
+        "DefaultValue": 7.5,
+        "DanWeiString": "",
+        "htmlCtrlId": "4fe6239b-d2f1-4973-8b5c-c2ae8e5c5c50",
+        "Value": "7.5"
+      },
+      {
+        "Name": "角度精度",
+        "Type": "EditBox",
+        "DefaultValue": 7.5,
+        "DanWeiString": "",
+        "htmlCtrlId": "4e7eced6-d2e9-4872-b648-2b8e4035387e",
+        "Value": "7.5"
+      },
+      {
+        "Name": "孔上下面",
+        "Type": "EditBox",
+        "DefaultValue": 7.5,
+        "DanWeiString": "",
+        "htmlCtrlId": "9f230524-2a9b-4d59-bda9-b9f9fd348b86",
+        "Value": "7.5"
+      },
+      {
+        "Name": "表面粗糙度",
+        "Type": "EditBox",
+        "DefaultValue": 7.5,
+        "DanWeiString": "",
+        "htmlCtrlId": "93ed72c6-284a-46fe-81f6-8544bff5696c",
+        "Value": "7.5"
+      },
+      {
+        "Name": "形位公差1",
+        "Type": "EditBox",
+        "DefaultValue": 7.5,
+        "DanWeiString": "",
+        "htmlCtrlId": "5d6b5197-2535-4d23-8ac6-715f53496d36",
+        "Value": "7.5"
+      },
+      {
+        "Name": "形位公差2",
+        "Type": "EditBox",
+        "DefaultValue": 7.5,
+        "DanWeiString": "",
+        "htmlCtrlId": "70c47d2c-ecc2-4389-8925-a63d0977a6d6",
+        "Value": "7.5"
+      },
+      {
+        "Name": "形位公差3",
+        "Type": "EditBox",
+        "DefaultValue": 7.5,
+        "DanWeiString": "",
+        "htmlCtrlId": "8582d123-53ce-40a5-8186-bd870aec07f4",
+        "Value": "7.5"
+      }
+    ],
+    "htmlCtrlId": "SlotItemKu_70e7e80d-e578-48fe-8039-027ac3f16eaa_FanDaoJiaoParamDesignPanel.json"
+  },
+  "SlotItemKu_bb2d5c3f-efe8-4b8c-9372-3a695620a082_ZhongJianZhuangTaiParamDesignPanel.json": {
+    "Name": "中间孔相贯",
+    "ParamsArray": [
+      {
+        "Name": "基准",
+        "Type": "EditBox",
+        "DefaultValue": "Y",
+        "htmlCtrlId": "b73d57fe-9903-4fc1-933c-a81b5d95809c",
+        "Value": "Y"
+      },
+      {
+        "Name": "相贯孔直径",
+        "Type": "EditBox",
+        "DefaultValue": 4,
+        "DanWeiString": "",
+        "htmlCtrlId": "619fec6b-e479-4aa7-8814-337f953eec70",
+        "Value": "4"
+      },
+      {
+        "Name": "起始面到中心距离",
+        "Type": "EditBox",
+        "DefaultValue": 10,
+        "DanWeiString": "",
+        "htmlCtrlId": "24733077-c02f-4a86-829c-e439df6f1cab",
+        "Value": "10"
+      }
+    ],
+    "htmlCtrlId": "SlotItemKu_bb2d5c3f-efe8-4b8c-9372-3a695620a082_ZhongJianZhuangTaiParamDesignPanel.json"
+  },
+  "SlotItemKu_6655b794-0f54-4bbe-83ca-054653572223_NeiDaoJiaoParamDesignPanel.json": {
+    "Name": "倒角",
+    "ParamsArray": [
+      {
+        "Name": "基准",
+        "Type": "EditBox",
+        "Choise": "4",
+        "DefaultValue": "0",
+        "htmlCtrlId": "2971f9fa-d94d-4525-884f-601e83c856ec",
+        "Value": "0"
+      },
+      {
+        "Name": "中心点X",
+        "Type": "EditBox",
+        "DefaultValue": 1,
+        "DanWeiString": "",
+        "htmlCtrlId": "fce76198-d23d-4ce7-8d61-8a9ad1cc7aae",
+        "Value": "1"
+      },
+      {
+        "Name": "中心点Y",
+        "Type": "EditBox",
+        "DefaultValue": 7.5,
+        "DanWeiString": "",
+        "htmlCtrlId": "db8ef706-303e-456e-81a1-fe6dbdc042e2",
+        "Value": "7.5"
+      },
+      {
+        "Name": "倒角深度",
+        "Type": "EditBox",
+        "DefaultValue": 7.5,
+        "DanWeiString": "",
+        "htmlCtrlId": "e819afea-d98d-46f2-a9ac-ed8485dd9527",
+        "Value": "7.5"
+      },
+      {
+        "Name": "深度精度",
+        "Type": "EditBox",
+        "DefaultValue": 7.5,
+        "DanWeiString": "",
+        "htmlCtrlId": "7311b33d-eb64-4bd3-84d2-fa906399ea29",
+        "Value": "7.5"
+      },
+      {
+        "Name": "倒角角度",
+        "Type": "EditBox",
+        "DefaultValue": 7.5,
+        "DanWeiString": "",
+        "htmlCtrlId": "dc251161-359f-45f9-8b3f-c2448e1823a6",
+        "Value": "7.5"
+      },
+      {
+        "Name": "角度精度",
+        "Type": "EditBox",
+        "DefaultValue": 7.5,
+        "DanWeiString": "",
+        "htmlCtrlId": "76651ba5-33f9-4e06-998c-da6ab9caf7e0",
+        "Value": "7.5"
+      },
+      {
+        "Name": "孔上下面",
+        "Type": "EditBox",
+        "DefaultValue": 7.5,
+        "DanWeiString": "",
+        "htmlCtrlId": "3a16e0ff-5e61-4b11-8e7b-9c175388961e",
+        "Value": "7.5"
+      },
+      {
+        "Name": "表面粗糙度",
+        "Type": "EditBox",
+        "DefaultValue": 7.5,
+        "DanWeiString": "",
+        "htmlCtrlId": "b3fd67d4-88ca-45d7-9d36-8e013164d745",
+        "Value": "7.5"
+      },
+      {
+        "Name": "形位公差1",
+        "Type": "EditBox",
+        "DefaultValue": 7.5,
+        "DanWeiString": "",
+        "htmlCtrlId": "9fc48aca-21ca-429a-903b-928c9a34d6c7",
+        "Value": "7.5"
+      },
+      {
+        "Name": "形位公差2",
+        "Type": "EditBox",
+        "DefaultValue": 7.5,
+        "DanWeiString": "",
+        "htmlCtrlId": "862c54f6-f1a6-43f0-b0a3-3fc6007e8124",
+        "Value": "7.5"
+      },
+      {
+        "Name": "形位公差3",
+        "Type": "EditBox",
+        "DefaultValue": 7.5,
+        "DanWeiString": "",
+        "htmlCtrlId": "0ae13630-bae0-48ac-8fd3-5c13988122a6",
+        "Value": "7.5"
+      }
+    ],
+    "htmlCtrlId": "SlotItemKu_6655b794-0f54-4bbe-83ca-054653572223_NeiDaoJiaoParamDesignPanel.json"
+  },
+  "SlotItemKu_d43aad0e-cd54-47aa-88d3-a7f55ffd60ae_TongKongParamDesignPanel.json": {
+    "Name": "孔",
+    "ParamsArray": [
+      {
+        "Name": "类型",
+        "Type": "ComboBox",
+        "Choise": "1",
+        "DefaultValue": "0",
+        "Value": "0",
+        "htmlCtrlId": "17ad29dd-bc9c-4649-9446-7240c9d89ebc"
+      },
+      {
+        "Name": "子特征数据",
+        "Type": "EditBox",
+        "DefaultValue": 1,
+        "DanWeiString": "",
+        "Value": "1",
+        "htmlCtrlId": "f848df9b-419f-43b4-80b8-5c4d56750ad4"
+      },
+      {
+        "Name": "直径",
+        "Type": "EditBox",
+        "DefaultValue": 7.5,
+        "DanWeiString": "mm",
+        "Value": "7.5",
+        "htmlCtrlId": "bcebed15-79d3-49a6-8d5e-76b6bf037602"
+      },
+      {
+        "Name": "深度",
+        "Type": "EditBox",
+        "DefaultValue": 10,
+        "DanWeiString": "mm",
+        "Value": "10",
+        "htmlCtrlId": "d067bd52-030c-4234-82aa-4300ad1483e8"
+      },
+      {
+        "Name": "是否通孔",
+        "Type": "ComboBox",
+        "Choise": "1,0",
+        "DefaultValue": 0,
+        "DanWeiString": "mm",
+        "Value": "0",
+        "htmlCtrlId": "f6a80148-1ddc-4141-8a32-6de1f5bc3f32"
+      },
+      {
+        "Name": "顶角",
+        "Type": "EditBox",
+        "DefaultValue": 100,
+        "DanWeiString": "度",
+        "Value": "100",
+        "htmlCtrlId": "9b2461ab-7279-40b4-8247-f33f5e007f4b"
+      },
+      {
+        "Name": "X",
+        "Type": "EditBox",
+        "DefaultValue": 0,
+        "DanWeiString": "mm",
+        "Value": "0",
+        "htmlCtrlId": "cf9f2693-1c58-438a-b55d-2185ae20aad4"
+      },
+      {
+        "Name": "Y",
+        "Type": "EditBox",
+        "DefaultValue": 0,
+        "DanWeiString": "mm",
+        "Value": "0",
+        "htmlCtrlId": "39b37fd8-abd7-4eaf-ae42-d9581047d107"
+      }
+    ],
+    "htmlCtrlId": "SlotItemKu_d43aad0e-cd54-47aa-88d3-a7f55ffd60ae_TongKongParamDesignPanel.json"
+  },
+  "SlotItemKu_286d28f3-0b07-4d80-896f-a1c3ba14e115_FanDaoJiaoParamDesignPanel.json": {
+    "Name": "倒角",
+    "ParamsArray": [
+      {
+        "Name": "基准",
+        "Type": "EditBox",
+        "Choise": "4",
+        "DefaultValue": "0",
+        "htmlCtrlId": "18ddb6c3-db54-4763-aebe-afb12c376c75",
+        "Value": "0"
+      },
+      {
+        "Name": "中心点X",
+        "Type": "EditBox",
+        "DefaultValue": 1,
+        "DanWeiString": "",
+        "htmlCtrlId": "c88f9bd6-657f-490a-bf6d-0f87c24ada9c",
+        "Value": "1"
+      },
+      {
+        "Name": "中心点Y",
+        "Type": "EditBox",
+        "DefaultValue": 7.5,
+        "DanWeiString": "",
+        "htmlCtrlId": "3932cf18-7c49-44ef-8109-720a819e055b",
+        "Value": "7.5"
+      },
+      {
+        "Name": "倒角深度",
+        "Type": "EditBox",
+        "DefaultValue": 7.5,
+        "DanWeiString": "",
+        "htmlCtrlId": "7fff539c-9aa8-4eeb-80df-06067e1b2d93",
+        "Value": "7.5"
+      },
+      {
+        "Name": "深度精度",
+        "Type": "EditBox",
+        "DefaultValue": 7.5,
+        "DanWeiString": "",
+        "htmlCtrlId": "b728aa40-7825-46b9-8869-da5f15ad438f",
+        "Value": "7.5"
+      },
+      {
+        "Name": "倒角角度",
+        "Type": "EditBox",
+        "DefaultValue": 7.5,
+        "DanWeiString": "",
+        "htmlCtrlId": "2875aefa-e606-4714-81ea-a49f1b5fdbbd",
+        "Value": "7.5"
+      },
+      {
+        "Name": "角度精度",
+        "Type": "EditBox",
+        "DefaultValue": 7.5,
+        "DanWeiString": "",
+        "htmlCtrlId": "9e493cb7-fa11-4ddf-957c-bb85c7e83909",
+        "Value": "7.5"
+      },
+      {
+        "Name": "孔上下面",
+        "Type": "EditBox",
+        "DefaultValue": 7.5,
+        "DanWeiString": "",
+        "htmlCtrlId": "7e855180-e908-406e-83ea-8f5b4861bf08",
+        "Value": "7.5"
+      },
+      {
+        "Name": "表面粗糙度",
+        "Type": "EditBox",
+        "DefaultValue": 7.5,
+        "DanWeiString": "",
+        "htmlCtrlId": "9ef1d5ed-0129-4f68-8c63-87eb8080966a",
+        "Value": "7.5"
+      },
+      {
+        "Name": "形位公差1",
+        "Type": "EditBox",
+        "DefaultValue": 7.5,
+        "DanWeiString": "",
+        "htmlCtrlId": "3a65e0ad-2c65-47c5-88d7-e0dc58912c17",
+        "Value": "7.5"
+      },
+      {
+        "Name": "形位公差2",
+        "Type": "EditBox",
+        "DefaultValue": 7.5,
+        "DanWeiString": "",
+        "htmlCtrlId": "359e0715-399c-4494-af04-ecf29ac38380",
+        "Value": "7.5"
+      },
+      {
+        "Name": "形位公差3",
+        "Type": "EditBox",
+        "DefaultValue": 7.5,
+        "DanWeiString": "",
+        "htmlCtrlId": "824ac8de-1760-4aa1-a71f-1fde58b48aca",
+        "Value": "7.5"
+      }
+    ],
+    "htmlCtrlId": "SlotItemKu_286d28f3-0b07-4d80-896f-a1c3ba14e115_FanDaoJiaoParamDesignPanel.json"
+  },
+  "SlotItemKu_75823b26-4fbf-455c-854f-603b5ec518b5_ChuKouMianParamDesignPanel.json": {
+    "Name": "出口平面",
+    "ParamsArray": [
+      {
+        "Name": "基准",
+        "Type": "EditBox",
+        "Choise": "4",
+        "DefaultValue": "0",
+        "htmlCtrlId": "bcf397a4-7f08-476b-bc5c-d77f73c569a7",
+        "Value": "0"
+      },
+      {
+        "Name": "出口状态",
+        "Type": "EditBox",
+        "DefaultValue": 1,
+        "DanWeiString": "",
+        "htmlCtrlId": "e79f852e-0b5c-45d9-9ad9-3f83424f1ac5",
+        "Value": "1"
+      }
+    ],
+    "htmlCtrlId": "SlotItemKu_75823b26-4fbf-455c-854f-603b5ec518b5_ChuKouMianParamDesignPanel.json"
+  }
+}

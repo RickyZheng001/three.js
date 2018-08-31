@@ -35,27 +35,27 @@ dd{
     background-color: #0abebf;
     padding: 10px 150px;
 }
-#download{
-	background-color: #b7d06c;
-    color: #fff;
-    height: 20px;
-    display: block;
-    width: 180px;
-    text-align: center;
-    padding: 10px;
-    box-shadow: 1px 1px 5px #ccc;
-    border-radius: 3px;
-    text-decoration: none;
-}
-#download:hover{
-	    text-decoration: none;
-    background-color: #9dc509;
-}
-.demo{
+/*#download{*/
+	/*background-color: #b7d06c;*/
+    /*color: #fff;*/
+    /*height: 20px;*/
+    /*display: block;*/
+    /*width: 180px;*/
+    /*text-align: center;*/
+    /*padding: 10px;*/
+    /*box-shadow: 1px 1px 5px #ccc;*/
+    /*border-radius: 3px;*/
+    /*text-decoration: none;*/
+/*}*/
+/*#download:hover{*/
+	    /*text-decoration: none;*/
+    /*background-color: #9dc509;*/
+/*}*/
+/*.demo{
 	padding-bottom: 80px;
-}
+}*/
 li.slot-item{
-	padding: 1px 10px;
+	padding: 0px 10px;
 	border: 1px solid #18a0b7;
     border-left: 5px solid #4bcce2;
     background-color: #fff;
@@ -66,8 +66,8 @@ li.slot-item:not(:last-child){
 }
 
 .item-title{
-	font-size: 20px;
-	line-height: 48px;
+	font-size: 15px;
+	line-height: 35px;
 }
 .slot-handler p{
 	margin: 0;
@@ -86,7 +86,7 @@ li.slot-item:not(:last-child){
 	float: left;
 	line-height: 18px;
 }
-.border-yellow{
+/*.border-yellow{
 	border: 2px solid #ecdb50;
 }
 .border-red{
@@ -103,18 +103,22 @@ li.slot-item:not(:last-child){
 }
 .bg-green{
 	background-color: #61d486;
+}*/
+.border-blue{
+	border: 2px solid #009FD7;
 }
 .slot-title{
 	float: left;
-    width: 30%;
-    color: #fff;
-    padding: 10px 1px;
+    width: 29%;
+	font-weight: bold;
+	padding: 5px 8.2px;
     min-height: 30px;
-    font-size: 20px
+    font-size: 19px;
+	margin-left: 30px;
 }
-.slot-title:not(:nth-child(3)){
-	margin-right: 3%;
-}
+/*.slot-title:not(:nth-child(3)){
+	margin-right: 2.3%;
+}*/
 
 .code{
 	min-height: 500px;

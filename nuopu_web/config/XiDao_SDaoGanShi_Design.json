@@ -1,0 +1,175 @@
+{
+  "ID": "123456",
+  "Name": "铣刀",
+  "Tab": [
+    {
+      "Name": "基本信息(单位:mm)",
+      "ParamList": [
+        {
+          "Name": "刀具类型",
+          "Type": "ComboBox",
+          "Choise": "s刀杆式SNHQ",
+          "DefaultValue": "0",
+          "iniName": "tool_type",
+          "iniType": "string"
+        },
+        {
+          "Name": "刀具品牌",
+          "Choise": "nuopu,Seco,Prawet",
+          "Type": "ComboBox",
+          "DefaultValue": "0",
+          "iniName": "company_name",
+          "iniType": "Float"
+        },
+        {
+          "Name": "订货型号",
+          "Type": "EditBox",
+          "DefaultValue": "0",
+          "iniName": "No",
+          "iniType": "string"
+        },
+        {
+          "Name": "文件名",
+          "Type": "EditBox",
+          "DefaultValue": "",
+          "iniName": "FN",
+          "iniType": "string",
+          "ServerGenerateID": 1
+        },
+        {
+          "Name": "更新文件名",
+          "Type": "GenerateServerID",
+          "DefaultValue": ""
+        }
+      ]
+    },
+    {
+      "Name":"样本参数(单位:mm)",
+      "ParamList":
+        [
+          {
+            "Name": "ar",
+            "Type": "EditBox",
+            "DefaultValue": "13.9",
+            "iniName": "ar",
+            "iniType": "Float"
+          },
+          {
+            "Name": "DC",
+            "Type": "EditBox",
+            "DefaultValue": "50",
+            "iniName": "dc",
+            "iniType": "Float"
+          },
+          {
+            "Name": "lb",
+            "Type": "EditBox",
+            "DefaultValue": "11",
+            "iniName": "lb",
+            "iniType": "Float"
+          },
+          {
+            "Name": "l2",
+            "Type": "EditBox",
+            "DefaultValue": "150",
+            "iniName": "l2",
+            "iniType": "Float"
+          },
+          {
+            "Name": "lc",
+            "Type": "EditBox",
+            "DefaultValue": "132.2",
+            "iniName": "lc",
+            "iniType": "Float"
+          },
+          {
+            "Name": "z",
+            "Type": "EditBox",
+            "DefaultValue": "2",
+            "iniName": "z",
+            "iniType": "Float"
+          }
+        ]
+    },
+    {
+      "Name":"柄部/内孔信息(单位:mm)",
+      "ParamList":
+          [
+            {
+              "Name": "柄部类型",
+              "Choise": "圆柱",
+              "Type": "ComboBox",
+              "DefaultValue": "0",
+              "iniName": "Handle_Type",
+              "iniType": "string"
+            },
+            {
+              "Name": "dmm",
+              "Type": "EditBox",
+              "DefaultValue": "25",
+              "iniName": "dmm",
+              "iniType": "Float"
+            }
+          ]
+    },
+    {
+      "Name": "冷却方式(单位:mm)",
+      "ParamList": [
+        {
+          "Name": "冷却方式",
+          "Choise": "外冷,内冷",
+          "Type": "ComboBox",
+          "DefaultValue": "0",
+          "iniName": "Hole_Type",
+          "iniType": "string"
+        }
+      ]
+    },
+    {
+      "Name": "左刀片信息(单位:mm)",
+      "ParamList": [
+        {
+          "Name": "刀片类型",
+          "Type": "ComboBox",
+          "Choise": "SNHQ_R.1102,SNHQ_R.1103,SNHQ_R.1203,SNHQ_R.1204,SNHQ_R.12045,SNHQ_R.1205,SNHQ_R.1207",
+          "DefaultValue": "0",
+          "iniName": "dp_type1",
+          "iniType": "string"
+        }
+      ]
+    },
+    {
+      "Name": "右刀片信息(单位:mm)",
+      "ParamList": [
+        {
+          "Name": "刀片类型",
+          "Type": "ComboBox",
+          "Choise": "SNHQ_L.1102,SNHQ_L.1103,SNHQ_L.1203,SNHQ_L.1204,SNHQ_L.12045,SNHQ_L.1205,SNHQ_L.1207",
+          "DefaultValue": "0",
+          "iniName": "dp_type2",
+          "iniType": "string"
+        }
+      ]
+    },
+    {
+      "Name":"刀片安装角度(单位:mm)",
+      "ParamList":
+          [
+            {
+              "Name": "tool_angle",
+              "Type": "EditBox",
+              "DefaultValue": "2",
+              "iniName": "tool_angle",
+              "iniType": "Float"
+            },
+            {
+              "Name": "tool_angle1",
+              "Type": "EditBox",
+              "DefaultValue": "2",
+              "iniName": "tool_angle1",
+              "iniType": "Float"
+            }
+          ]
+    }
+  ]
+}

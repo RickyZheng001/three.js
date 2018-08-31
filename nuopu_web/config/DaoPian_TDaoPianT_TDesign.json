@@ -1,0 +1,146 @@
+{
+	"ID":"123456",
+	"Name":"刀片",
+	"Tab":
+	[
+		{
+			"Name": "主表(单位:mm)",
+			"ParamList": [
+				{
+					"Name": "刀具类型",
+					"Type": "ComboBox",
+					"Choise": "T刀片t",
+					"DefaultValue": "0",
+					"iniName": "tool_type",
+					"iniType": "string"
+				},
+				{
+					"Name": "刀具品牌",
+					"Choise":"nuopu,Seco,Prawet",
+					"Type": "ComboBox",
+					"DefaultValue": "0",
+					"iniName": "company_name",
+					"iniType": "string"
+				},
+				{
+					"Name": "订货型号",
+					"Type": "EditBox",
+					"DefaultValue": "0",
+					"iniName": "No",
+					"iniType": "string"
+				},
+				{
+					"Name": "文件名",
+					"Type": "EditBox",
+					"DefaultValue": "",
+					"iniName": "FN",
+					"iniType": "string",
+					"ServerGenerateID": 1
+				},
+				{
+					"Name": "更新文件名",
+					"Type": "GenerateServerID",
+					"DefaultValue": ""
+				}
+			]
+		},
+		{
+			"Name": "样本参数(单位:mm)",
+			"ParamList":
+			[
+				{
+					"Name": "d",
+					"Type": "EditBox",
+					"DefaultValue": "5.56",
+					"iniName": "d",
+					"iniType": "Float"
+				},
+				{
+					"Name":"后角",
+					"Type":"ComboBox",
+					"Choise":"A,B,C,D,E,F,G,N,P",
+					"DefaultValue":"2",
+					"String":"ZiFu",
+					"iniName":"draft",
+					"intType":"string"
+				},
+				{
+					"Name": "厚度",
+					"Type": "ComboBox",
+					"Choise":"S01,S02,S03,S04,S05,S06,S07,S08,S09,S14,S19,ST0,ST1,ST4",
+					"DefaultValue": "1",
+					"String":"ZiFu",
+					"iniName": "s",
+					"iniType": "Float"
+				},
+				{
+					"Name": "内孔直径",
+					"Type": "EditBox",
+					"DefaultValue": "2.6",
+					"iniName": "tool_h",
+					"iniType": "Float"
+				},
+				{
+					"Name": "tool_r",
+					"Type": "EditBox",
+					"DefaultValue": "0.4",
+					"iniName": "tool_r",
+					"iniType": "Float"
+				},
+				{
+					"Name": "tool_i",
+					"Type": "EditBox",
+					"DefaultValue": "9",
+					"iniName": "tool_i",
+					"iniType": "Float"
+				}
+			]
+		},
+		{
+			"Name":"附加参数(单位:mm)",
+			"ParamList":
+			[
+				{
+					"Name":"材质",
+					"Type":"ComboBox",
+					"Choise":"CVD,PVD,未镀层,金属陶瓷,PCBN,PCD",
+					"DefaultValue":"0",
+					"iniName":"Material",
+					"intType":"string"
+				},
+				{
+					"Name":"内孔",
+					"Type":"ComboBox",
+					"Choise":"A,N,T",
+					"DefaultValue":"0",
+					"String":"ZiFu",
+					"iniName":"h_type",
+					"intType":"string"
+				},
+				{
+					"Name":"槽型",
+					"Type":"ComboBox",
+					"Choise":"A",
+					"DefaultValue":"0",
+					"iniName":"cell_type",
+					"intType":"string"
+				},
+				{
+					"Name": "切削前角",
+					"Type": "EditBox",
+					"DefaultValue": "0",
+					"iniName": "qianjiao_type",
+					"iniType": "Float"
+				},
+				{
+					"Name":"公差",
+					"Type":"ComboBox",
+					"Choise":"A,E,F,G,H,J,K,M,U",
+					"DefaultValue":"3",
+					"iniName":"deviation",
+					"intType":"string"
+				}
+			]
+		}
+	]
+}

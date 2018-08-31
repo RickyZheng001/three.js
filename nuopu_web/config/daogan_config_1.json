@@ -1,0 +1,64 @@
+{
+  "ID":"123",
+  "Name":"刀杆搜索",
+  "Tab":
+  [
+    {
+      "Name":"刀杆搜索(单位:mm)",
+      "ParamList":
+      [
+        {
+          "Name": "刀具品牌",
+          "Choise":"nuopu,Seco,Prawet",
+          "Type": "ComboBox",
+          "DefaultValue": "0",
+          "iniName": "l1",
+          "iniType": "Float"
+        },
+        {
+          "Name": "订货型号",
+          "Type": "EditBox",
+          "DefaultValue": "0",
+          "iniName": "l2",
+          "iniType": "Float"
+        },
+        {
+          "Name": "类型",
+          "Choise": "左,右",
+          "Type": "ComboBox",
+          "DefaultValue": "0",
+          "iniName": "l1",
+          "iniType": "Float"
+        },
+        {
+          "Name":"刀杆高度min",
+          "Type":"EditBox",
+          "DefaultValue":"12",
+          "iniName":"",
+          "iniType":"Float"
+        },
+        {
+          "Name":"刀杆高度max",
+          "Type":"EditBox",
+          "DefaultValue":"32",
+          "iniName":"",
+          "iniType":"Float"
+        },
+        {
+          "Name":"刀杆宽度min",
+          "Type":"EditBox",
+          "DefaultValue":"12",
+          "iniName":"",
+          "iniType":"Float"
+        },
+        {
+          "Name":"刀杆宽度max",
+          "Type":"EditBox",
+          "DefaultValue":"25",
+          "iniName":"",
+          "iniType":"Float"
+        }
+      ]
+    }
+  ]
+}

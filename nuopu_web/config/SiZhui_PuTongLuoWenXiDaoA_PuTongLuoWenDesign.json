@@ -1,0 +1,118 @@
+{
+  "ID": "123456",
+  "Name": "丝锥",
+  "Tab": [
+    {
+      "Name": "主表(单位:mm)",
+      "ParamList": [
+        {
+          "Name": "刀具类型",
+          "Type": "ComboBox",
+          "Choise": "普通螺纹铣刀A",
+          "DefaultValue": "0",
+          "iniName": "tool_type",
+          "iniType": "string"
+        },
+        {
+          "Name": "刀具品牌",
+          "Choise":"nuopu,Seco,Prawet",
+          "Type": "ComboBox",
+          "DefaultValue": "0",
+          "iniName": "company_name",
+          "iniType": "Float"
+        },
+        {
+          "Name": "订货型号",
+          "Type": "EditBox",
+          "DefaultValue": "0",
+          "iniName": "No",
+          "iniType": "string"
+        },
+        {
+          "Name": "文件名",
+          "Type": "EditBox",
+          "DefaultValue": "",
+          "iniName": "FN",
+          "iniType": "string",
+          "ServerGenerateID": 1
+        },
+        {
+          "Name": "更新文件名",
+          "Type": "GenerateServerID",
+          "DefaultValue": ""
+        }
+      ]
+    },
+    {
+      "Name": "样本参数(单位:mm)",
+      "ParamList":
+      [
+        {
+          "Name": "ap",
+          "Type": "EditBox",
+          "DefaultValue": "8",
+          "iniName": "ap",
+          "iniType": "Float"
+        },
+        {
+          "Name": "Dc",
+          "Type": "EditBox",
+          "DefaultValue": "3.15",
+          "iniName": "Dc",
+          "iniType": "Float"
+        },
+        {
+          "Name": "l2",
+          "Type": "EditBox",
+          "DefaultValue": "49",
+          "iniName": "l2",
+          "iniType": "Float"
+        },
+        {
+          "Name": "mm",
+          "Type": "EditBox",
+          "DefaultValue": "0.7",
+          "iniName": "mm",
+          "iniType": "Float"
+        }
+      ]
+    },
+    {
+      "Name": "颈部和冷却类型(单位:mm)",
+      "ParamList": [
+
+        {
+                  "Name": "槽数",
+                  "Choise": "2,3,4,5,6",
+                  "Type": "ComboBox",
+                  "DefaultValue": "0",
+                  "iniName": "Zn",
+                  "iniType": "Float"
+        },
+        {
+          "Name": "冷却方式",
+          "Choise": "外冷,内冷",
+          "Type": "ComboBox",
+          "DefaultValue": "0",
+          "iniName": "Hole_Type",
+          "iniType": "Float"
+        },
+        {
+          "Name": "dm",
+          "Type": "EditBox",
+          "DefaultValue": "6",
+          "iniName": "dm",
+          "iniType": "Float"
+        },
+        {
+          "Name": "牙形",
+          "Choise": "三角牙形",
+          "Type": "ComboBox",
+          "DefaultValue": "0",
+          "iniName": "yaxing",
+          "iniType": "Float"
+        }
+      ]
+    }
+          ]
+}

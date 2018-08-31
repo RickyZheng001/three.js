@@ -1,0 +1,82 @@
+{
+  "ID":"123",
+  "Name":"报价信息",
+  "Tab":
+  [
+    {
+      "Name": "需求信息",
+      "ParamList": [
+        {
+          "Name": "含税价格区间",
+          "Type": "ComboBox",
+          "Choise": "0-500元,500-1000元,1000-3000元,3000-5000元,5000元以上",
+          "DefaultValue": "0",
+          "iniName": "jiage",
+          "iniType": "string",
+          "SearchType": "0"
+        },
+        {
+          "Name": "需求数量",
+          "Type": "ComboBox",
+          "Choise": "0-5个,0-10个,10-100个,100个以上",
+          "DefaultValue": "0",
+          "iniName": "shuliang",
+          "iniType": "string",
+          "SearchType": "0"
+        },
+        {
+          "Name": "交货期",
+          "Type": "ComboBox",
+          "Choise": "0-5工作日,0-10工作日,10-100工作日,100工作日以上",
+          "DefaultValue": "0",
+          "iniName": "jiaohuoqi",
+          "iniType": "string",
+          "SearchType": "0"
+        }
+      ]
+    },
+    {
+      "Name":"联系方式",
+      "ParamList":
+      [
+        {
+          "Name":"联系方式",
+          "Type":"ComboBox",
+          "Choise":"邮件,电话,拜访",
+          "DefaultValue":"0",
+          "iniName":"lianxifangshi",
+          "iniType":"string",
+          "SearchType":"0"
+        }
+      ]
+    },
+    {
+      "Name":"供应商选择(国际)",
+      "ParamList":
+        [
+          {
+            "Name":"国际",
+            "Type":"CheckBox",
+            "Choise":"山高,帕拉米特,钴领",
+            "iniName":"guoji",
+            "iniType":"string",
+            "SearchType":"0"
+          }
+        ]
+    },
+    {
+      "Name":"供应商选择(国内)",
+      "ParamList":
+      [
+        {
+          "Name":"国内",
+          "Type":"CheckBox",
+          "Choise":"株钻,万威",
+          "iniName":"guonei",
+          "iniType":"string",
+          "SearchType":"0"
+        }
+      ]
+    }
+  ]
+}
