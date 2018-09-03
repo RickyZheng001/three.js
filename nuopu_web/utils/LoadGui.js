@@ -13766,3 +13766,94 @@ function stopVideo() {
     video.pause();
 
 }
+function OnZTreeEditFinished_NobelTech()
+{
+    var timeLineTableElements = document.getElementById("TimeLineTableElements");
+
+    if(timeLineTableElements == null || timeLineTableElements == undefined)
+    {
+        return;
+    }
+
+    var strHtml = "";
+
+    /*
+    				<li style="width: 253px; float: left; display: block;">
+					<div class="smallbutton" style="width:80px;position: absolute;left: 80px;top: 222px;z-index: 1" onclick="OnClickLuoXuanCaoZuanTouTimeLine_WaiXingSheJi(0)">进入</div>
+					<div class="item">
+						<h3>外形设计</h3>
+						<div class="desc">
+							<p>
+								初步将柄部尺寸，颈部尺寸，工作部分尺寸，内冷孔，螺旋角等基本输入，并初步选择槽型，钻尖。加工材料生成初步的三维模型和两维图纸
+							</p>
+						</div>
+					</div>
+				</li>
+				<li style="width: 253px; float: left; display: block;">
+					<div class="smallbutton" style="width:80px;position: absolute;left: 80px;top: 222px;z-index: 1" onclick="">进入</div>
+					<div class="item">
+						<h3>初步搜索</h3>
+						<div class="desc">
+							<p>
+								初步按照上一步的参数模糊搜索数据库寻找近似产品，以便于调用数据库，提高设计效率
+							</p>
+						</div>
+					</div>
+				</li>
+				<li style="width: 253px; float: left; display: block;">
+					<div class="smallbutton" style="width:80px;position: absolute;left: 80px;top: 222px;z-index: 1" onclick="">进入</div>
+					<div class="item">
+						<h3>设计原则</h3>
+						<div class="desc">
+							<p>详细输入加工材料各项指标，宏观评价加工环境</p>
+						</div>
+					</div>
+				</li>
+				<li style="width: 253px; float: left; display: block;">
+					<div class="smallbutton" style="width:80px;position: absolute;left: 80px;top: 222px;z-index: 1" onclick="">进入</div>
+					<div class="item">
+						<h3>精准搜索</h3>
+						<div class="desc">
+							<p>根据上述两步的参数在数据库中进行精准搜索</p>
+						</div>
+					</div>
+				</li>
+				<li style="width: 253px; float: left; display: block;">
+					<div class="smallbutton" style="width:80px;position: absolute;left: 80px;top: 222px;z-index: 1" onclick="">进入</div>
+					<div class="item">
+						<h3>轴向截面设计</h3>
+						<div class="desc">
+							<p>可以自由的搜索槽型，背部元素，或者修改相关参数，直接浏览三维结果</p>
+						</div>
+					</div>
+				</li>
+				<li style="width: 253px; float: left; display: block;">
+					<div class="smallbutton" style="width:80px;position: absolute;left: 80px;top: 222px;z-index: 1" onclick="">进入</div>
+					<div class="item">
+						<h3>齿隙设计</h3>
+						<div class="desc">
+							<p>可以自由的搜索齿隙形状或者修改相关参数，直接浏览三维结果</p>
+						</div>
+					</div>
+				</li>
+				<li style="width: 253px; float: left; display: block;">
+					<div class="smallbutton" style="width:80px;position: absolute;left: 80px;top: 222px;z-index: 1" onclick="">进入</div>
+					<div class="item">
+						<h3>钻尖设计</h3>
+						<div class="desc">
+							<p>根据智能搜索的结果进行修正</p>
+						</div>
+					</div>
+				</li>
+				<li style="width: 253px; float: left; display: block;">
+					<div class="smallbutton" style="width:80px;position: absolute;left: 80px;top: 222px;z-index: 1" onclick="">进入</div>
+					<div class="item">
+						<h3>设计参数和图纸</h3>
+						<div class="desc">
+							<p>可以任意浏览各项图纸，下载，打印</p>
+						</div>
+					</div>
+				</li>
+    * */
+
+}
