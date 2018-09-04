@@ -66,7 +66,7 @@
         <div class="col-md-1">时间终点</div>
         <div class="col-md-2">
             <input type='text' style="width: 190px;" class="form-control" id='datetimepicker15' onchange='OnNodeFinishTimeSelected_NodeListen()'/>
-            <button type="button" onclick="OnNodeFinishTimeSelected_NodeListen()">确定</button>
+            <button type="button" onclick="QueryUgTime_NodeListen()">确定</button>
         </div>
     </div>
     <div class="row">
@@ -119,38 +119,44 @@
     <div class="row">
         <div class="col-md-12"></div>
     </div>
-    <div class="row" id="DivShengChengCiShu">
-        <div class="col-md-1">生成次数</div>
+    <div class="row" id="DivAvgWaitTime">
+        <div class="col-md-2">平均等待时间</div>
         <div class="col-md-1">0</div>
     </div>
-    <div class="row" id="DivZhuangPeiCiShu">
-        <div class="col-md-1">装配次数</div>
+    <div class="row" id="DivMaxWaitTime">
+        <div class="col-md-2">最长等待时间</div>
         <div class="col-md-1">0</div>
     </div>
-    <div class="row" id="DivXiaZaiCiShu">
-        <div class="col-md-1">下载次数</div>
+    <div class="row" id="DivMinWaitTime">
+        <div class="col-md-2">最短等待时间</div>
         <div class="col-md-1">0</div>
     </div>
-    <div class="row" id="DivChaZhaoCiShu">
-        <div class="col-md-1">查找次数</div>
+    <div class="row" id="DivAvgGenTime">
+        <div class="col-md-2">平均生成时间</div>
         <div class="col-md-1">0</div>
     </div>
-    <div class="row" id="MostGenerateModelType">
-        <div class="col-md-2">最多生成模型类型</div>
-        <div class="col-md-1">1</div>
+    <div class="row" id="DivMaxGenTime">
+        <div class="col-md-2">最长生成时间</div>
+        <div class="col-md-1">0</div>
     </div>
-    <div class="row" id="MostZhuangPeiType">
-        <div class="col-md-2">最多装配类型</div>
-        <div class="col-md-1">1</div>
+    <div class="row" id="DivMinGenTime">
+        <div class="col-md-2">最短生成时间</div>
+        <div class="col-md-1">0</div>
     </div>
-    <div class="row" id="MostDownloadType">
-        <div class="col-md-2">最多下载类型</div>
-        <div class="col-md-1">1</div>
+    <div class="row" id="DivAvgZhuangPeiTime">
+        <div class="col-md-2">平均装配时间</div>
+        <div class="col-md-1">0</div>
     </div>
-    <div class="row" id="MostSearchType">
-        <div class="col-md-2">最多查找类型</div>
-        <div class="col-md-1">1</div>
+    <div class="row" id="DivMaxZhuangPeiTime">
+        <div class="col-md-2">最长装配时间</div>
+        <div class="col-md-1">0</div>
     </div>
+    <div class="row" id="DivMinZhuangPeiTime">
+        <div class="col-md-2">最短装配时间</div>
+        <div class="col-md-1">0</div>
+    </div>
+
+
 
 </div>
 

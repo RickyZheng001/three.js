@@ -13857,3 +13857,243 @@ function OnZTreeEditFinished_NobelTech()
     * */
 
 }
+function QueryUgTime_NodeListen()
+{
+    var startTimeCtrl = document.getElementById("datetimepicker14");
+    var endTimeCtrl = document.getElementById("datetimepicker15");
+
+    if(startTimeCtrl == null || endTimeCtrl == null)
+    {
+        return;
+    }
+
+    /*
+     var startTime = jsonObj.StartTime;
+    var endTime = jsonObj.EndTime;
+    var username = jsonObj.UserName;
+    var companyName = jsonObj.CompanyName;
+    * */
+
+    var strStartTime = startTimeCtrl.value;
+    var strEndTime = endTimeCtrl.value;
+
+    var jsonObj = {};
+    jsonObj.StartTime = new Date(strStartTime.split(" ")[0]).getTime();
+    jsonObj.EndTime = new Date(strEndTime.split(" ")[0]).getTime();
+    jsonObj.UserName = "";
+    jsonObj.CompanyName = "";
+
+    var strJson = JSON.stringify(jsonObj);
+
+    $.ajax({
+        type: 'POST',
+        url: globalServerAddr + "api?queryUgTimeStatistic=1",
+        data: strJson,
+        success: function (response) {
+            OnQueryUGTimeStatisticCallBack(response);
+            //onSearchZuanTouCallBacks(response);
+        },
+        error: function (errs) {
+
+            alert(errs.responseText);
+
+        }
+    });
+}
+function OnQueryUGTimeStatisticCallBack(strJson)
+{
+    var jsonObj = JSON.parse(strJson);
+
+    /*
+        <div class="row" id="DivShengChengCiShu">
+        <div class="col-md-2">平均等待时间</div>
+        <div class="col-md-1">0</div>
+    </div>
+     */
+
+    var a = 2;
+
+    var htmlCtrl = document.getElementById("DivAvgWaitTime");
+
+    var strHtml = "";
+    strHtml += "<div class='col-md-2'>平均等待时间</div>";
+
+    for(var i = 0; i < jsonObj.ResultObjArray.length; i++)
+    {
+        strHtml += "<div class='col-md-1'>" + parseInt(jsonObj.ResultObjArray[i].AvgWaitTime / 1000) + "</div>";
+    }
+
+    htmlCtrl.innerHTML = strHtml;
+
+    htmlCtrl = document.getElementById("DivMaxWaitTime");
+    strHtml = "";
+    strHtml += "<div class='col-md-2'>最长等待时间</div>";
+
+    for(var i = 0; i < jsonObj.ResultObjArray.length; i++)
+    {
+        strHtml += "<div class='col-md-1'>" + parseInt(jsonObj.ResultObjArray[i].MaxWaitTime / 1000) + "</div>";
+    }
+    htmlCtrl.innerHTML = strHtml;
+
+    htmlCtrl = document.getElementById("DivMinWaitTime");
+    strHtml = "";
+    strHtml += "<div class='col-md-2'>最短等待时间</div>";
+
+    for(var i = 0; i < jsonObj.ResultObjArray.length; i++)
+    {
+        strHtml += "<div class='col-md-1'>" + parseInt(jsonObj.ResultObjArray[i].MinWaitTime / 1000) + "</div>";
+    }
+    htmlCtrl.innerHTML = strHtml;
+
+    htmlCtrl = document.getElementById("DivAvgGenTime");
+    strHtml = "";
+    strHtml += "<div class='col-md-2'>平均生成时间</div>";
+
+    for(var i = 0; i < jsonObj.ResultObjArray.length; i++)
+    {
+        strHtml += "<div class='col-md-1'>" + parseInt(jsonObj.ResultObjArray[i].AvgGenerateModelTime / 1000) + "</div>";
+    }
+    htmlCtrl.innerHTML = strHtml;
+
+    htmlCtrl = document.getElementById("DivMaxGenTime");
+    strHtml = "";
+    strHtml += "<div class='col-md-2'>最大生成时间</div>";
+
+    for(var i = 0; i < jsonObj.ResultObjArray.length; i++)
+    {
+        strHtml += "<div class='col-md-1'>" + parseInt(jsonObj.ResultObjArray[i].MaxGenerateModelTime / 1000) + "</div>";
+    }
+    htmlCtrl.innerHTML = strHtml;
+
+    htmlCtrl = document.getElementById("DivMinGenTime");
+    strHtml = "";
+    strHtml += "<div class='col-md-2'>最小生成时间</div>";
+
+    for(var i = 0; i < jsonObj.ResultObjArray.length; i++)
+    {
+        strHtml += "<div class='col-md-1'>" + parseInt(jsonObj.ResultObjArray[i].MinGenerateModelTime / 1000) + "</div>";
+    }
+    htmlCtrl.innerHTML = strHtml;
+
+    htmlCtrl = document.getElementById("DivAvgZhuangPeiTime");
+    strHtml = "";
+    strHtml += "<div class='col-md-2'>平均装配时间</div>";
+
+    for(var i = 0; i < jsonObj.ResultObjArray.length; i++)
+    {
+        strHtml += "<div class='col-md-1'>" + parseInt(jsonObj.ResultObjArray[i].AvgZhuangPeiTime / 1000) + "</div>";
+    }
+    htmlCtrl.innerHTML = strHtml;
+
+    htmlCtrl = document.getElementById("DivMaxZhuangPeiTime");
+    strHtml = "";
+    strHtml += "<div class='col-md-2'>最大装配时间</div>";
+
+    for(var i = 0; i < jsonObj.ResultObjArray.length; i++)
+    {
+        strHtml += "<div class='col-md-1'>" + parseInt(jsonObj.ResultObjArray[i].MaxZhuangPeiTime / 1000) + "</div>";
+    }
+    htmlCtrl.innerHTML = strHtml;
+
+    htmlCtrl = document.getElementById("DivMinZhuangPeiTime");
+    strHtml = "";
+    strHtml += "<div class='col-md-2'>最小装配时间</div>";
+
+    for(var i = 0; i < jsonObj.ResultObjArray.length; i++)
+    {
+        strHtml += "<div class='col-md-1'>" + parseInt(jsonObj.ResultObjArray[i].MinZhuangPeiTime / 1000) + "</div>";
+    }
+    htmlCtrl.innerHTML = strHtml;
+
+}
+function OnNodeFinishTimeSelected_NodeListen()
+{
+    var startTimeCtrl = document.getElementById("datetimepicker14");
+    var endTimeCtrl = document.getElementById("datetimepicker15");
+
+    if(startTimeCtrl == null || endTimeCtrl == null)
+    {
+        return;
+    }
+
+    var strStartTime = startTimeCtrl.value;
+    var strEndTime = endTimeCtrl.value;
+
+    var jsonObj = {};
+    jsonObj.StartTimeStamp = new Date(strStartTime.split(" ")[0]).getTime();
+    jsonObj.EndTimeStamp = new Date(strEndTime.split(" ")[0]).getTime();
+
+    var strJson = JSON.stringify(jsonObj);
+
+    $.ajax({
+        type: 'POST',
+        url: globalServerAddr + "api?queryUgUseTimesStatistic=1",
+        data: strJson,
+        success: function (response) {
+            OnQueryUGUseTimesStatisticCallBack(response);
+            //onSearchZuanTouCallBacks(response);
+        },
+        error: function (errs) {
+
+            alert(errs.responseText);
+
+        }
+    });
+
+}
+function OnQueryUGUseTimesStatisticCallBack(strJson)
+{
+    /*
+        <div class="row" id="DivShengChengCiShu">
+        <div class="col-md-1"></div>
+        <div class="col-md-1">生成次数</div>
+        <div class="col-md-1">2</div>
+    </div>
+     */
+    var jsonObj = JSON.parse(strJson);
+
+    var a = 2;
+
+    var htmlCtrl = document.getElementById("DivShengChengCiShu");
+
+    var strHtml = "";
+    strHtml += "<div class='col-md-1'>生成次数</div>";
+
+    for(var i = 0; i < jsonObj.ResultObjArray.GenerateModelTimesArray.length; i++)
+    {
+        strHtml += "<div class='col-md-1'>" + jsonObj.ResultObjArray.GenerateModelTimesArray[i] + "</div>";
+    }
+
+    htmlCtrl.innerHTML = strHtml;
+
+    htmlCtrl = document.getElementById("DivZhuangPeiCiShu");
+    strHtml = "";
+    strHtml += "<div class='col-md-1'>装配次数</div>";
+
+    for(var i = 0; i < jsonObj.ResultObjArray.ZhuangPeiTimesArray.length; i++)
+    {
+        strHtml += "<div class='col-md-1'>" + jsonObj.ResultObjArray.ZhuangPeiTimesArray[i] + "</div>";
+    }
+    htmlCtrl.innerHTML = strHtml;
+
+    htmlCtrl = document.getElementById("DivXiaZaiCiShu");
+    strHtml = "";
+    strHtml += "<div class='col-md-1'>下载次数</div>";
+
+    for(var i = 0; i < jsonObj.ResultObjArray.DownloadTimesArray.length; i++)
+    {
+        strHtml += "<div class='col-md-1'>" + jsonObj.ResultObjArray.DownloadTimesArray[i] + "</div>";
+    }
+    htmlCtrl.innerHTML = strHtml;
+
+    htmlCtrl = document.getElementById("DivChaZhaoCiShu");
+    strHtml = "";
+    strHtml += "<div class='col-md-1'>查找次数</div>";
+
+    for(var i = 0; i < jsonObj.ResultObjArray.SearchTimesArray.length; i++)
+    {
+        strHtml += "<div class='col-md-1'>" + jsonObj.ResultObjArray.SearchTimesArray[i] + "</div>";
+    }
+    htmlCtrl.innerHTML = strHtml;
+
+}
