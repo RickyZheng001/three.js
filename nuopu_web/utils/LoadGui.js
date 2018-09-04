@@ -13477,9 +13477,117 @@ function OnClickLuoXuanCaoZuanTouTimeLine_WaiXingSheJi(index)
 }
 function UpdateZTreeByJson_TimeLine(jsonObj)
 {
-    var setting = {	};
+    var setting = {
+        view: {
+            showLine: true,
+            selectedMulti: false,
+            dblClickExpand: false
+        },
+        data: {
+            simpleData: {
+                enable: true
+            }
+        },
+        callback: {
+            onClick: this.OnZTreeNockClick_NobelTech
+        }
+    };
 
     $.fn.zTree.init($("#treeDemo"), setting, jsonObj);
+}
+function OnZTreeNockClick_NobelTech(e, treeId, node)
+{
+    var a = e;
+    var a = 2;
+    a = 3;
+
+    if(node.name == "剪切")
+    {
+
+    }
+}
+function ReloadTimeLineByZTree_NobelTech()
+{
+    /*
+    <li style="width: 253px; float: left; display: block;">
+					<div class="smallbutton" style="width:80px;position: absolute;left: 80px;top: 222px;z-index: 1" onclick="OnClickLuoXuanCaoZuanTouTimeLine_WaiXingSheJi(0)">进入</div>
+					<div class="item">
+						<h3>外形设计</h3>
+						<div class="desc">
+							<p>
+								初步将柄部尺寸，颈部尺寸，工作部分尺寸，内冷孔，螺旋角等基本输入，并初步选择槽型，钻尖。加工材料生成初步的三维模型和两维图纸
+							</p>
+						</div>
+					</div>
+				</li>
+				<li style="width: 253px; float: left; display: block;">
+					<div class="smallbutton" style="width:80px;position: absolute;left: 80px;top: 222px;z-index: 1" onclick="">进入</div>
+					<div class="item">
+						<h3>初步搜索</h3>
+						<div class="desc">
+							<p>
+								初步按照上一步的参数模糊搜索数据库寻找近似产品，以便于调用数据库，提高设计效率
+							</p>
+						</div>
+					</div>
+				</li>
+				<li style="width: 253px; float: left; display: block;">
+					<div class="smallbutton" style="width:80px;position: absolute;left: 80px;top: 222px;z-index: 1" onclick="">进入</div>
+					<div class="item">
+						<h3>设计原则</h3>
+						<div class="desc">
+							<p>详细输入加工材料各项指标，宏观评价加工环境</p>
+						</div>
+					</div>
+				</li>
+     */
+    var htmlCtrl = document.getElementById("TimeLineTableElements");
+    if(htmlCtrl == null)
+    {
+        return;
+    }
+
+    var strHtml = "";
+
+    var treeObj = $.fn.zTree.getZTreeObj("treeDemo");
+    var childNodes = treeObj.transformToArray(treeObj.getNodes());
+    var pid;
+    for ( var i = 0; i < childNodes.length; i++)
+    {
+        //根据剩下的结点，生成TimeLine
+        if(childNodes[i])
+        {
+            /*
+        <li style="width: 253px; float: left; display: block;">
+            <div class="smallbutton" style="width:80px;position: absolute;left: 80px;top: 222px;z-index: 1" onclick="">进入</div>
+            <div class="item">
+            <h3>设计原则</h3>
+            <div class="desc">
+            <p>详细输入加工材料各项指标，宏观评价加工环境</p>
+        </div>
+        </div>
+        </li>*/
+
+            strHtml += "<li style='width: 253px; float: left; display: block;'>";
+            strHtml += "<div class='smallbutton' style='width:80px;position: absolute;left: 80px;top: 222px;z-index: 1' onclick=''>进入</div>";
+            strHtml += "<div class='item'>";
+            strHtml += "<h3>" + childNodes[i].name + "</h3>";
+            strHtml += "<div class='desc'>";
+            strHtml += "<p>详细输入加工材料各项指标，宏观评价加工环境</p>";
+            strHtml += "</div>";
+            strHtml += "</div>";
+            strHtml += "</li>";
+        }
+    }
+
+    htmlCtrl.innerHTML = strHtml;
+
+    var htmlCtrl = document.getElementById("TimeLine");
+
+    if(htmlCtrl)
+    {
+        htmlCtrl.style.visibility = "inherit";
+    }
 }
 function OnObserverSelectChanged_UgObserver()
 {
