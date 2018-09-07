@@ -1,0 +1,502 @@
+@import url("loader.css");
+@import url("./shop/includes/header.css");
+@import url("./shop/includes/footer.css");
+
+body {padding:0;margin:0;width:100%;height:100%;font-family:'Electrolize';}
+
+.editableTable{
+    width: 220px;
+    /*padding: 10px;*/
+    background-color: #DDEEF6;
+    border:1px solid #DDEEF6;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+}
+.editableTable thead{
+    background:#FFFFCC;
+}
+td {
+    text-align:center; /*设置水平居中*/
+    vertical-align:middle;/*设置垂直居中*/
+}
+tr{
+    background:#66CCFF;
+    /*cursor:pointer;*/
+}
+.selectCell{
+    background:#6699FF;
+}
+
+.unselectable {
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+#content {
+  float:left;
+  width:100%;
+}
+.app {
+  position:relative;
+  float:left;
+  background-image:url('images/gradientThin.png');
+  background-repeat:repeat-x;
+  background-color:#afafaf;
+  /* box-shadow: 10px 10px 30px #666; */
+  border-top: 1px solid #000;
+  width:100%;
+    height:861px;
+  min-width:1280px;
+}
+.terms {text-align:center;}
+.app img {border:none;}
+.app a {color:#ffffff;font-weight:bold;text-decoration:none;}
+.app a:hover {text-decoration:underline;}
+.app .pdfView {position:absolute; left: 260px;top:40px;}
+.cellCycleMenu::selection {background-color:Transparent;color:#000;}
+
+
+.appTitle span {font-size:12px;font-color:#ccc;font-weight:400;}
+
+
+.appWords {position:absolute;top:30px;right:0px;width:380px;font-size:14px;padding:15px 0 15px 15px;}
+
+#webgl {
+  display:block;
+  margin: 0 auto;
+}
+
+.alert {z-index:2;text-align:center;background-color:#ffff00;opacity:.8;color:#000;position:absolute;top:0px;left:0px;height:160px;width:500px;opacity:.7;display:none;user-select: text;-moz-user-select: text;
+  -khtml-user-select: text;
+  -webkit-user-select: text;}
+
+.help {background-color:#888;background-color:#ffff00;}
+.help:hover{background-color:#ff6600;color:#000;}
+.helpMessage {display:none;padding-left:15px;position:absolute;top:600;left:50px;}
+.saveMessage	{font-weight:700;padding:23px;font-size:16px;text-transform:uppercase;}
+.saveMessage span {font-variant:small-caps;text-transform:none;font-size:16px;}
+.silverMessage {padding:30px;font-weight:400;text-transform:uppercase;font-size:20px;}
+.silverMessage span {font-size:30px;font-weight:700;}
+.quoteRequest {padding:30px;font-weight:400;text-transform:uppercase;font-size:16px;}
+.quoteRequest span {font-size:30px;font-weight:700;}
+.webGLMessage {display:none;}
+.webGLalert {position:absolute;top:0px;left:0px;color:#000;text-align:center;background-color:#ffff00;padding:40px;width:100%;height:100%;font-size:20px;}
+
+/* tool box / controllers! */
+.toolBox {position:absolute;bottom:0px;left:50%;width:1280px;display:block;color:#000;height:200px;margin-left:-640px;}
+.toolBox .section {float:left;padding:0 6px;}
+
+.toolBox2 {position:absolute;bottom:0px;left:50%;width:1280px;display:block;color:#000;height:200px;margin-left:-640px;}
+.toolBox2 .section {float:left;padding:0 6px;}
+
+.section_product {width:120px;}
+.section_basic {width:230px;}
+.section_sculpt{width:170px;}
+.section_buy {width:120px;margin-top:20px;}
+.section_basic {width:100px;margin-top:20px;}
+.section_round {width:150px;}
+.section_rebuild {}
+.section_layers {width:92px}
+.section_size {width:150px;}
+.section_material {width:130px;}
+.section_erWeiXiaZai {width:250px;}
+.section_jizhunxianshi {width:100px;}
+.section_tuceng {width:100px;}
+.section_price {width:150px;}
+.section_summary {width:200px;}
+.section_title {width:100px;}
+.section_display {width:200px;}
+
+.summary {font-size:14px;}
+
+.sliderBox {width:100px;margin:0 auto;}
+
+.slider {width:100px;margin:2px 0px;float:left;}
+.sLabel {font-size:10px;float:left;width:100%;height:12px;line-height:12px;text-align:center;margin:4px 0;text-transform:uppercase;}
+.sLabel_mini {font-size:12px;text-transform:none;}
+.sliderOut {float:left;width:20px;height:15px;line-height:15px;font-size:12px;font-weight:bold;}
+
+.section .text {font-size:13px;}
+
+#sizesDropDown {font-size:18px;float:left;}
+#size_label{color:#000;font-size:12px;float:left;margin-right:5px;width:80px;}
+#size_val {float:left;font-size:17px;color:#000;text-align:right;width:50px;}
+#size_units {float:left;width:10px;text-align:right;line-height:19px;}
+.sizeInfo {margin:10px 0;float:left;width:100%;}
+
+.toolBox .section .appLabel {font-size:14px;text-transform:uppercase;margin:5px 0;border-bottom:1px solid #000;}
+.toolBox .section .appLabel2 {font-size:14px;text-transform:uppercase;margin:5px 0;border-bottom:1px solid #000;}
+.toolBox2 .section .appLabel {font-size:14px;text-transform:uppercase;margin:5px 0;border-bottom:1px solid #000;}
+.toolBox2 .section .appLabel2 {font-size:14px;text-transform:uppercase;margin:5px 0;border-bottom:1px solid #000;}
+
+.price {width:100%;float:left;}
+.dollar {font-size:22px;float:left;width:80px;}
+#shipsIn {float:right;width:70px;font-size:13px;}
+
+
+/**/
+
+ .button {
+	float:left;
+	background-color:#000;
+	color:#fff;
+	border-radius:20px;
+	padding:4px;
+	font-size:14px;
+	cursor:pointer;
+	box-shadow:2px 2px 2px #666;
+	margin:4px;
+	text-transform:uppercase;
+     width:100px;
+     height:16px;
+     text-align:center;
+     padding: 2px;
+}
+ .button:hover {background-color:#222;}
+
+.smallbutton {
+    float:left;
+    background-color: #009fd7;
+    color:#fff;
+    border-radius:4px;
+    padding:2px;
+    font-size:10px;
+    cursor:pointer;
+    box-shadow:2px 2px 2px #666;
+    margin:2px;
+    text-transform:uppercase;
+    width:70px;
+    text-align: center;
+}
+.graybutton {
+    float:left;
+    background-color: #888888;
+    color:#fff;
+    border-radius:4px;
+    padding:2px;
+    font-size:10px;
+    cursor:default;
+    box-shadow:2px 2px 2px #666;
+    margin:2px;
+    text-transform:uppercase;
+    width:80px;
+    text-align: center;
+}
+.closebutton {
+    float:left;
+    background-color: #d74a00;
+    color:#fff;
+    border-radius:4px;
+    padding:2px;
+    font-size:10px;
+    cursor:pointer;
+    box-shadow:2px 2px 2px #666;
+    margin:2px;
+    text-transform:uppercase;
+    width:80px;
+    text-align: center;
+}
+.smallbutton:hover {background-color:#009fd7;}
+
+.flash {
+	-webkit-animation: flash .5s; /* Chrome, Safari, Opera */
+	animation: myfirst .5s;
+	animation-iteration-count: infinite;
+	-webkit-animation-iteration-count: infinite;
+	-webkit-animation-direction: alternate;
+	animation-direction: alternate;
+}
+
+/* Chrome, Safari, Opera */
+@-webkit-keyframes flash{
+	from {background: black;}
+	to {background: red;}
+}
+
+/* Standard syntax */
+@keyframes flash{
+	from {background: black;}
+	to {background: red;}
+}
+
+
+select {font-family:"Electrolize";width:100%;}
+
+div.imgButton {
+    background-color:#009fd7;
+    position:relative;
+    margin-right:4px;
+    margin-bottom:4px;
+    box-shadow:5px 5px 5px #666;
+    width:50px;
+    height:50px;
+    border-radius:50px;opacity:.8;}
+div.imgButton:hover, div.imgButtonSelected:hover {opacity:1;}
+div.imgButtonSelected {
+    background-color:#c2ce00;
+    position:relative;
+    margin-right:4px;
+    margin-bottom:4px;
+    box-shadow:5px 5px 5px #666;
+    width:50px;
+    height:50px;
+    border-radius:50px;}
+
+/*tooltip for image icons*/
+.tooltipI {position:relative;text-decoration:none;}
+.tooltipI div {margin-left:-999em;position:absolute;background-color:#000;color:#fff;font-weight:normal;font-size:12px;padding:5px;border:none;text-decoration:none;border-radius: 5px;box-shadow: 5px 5px 5px #888;}
+.tooltipI:hover div {position: absolute; left: 55px;   top: -10px;   z-index: 99;   margin-left: 0;text-decoration:none;}
+
+/* tooltip for material swatches*/
+.swatchBox {position:relative;float:left;}
+.swatchBox .tip {margin-left:-999em;position:absolute;background-color:#000;color:#fff;padding:2px;font-size:13px;left:-20px;top:-22px;width:54px;text-align:center;border-radius:5px;}
+.swatchBox:hover .tip {z-index: 99;margin-left: 0;}
+
+.panel div {float:left;}
+.panel div img {width:45px;margin:2.5px;}
+
+/* app header */
+.appTitle {position:absolute;top:0px;left:0px;color:#000;width:245px;height:200px;}
+.appTitle .version {font-size:12px;float:left;margin-top:30px;}
+.appTitle .appName {margin-top:10px;margin-left:10px;font-size: 28px;float: left;width: 205px;font-weight: bold;text-align: center;color: #716F6E}
+.appTitle .appName2 {position: absolute;margin-left: 10px;margin-top: 45px;font-size: 20px;width: 205px;font-weight: bold;text-align: center;color: #716F6E}
+.appTitle .appName3 {position: absolute;margin-left: 10px;margin-top: 80px;width: 205px;font-size:16px;font-weight: bold;text-align: center}
+.appTitle  .appSubtitle {font-size:14px;font-family: 'Electrolize', sans-serif;padding-left:10px;float:left;width:500px;clear:both;}
+
+/* app footer */
+
+.copyright {font-size:11px;}
+.nervousLogo img {position:absolute; left:70%;width:400px;margin:5px;margin-top: 40px}
+.nervousLogo {width:400px;text-align:left;font-size:13px;float:left;}
+
+
+#designTitle {color:#000;background-color:#ddd;box-shadow: 2px 2px 2px #666;padding:7px;height:25px;border:none;font-family:'Electrolize',sans-serif;margin:0;width:100%;}
+#designTitle:hover {background-color:#eee;}
+#designTitle:focus {outline-style:none;background-color:#fff;}
+
+/*material related styles*/
+#materials {float:left;width:150px;}
+.matFam {float:left;}
+.swatchContainer {float:left;width:80px;}
+.cLabel {width:70px;float:left;}
+.swatch{width:20px;height:20px;float:left;margin:2px;border-radius:20px;cursor:pointer;overflow:hidden;opacity:.7;}
+
+.swatchSelect {border:2px solid #000;margin:0px !important;opacity:1;}
+.swatch img {width:20px;height:20px;}
+.swatch:hover {opacity:1;}
+
+.selectedMaterial {float:left;width:100px}
+.selectedMaterial .name {font-size:20px;text-transform:uppercase;}
+.selectedMaterial .info {font-size:12px;}
+
+
+
+.webBar {position:absolute;top:0px;right:0px;z-index:4;}
+
+.warning {font-size:11px;}
+
+
+/*for sliders?*/
+.tooltip {
+    position: absolute;
+    z-index: 1020;
+    display: block;
+    padding: 5px;
+    font-size: 11px;
+    visibility: visible;
+    margin-top: -2px;
+    bottom:120%;
+    margin-left: -1.5em;
+}
+
+.tooltip .tooltip-arrow {
+    bottom: 0;
+    left: 50%;
+    margin-left: -5px;
+    border-top: 5px solid #000000;
+    border-right: 5px solid transparent;
+    border-left: 5px solid transparent;
+    position: absolute;
+    width: 0;
+    height: 0;
+}
+
+.tooltip-inner {
+    max-width: 200px;
+    padding: 3px 8px;
+    color: #ffffff;
+    text-align: center;
+    text-decoration: none;
+    background-color: #000000;
+    -webkit-border-radius: 4px;
+       -moz-border-radius: 4px;
+            border-radius: 4px;
+}
+
+.ui-slider {
+    
+    border-bottom: 1px solid #EBEAE5;
+    height: 10px !important;
+    margin: 0;
+    padding: 0px;
+	border-radius:10px !important;
+}
+
+.ui-slider-range {
+   /* height: 10px;*/
+    border-bottom: 3px solid red;
+    position: relative;
+	background: black !important;
+}
+
+
+
+.ui-slider-handle {
+    background: #666 !important;
+    border:1px solid #666; !important;
+   /* height: 20px !important;*/
+    width: 10px !important;
+    margin: 0 !important;
+    padding: 0px !important;
+    display: inline-block !important;
+    top: 0px !important;
+	height:10px !important;
+	margin-left:-5px !important;
+	border-radius:10px !important;
+	outline:none;
+	margin-top:-1px !important;
+}
+
+.ui-slider-handle:focus {background:#000 !important;border:1px solid #000 !important;}
+.ui-slider-handle:hover {background:#000 !important;border:1px solid #000 !important;}
+
+.messageBox {
+	width:400px;
+	height:auto;
+	position:absolute;
+	top:50%;
+	left:50%;
+	margin: -75px 0 0 -200px;
+	display:block;
+	box-shadow: 10px 10px 10px #666;
+	border-radius: 30px;
+	padding:10px;
+	background-color:#ffff00;
+	opacity:.8;
+}
+
+#saveAsMessage {display:none;}
+#saveMessage,#addedToCartBox {display:none;}
+#saveMessage .link {background-color:#fff;color:#000;padding:5px;text-transform:lowercase;font-size:14px;}
+
+.loginBox form {padding:10px;margin:0px;}
+.loginBox form .row div {width:100px;float:left;}
+.loginBox form input {width:220px;}
+.loginBox a:hover {text-decoration:underline;}
+.loginBox a {font-weight:normal;}
+#login {display:none;}
+#login .appLabel {float:left;font-size:25px;width:100%;text-align:center;padding:10px 0;}
+#login .forgot	{width:100%;float:left;text-align:center;}
+#login .button {margin:0px auto;width:80px;float:none;text-align:center;}
+#loginMsg {background-color:#ffff00;padding:10px;margin:15px;text-align:center;border-radius:10px;display:none;}
+#login #closeButton {display:none;}
+.x {float:right;padding:5px 5px 0 0;width:100%;text-align:right;cursor:pointer;}
+.x:hover {font-weight:bold;}
+
+
+#setupTab {background-color:#222;color:#fff;}
+
+.tabBar {width:100%;float:left;}
+
+div.appTab {
+	position:absolute;
+	bottom:150px;
+	left:0px;
+	width:160px;
+	background-color:#000;
+	color:#fff;
+	border-top-right-radius: 40px;
+	border-bottom-right-radius: 40px;
+	height:65px;
+	cursor:pointer;
+	-webkit-animation: myfirst 2s;
+}
+.appTab:hover{background-color:#444;}	
+.appTab .appLabel {width:140px;float:left;margin: 5px 0 0 5px;}
+.appTab .appValue {font-size:30px;float:left;margin-left:6px;width:94px;}
+
+@-webkit-keyframes myfirst
+{
+from {left:-200px;}
+to {left:0px;}
+}
+
+/*left product types tab menu */
+.templates {
+	position:absolute;
+	width:300px;
+	background-color:#999;
+	color:#000;
+	top:170px;
+	box-shadow: 2px 2px 10px #555;
+	border-right: 	1px solid #888;
+	border-bottom: 1px solid #888;
+	display:none;
+}
+	
+.templatesOpen {	display:block;-webkit-animation: openTemplate 1s;}
+.templatesClose {display:block;-webkit-animation: closeTemplate 1s;left:-680px;}
+
+@-webkit-keyframes openTemplate
+{
+from {left:-320px;}
+to {left:0px;}
+}
+
+@-webkit-keyframes closeTemplate
+{
+from {left:0px;}
+to {left:-320px;}
+}
+	
+
+.templates .template {width:160px;height:180px;float:left;margin:5px;cursor:pointer;text-align:center;}
+.templates .container {padding:10px 10px;width:280px;float:left;}
+
+.templates table {width:100%;border-collapse:collapse;}
+.templates td {padding:5px 0;}
+.templates .appLabel {text-transform:uppercase;text-align:left;font-size:16px;}
+.templates .x {float:right;padding:0px;width:20px;height:20px;text-align:center;cursor:pointer;text-transform:uppercase;}
+.templates .x:hover {background-color:#fff;}
+
+.buttonBox {float:right;}
+
+select#typesDropDown {font-size:18px;display:block;width:125px;margin:0 auto;}
+
+#layers {width:150px;margin:0 auto;text-align:center;}
+#roundControl canvas {float:left;}
+
+/*design origin*/
+
+#parent {display:none;}
+.parent  {background-color:#000;color:#fff;}
+.parent img {width:100px;margin-left:5px;}
+.parent .parentInfo {font-size:14px;text-align:left;}
+.parent a {color:#fff;}
+
+.socialMedia {width:200px;float:left;margin-top:8px;}
+.socialMedia div {float:right;margin: 2px;}
+
+#saveWaitMessage {display:none;}
+#spinner {width:80px;margin:0 auto;}
+
+.units {font-size:11px;float:right;}
+.units div {float:left;cursor:hand;margin-left:5px;}
+.unitSel {text-decoration:underline;}
+.unit {}
+.biaotou div{
+    float: left;
+    text-align: center;
+}

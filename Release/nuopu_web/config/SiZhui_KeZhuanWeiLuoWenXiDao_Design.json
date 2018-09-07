@@ -1,0 +1,151 @@
+{
+	"ID": "123456",
+	"Name": "丝锥",
+	"Tab": [
+		{
+			"Name": "主表(单位:mm)",
+			"ParamList": [
+				{
+					"Name": "刀具类型",
+					"Type": "ComboBox",
+					"Choise": "可转位螺纹铣刀",
+					"DefaultValue": "0",
+					"iniName": "tool_type",
+					"iniType": "string"
+				},
+				{
+					"Name": "刀具品牌",
+					"Choise":"nuopu,Seco,Prawet",
+					"Type": "ComboBox",
+					"DefaultValue": "0",
+					"iniName": "company_name",
+					"iniType": "Float"
+				},
+				{
+					"Name": "订货型号",
+					"Type": "EditBox",
+					"DefaultValue": "0",
+					"iniName": "No",
+					"iniType": "string"
+				},
+				{
+					"Name": "文件名",
+					"Type": "EditBox",
+					"DefaultValue": "",
+					"iniName": "FN",
+					"iniType": "string",
+					"ServerGenerateID": 1
+				},
+				{
+					"Name": "更新文件名",
+					"Type": "GenerateServerID",
+					"DefaultValue": ""
+				}
+			]
+		},
+		{
+			"Name": "样本参数(单位:mm)",
+			"ParamList":
+			[
+				{
+					"Name": "Dc",
+					"Type": "EditBox",
+					"DefaultValue": "12",
+					"iniName": "dc",
+					"iniType": "Float"
+				},
+				{
+					"Name": "Dcby",
+					"Type": "EditBox",
+					"DefaultValue": "10",
+					"iniName": "Dcby",
+					"iniType": "Float"
+				},
+				{
+					"Name": "dmm",
+					"Type": "EditBox",
+					"DefaultValue": "20",
+					"iniName": "dmm",
+					"iniType": "Float"
+				},
+				{
+					"Name": "l2",
+					"Type": "EditBox",
+					"DefaultValue": "105",
+					"iniName": "l2",
+					"iniType": "Float"
+				},
+				{
+					"Name": "l3",
+					"Type": "EditBox",
+					"DefaultValue": "20",
+					"iniName": "l3",
+					"iniType": "Float"
+				},
+				{
+					"Name": "lc",
+					"Type": "EditBox",
+					"DefaultValue": "37",
+					"iniName": "lc",
+					"iniType": "Float"
+				},
+				{
+					"Name": "lp",
+					"Type": "EditBox",
+					"DefaultValue": "38",
+					"iniName": "lp",
+					"iniType": "Float"
+				},
+				{
+					"Name": "ap",
+					"Type": "EditBox",
+					"DefaultValue": "13",
+					"iniName": "sp",
+					"iniType": "Float"
+				}
+			]
+		},
+		{
+			"Name": "柄部和刀片类型(单位:mm)",
+			"ParamList": [
+				{
+					"Name": "柄部类型",
+					"Type": "ComboBox",
+					"Choise": "圆柱,侧固",
+					"DefaultValue": "0",
+					"iniName": "Handle_Type",
+					"iniType": "String"
+				},
+				{
+					"Name": "刀片类型",
+					"Type": "ComboBox",
+					"Choise": "13.ms",
+					"DefaultValue": "0",
+					"iniName": "dp_type",
+					"iniType": "String"
+				},
+				{
+					"Name": "s",
+					"Type": "EditBox",
+					"DefaultValue": "2.5",
+					"iniName": "tool_s",
+					"iniType": "Float"
+				},
+				{
+					"Name": "I",
+					"Type": "EditBox",
+					"DefaultValue": "13",
+					"iniName": "tool_i",
+					"iniType": "Float"
+				},
+				{
+					"Name": "d",
+					"Type": "EditBox",
+					"DefaultValue": "7",
+					"iniName": "tool_d",
+					"iniType": "Float"
+				}
+			]
+		}
+	]
+}

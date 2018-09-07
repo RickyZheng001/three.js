@@ -1,0 +1,18 @@
+[
+	{
+		"Name":"P 钢件、铁素体和马氏体不锈钢",
+		"Value":0,
+		"SubMaterialType":
+		[
+			{
+				"Name":"P1",
+				"Value":0,
+				"Desc":"易切钢"
+			},
+			{
+				"Name":"P11",
+				"Value":0
+			}
+		]
+	}
+]

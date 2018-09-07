@@ -1,0 +1,597 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>EDGE NOBELTEC智能工艺 </title>
+
+<!--图标样式-->
+<link rel="stylesheet" type="text/css" href="./css/modifyModel2Bootstrap.min.css" />
+
+<!--主要样式-->
+
+    <script type="text/javascript" src="./js/jquery-ui-1.10.4.custom/js/jquery-1.10.2.js"></script>
+    <script type="text/javascript" src="./js/jquery-ui-1.10.4.custom/js/jquery-ui-1.10.4.custom.min.js"></script>
+    <script type="text/javascript" src="../dat.gui-master/build/dat.gui.js"></script>
+    <link rel="stylesheet" href="../dat.gui-master/build/dat.gui.css" type="text/css">
+    <script src="../build/three.js"></script>
+    <script src="../build/three.module.js"></script>
+    <script src="../examples/js/loaders/STLLoader.js"></script>
+    <script src="../examples/js/loaders/OBJLoader.js"></script>
+    <script src="../examples/js/loaders/PLYLoader.js"></script>
+    <script src="./utils/LoadGui.js"></script>
+    <link rel="stylesheet" type="text/css" href="./css/modifyModel2Style.css" />
+<script type="text/javascript">
+$(function (){
+    $('.tree li:has(ul)').addClass('parent_li').find(' > span').attr('title', 'Collapse this branch');
+        $('.tree li.parent_li > span').on('click', function (e) {
+            var children = $(this).parent('li.parent_li').find(' > ul > li');
+
+            var a = $(this).attr('id');
+           // if($(this).attr('id') == "menuitem")
+            {
+               // return;
+            }
+
+            if (children.is(":visible")) {
+                children.hide('fast');
+                $(this).attr('title', 'Expand this branch').find(' > i').addClass('icon-plus-sign').removeClass('icon-minus-sign');
+            }
+            else
+            {
+                children.show('fast');
+                $(this).attr('title', 'Collapse this branch').find(' > i').addClass('icon-minus-sign').removeClass('icon-plus-sign');
+            }
+
+            e.stopPropagation();
+        });
+
+});
+</script>
+
+</head>
+<body>
+
+<div id="myMenu_General2" style="visibility: hidden;position: absolute;border: 1px;background-color: #ffffff;background: #ffffff;z-index: 99;width: 200px;">
+    <div id="menuitem" class="contextBtn" style="z-index: 100;" onclick="OnClickAddNewNode('myMenu_General2')">新增</div>
+    <div id="menuitem" class="contextBtn" style="z-index: 100;" onclick="OnClickRemoveCurNode()">删除</div>
+    <div id="menuitem" class="contextBtn" style="z-index: 100;" onclick="CopyNode('myMenu')">编辑</div>
+    <div id="menuitem" class="contextBtn" style="z-index: 100;" onclick="OnClickCopyCurNode()">拷贝</div>
+    <div id="menuitem" class="contextBtn" style="z-index: 100;" onclick="OnClickParseCurNode()">粘贴</div>
+    <div id="menuitem" class="contextBtn" style="z-index: 100;" onclick="OnClickMove('myMenu_General2')">移动</div>
+</div>
+<div id="myMenu_root" style="visibility: hidden;position: absolute;border: 1px;background-color: #ffffff;background: #ffffff;z-index: 99;width: 200px;">
+    <div id="menuitem" class="contextBtn" style="z-index: 100;" onclick="OnClickAddNewNode('myMenu_root')">增加</div>
+    <div id="menuitem" class="contextBtn" style="z-index: 100;" onclick="RemoveNode('myMenu')">编辑</div>
+    <div id="menuitem" class="contextBtn" style="z-index: 100;" onclick="CopyNode('myMenu')">更新</div>
+    <div id="menuitem" class="contextBtn" style="z-index: 100;" onclick="PasteNode('myMenu')">最终审核固化</div>
+    <div id="menuitem" class="contextBtn" style="z-index: 100;" onclick="PasteNode('myMenu')">撤销审核固化</div>
+    <div id="menuitem" class="contextBtn" style="z-index: 100;" onclick="PasteNode('myMenu')">零件特征清零</div>
+    <div id="menuitem" class="contextBtn" style="z-index: 100;" onclick="PasteNode('myMenu')">零件特征3D显示</div>
+    <div id="menuitem" class="contextBtn" style="z-index: 100;" onclick="PasteNode('myMenu')">零件特征图纸显示</div>
+</div>
+<div id="myMenu_addDetail" style="visibility: hidden;position: absolute;border: 1px;background-color: #ffffff;background: #ffffff;z-index: 99;width: 200px;">
+    <div id="menuitem" class="contextBtn" style="z-index: 100;" onclick="AddNewNode(0)">面</div>
+    <div id="menuitem" class="contextBtn" style="z-index: 100;" onclick="AddNewNode(1)">孔</div>
+    <div id="menuitem" class="contextBtn" style="z-index: 100;" onclick="AddNewNode(2)">倒角</div>
+    <div id="menuitem" class="contextBtn" style="z-index: 100;" onclick="AddNewNode(3)">槽</div>
+    <div id="menuitem" class="contextBtn" style="z-index: 100;" onclick="AddNewNode(4)">锥面</div>
+</div>
+<div id="myMenu_General" style="visibility: hidden;position: absolute;border: 1px;background-color: #ffffff;background: #ffffff;z-index: 99;width:200px;">
+    <div id="menuitem" class="contextBtn" style="z-index: 100;" onclick="AddNewNode('myMenu')">编辑</div>
+    <div id="menuitem" class="contextBtn" style="z-index: 100;" onclick="OnClickRemoveCurNode()">删除</div>
+</div>
+<div id="myMenu_MoveDetail" style="visibility: hidden;position: absolute;border: 1px;background-color: #ffffff;background: #ffffff;z-index: 99;width: 200px;">
+    <div id="menuitem" class="contextBtn" style="z-index: 100;" onclick="OnClickMoveUp()">上移</div>
+    <div id="menuitem" class="contextBtn" style="z-index: 100;" onclick="OnClickMoveDown()">下移</div>
+</div>
+
+<div>
+    <img src="./img/JinDuTiaoGreen.png" style="position: absolute;margin-left: 80px;margin-top: 50px;z-index: 50;">
+    <img src="./img/JinDuTiaoGreen.png" style="position: absolute;margin-left: 80px;margin-top: 170px;z-index: 50;">
+    <img src="./img/JinDuTiaoGreen.png" style="position: absolute;margin-left: 80px;margin-top: 290px;z-index: 50;">
+    <img src="./img/JinDuTiaoGreen.png" style="position: absolute;margin-left: 80px;margin-top: 410px;z-index: 50;">
+    <img src="./img/JinDuTiaoGreen.png" style="position: absolute;margin-left: 80px;margin-top: 530px;z-index: 50;">
+
+    <img src="./img/JinDuTiaoCycleGreen.png" style="position: absolute;margin-left: 76px;margin-top: 50px;z-index: 50;">
+    <img src="./img/JinDuTiaoCycleGreen.png" style="position: absolute;margin-left: 76px;margin-top: 210px;z-index: 50;">
+    <img src="./img/JinDuTiaoCycleGreen.png" style="position: absolute;margin-left: 76px;margin-top: 350px;z-index: 50;">
+    <img src="./img/JinDuTiaoCycleGreen.png" style="position: absolute;margin-left: 76px;margin-top: 490px;z-index: 50;">
+    <img src="./img/JinDuTiaoCycleGreen.png" style="position: absolute;margin-left: 76px;margin-top: 630px;z-index: 50;">
+
+    <div style="position: absolute; margin-left:15px;margin-top: 50px;z-index: 50;font-size: smaller">零件图</div>
+    <div style="position: absolute; margin-left:15px;margin-top: 210px;z-index: 50;font-size: smaller">工序图</div>
+    <div style="position: absolute; margin-left:15px;margin-top: 350px;z-index: 50;font-size: smaller">工步图</div>
+    <div style="position: absolute; margin-left:15px;margin-top: 490px;z-index: 50;font-size: smaller">加工示意图</div>
+    <div style="position: absolute; margin-left:15px;margin-top: 630px;z-index: 50;font-size: smaller">刀具清单</div>
+</div>
+<div id="myUI" class="tree well" style="border-width: 0px; position: absolute;margin-left: 50px;margin-top: 20px;">
+</div>
+</body>
+<script>
+    function RebindOnClickEvent()
+    {
+        $('.tree li:has(ul)').addClass('parent_li').find(' > span').attr('title', 'Collapse this branch');
+        $('.tree li.parent_li > span').on('click', function (e) {
+            var children = $(this).parent('li.parent_li').find(' > ul > li');
+
+            var a = $(this).attr('id');
+            // if($(this).attr('id') == "menuitem")
+            {
+                // return;
+            }
+
+            if (children.is(":visible")) {
+                children.hide('fast');
+                $(this).attr('title', 'Expand this branch').find(' > i').addClass('icon-plus-sign').removeClass('icon-minus-sign');
+            }
+            else
+            {
+                children.show('fast');
+                $(this).attr('title', 'Collapse this branch').find(' > i').addClass('icon-minus-sign').removeClass('icon-plus-sign');
+            }
+
+            e.stopPropagation();
+        });
+    }
+    function HideAllContextMenu()
+    {
+        /*
+        myMenu
+myMenu_root
+myMenu_addDetail
+myMenu_General
+myMenu_MoveDetail
+        */
+        var menu = null;
+
+        menu = document.getElementById("myMenu_General2");
+        menu.style.visibility = "hidden";
+
+        menu = document.getElementById("myMenu_root");
+        menu.style.visibility = "hidden";
+
+        menu = document.getElementById("myMenu_addDetail");
+        menu.style.visibility = "hidden";
+
+        menu = document.getElementById("myMenu_General");
+        menu.style.visibility = "hidden";
+
+        menu = document.getElementById("myMenu_MoveDetail");
+        menu.style.visibility = "hidden";
+    }
+    function RebindContextMenuEvent(jsonObj)
+    {
+        if(jsonObj == null || jsonObj == undefined)
+        {
+            return;
+        }
+
+        var objId = jsonObj.id;
+        var menuId = jsonObj.MenuId;
+
+        var div = document.getElementById(objId);
+        var menu = document.getElementById(menuId);
+        //contextmenu事件
+        div.addEventListener("contextmenu",function(e){
+            //阻止默认的右键事件
+            e.preventDefault();
+
+            HideAllContextMenu();
+            //新菜单位置跟随鼠标
+            menu.style.left = e.clientX+"px";
+            menu.style.top = e.clientY+"px";
+            //显示菜单
+            menu.style.visibility = "visible";
+            m_globalLastClickJsonObj = jsonObj;
+        });
+
+        //鼠标单击，菜单取消
+        div.addEventListener("click",function(e){
+            HideAllContextMenu();
+        });
+
+        var globalDiv = document.getElementById("myUI");
+        globalDiv.addEventListener("click",function(e){
+            HideAllContextMenu();
+        });
+
+        var paramList = jsonObj.ParamList;
+        if(paramList == null || paramList == undefined)
+        {
+            return;
+        }
+
+        for(var i = 0; i < paramList.length; i++)
+        {
+            RebindContextMenuEvent(paramList[i]);
+        }
+    }
+    function GetHtmlStrByJsonObj(jsonObj,strPreffixId)
+    {
+        var result = "";
+
+        if(jsonObj == null || jsonObj == undefined)
+        {
+            return result;
+        }
+
+        /*
+        <span class="badge badge-success"><i class="icon-minus-sign"></i>P1 精铣平面</span> <a href="">三级节点// 右键：向下合并</a>
+         */
+        result += "<ul>";
+        for(var i = 0; i < jsonObj.length; i++)
+        {
+            result += "<li>";
+
+            var obj = jsonObj[i];
+            obj.id =  strPreffixId + "_" + i;
+            result += "<span id=\"" + obj.id + "\"><i class=\"icon-minus-sign\"></i>" + obj.Name + "</span>";
+            result += GetHtmlStrByJsonObj(obj.ParamList,obj.id);
+
+            result += "</li>";
+        }
+
+        result += "</ul>";
+
+        return result;
+    }
+    function LoadUIConfigByJsonObj(jsonObj)
+    {
+        var strHtml = GetHtmlStrByJsonObj(jsonObj,"_");
+
+        var doc = document.getElementById("myUI");
+        doc.innerHTML = strHtml;
+
+        RebindOnClickEvent();
+    }
+    function ParseSpecJsonObj(jsonObjRoot,jsonObjParentToBeParse,jsonObjCopyed)
+    {
+        if(jsonObjParentToBeParse == null || jsonObjParentToBeParse == undefined)
+        {
+            return;
+        }
+
+        if(jsonObjCopyed == null || jsonObjCopyed == undefined)
+        {
+            return;
+        }
+
+        var strJson = JSON.stringify(jsonObjCopyed);
+        var clonedJsonObj = JSON.parse(strJson);
+
+        if(jsonObjParentToBeParse.ParamList == null || jsonObjParentToBeParse.ParamList == undefined)
+        {
+            jsonObjParentToBeParse.ParamList = new Array();
+        }
+
+        jsonObjParentToBeParse.ParamList.push(clonedJsonObj);
+    }
+    function RemoveSpecJsonObj(jsonObjRoot,jsonObj)
+    {
+        if(jsonObjRoot == jsonObj)
+        {
+            //不应该在这里出现
+            return;
+        }
+
+        var paramList = jsonObjRoot.ParamList;
+
+        if(paramList == null || paramList == undefined)
+        {
+            return;
+        }
+
+        for(var i = 0; i < paramList.length; i++)
+        {
+            if(paramList[i] == jsonObj)
+            {
+                paramList.splice(i,1);
+                i--;
+               // paramList.removeChild()
+               // paramList.remove(jsonObj);
+            }
+            else
+            {
+                RemoveSpecJsonObj(paramList[i],jsonObj);
+            }
+        }
+    }
+    function OnClickCopyCurNode()
+    {
+        m_globalLastCopyJsonObj = m_globalLastClickJsonObj;
+
+        HideAllContextMenu();
+    }
+    function OnClickParseCurNode()
+    {
+        ParseSpecJsonObj(m_globalTreeUIJsonObj,m_globalLastClickJsonObj,m_globalLastCopyJsonObj);
+
+        LoadUIConfigByJsonObj(m_globalTreeUIJsonObj);
+        OnFinishLoadUI();
+        HideAllContextMenu();
+
+        m_globalLastCopyJsonObj = null;
+    }
+    function OnClickRemoveCurNode()
+    {
+        if(m_globalLastClickJsonObj == null || m_globalLastClickJsonObj == undefined)
+        {
+            return;
+        }
+
+        RemoveSpecJsonObj(m_globalTreeUIJsonObj[0],m_globalLastClickJsonObj);
+
+        LoadUIConfigByJsonObj(m_globalTreeUIJsonObj);
+        OnFinishLoadUI();
+        HideAllContextMenu();
+    }
+    function OnClickMove(strNodeId)
+    {
+        var subMenu = document.getElementById("myMenu_MoveDetail");
+        if(subMenu == null || subMenu == undefined)
+        {
+            return;
+        }
+
+        var curMenu = document.getElementById(strNodeId);
+        subMenu.style.left = "" + (parseFloat(curMenu.style.left.split("px")[0]) + 205) + "px";
+        subMenu.style.top = "" + (parseFloat(curMenu.style.top.split("px")[0]) + 140) + "px";
+        subMenu.style.visibility = "visible";
+    }
+    function MoveUpJsonObj(jsonObjRoot,jsonObjToMoveUp)
+    {
+        if(jsonObjRoot == null || jsonObjRoot == undefined)
+        {
+            return;
+        }
+
+        if(jsonObjToMoveUp == null || jsonObjToMoveUp == undefined)
+        {
+            return;
+        }
+
+        var paramList = jsonObjRoot.ParamList;
+        if(paramList == null || paramList == undefined)
+        {
+            return;
+        }
+
+        for(var i = 0; i < paramList.length; i++)
+        {
+            if(paramList[i] == jsonObjToMoveUp)
+            {
+                if(i == 0)
+                {
+                    //已经是第一个了，不需要操作
+                    break;
+                }
+                else
+                {
+                    var tempObj = paramList[i - 1];
+                    paramList[i - 1] = paramList[i];
+                    paramList[i] = tempObj;
+                    break;
+                }
+            }
+            else
+            {
+                MoveUpJsonObj(paramList[i],jsonObjToMoveUp);
+            }
+        }
+    }
+    function MoveDownJsonObj(jsonObjRoot,jsonObjToMoveUp)
+    {
+        if(jsonObjRoot == null || jsonObjRoot == undefined)
+        {
+            return;
+        }
+
+        if(jsonObjToMoveUp == null || jsonObjToMoveUp == undefined)
+        {
+            return;
+        }
+
+        var paramList = jsonObjRoot.ParamList;
+        if(paramList == null || paramList == undefined)
+        {
+            return;
+        }
+
+        for(var i = 0; i < paramList.length; i++)
+        {
+            if(paramList[i] == jsonObjToMoveUp)
+            {
+                if(i == paramList.length - 1)
+                {
+                    //已经是最后，不需要操作
+                    break;
+                }
+                else
+                {
+                    var tempObj = paramList[i + 1];
+                    paramList[i + 1] = paramList[i];
+                    paramList[i] = tempObj;
+                    break;
+                }
+            }
+            else
+            {
+                MoveDownJsonObj(paramList[i],jsonObjToMoveUp);
+            }
+        }
+    }
+    function OnClickMoveUp()
+    {
+        if(m_globalLastClickJsonObj == null || m_globalLastClickJsonObj == undefined)
+        {
+            return;
+        }
+
+        MoveUpJsonObj(m_globalTreeUIJsonObj[0],m_globalLastClickJsonObj);
+
+        LoadUIConfigByJsonObj(m_globalTreeUIJsonObj);
+        OnFinishLoadUI();
+        HideAllContextMenu();
+    }
+    function OnClickMoveDown()
+    {
+        if(m_globalLastClickJsonObj == null || m_globalLastClickJsonObj == undefined)
+        {
+            return;
+        }
+
+        MoveDownJsonObj(m_globalTreeUIJsonObj[0],m_globalLastClickJsonObj);
+
+        LoadUIConfigByJsonObj(m_globalTreeUIJsonObj);
+        OnFinishLoadUI();
+        HideAllContextMenu();
+    }
+    function OnClickEditNode()
+    {
+        if(m_globalLastClickJsonObj == null || m_globalLastClickJsonObj == undefined)
+        {
+            return;
+        }
+
+        //OnLoadEditJsonFile();
+
+        //jiage
+
+    }
+    function AddNewNode(nodeType)
+    {
+        if(m_globalLastClickJsonObj == null || m_globalLastClickJsonObj == undefined)
+        {
+            return;
+        }
+
+        var newJsonObj = {};
+        newJsonObj.Name = "槽W2*R0.2-4.5RA1.6";
+        newJsonObj.ModifyParam = 1;
+        newJsonObj.MenuId = "myMenu_General2";
+        newJsonObj.ParamList = new Array();
+
+        switch(nodeType)
+        {
+            case 0:
+                //面
+                break;
+            case 1:
+                //孔
+                break;
+            case 2:
+                //倒角
+                break;
+            case 3:
+                //槽
+                break;
+            case 4:
+                //锥面
+                break;
+            default:
+                //类型不明
+                break;
+        }
+
+        var paramList = m_globalLastClickJsonObj.ParamList;
+        if(paramList == null || paramList == undefined)
+        {
+            m_globalLastClickJsonObj.ParamList = new array();
+        }
+
+        m_globalLastClickJsonObj.ParamList.push(newJsonObj);
+
+        LoadUIConfigByJsonObj(m_globalTreeUIJsonObj);
+        OnFinishLoadUI();
+        HideAllContextMenu();
+    }
+    function ReloadEditUI(uiConfigPath,onFinishedLoadingUI,onComboBoxChangedCallBack)
+    {
+        var scope = this;
+        var gui = null;
+
+        var loader = new THREE.FileLoader( scope.manager );
+        loader.load( uiConfigPath, function ( text ) {
+            var obj = eval('(' + text + ')');
+            var dja
+            //var menuObj = {};
+            gui = new dat.gui.GUI();
+            gui.remember(menuObj);
+
+            for(var i = 0; i < obj.Tab.length; i++) {
+                var tabObj = obj.Tab[i];
+                var tabName = tabObj.Name;
+
+                var guiTable = gui.addFolder(tabName);
+
+                menuObj[tabName] = {};
+                UpdateGUIByJsonObj(guiTable,tabObj,onComboBoxChangedCallBack);
+            }
+
+            menuObj["确定"] = function ()
+            {
+                //
+                //switch
+            }
+
+            gui.add(menuObj, '确定');
+
+            gui.domElement.style = 'position:absolute;top:300px;left:0px;background-color:#ffffff;visibility:hidden;';
+            gui.domElement.id = 'MenuParamDesign';
+            gui.OnClickClosePanel = GlobalOnClickClosePanel;
+
+            m_globalGui = gui;
+            m_globalGuiJsonObj = obj;
+            m_globalFuncUpdateModel = menuObj["更新模型"];
+        });
+    }
+    function OnClickAddNewNode(strNodeId)
+    {
+        var subMenu = document.getElementById("myMenu_addDetail");
+        if(subMenu == null || subMenu == undefined)
+        {
+            return;
+        }
+
+        var curMenu = document.getElementById(strNodeId);
+        subMenu.style.left = "" + (parseFloat(curMenu.style.left.split("px")[0]) + 205) + "px";
+        subMenu.style.top = curMenu.style.top;
+        subMenu.style.visibility = "visible";
+    }
+    function OnFinishLoadUI()
+    {
+        RebindContextMenuEvent(m_globalTreeUIJsonObj[0]);
+    }
+    function ReloadParamModifyUI(jsonObj)
+    {
+        var scope = this;
+        var gui = null;
+
+        var obj = jsonObj;
+
+        var menuObj = {};
+        gui = new dat.gui.GUI();
+        gui.remember(menuObj);
+
+        var guiTable = gui.addFolder(jsonObj);
+
+        //gui.remember(menuObj);
+        for (var i = 0; i < obj.Tab.length; i++)
+        {
+            var tabObj = obj.Tab[i];
+            var tabName = tabObj.Name;
+
+            var guiTable = gui.addFolder(tabName);
+
+            menuObj[tabName] = {};
+            UpdateGUIByJsonObj(guiTable,tabObj,onComboBoxChangedCallBack);
+        }
+    }
+    var m_globalTreeUIJsonObj = null;
+    var m_globalLastClickJsonObj = null;
+    var m_globalLastCopyJsonObj = null;
+    LoadLingJianUIByJson("config/LingJianTeZheng.json",OnFinishLoadUI);
+
+</script>
+</html>

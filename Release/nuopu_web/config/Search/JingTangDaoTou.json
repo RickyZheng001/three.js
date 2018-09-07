@@ -1,0 +1,314 @@
+{
+  "Name":"精镗头",
+  "ParamsArray":
+  [
+    {
+      "Name":"刀具品牌",
+      "HtmlCtrlId":"company_name",
+      "Type":"ComboBox",
+      "Choise":"所有,nuopu,Seco,Prawet",
+      "DefaultValue":"0",
+      "DanWeiString":"",
+      "IniName":"company_name",
+      "CanBeEdited":1
+    },
+    {
+      "Name":"订货型号",
+      "HtmlCtrlId":"No",
+      "Type":"EditBox",
+      "DefaultValue":"",
+      "IniName":"No",
+      "CanBeEdited":1
+    },
+    {
+      "Name":"前端类型",
+      "HtmlCtrlId":"tool_type",
+      "Type":"ComboBox",
+      "Choise":
+      [
+        {
+          "Name":"Gra-Axb 0.3-108",
+          "ParamsArray": [
+            {
+              "Name":"前端规格",
+              "HtmlCtrlId":"Graflex",
+              "Type":"ComboBox",
+              "Choise":"所有,0.3-8,2-20,6-108",
+              "DefaultValue": "0",
+              "IniName": "Graflex",
+              "CanBeEdited": 1
+            },
+            {
+              "Name":"尾端类型",
+              "HtmlCtrlId": "h_type",
+              "Type":"ComboBox",
+              "Choise": [
+                {
+                  "Name":"所有",
+                  "ParamsArray":[]
+                },
+                {
+                  "Name":"Graflex",
+                  "ParamsArray":[
+                    {
+                      "Name":"尾端规格",
+                      "HtmlCtrlId":"D_value",
+                      "Type":"ComboBox",
+                      "Choise":"所有,G0,G1,G2,G3,G4,G5,G6,G7",
+                      "DefaultValue":"0",
+                      "IniName":"D_value",
+                      "CanBeEdited":1
+                    }
+                  ]
+                }
+              ],
+              "DefaultValue":"0",
+              "IniName":"h_type",
+              "CanBeEdited":1
+            }
+          ]
+        },
+        {
+          "Name":"Gra-Axb 2-33动",
+          "ParamsArray":[
+            {
+              "Name":"前端规格",
+              "HtmlCtrlId":"Graflex",
+              "Type":"ComboBox",
+              "Choise":"所有,2-20,6-33",
+              "DefaultValue":"0",
+              "IniName":"Graflex",
+              "CanBeEdited":1
+            },
+            {
+              "Name":"尾端类型",
+              "HtmlCtrlId":"h_type",
+              "Type":"ComboBox",
+              "Choise":[
+                {
+                  "Name":"所有",
+                  "ParamsArray":[]
+                },
+                {
+                  "Name":"Graflex",
+                  "ParamsArray":[
+                    {
+                      "Name":"尾端规格",
+                      "HtmlCtrlId":"D_value",
+                      "Type":"ComboBox",
+                      "Choise":"所有,G0,G1,G2,G3,G4,G5,G6,G7",
+                      "DefaultValue":"0",
+                      "IniName":"D_value",
+                      "CanBeEdited":1
+                    }
+                  ]
+                }
+              ],
+              "DefaultValue":"0",
+              "IniName":"h_type",
+              "CanBeEdited":1
+            }
+          ]
+        },
+        {
+          "Name": "Gra-Axb 2-108",
+          "ParamsArray": [
+            {
+              "Name": "前端规格",
+              "HtmlCtrlId": "Graflex",
+              "Type": "ComboBox",
+              "Choise": "所有,2-20,6-108",
+              "DefaultValue": "0",
+              "IniName": "Graflex",
+              "CanBeEdited": 1
+            },
+            {
+              "Name": "尾端类型",
+              "HtmlCtrlId": "h_type",
+              "Type": "ComboBox",
+              "Choise": [
+                {
+                  "Name": "所有",
+                  "ParamsArray": []
+                },
+                {
+                  "Name": "Capto",
+                  "ParamsArray": [
+                    {
+                      "Name": "尾端规格",
+                      "HtmlCtrlId": "D_value",
+                      "Type": "ComboBox",
+                      "Choise": "所有,C3,C4,C5,C6,C8,C10",
+                      "DefaultValue": "0",
+                      "IniName": "D_value",
+                      "CanBeEdited": 1
+                    }
+                  ]
+                }
+              ],
+              "DefaultValue": "0",
+              "IniName": "h_type",
+              "CanBeEdited": 1
+            }
+          ]
+        },
+        {
+          "Name": "GGraflex径15-205",
+          "ParamsArray": [
+            {
+              "Name": "前端规格",
+              "HtmlCtrlId": "Graflex",
+              "Type": "ComboBox",
+              "Choise": "所有,15-18.5,18-23.5,23-31,30-40,39-51,50-65,64-86,85-144,144-205",
+              "DefaultValue": "0",
+              "IniName": "Graflex",
+              "CanBeEdited": 1
+            },
+            {
+              "Name": "尾端类型",
+              "HtmlCtrlId": "h_type",
+              "Type": "ComboBox",
+              "Choise": [
+                {
+                  "Name": "所有",
+                  "ParamsArray": []
+                },
+                {
+                  "Name": "Graflex",
+                  "ParamsArray": [
+                    {
+                      "Name": "尾端规格",
+                      "HtmlCtrlId": "D_value",
+                      "Type": "ComboBox",
+                      "Choise": "所有,G0,G1,G2,G3,G4,G5,G6,G7",
+                      "DefaultValue": "0",
+                      "IniName": "D_value",
+                      "CanBeEdited": 1
+                    }
+                  ]
+                }
+              ],
+              "DefaultValue": "0",
+              "IniName": "h_type",
+              "CanBeEdited": 1
+            }
+          ]
+        },
+        {
+          "Name": "CAPTO径39-205",
+          "ParamsArray": [
+            {
+              "Name": "前端规格",
+              "HtmlCtrlId": "Graflex",
+              "Type": "ComboBox",
+              "Choise": "所有,39-51,50-65,64-86,85-144,144-205",
+              "DefaultValue": "0",
+              "IniName": "Graflex",
+              "CanBeEdited": 1
+            },
+            {
+              "Name": "尾端类型",
+              "HtmlCtrlId": "h_type",
+              "Type": "ComboBox",
+              "Choise": [
+                {
+                  "Name": "所有",
+                  "ParamsArray": []
+                },
+                {
+                  "Name": "Capto",
+                  "ParamsArray": [
+                    {
+                      "Name": "尾端规格",
+                      "HtmlCtrlId": "D_value",
+                      "Type": "ComboBox",
+                      "Choise": "所有,C3,C4,C5,C6,C8,C10",
+                      "DefaultValue": "0",
+                      "IniName": "D_value",
+                      "CanBeEdited": 1
+                    }
+                  ]
+                }
+              ],
+              "DefaultValue": "0",
+              "IniName": "h_type",
+              "CanBeEdited": 1
+            }
+          ]
+        },
+        {
+          "Name": "30-115Graflex动",
+          "ParamsArray": [
+            {
+              "Name": "前端规格",
+              "HtmlCtrlId": "Graflex",
+              "Type": "ComboBox",
+              "Choise": "所有,30-40,39-51,50-65,64-86,85-115",
+              "DefaultValue": "0",
+              "IniName": "Graflex",
+              "CanBeEdited": 1
+            },
+            {
+              "Name": "尾端类型",
+              "HtmlCtrlId": "h_type",
+              "Type": "ComboBox",
+              "Choise": [
+                {
+                  "Name": "所有",
+                  "ParamsArray": []
+                },
+                {
+                  "Name": "Graflex",
+                  "ParamsArray": [
+                    {
+                      "Name": "尾端规格",
+                      "HtmlCtrlId": "D_value",
+                      "Type": "ComboBox",
+                      "Choise": "所有,G0,G1,G2,G3,G4,G5,G6,G7",
+                      "DefaultValue": "0",
+                      "IniName": "D_value",
+                      "CanBeEdited": 1
+                    }
+                  ]
+                }
+              ],
+              "DefaultValue": "0",
+              "IniName": "h_type",
+              "CanBeEdited": 1
+            }
+          ]
+        }
+      ],
+      "DefaultValue": "0",
+      "iniName": "tool_type",
+      "CanBeEdited":1
+    },
+    {
+      "Name":"A有效长度min",
+      "HtmlCtrlId":"A_min",
+      "Type":"EditBox",
+      "DefaultValue":"",
+      "DanWeiString":"mm",
+      "IniName":"A_Max",
+      "CanBeEdited":1
+    },
+    {
+      "Name":"A有效长度max",
+      "HtmlCtrlId":"A_max",
+      "Type":"EditBox",
+      "DefaultValue":"",
+      "DanWeiString":"mm",
+      "IniName":"A_max",
+      "CanBeEdited":1
+    },
+    {
+      "Name":"干涉直径max",
+      "HtmlCtrlId":"D_max",
+      "Type":"EditBox",
+      "DefaultValue":"",
+      "DanWeiString":"mm",
+      "IniName":"D_max",
+      "CanBeEdited":1
+    }
+  ]
+}

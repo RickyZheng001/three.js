@@ -1,0 +1,109 @@
+{
+	"ID":"123456",
+	"Name":"刀片",
+	"Tab":
+	[
+		{
+			"Name": "主表(单位:mm)",
+			"ParamList": [
+				{
+					"Name": "刀具类型",
+					"Type": "ComboBox",
+					"Choise": "S刀片z",
+					"DefaultValue": "0",
+					"iniName": "tool_type",
+					"iniType": "string"
+				},
+				{
+					"Name": "刀具品牌",
+					"Choise":"nuopu,Seco,Prawet",
+					"Type": "ComboBox",
+					"DefaultValue": "0",
+					"iniName": "company_name",
+					"iniType": "string"
+				},
+				{
+					"Name": "订货型号",
+					"Type": "EditBox",
+					"DefaultValue": "0",
+					"iniName": "No",
+					"iniType": "string"
+				},
+				{
+					"Name": "文件名",
+					"Type": "EditBox",
+					"DefaultValue": "",
+					"iniName": "FN",
+					"iniType": "string",
+					"ServerGenerateID": 1
+				},
+				{
+					"Name": "更新文件名",
+					"Type": "GenerateServerID",
+					"DefaultValue": ""
+				}
+			]
+		},
+		{
+			"Name": "样本参数(单位:mm)",
+			"ParamList":
+			[
+				{
+					"Name":"后角",
+					"Type":"ComboBox",
+					"Choise":"C,P",
+					"DefaultValue":"0",
+					"String":"ZiFu",
+					"iniName":"draft",
+					"intType":"string"
+				},
+				{
+					"Name":"公差",
+					"Type":"ComboBox",
+					"Choise":"G,M",
+					"DefaultValue":"3",
+					"iniName":"deviation",
+					"intType":"string"
+				},
+				{
+					"Name": "内切圆直径",
+					"Type": "EditBox",
+					"DefaultValue": "6.35",
+					"iniName": "tool_d",
+					"iniType": "Float"
+				},
+				{
+					"Name": "厚度",
+					"Type": "EditBox",
+					"DefaultValue": "2.38",
+					"iniName": "tool_s",
+					"iniType": "Float"
+				},
+				{
+					"Name": "刀尖圆角",
+					"Type": "EditBox",
+					"DefaultValue": "0.4",
+					"iniName": "tool_r",
+					"iniType": "Float"
+				},
+				{
+					"Name":"槽型",
+					"Type":"ComboBox",
+					"Choise":"FF1,FF2",
+					"DefaultValue":"0",
+					"iniName":"cell_type",
+					"intType":"string"
+				},
+				{
+					"Name":"材质",
+					"Type":"ComboBox",
+					"Choise":"DP2000,DP3000,T25D",
+					"DefaultValue":"0",
+					"iniName":"Material",
+					"intType":"string"
+				}
+
+			]
+		}
+	]
+}

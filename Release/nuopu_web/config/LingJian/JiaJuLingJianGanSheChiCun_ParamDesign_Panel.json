@@ -1,0 +1,34 @@
+{
+	"Name":"零件夹具干涉",
+	"ParamsArray":
+	[
+		{
+			"Name":"夹具干涉高度",
+			"Type":"EditBox",
+			"DefaultValue":5,
+			"DanWeiString":"",
+			"Value":5
+		},
+		{
+			"Name":"夹具干涉孔距",
+			"Type":"EditBox",
+			"DefaultValue":8,
+			"DanWeiString":"mm",
+			"Value":8
+		},
+		{
+			"Name":"零件干涉高度",
+			"Type":"EditBox",
+			"DefaultValue":10,
+			"DanWeiString":"mm",
+			"Value":10
+		},
+		{
+			"Name":"零件干涉孔距",
+			"Type":"EditBox",
+			"DefaultValue":7,
+			"DanWeiString":"mm",
+			"Value":7
+		}
+	]
+}

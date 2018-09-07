@@ -1,0 +1,150 @@
+{
+  "ID": "123456",
+  "Name": "铣刀",
+  "Tab": [
+    {
+      "Name": "主表(单位:mm)",
+      "ParamList": [
+        {
+          "Name": "刀具类型",
+          "Type": "ComboBox",
+          "Choise": "HP刀盘式面铣刀",
+          "DefaultValue": "0",
+          "iniName": "tool_type",
+          "iniType": "string"
+        },
+        {
+          "Name": "刀具品牌",
+          "Choise":"nuopu,Seco,Prawet",
+          "Type": "ComboBox",
+          "DefaultValue": "0",
+          "iniName": "company_name",
+          "iniType": "Float"
+        },
+        {
+          "Name": "订货型号",
+          "Type": "EditBox",
+          "DefaultValue": "0",
+          "iniName": "No",
+          "iniType": "string"
+        },
+        {
+          "Name": "文件名",
+          "Type": "EditBox",
+          "DefaultValue": "",
+          "iniName": "FN",
+          "iniType": "string",
+          "ServerGenerateID": 1
+        },
+        {
+          "Name": "更新文件名",
+          "Type": "GenerateServerID",
+          "DefaultValue": ""
+        }
+      ]
+    },
+    {
+      "Name": "样本参数(单位:mm)",
+      "ParamList":
+      [
+        {
+          "Name": "ap",
+          "Type": "EditBox",
+          "DefaultValue": "8",
+          "iniName": "ap",
+          "iniType": "Float"
+        },
+        {
+          "Name": "dc",
+          "Type": "EditBox",
+          "DefaultValue": "80",
+          "iniName": "dc",
+          "iniType": "Float"
+        },
+        {
+          "Name": "D5m",
+          "Type": "EditBox",
+          "DefaultValue": "62",
+          "iniName": "D5m",
+          "iniType": "Float"
+        },
+        {
+          "Name": "l1",
+          "Type": "EditBox",
+          "DefaultValue": "50",
+          "iniName": "l1",
+          "iniType": "Float"
+        }
+      ]
+    },
+    {
+      "Name": "柄部和刀片类型(单位:mm)",
+      "ParamList": [
+        {
+          "Name": "柄部类型",
+          "Type": "ComboBox",
+          "Choise": "刀盘内孔",
+          "DefaultValue": "0",
+          "iniName": "Handle_Type",
+          "iniType": "String"
+        },
+        {
+          "Name": "刀片类型",
+          "Type": "ComboBox",
+          "Choise": "HP",
+          "DefaultValue": "0",
+          "iniName": "dp_type",
+          "iniType": "String"
+        },
+        {
+          "Name": "i",
+          "Type": "EditBox",
+          "DefaultValue": "20",
+          "iniName": "tool_i",
+          "iniType": "Float"
+        },
+        {
+          "Name": "w",
+          "Type": "EditBox",
+          "DefaultValue": "12.7",
+          "iniName": "tool_w",
+          "iniType": "Float"
+        },
+        {
+          "Name": "draft",
+          "Type": "EditBox",
+          "DefaultValue": "11",
+          "iniName": "tool_draft",
+          "iniType": "Float"
+        }
+      ]
+    },
+    {
+      "Name": "附加参数(单位:mm)",
+      "ParamList":
+      [
+        {
+          "Name": "tool_angle",
+          "Type": "EditBox",
+          "DefaultValue": "3",
+          "iniName": "tool_angle",
+          "iniType": "Float"
+        },
+        {
+          "Name": "tool_angle1",
+          "Type": "EditBox",
+          "DefaultValue": "10",
+          "iniName": "tool_angle1",
+          "iniType": "Float"
+        },
+        {
+          "Name": "z",
+          "Type": "EditBox",
+          "DefaultValue": "5",
+          "iniName": "z",
+          "iniType": "Float"
+        }
+      ]
+    }
+          ]
+}

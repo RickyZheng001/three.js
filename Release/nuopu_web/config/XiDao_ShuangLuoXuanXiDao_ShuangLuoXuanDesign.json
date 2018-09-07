@@ -1,0 +1,107 @@
+{
+  "ID": "123456",
+  "Name": "铣刀",
+  "Tab": [
+    {
+      "Name": "主表(单位:mm)",
+      "ParamList": [
+        {
+          "Name": "刀具类型",
+          "Type": "ComboBox",
+          "Choise": "双螺旋铣刀",
+          "DefaultValue": "0",
+          "iniName": "tool_type",
+          "iniType": "string"
+        },
+        {
+          "Name": "刀具品牌",
+          "Choise":"nuopu,Seco,Prawet",
+          "Type": "ComboBox",
+          "DefaultValue": "0",
+          "iniName": "company_name",
+          "iniType": "Float"
+        },
+        {
+          "Name": "订货型号",
+          "Type": "EditBox",
+          "DefaultValue": "0",
+          "iniName": "No",
+          "iniType": "string"
+        },
+        {
+          "Name": "文件名",
+          "Type": "EditBox",
+          "DefaultValue": "",
+          "iniName": "FN",
+          "iniType": "string",
+          "ServerGenerateID": 1
+        },
+        {
+          "Name": "更新文件名",
+          "Type": "GenerateServerID",
+          "DefaultValue": ""
+        }
+      ]
+    },
+    {
+      "Name": "样本参数(单位:mm)",
+      "ParamList": [
+        {
+          "Name": "Dc",
+          "Type": "EditBox",
+          "DefaultValue": "12",
+          "iniName": "Dc",
+          "iniType": "Float"
+        },
+        {
+          "Name": "l2",
+          "Type": "EditBox",
+          "DefaultValue": "90",
+          "iniName": "l2",
+          "iniType": "Float"
+        },
+        {
+          "Name": "ap",
+          "Type": "EditBox",
+          "DefaultValue": "24",
+          "iniName": "ap",
+          "iniType": "Float"
+        },
+        {
+          "Name": "apsplit",
+          "Type": "EditBox",
+          "DefaultValue": "6",
+          "iniName": "apsplit",
+          "iniType": "Float"
+        },
+        {
+          "Name": "re1",
+          "Type": "EditBox",
+          "DefaultValue": "0.5",
+          "iniName": "re1",
+          "iniType": "Float"
+        }
+      ]
+    },
+    {
+      "Name": "柄部类型(单位:mm)",
+      "ParamList": [
+        {
+          "Name": "Zn",
+          "Type": "ComboBox",
+          "Choise": "4,5",
+          "DefaultValue": "0",
+          "iniName": "Zn",
+          "iniType": "Float"
+        },
+        {
+          "Name": "dm",
+          "Type": "EditBox",
+          "DefaultValue": "12",
+          "iniName": "dm",
+          "iniType": "Float"
+        }
+      ]
+    }
+  ]
+}

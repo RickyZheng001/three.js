@@ -1,0 +1,41 @@
+{
+  "Name":"整体镗刀杆",
+  "ParamsArray":
+  [
+    {
+      "Name":"刀具品牌",
+      "HtmlCtrlId":"company_name",
+      "Type":"ComboBox",
+      "Choise":"所有,nuopu,Seco,Prawet",
+      "DefaultValue":"0",
+      "IniName":"company_name",
+      "CanBeEdited":1
+    },
+    {
+      "Name":"订货型号",
+      "HtmlCtrlId":"No",
+      "Type":"EditBox",
+      "DefaultValue":"",
+      "IniName":"No",
+      "CanBeEdited":1
+    },
+    {
+      "Name":"前端类型",
+      "HtmlCtrlId":"tool_type",
+      "Type":"ComboBox",
+      "Choise":"整硬镗刀0.3-6.2,镗刀杆A6-8,镗刀杆B6-13,镗刀杆A13-33,镗刀杆B33-63",
+      "DefaultValue":"0",
+      "IniName":"tool_type",
+      "CanBeEdited":1
+    },
+    {
+      "Name": "干涉直径max",
+      "HtmlCtrlId":"d1_max",
+      "Type": "EditBox",
+      "DefaultValue": "",
+      "DanWeiString":"mm",
+      "IniName": "d1_max",
+      "CanBeEdited":1
+    }
+  ]
+}

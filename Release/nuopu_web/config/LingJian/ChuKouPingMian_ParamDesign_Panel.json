@@ -1,0 +1,18 @@
+{
+	"Name":"出口平面",
+	"ParamsArray":
+	[
+		{
+			"Name": "基准",
+			"Type": "EditBox",
+			"Choise": "4",
+			"DefaultValue": "0"
+		},
+		{
+			"Name":"出口状态",
+			"Type":"EditBox",
+			"DefaultValue":1,
+			"DanWeiString":""
+		}
+	]
+}

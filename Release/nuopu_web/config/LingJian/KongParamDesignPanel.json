@@ -1,0 +1,53 @@
+{
+	"ParamsArray":
+	[
+		{
+			"Name": "基准",
+			"Type": "ComboBox",
+			"Choise": "Y,N",
+			"DefaultValue": "0"
+		},
+		{
+			"Name":"中心点X",
+			"Type":"EditBox",
+			"DefaultValue":10,
+			"DanWeiString":"mm"
+		},
+		{
+			"Name":"中心点Y",
+			"Type":"EditBox",
+			"DefaultValue":10,
+			"DanWeiString":"mm"
+		},
+		{
+			"Name":"直径",
+			"Type":"EditBox",
+			"DefaultValue":10,
+			"DanWeiString":"mm"
+		},
+		{
+			"Name":"直径精度",
+			"Type":"EditBox",
+			"DefaultValue":10,
+			"DanWeiString":"mm"
+		},
+		{
+			"Name":"形状精度",
+			"Type":"ComboBox",
+			"Choise": "直线度,圆度,圆柱度",
+			"DefaultValue":"0"
+		},
+		{
+			"Name":"位置精度",
+			"Type":"ComboBox",
+			"Choise": "平行度,垂直度,位置度",
+			"DefaultValue":"0"
+		},
+		{
+			"Name":"表面粗糙度",
+			"Type":"ComboBox",
+			"Choise": "直径方向,长度方向",
+			"DefaultValue":"0"
+		}
+	]
+}

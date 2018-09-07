@@ -1,0 +1,10 @@
+{
+	"Name":"刀具参数设计",
+	"ParamsArray":
+	[
+		{
+			"Name":"刀柄尾端主形式",
+			"Type":"ComboBox"
+		}
+	]
+}

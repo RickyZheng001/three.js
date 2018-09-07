@@ -1,0 +1,894 @@
+#modal_overlay {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    visibility: hidden;
+    top: 0px;
+    z-index: 1;
+    text-align: center;
+
+}
+
+#logo {
+    position: absolute;
+    right: 615px;
+    bottom: -570px;
+}
+
+#SearchTable {
+    visibility: hidden;
+    width: 750px;
+    height: 500px;
+    position: absolute;
+    top: 110px;
+    left: 500px;
+}
+
+.tangdao {
+    width: 50%;
+}
+
+/*表格*/
+#table {
+    cellspacing: 1;
+}
+
+.table_tr .th {
+    height: 36px;
+    border: 1px #009FD7 solid;
+    background-color: #DDDDDD;
+    font-size: 16px;
+}
+
+.table_tr {
+    height: 35px;
+    font-size: 15px;
+}
+
+.table_tr td {
+    border: 1px #009FD7 solid;
+    background-color: white;
+}
+
+.table_tr:hover>.th_hidden {
+    background-color: #AFB1B5;
+}
+
+.bt:hover div {
+    background-color: #AFB1B5;
+}
+
+.qingdan:hover div {
+    background-color: #AFB1B5;
+}
+
+#tablesa {
+    width: 980px;
+    height: 540px;
+}
+
+#tablesb {
+    max-height: 540px;
+    max-width: 700px;
+}
+
+#tablesa div {
+    float: left;
+}
+
+#logo {
+    position: absolute;
+    right: 615px;
+    bottom: -555px;
+}
+
+/* 模态框样式 */
+.modal_data {
+    position: relative;
+    width: 500px;
+    height: 250px;
+    margin: 200px auto;
+    background: white;
+    opacity: 1;
+    text-align: left;
+    z-index: 1;
+
+}
+
+#modal_top {
+    background-color: #009FD7;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    padding-top: 5px;
+    width: 100%;
+    height: 34px;
+}
+
+#modal_main {
+    background-color: white;
+    width: 100%;
+    height: 100%;
+}
+
+#p_top {
+    font-size: 23px;
+    width: 100%;
+    text-align: center;
+    margin: 31px 0;
+}
+
+.p_main {
+    padding-left: 61px;
+    font-size: 16px;
+}
+
+#modal_button {
+    cursor: pointer;
+    width: 95px;
+    height: 35px;
+    text-align: center;
+    font-size: 17px;
+    color: white;
+    border: 1px #009FD7 solid;
+    background-color: #009FD7;
+}
+
+#download {
+    width: 340px;
+    height: 393px;
+    position: absolute;
+    left: 530px;
+    top: 200px;
+    z-index: 1;
+    background-color: #DCDCDC;
+    visibility: hidden;
+}
+
+#download_title {
+    width: 100%;
+    height: 30px;
+    background-color: #009FD7;
+    color: white;
+
+}
+
+#Dtitle_left {
+    width: 100%;
+}
+
+#download_title div {
+    float: left;
+}
+
+#download_main {
+    height: 410px;
+    background-color: #DCDCDC;
+}
+
+#Dtitle_left img {
+    float: left;
+    margin: 0px 5px;
+}
+
+#download_bottom {
+    background-color: #C1C1C1;
+    height: 33px;
+}
+
+#download_bottom div {
+    float: left;
+}
+
+#download_foot {
+    background-color: #009FD7;
+    color: white;
+    height: 183px;
+}
+
+#download_a {
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.Dtitle {
+    font-weight: bold;
+    font-size: 18px;
+    width: 337px;
+    height: 28px;
+    margin: 10px 10px;
+}
+
+#download_main_top div, #download_main_bottom div, #download_d div {
+    float: left;
+}
+
+.Dtitle_left {
+    width: 20px;
+    height: 20px;
+    margin: 5px 20px;
+}
+
+.Dtitle_right {
+    width: 260px;
+    height: 20px;
+    margin: 5px 10px 5px 0px;
+}
+
+.check_right {
+    float: right;
+}
+
+.Dtitle_f {
+    font-size: 18px;
+    width: 330px;
+    height: 28px;
+    margin: 0px 10px;
+}
+
+#button_left, #button_right {
+    float: left;
+    color: black;
+    border-radius: 4px;
+    padding: 2px;
+    font-size: 10px;
+    cursor: pointer;
+    margin: 2px;
+    text-transform: uppercase;
+    width: 70px;
+    text-align: center;
+}
+
+#storeroom {
+    width: 245px;
+    position: absolute;
+    right: 200px;
+    top: 580px;
+    visibility: hidden;
+    z-index: 1;
+}
+
+.storeroom_main li {
+    list-style: none;
+}
+
+.storeroom_title, .storeroom_button {
+    width: 100%;
+    height: 28px;
+}
+
+.storeroom_title {
+    background-color: #009FD7;
+    color: white;
+}
+
+.storeroom_title div {
+    float: left;
+}
+
+.storeroom_main {
+    background-color: #DCDCDC;
+}
+
+.storeroom_button {
+    cursor: pointer;
+    background-color: #009FD7;
+    color: white;
+    text-align: center;
+}
+
+#progress {
+    position: absolute;
+    width: 590px;
+    height: 740px;
+    left: 600px;
+    top: 104px;
+    background-color: white;
+    border: 1px grey solid;
+    visibility: hidden;
+    z-index: 1;
+}
+
+#progress_title {
+    width: 100%;
+    height: 28px;
+    background-color: #009FD7;
+}
+
+#progress_title div {
+    float: left;
+    color: white;
+}
+
+#progress_main {
+    width: 100%;
+    height: 140px;
+}
+
+#porgress_main_top {
+    width: 100%;
+    height: 140px;
+    margin-left: 30%;
+}
+
+#porgress_main_bottom {
+    width: 100%;
+    height: 45px;
+}
+
+#progress_bottom {
+    width: 100%;
+    height: 350px;
+    text-align: center;
+}
+
+#daobing {
+    width: 1440px;
+    height: 670px;
+    border: 1px green solid;
+    background-color: white;
+    position: absolute;
+    left: 260px;
+    top: 150px;
+}
+
+#daobing * {
+    border: 1px red solid;
+}
+
+#daobing .daobing_top, #daobing div {
+    float: left;
+}
+
+.daobing_top button {
+    margin: 0px 10px;
+}
+
+#daobing_top {
+    width: 1330px;
+    height: 80px;
+    margin: 25px 52px;
+}
+
+#daobing_left {
+    width: 246px;
+    height: 492px;
+    margin: 0px 25px 0px 52px;
+}
+
+#daobing_center {
+    width: 625px;
+    height: 492px;
+    margin: 0px 25px;
+
+}
+
+#daobing_right {
+    width: 300px;
+    height: 492px;
+    margin: 0px 25px;
+}
+
+#gameCanvass {
+    width: 1920px;
+    visibility: hidden;
+}
+
+#EditSlot {
+    position: absolute;
+    left: 245px;
+    top: 45px;
+    border-width: 1px;
+    border: 4px #dddddd solid;
+    background-color: white;
+}
+
+#EditSlot > div {
+    float: left;
+}
+
+#EditSlot_a {
+    background-color: #AFB1B5;
+    left: 1px;
+    top: 1px;
+    width: 1215px;
+    height: 45px;
+    margin: 0px;
+    padding: 0px;
+    z-index: 0;
+}
+
+#EditSlot_b {
+    background-color: #AFB1B5;
+    left: 1px;
+    top: 1px;
+    width: 235px;
+    height: 45px;
+    margin: 0px;
+    padding: 0px;
+    z-index: 0;
+}
+
+/*刀片*/
+#XiDaopian {
+    width: 60px;
+}
+
+#CheDaopian {
+    width: 60px;
+}
+
+#ZuanDaopian {
+    width: 60px;
+}
+
+#CaoDaopian {
+    width: 60px;
+}
+
+#JiaoDaopian {
+    width: 60px;
+}
+
+#KeHuanDaoTou {
+    width: 80px;
+}
+
+#JiaTou {
+    width: 60px;
+}
+
+/*刀柄*/
+#LaDing {
+    width: 40px;
+}
+
+#ZhengTiDaoBing {
+    width: 80px;
+}
+
+#YanChangGan {
+    width: 60px;
+}
+
+#JiaTao {
+    width: 40px;
+}
+
+#CheDaoDaoZuo {
+    width: 80px;
+}
+
+#JiChuBing {
+    width: 60px;
+}
+
+#BianJingYanChang {
+    width: 80px;
+}
+
+#GongNengTou {
+    width: 60px;
+}
+
+#KeTiaoDaoBingHouDuan {
+    width: 120px;
+}
+
+#KeTiaoDaoBingQianDuan {
+    width: 120px;
+}
+
+/*镗刀*/
+#CuTangDaoTou {
+    width: 80px;
+}
+
+#CuTangDaoJia {
+    width: 80px;
+}
+
+#JingTangDaoTou {
+    width: 80px;
+}
+
+#ZhengTiTangDaoGan {
+    width: 100px;
+}
+
+#KeZhuanWeiTangDaoGan {
+    width: 120px;
+}
+
+#JingTangDaoJia {
+    width: 80px;
+}
+
+/*关闭*/
+#GuanBi {
+    width: 30px;
+    margin-right: 20px;
+}
+
+#EditSlot_a #GuanBi {
+    float: right;
+    margin-top: 10px;
+    margin-right: 20px;
+}
+
+#EditSlot_a .search {
+    float: left;
+    margin: 10px 0px 0px 20px;
+}
+
+.search {
+
+}
+
+.demo clearfix {
+    margin-top: 40px;
+    margin-left: 20px;
+}
+
+#dragslot {
+    width: 1442px;
+    margin-top: 70px;
+    height: 580px;
+}
+
+#yesone {
+    width: 30px;
+    position: absolute;
+    margin-left: 800px;
+    margin-top: 10px;
+}
+
+#KuFilterBtn2 {
+    width: 30px;
+    position: absolute;
+    margin-left: 850px;
+    margin-top: 10px;
+}
+
+#LingJianBtn2 {
+    width: 80px;
+    position: absolute;
+    margin-left: 1270px;
+    margin-top: 10px;
+}
+
+#LingJianBtn3 {
+    position: absolute;
+    margin-left: 1225px;
+    margin-top: 20px;
+}
+
+#yestwo {
+    width: 40px;
+    position: absolute;
+    margin-left: 1210px;
+    margin-top: 10px;
+}
+
+#ParamDesignBtn1 {
+    width: 50px;
+    position: absolute;
+    margin-left: 280px;
+    margin-top: 10px;
+}
+
+#ParamDesignBtn2 {
+    width: 50px;
+    position: absolute;
+    margin-left: 350px;
+    margin-top: 10px;
+}
+
+#LingJianSlotContainer {
+    position: absolute;
+    margin-left: 967px;
+    margin-top: 44px;
+    width: 433px;
+}
+
+#LingJianSlotContainers {
+    position: absolute;
+    margin-left: 967px;
+    margin-top: 44px;
+    width: 433px;
+}
+
+#biaotou {
+    width: 99%;
+    height: 36px;
+    visibility: hidden;
+    border: 2px solid #009fd7;
+    background-color: #DDDDDD;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.biaotou div {
+    height: 23px;
+    padding: 5px 0px;
+}
+
+#biaotou div {
+    float: left;
+    height: 23px;
+    padding: 7px 0px;
+    text-align: center;
+}
+
+.tool_type {
+    width: 170px
+}
+
+.no {
+    width: 130px
+}
+
+.num {
+    width: 50px;
+}
+
+.caozuo {
+    width: 61.5px
+}
+
+.xuhao {
+    width: 35px;
+}
+
+.names {
+    width: 120px;
+}
+
+.xinghao {
+    width: 120px;
+}
+
+.ceng {
+    width: 35px;
+    height: 20px;
+}
+
+.cao {
+    width: 36px;
+    height: 20px;
+}
+
+.jiachi {
+    width: 65px;
+    height: 20px;
+}
+
+.weizhi {
+    width: 40px;
+}
+
+.qingdans {
+    height: 40px;
+    border: 2px solid #009fd7;
+    background-color: #DDDDDD;
+}
+
+.qingdan {
+    height: 35px;
+    border-bottom: 2px solid #009fd7;
+    border-left: 2px solid #009fd7;
+    border-right: 2px solid #009fd7;
+
+}
+
+.qingdans > div {
+    font-size: 16px;
+    font-weight: bold;
+    padding: 9.5px 0px;
+    float: left;
+    text-align: center;
+}
+
+.qingdan > div {
+    padding: 7.5px 0px;
+    font-size: 15px;
+    float: left;
+    text-align: center;
+}
+
+.jiegoubut {
+    height: 21px;
+    width: 220px;
+    padding: 10px 30px;
+}
+
+#selectSearch {
+    width: 50%;
+}
+
+#a {
+    margin-right: 5px;
+}
+
+#daoJuSearch {
+    width: 1458px;
+    height: 658px;
+    border: 4px #dddddd solid;
+    visibility: hidden;
+    position: absolute;
+    left: 245px;
+    top: 45px;
+    background-color: white;
+}
+
+#daoJuSearch_top {
+    width: 100%;
+    height: 45px;
+    background-color: #AFB1B5;
+}
+#daoJuSearch_top div{
+    float: right;
+    margin: 10px 20px 0px 0px;
+}
+#daoJuSearch_main {
+    width: 100%;
+    height: 583px;
+    margin-top: 30px;
+}
+
+#daoJuSearch_main > div {
+    float: left;
+}
+
+#daoJuSearch_main_left {
+    width: 438.55px;
+    height: 544px;
+    margin-left: 30px;
+}
+
+#daoJuSearch_main_left_top {
+    width: 100%;
+    height: 40px;
+    border: 2px solid #009FD7;
+}
+#daoJuSearch_main_left_top div{
+    float: left;
+}
+#daoJuSearch_main_left_bottom {
+    width: 100%;
+    height: 500px;
+    border: 2px solid #009FD7;
+    overflow-y: scroll;
+}
+
+#daoJuSearch_main_right {
+    width: 910px;
+    height: 544px;
+    margin-left: 35px;
+}
+
+#daoJuSearch_main_right_top {
+    width: 100%;
+    height: 297px;
+}
+#daoJuSearch_main_right_top_top{
+    width: 100%;
+    height: 40px;
+    border: 2px solid #009FD7;
+    font-size: 19px;
+    font-weight:bold;
+}
+#daoJuSearch_main_right_top_bottom{
+    width: 100%;
+    height: 249px;
+    border: 2px solid #009FD7;
+    overflow: scroll;
+}
+
+#daoJuSearch_main_right_bottom {
+    width: 914px;
+    height: 247px;
+}
+
+
+
+
+
+#jiShuVideo{
+    position: absolute;
+    top: 200px;
+    left: 615px;
+    width: 640px;
+    height: 394px;
+    border: 1px solid #AFB1B5;
+    visibility: hidden;
+}
+#jiSHuVideo_top{
+    width: 100%;
+    height: 34px;
+    background-color: #009FD7;
+    color: white;
+}
+#jiSHuVideo_top div {
+    float: left;
+}
+
+
+
+#missage{
+    position: absolute;
+    left: 660px;
+    top: 145px;
+    width: 450px;
+    height: 740px;
+    border: 1px solid #AFB1B5;
+    background-color: white;
+    visibility: hidden;
+}
+#missage_top{
+    width: 100%;
+    height: 34px;
+    background-color: #009FD7;
+    color: white;
+}
+#missage_top div{
+    float: left;
+}
+#missage_main{
+    width: 100%;
+    height: 202px;
+}
+#missage_main_top{
+    width: 100%;
+    height: 163px;
+}
+#missage_main_top div{
+    float: left;
+    margin-top: 15px;
+    margin-left: 25px;
+}
+
+
+
+#check{
+    left: 750px;
+    top: 185px;
+    width: 432px;
+    height: 395px;
+    position: absolute;
+    border: 1px solid #AFB1B5;
+    background-color: white;
+    visibility: hidden;
+}
+#check_top{
+    width: 100%;
+    height: 34px;
+    background-color: #009FD7;
+    color: white;
+}
+#check_top div {
+    float: left;
+}
+#check_main{
+    width: 67%;
+    height: 67%;
+    margin: 8% 17% 2% 17%;
+    border-bottom: 2px grey dashed;
+}
+#check div{
+    float: left;
+}
+.check{
+    width: 49.5%;
+    height: 12%;
+    font-family: 微软雅黑;
+    font-size: 13px;
+}
+.right{
+    text-align: left;
+    font-weight: bold;
+}
+.left{
+    text-align: right;
+}

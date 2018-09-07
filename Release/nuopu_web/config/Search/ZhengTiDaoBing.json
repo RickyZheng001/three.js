@@ -1,0 +1,464 @@
+{
+  "Name":"整体刀柄",
+  "ParamsArray":
+  [
+    {
+      "Name":"刀具品牌",
+      "HtmlCtrlId":"company_name",
+      "Type":"ComboBox",
+      "Choise":"所有,nuopu,Seco,Prawet",
+      "DefaultValue":"0",
+      "IniName":"company_name",
+      "CanBeEdited":1
+    },
+    {
+      "Name":"订货型号",
+      "HtmlCtrlId":"No",
+      "Type":"EditBox",
+      "DefaultValue":"",
+      "IniName":"No",
+      "CanBeEdited":1
+    },
+    {
+      "Name":"前端大类",
+      "HtmlCtrlId":"QianDuan",
+      "Type":"ComboBox",
+      "Choise":
+        [
+          {
+            "Name":"面铣刀柄",
+            "ParamsArray":
+            [
+                {
+                  "Name":"前端类型",
+                  "HtmlCtrlId":"tool_type",
+                  "Type":"ComboBox",
+                  "Choise":"Accu-Fit,steadyline,内冷通道,小端面,Axiaset,法兰安装型,三面刃",
+                  "DefaultValue":"0",
+                  "IniName":"",
+                  "CanBeEdited":1
+                },
+                {
+                  "Name":"芯轴直径min",
+                  "HtmlCtrlId":"",
+                  "Type":"EditBox",
+                  "DefaultValue":"",
+                  "DanWeiString":"mm",
+                  "IniName":"",
+                  "CanBeEdited":1
+                },
+                {
+                  "Name":"芯轴直径max",
+                  "HtmlCtrlId":"",
+                  "Type":"EditBox",
+                  "DefaultValue":"",
+                  "DanWeiString":"mm",
+                  "IniName":"",
+                  "CanBeEdited":1
+                }
+            ]
+          },
+          {
+            "Name":"热胀刀柄",
+            "ParamsArray":
+            [
+              {
+                "Name":"前端类型",
+                "HtmlCtrlId":"tool_type",
+                "Type":"ComboBox",
+                "Choise":"DIN型,增强型r,保护系统的增强型,模具加工型",
+                "DefaultValue":"0",
+                "IniName":"",
+                "CanBeEdited":1
+              },
+              {
+                "Name":"夹持直径min",
+                "HtmlCtrlId":"d11_min",
+                "Type":"EditBox",
+                "DefaultValue":"",
+                "DanWeiString":"mm",
+                "IniName":"d11_min",
+                "CanBeEdited":1
+              },
+              {
+                "Name":"夹持直径max",
+                "HtmlCtrlId":"d11_max",
+                "Type":"EditBox",
+                "DefaultValue":"",
+                "DanWeiString":"mm",
+                "IniName":"d11_max",
+                "CanBeEdited":1
+              }
+            ]
+          },
+          {
+            "Name":"液压刀柄",
+            "ParamsArray":
+            [
+              {
+                "Name":"前端类型",
+                "HtmlCtrlId":"tool_type",
+                "Type":"ComboBox",
+                "Choise":"增强型y,普通,高强度",
+                "DefaultValue":"0",
+                "IniName":"",
+                "CanBeEdited":1
+              }
+            ]
+          },
+          {
+            "Name":"弹簧夹头刀柄",
+            "ParamsArray":
+            [
+              {
+                "Name":"前端类型",
+                "HtmlCtrlId":"tool_type",
+                "Type":"ComboBox",
+                "Choise":"高精度,ER弹簧夹头,OZ弹簧夹头刀柄",
+                "DefaultValue":"0",
+                "IniName":"",
+                "CanBeEdited":1
+              },
+              {
+                "Name":"夹套类型",
+                "HtmlCtrlId":"jiatou_type",
+                "Type":"ComboBox",
+                "Choise":
+                [
+                  {
+                    "Name":"所有",
+                    "ParamsArray": [
+                      {
+                        "Name":"夹套规格",
+                        "HtmlCtrlId":"jiatou_D",
+                        "Type":"ComboBox",
+                        "Choise":"所有",
+                        "DefaultValue":"0",
+                        "IniName":"jiatou_D",
+                        "CanBeEdited":1
+                      }
+                    ]
+                  },
+                  {
+                    "Name":"ER",
+                    "ParamsArray":
+                    [
+                      {
+                        "Name":"夹套规格",
+                        "HtmlCtrlId":"jiatou_D",
+                        "Type":"ComboBox",
+                        "Choise":"所有,08,11,16,25,32,40",
+                        "DefaultValue":"0",
+                        "IniName":"jiatou_D",
+                        "CanBeEdited":1
+                      }
+                    ]
+                  },
+                  {
+                    "Name":"HP",
+                    "ParamsArray":
+                    [
+                      {
+                        "Name":"夹套规格",
+                        "HtmlCtrlId":"jiatou_D",
+                        "Type":"ComboBox",
+                        "Choise":"所有,11,16,25,32",
+                        "DefaultValue":"0",
+                        "IniName":"jiatou_D",
+                        "CanBeEdited":1
+                      }
+                    ]
+                  },
+                  {
+                    "Name":"OZ",
+                    "ParamsArray":
+                    [
+                      {
+                        "Name":"夹套规格",
+                        "HtmlCtrlId":"jiatou_D",
+                        "Type":"ComboBox",
+                        "Choise":"所有,32",
+                        "DefaultValue":"0",
+                        "IniName":"jiatou_D",
+                        "CanBeEdited":1
+                      }
+                    ]
+                  }
+                ],
+                "DefaultValue":"0",
+                "IniName":"",
+                "CanBeEdited":1
+              }
+            ]
+          },
+          {
+            "Name":"攻丝夹头刀柄",
+            "ParamsArray":
+            [
+              {
+                "Name":"前端类型",
+                "HtmlCtrlId":"tool_type",
+                "Type":"ComboBox",
+                "Choise":"微补偿刚性攻丝的,轴向补偿快,刚性攻丝快换,刚性攻丝ER",
+                "DefaultValue":"0",
+                "IniName":"",
+                "CanBeEdited":1
+              },
+              {
+                "Name":"夹套类型",
+                "HtmlCtrlId":"jiatao_type",
+                "Type":"ComboBox",
+                "Choise":
+                [
+                  {
+                    "Name":"所有",
+                    "ParamsArray":
+                    [
+                      {
+                        "Name":"夹套规格",
+                        "HtmlCtrlId":"jiatou_D",
+                        "Type":"ComboBox",
+                        "Choise":"所有",
+                        "DefaultValue":"0",
+                        "IniName":"jiatou_D",
+                        "CanBeEdited":1
+                      }
+                    ]
+                  },
+                  {
+                    "Name":"ER",
+                    "ParamsArray":
+                    [
+                      {
+                        "Name":"夹套规格",
+                        "HtmlCtrlId":"jiatou_D",
+                        "Type":"ComboBox",
+                        "Choise":"所有,20,25,32,40",
+                        "DefaultValue":"0",
+                        "IniName":"jiatou_D",
+                        "CanBeEdited":1
+                      }
+                    ]
+                  },
+                  {
+                    "Name":"HP",
+                    "ParamsArray":
+                    [
+                      {
+                        "Name":"夹套规格",
+                        "HtmlCtrlId":"jiatou_D",
+                        "Type":"ComboBox",
+                        "Choise":"所有,11,16,25,32",
+                        "DefaultValue":"0",
+                        "IniName":"jiatou_D",
+                        "CanBeEdited":1
+                      }
+                    ]
+                  },
+                  {
+                    "Name":"OZ",
+                    "ParamsArray":
+                    [
+                      {
+                        "Name":"夹套规格",
+                        "HtmlCtrlId":"jiatou_D",
+                        "Type":"ComboBox",
+                        "Choise":"所有,32",
+                        "DefaultValue":"0",
+                        "IniName":"jiatou_D",
+                        "CanBeEdited":1
+                      }
+                    ]
+                  }
+                ],
+                "DefaultValue":"0",
+                "IniName":"",
+                "CanBeEdited":1
+              },
+              {
+                "Name":"攻丝范围",
+                "HtmlCtrlId":"gongsi_type",
+                "Type":"ComboBox",
+                "Choise":"所有,M3-M12,M4-M12,M5-M30,M8-M20,M12-M33,M14-M33,M16-M30",
+                "DefaultValue":"0",
+                "IniName":"gongsi_type",
+                "CanBeEdited":1
+              }
+            ]
+          },
+          {
+            "Name":"侧固刀柄",
+            "ParamsArray":
+            [
+              {
+                "Name":"前端类型",
+                "HtmlCtrlId":"tool_type",
+                "Type":"ComboBox",
+                "Choise":"Weldon设计1,Weldon设计2,Weldon短型设计1,Weldon短型设计2",
+                "DefaultValue":"0",
+                "IniName":"",
+                "CanBeEdited":1
+              },
+              {
+                "Name":"夹持直径min",
+                "HtmlCtrlId":"d11_min",
+                "Type":"EditBox",
+                "DefaultValue":"",
+                "DanWeiString":"mm",
+                "IniName":"d11_min",
+                "CanBeEdited":1
+              },
+              {
+                "Name":"夹持直径max",
+                "HtmlCtrlId":"d11_max",
+                "Type":"EditBox",
+                "DefaultValue":"",
+                "DanWeiString":"mm",
+                "IniName":"d11_max",
+                "CanBeEdited":1
+              }
+            ]
+          }
+        ],
+      "DefaultValue":"0",
+      "IniName":"",
+      "CanBeEdited":1
+    },
+    {
+      "Name": "尾端类型",
+      "HtmlCtrlId":"h_type",
+      "Type": "ComboBox",
+      "Choise": [
+        {
+          "Name": "所有",
+          "ParamsArray": [
+            {
+              "Name": "尾端规格",
+              "HtmlCtrlId":"D_value",
+              "Type": "ComboBox",
+              "Choise": "所有",
+              "DefaultValue": "0",
+              "IniName": "D_value",
+              "CanBeEdited":1
+            }
+          ]
+        },
+        {
+          "Name": "BT_JIS_B_6339_1",
+          "ParamsArray": [
+            {
+              "Name": "尾端规格",
+              "HtmlCtrlId":"D_value",
+              "Type": "ComboBox",
+              "Choise": "所有,30,40,50",
+              "DefaultValue": "0",
+              "IniName": "D_value",
+              "CanBeEdited":1
+            }
+          ]
+        },
+        {
+          "Name": "DIN_69871_1",
+          "ParamsArray": [
+            {
+              "Name": "尾端规格",
+              "HtmlCtrlId":"D_value",
+              "Type": "ComboBox",
+              "Choise": "所有,30,40,50",
+              "DefaultValue": "0",
+              "IniName": "D_value",
+              "CanBeEdited":1
+            }
+          ]
+        },
+        {
+          "Name": "HSK_A_ISO_12164_1",
+          "ParamsArray": [
+            {
+              "Name": "尾端规格",
+              "HtmlCtrlId":"D_value",
+              "Type": "ComboBox",
+              "Choise": "所有,32,40,63,100",
+              "DefaultValue": "0",
+              "IniName": "D_value",
+              "CanBeEdited":1
+            }
+          ]
+        },
+        {
+          "Name": "HSK_E",
+          "ParamsArray": [
+            {
+              "Name": "尾端规格",
+              "HtmlCtrlId":"D_value",
+              "Type": "ComboBox",
+              "Choise": "所有,25,32,40,50",
+              "DefaultValue": "0",
+              "IniName": "D_value",
+              "CanBeEdited":1
+            }
+          ]
+        },
+        {
+          "Name": "CAPTO",
+          "ParamsArray":
+          [
+            {
+              "Name": "尾端规格",
+              "Type": "ComboBox",
+              "HtmlCtrlId":"D_value",
+              "Choise": "所有,c3,c4,c5,c6,c8,c10",
+              "DefaultValue": "0",
+              "IniName": "D_value",
+              "CanBeEdited":1
+            }
+          ]
+        },
+        {
+          "Name": "Graflex",
+          "ParamsArray": [
+            {
+              "Name": "尾端规格",
+              "Type": "ComboBox",
+              "HtmlCtrlId":"D_value",
+              "Choise": "所有,G0,G1,G2,G3,G4,G5,G6,G7",
+              "DefaultValue": "0",
+              "IniName": "D_value",
+              "CanBeEdited":1
+            }
+          ]
+        }
+      ],
+      "DefaultValue": "0",
+      "IniName": "h_type",
+      "CanBeEdited":1
+    },
+    {
+      "Name": "A有效长度min",
+      "HtmlCtrlId":"A_min",
+      "Type": "EditBox",
+      "DefaultValue": "",
+      "DanWeiString":"mm",
+      "IniName": "A_min",
+      "CanBeEdited":1
+    },
+    {
+      "Name": "A有效长度max",
+      "HtmlCtrlId":"A_max",
+      "Type": "EditBox",
+      "DefaultValue": "",
+      "DanWeiString":"mm",
+      "IniName": "A_max",
+      "CanBeEdited":1
+    },
+    {
+      "Name": "干涉直径max",
+      "HtmlCtrlId":"D_max",
+      "Type": "EditBox",
+      "DefaultValue": "",
+      "DanWeiString":"mm",
+      "IniName": "D_max",
+      "CanBeEdited":1
+    }
+  ]
+}

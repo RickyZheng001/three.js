@@ -1,0 +1,35 @@
+{
+	"Name":"长方体",
+	"ParamsArray":
+	[
+		{
+			"Name":"类型",
+			"Type":"EditBox",
+			"DefaultValue":2,
+			"DanWeiString":"",
+			"IniName":"part_type",
+			"CanBeEdited":0
+		},
+		{
+			"Name":"长",
+			"Type":"EditBox",
+			"DefaultValue":150,
+			"DanWeiString":"mm",
+			"IniName":"L"
+		},
+		{
+			"Name":"宽",
+			"Type":"EditBox",
+			"DefaultValue":20,
+			"DanWeiString":"mm",
+			"IniName":"W"
+		},
+		{
+			"Name":"高",
+			"Type":"EditBox",
+			"DefaultValue":20,
+			"DanWeiString":"mm",
+			"IniName":"H"
+		}
+	]
+}

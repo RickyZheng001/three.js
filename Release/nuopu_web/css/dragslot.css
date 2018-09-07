@@ -1,0 +1,56 @@
+
+.slot{
+	width: 30%;
+    min-height: 500px;
+	max-height: 500px;
+	height:500px;
+    float: left;
+    border: 2px solid #0abebf;
+    padding: 1px;
+	margin-left: 30px;
+}
+.empty-slot{
+	border:  1px dashed #ddd;
+}
+
+.slot-list{
+	list-style: none;
+    padding: 0;
+    font-size: 16px;
+    cursor:pointer;
+    margin: 0;
+	height: 500px;
+	max-height:500px;
+	overflow-y: scroll;
+
+}
+.slot-list-nopointer{
+	list-style: none;
+	padding: 0;
+	font-size: 20px;
+	cursor:default;
+	margin: 0;
+	height: 500px;
+	max-height:500px;
+	overflow-y: scroll;
+}
+.slot-item{
+	padding: 1px 10px;
+	border: 1px solid #18a0b7;
+
+}
+.slot-item:not(:last-child){
+	border-bottom-color: transparent;
+}
+
+/*.slot:not(:last-child){
+	margin-right: 2.3%;
+}*/
+.drag-item{
+	position: absolute;
+	opacity: .8;
+}
+.placeholder{
+	border: 2px dashed #349ce4;
+}
+

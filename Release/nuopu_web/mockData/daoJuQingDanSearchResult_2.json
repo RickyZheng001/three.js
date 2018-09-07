@@ -1,0 +1,12 @@
+[
+	{
+		"Name":"T1",
+		"ModelFullPath":"1.stl",
+		"PdfFullPath":"1.pdf"
+	},
+	{
+		"Name":"T2",
+		"ModelFullPath":"2.stl",
+		"PdfFullPath":"2.pdf"
+	}
+]

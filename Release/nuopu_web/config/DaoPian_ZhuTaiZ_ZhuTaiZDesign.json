@@ -1,0 +1,98 @@
+{
+	"ID":"123456",
+	"Name":"刀片",
+	"Tab":
+	[
+		{
+			"Name": "主表(单位:mm)",
+			"ParamList": [
+				{
+					"Name": "刀具类型",
+					"Type": "ComboBox",
+					"Choise": "烛台z",
+					"DefaultValue": "0",
+					"iniName": "tool_type",
+					"iniType": "string"
+				},
+				{
+					"Name": "刀具品牌",
+					"Choise":"nuopu,Seco,Prawet",
+					"Type": "ComboBox",
+					"DefaultValue": "0",
+					"iniName": "company_name",
+					"iniType": "string"
+				},
+				{
+					"Name": "订货型号",
+					"Type": "EditBox",
+					"DefaultValue": "0",
+					"iniName": "No",
+					"iniType": "string"
+				},
+				{
+					"Name": "文件名",
+					"Type": "EditBox",
+					"DefaultValue": "",
+					"iniName": "FN",
+					"iniType": "string",
+					"ServerGenerateID": 1
+				},
+				{
+					"Name": "更新文件名",
+					"Type": "GenerateServerID",
+					"DefaultValue": ""
+				}
+			]
+		},
+		{
+			"Name": "样本参数(单位:mm)",
+			"ParamList":
+			[
+				{
+					"Name": "Dc",
+					"Type": "EditBox",
+					"DefaultValue": "10",
+					"iniName": "Dc",
+					"iniType": "Float"
+				},
+				{
+					"Name": "l1s",
+					"Type": "EditBox",
+					"DefaultValue": "15",
+					"iniName": "l1s",
+					"iniType": "Float"
+				}
+			]
+		},
+		{
+			"Name":"柄部和冷却类型(单位:mm)",
+			"ParamList":
+			[
+				{
+					"Name":"冷却方式",
+					"Type":"ComboBox",
+					"Choise":"内冷,外冷",
+					"DefaultValue":"0",
+					"iniName":"Hole_Type",
+					"intType":"string"
+				},
+				{
+					"Name":"Pu",
+					"Type":"ComboBox",
+					"Choise":"螺旋槽,直槽",
+					"DefaultValue":"0",
+					"iniName":"Shape_Type",
+					"intType":"string"
+				},
+				{
+					"Name":"尾端类型",
+					"Type":"ComboBox",
+					"Choise":"6,8,10,12,16,20,25",
+					"DefaultValue":"0",
+					"iniName":"h_type",
+					"intType":"string"
+				}
+			]
+		}
+	]
+}

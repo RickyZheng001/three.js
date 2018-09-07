@@ -1,0 +1,206 @@
+{
+	"ID":"123456",
+	"Name":"铣刀",
+	"Tab":
+	[
+		{
+			"Name": "主表(单位:mm)",
+			"ParamList": [
+				{
+					"Name": "刀具类型",
+					"Type": "ComboBox",
+					"Choise": "SEE刀盘式面铣刀",
+					"DefaultValue": "0",
+					"iniName": "tool_type",
+					"iniType": "string"
+				},
+				{
+					"Name": "刀具品牌",
+					"Choise": "nuopu,Seco,Prawet",
+					"Type": "ComboBox",
+					"DefaultValue": "0",
+					"iniName": "company_name",
+					"iniType": "string"
+				},
+				{
+					"Name": "订货型号",
+					"Type": "EditBox",
+					"DefaultValue": "0",
+					"iniName": "No",
+					"iniType": "string"
+				},
+				{
+					"Name": "文件名",
+					"Type": "EditBox",
+					"DefaultValue": "",
+					"iniName": "FN",
+					"iniType": "string",
+					"ServerGenerateID": 1
+				},
+				{
+					"Name": "更新文件名",
+					"Type": "GenerateServerID",
+					"DefaultValue": ""
+				}
+			]
+		},
+		{
+			"Name":"样本参数(单位:mm)",
+			"ParamList":
+				[
+					{
+						"Name":"安装面直径",
+						"Type":"EditBox",
+						"DefaultValue":"77",
+						"iniName":"d5m",
+						"iniType":"Float"
+					},
+					{
+						"Name":"最大切削直径",
+						"Type":"EditBox",
+						"DefaultValue":"110",
+						"iniName":"dc2",
+						"iniType":"Float"
+					},
+					{
+						"Name":"ap",
+						"Type":"EditBox",
+						"DefaultValue":"4.5",
+						"iniName":"AP",
+						"iniType":"string"
+					},
+					{
+						"Name":"高度l1",
+						"Type":"EditBox",
+						"DefaultValue":"40",
+						"iniName":"l1",
+						"iniType":"string"
+					}
+				]
+		},
+		{
+			"Name":"刀片类型(单位:mm)",
+			"ParamList":
+				[
+					{
+						"Name":"刀片类型",
+						"Type":"ComboBox",
+						"Choise":
+						[
+							{
+								"Name":"SEEX.09",
+								"ParamList":
+								[
+									{
+										"Name":"刀片内切圆",
+										"Type":"EditBox",
+										"DefaultValue":"9.52",
+										"iniName":"tool_l",
+										"iniType":"Float"
+									},
+									{
+										"Name":"刀片厚度",
+										"Type":"EditBox",
+										"DefaultValue":"3.97",
+										"iniName":"tool_s",
+										"iniType":"Float"
+									}
+								]
+							},
+							{
+								"Name":"SEEX.12",
+								"ParamList":
+								[
+									{
+										"Name":"刀片内切圆",
+										"Type":"EditBox",
+										"DefaultValue":"12.7",
+										"iniName":"tool_l",
+										"iniType":"Float"
+									},
+									{
+										"Name":"刀片厚度",
+										"Type":"EditBox",
+										"DefaultValue":"4.76",
+										"iniName":"tool_s",
+										"iniType":"Float"
+									}
+								]
+							},
+							{
+								"Name":"SEEX.15",
+								"ParamList":
+								[
+									{
+										"Name":"刀片内切圆",
+										"Type":"EditBox",
+										"DefaultValue":"15.87",
+										"iniName":"tool_l",
+										"iniType":"Float"
+									},
+									{
+										"Name":"刀片厚度",
+										"Type":"EditBox",
+										"DefaultValue":"5.56",
+										"iniName":"tool_s",
+										"iniType":"Float"
+									}
+								]
+							}
+						],
+						"DefaultValue":"0",
+						"iniName":"dp_type",
+						"iniType":"String"
+					}
+				]
+		},
+		{
+			"Name":"附加参数(单位:mm)",
+			"ParamList":
+				[
+					{
+						"Name":"主偏角",
+						"Type":"EditBox",
+						"DefaultValue":"45",
+						"iniName":"kar",
+						"iniType":"string"
+					},
+					{
+						"Name":"刀片安装角度1",
+						"Type":"EditBox",
+						"DefaultValue":"-5",
+						"iniName":"tool_angle",
+						"iniType":"Float"
+					},
+					{
+						"Name":"刀片安装角度2",
+						"Type":"EditBox",
+						"DefaultValue":"15",
+						"iniName":"tool_angle1",
+						"iniType":"Float"
+					},
+					{
+						"Name":"流屑角度",
+						"Type":"EditBox",
+						"DefaultValue":"60",
+						"iniName":"angle",
+						"iniType":"Float"
+					},
+					{
+						"Name":"齿数",
+						"Type":"EditBox",
+						"DefaultValue":"5",
+						"iniName":"z",
+						"iniType":"string"
+					},
+					{
+						"Name":"修光刃刀片数量",
+						"Type":"EditBox",
+						"DefaultValue":"0",
+						"iniName":"xiu_num",
+						"iniType":"string"
+					}
+				]
+		}
+	]
+}

@@ -1,0 +1,317 @@
+{
+	"ID":"123456",
+	"Name":"铣刀",
+	"Tab":
+	[
+		{
+			"Name": "基本信息(单位:mm)",
+			"ParamList": [
+				{
+					"Name": "刀具类型",
+					"Type": "ComboBox",
+					"Choise": "球头铣刀",
+					"DefaultValue": "0",
+					"iniName": "tool_type",
+					"iniType": "string"
+				},
+				{
+					"Name": "刀具品牌",
+					"Choise": "nuopu,Seco,Prawet",
+					"Type": "ComboBox",
+					"DefaultValue": "0",
+					"iniName": "company_name",
+					"iniType": "string"
+				},
+				{
+					"Name": "订货型号",
+					"Type": "EditBox",
+					"DefaultValue": "0",
+					"iniName": "No",
+					"iniType": "string"
+				},
+				{
+					"Name": "文件名",
+					"Type": "EditBox",
+					"DefaultValue": "",
+					"iniName": "FN",
+					"iniType": "string",
+					"ServerGenerateID": 1
+				},
+				{
+					"Name": "更新文件名",
+					"Type": "GenerateServerID",
+					"DefaultValue": ""
+				}
+			]
+		},
+		{
+			"Name": "样本参数(单位:mm)",
+			"ParamList": [
+				{
+					"Name": "设计形式",
+					"Choise":
+						[
+							{
+								"Name":"D",
+								"ParamList":
+									[
+										{
+											"Name":"Dc",
+											"Type":"EditBox",
+											"DefaultValue":"6",
+											"iniName":"Dc",
+											"iniType":"Float"
+										},
+
+										{
+											"Name":"Dc_UD",
+											"Type":"EditBox",
+											"DefaultValue":"0",
+											"ID":"Dc_UD",
+											"iniName":"Dc_UD",
+											"iniType":"Float"
+										},
+										{
+											"Name":"Dc_LD",
+											"Type":"EditBox",
+											"DefaultValue":"-0.05",
+											"ID":"Dc_LD",
+											"iniName":"Dc_LD",
+											"iniType":"Float"
+										},
+										{
+											"Name":"ap",
+											"Type":"EditBox",
+											"DefaultValue":"25",
+											"iniName":"ap",
+											"iniType":"Float"
+										},
+										{
+											"Name":"l2",
+											"Type":"EditBox",
+											"DefaultValue":"55",
+											"iniName":"l2",
+											"iniType":"Float"
+										}
+									]
+							},
+							{
+								"Name":"E",
+								"ParamList":
+								[
+									{
+										"Name":"Dc",
+										"Type":"EditBox",
+										"DefaultValue":"6",
+										"iniName":"Dc",
+										"iniType":"Float"
+									},
+
+									{
+										"Name":"Dc_UD",
+										"Type":"EditBox",
+										"DefaultValue":"0",
+										"ID":"Dc_UD",
+										"iniName":"Dc_UD",
+										"iniType":"Float"
+									},
+									{
+										"Name":"Dc_LD",
+										"Type":"EditBox",
+										"DefaultValue":"-0.05",
+										"ID":"Dc_LD",
+										"iniName":"Dc_LD",
+										"iniType":"Float"
+									},
+									{
+										"Name":"ap",
+										"Type":"EditBox",
+										"DefaultValue":"25",
+										"iniName":"ap",
+										"iniType":"Float"
+									},
+									{
+										"Name":"l2",
+										"Type":"EditBox",
+										"DefaultValue":"55",
+										"iniName":"l2",
+										"iniType":"Float"
+									},
+									{
+										"Name":"l3",
+										"Type":"EditBox",
+										"DefaultValue":"15",
+										"iniName":"l3",
+										"iniType":"Float"
+									},
+									{
+										"Name":"Dn",
+										"Type":"EditBox",
+										"DefaultValue":"4.8",
+										"iniName":"Dn",
+										"iniType":"Float"
+									}
+								]
+							},
+							{
+								"Name":"F",
+								"ParamList":
+								[
+									{
+										"Name":"Dc",
+										"Type":"EditBox",
+										"DefaultValue":"6",
+										"iniName":"Dc",
+										"iniType":"Float"
+									},
+
+									{
+										"Name":"Dc_UD",
+										"Type":"EditBox",
+										"DefaultValue":"0",
+										"ID":"Dc_UD",
+										"iniName":"Dc_UD",
+										"iniType":"Float"
+									},
+									{
+										"Name":"Dc_LD",
+										"Type":"EditBox",
+										"DefaultValue":"-0.05",
+										"ID":"Dc_LD",
+										"iniName":"Dc_LD",
+										"iniType":"Float"
+									},
+									{
+										"Name":"ap",
+										"Type":"EditBox",
+										"DefaultValue":"25",
+										"iniName":"ap",
+										"iniType":"Float"
+									},
+									{
+										"Name":"l2",
+										"Type":"EditBox",
+										"DefaultValue":"55",
+										"iniName":"l2",
+										"iniType":"Float"
+									}
+								]
+							},
+							{
+								"Name":"G",
+								"ParamList":
+								[
+									{
+										"Name":"Dc",
+										"Type":"EditBox",
+										"DefaultValue":"6",
+										"iniName":"Dc",
+										"iniType":"Float"
+									},
+
+									{
+										"Name":"Dc_UD",
+										"Type":"EditBox",
+										"DefaultValue":"0",
+										"ID":"Dc_UD",
+										"iniName":"Dc_UD",
+										"iniType":"Float"
+									},
+									{
+										"Name":"Dc_LD",
+										"Type":"EditBox",
+										"DefaultValue":"-0.05",
+										"ID":"Dc_LD",
+										"iniName":"Dc_LD",
+										"iniType":"Float"
+									},
+									{
+										"Name":"ap",
+										"Type":"EditBox",
+										"DefaultValue":"25",
+										"iniName":"ap",
+										"iniType":"Float"
+									},
+									{
+										"Name":"l2",
+										"Type":"EditBox",
+										"DefaultValue":"55",
+										"iniName":"l2",
+										"iniType":"Float"
+									},
+									{
+										"Name":"l3",
+										"Type":"EditBox",
+										"DefaultValue":"15",
+										"iniName":"l3",
+										"iniType":"Float"
+									},
+									{
+										"Name":"Dn",
+										"Type":"EditBox",
+										"DefaultValue":"4.8",
+										"iniName":"Dn",
+										"iniType":"Float"
+									}
+								]
+							}
+						],
+					"Type": "ComboBox",
+					"DefaultValue": "0",
+					"iniName": "Shape_Type",
+					"iniType": "Float"
+				},
+				{
+					"Name":"Zn",
+					"Type":"ComboBox",
+					"Choise":"2,3,4,5,6",
+					"DefaultValue":"0",
+					"iniName":"Zn",
+					"iniType":"Float"
+				}
+			]
+		},
+		{
+			"Name":"柄部(单位:mm)",
+			"ParamList":
+			[
+				{
+					"Name":"柄部类型",
+					"Type":"ComboBox",
+					"Choise":
+					[
+						{
+							"Name":"圆柱",
+							"ParamList":
+							[
+								{
+									"Name":"dm",
+									"Type":"EditBox",
+									"DefaultValue":"6",
+									"iniName":"dm",
+									"iniType":"Float"
+								}
+							]
+						},
+						{
+							"Name":"侧固",
+							"ParamList":
+							[
+								{
+									"Name":"dm",
+									"Type":"EditBox",
+									"DefaultValue":"6",
+									"iniName":"dm",
+									"iniType":"Float"
+								}
+							]
+						}
+					],
+					"DefaultValue":"0",
+					"iniName":"Handle_Type",
+					"iniType":"string"
+				}
+			]
+		}
+	]
+}

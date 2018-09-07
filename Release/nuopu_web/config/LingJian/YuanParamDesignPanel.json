@@ -1,0 +1,17 @@
+{
+	"ParamsArray":
+	[
+		{
+			"Name": "圆类型",
+			"Type": "ComboBox",
+			"Choise": "圆柱,椭圆",
+			"DefaultValue": "0"
+		},
+		{
+			"Name":"圆直径",
+			"Type":"EditBox",
+			"DefaultValue":20,
+			"DanWeiString":"mm"
+		}
+	]
+}

@@ -1,0 +1,110 @@
+{
+  "ID": "123456",
+  "Name": "铣刀",
+  "Tab": [
+    {
+      "Name": "主表(单位:mm)",
+      "ParamList": [
+        {
+          "Name": "刀具类型",
+          "Type": "ComboBox",
+          "Choise": "整体三面刃铣刀",
+          "DefaultValue": "0",
+          "iniName": "tool_type",
+          "iniType": "string"
+        },
+        {
+          "Name": "刀具品牌",
+          "Choise":"nuopu,Seco,Prawet",
+          "Type": "ComboBox",
+          "DefaultValue": "0",
+          "iniName": "company_name",
+          "iniType": "Float"
+        },
+        {
+          "Name": "订货型号",
+          "Type": "EditBox",
+          "DefaultValue": "0",
+          "iniName": "No",
+          "iniType": "string"
+        },
+        {
+          "Name": "文件名",
+          "Type": "EditBox",
+          "DefaultValue": "",
+          "iniName": "FN",
+          "iniType": "string",
+          "ServerGenerateID": 1
+        },
+        {
+          "Name": "更新文件名",
+          "Type": "GenerateServerID",
+          "DefaultValue": ""
+        }
+      ]
+    },
+    {
+      "Name": "样本参数(单位:mm)",
+      "ParamList":
+      [
+        {
+          "Name": "B",
+          "Type": "EditBox",
+          "DefaultValue": "4",
+          "iniName": "B",
+          "iniType": "Float"
+        },
+        {
+          "Name": "d1",
+          "Type": "EditBox",
+          "DefaultValue": "50",
+          "iniName": "d1",
+          "iniType": "Float"
+        },
+        {
+          "Name": "d2",
+          "Type": "EditBox",
+          "DefaultValue": "16",
+          "iniName": "d2",
+          "iniType": "Float"
+        },
+        {
+          "Name": "Zn",
+          "Type": "EditBox",
+          "DefaultValue": "16",
+          "iniName": "Zn",
+          "iniType": "Float"
+        }
+      ]
+    },
+    {
+      "Name": "刀具类型(单位:mm)",
+      "ParamList": [
+        {
+          "Name": "刀具类型",
+          "Type": "ComboBox",
+          "Choise": "直齿,左斜齿,右斜齿,交叉齿",
+          "DefaultValue": "0",
+          "iniName": "Shape_Type",
+          "iniType": "String"
+        },
+        {
+          "Name": "上刀尖类型",
+          "Type": "ComboBox",
+          "Choise": "倒角,倒圆",
+          "DefaultValue": "0",
+          "iniName": "Up_Edge_Type",
+          "iniType": "String"
+        },
+        {
+          "Name": "下刀尖类型",
+          "Type": "ComboBox",
+          "Choise": "倒角,倒圆",
+          "DefaultValue": "0",
+          "iniName": "Down_Edge_Type",
+          "iniType": "String"
+        }
+      ]
+    }
+  ]
+}

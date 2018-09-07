@@ -1,0 +1,23 @@
+{
+	"Name":"中间孔相贯",
+	"ParamsArray":
+	[
+		{
+			"Name": "基准",
+			"Type": "EditBox",
+			"DefaultValue": "Y"
+		},
+		{
+			"Name":"相贯孔直径",
+			"Type":"EditBox",
+			"DefaultValue":4,
+			"DanWeiString":""
+		},
+		{
+			"Name":"起始面到中心距离",
+			"Type":"EditBox",
+			"DefaultValue":10,
+			"DanWeiString":""
+		}
+	]
+}

@@ -1,0 +1,140 @@
+{
+	"ID":"123456",
+	"Name":"钻头",
+	"Tab":
+	[
+		{
+			"Name":"基本信息(单位:mm)",
+			"ParamList":
+			[
+				{
+					"Name":"刀具类型",
+					"Type":"ComboBox",
+					"Choise":"枪钻A",
+					"DefaultValue":"0",
+					"iniName":"tool_type",
+					"iniType":"string"
+				},
+				{
+					"Name":"刀具品牌",
+					"Choise":"nuopu,Seco,Prawet",
+					"Type":"ComboBox",
+					"DefaultValue":"0",
+					"iniName":"company_name",
+					"iniType":"string"
+				},
+				{
+					"Name":"订货型号",
+					"Type":"EditBox",
+					"DefaultValue":"0",
+					"iniName":"No",
+					"iniType":"string"
+				},
+				{
+					"Name":"文件名",
+					"Type":"EditBox",
+					"DefaultValue":"",
+					"iniName":"FN",
+					"iniType":"string",
+					"ServerGenerateID":1
+				},
+				{
+					"Name":"更新文件名",
+					"Type":"GenerateServerID",
+					"DefaultValue":""
+				}
+			]
+		},
+		{
+			"Name":"样本参数(单位:mm)",
+			"ParamList":
+			[
+				{
+					"Name":"设计形式",
+					"Choise":"设计1,设计2,设计3",
+					"Type":"ComboBox",
+					"DefaultValue":"0",
+					"iniName":"Shape_Type",
+					"iniType":"string"
+				},
+				{
+					"Name":"d1",
+					"Type":"EditBox",
+					"DefaultValue":"1",
+					"iniName":"d1",
+					"iniType":"Float"
+				},
+				{
+					"Name":"l2",
+					"Type":"EditBox",
+					"DefaultValue":"30",
+					"iniName":"l2",
+					"iniType":"Float"
+				},
+				{
+					"Name":"l1",
+					"Type":"EditBox",
+					"DefaultValue":"60",
+					"iniName":"l1",
+					"iniType":"Float"
+				}
+			]
+		},
+		{
+			"Name": "柄部(单位:mm)",
+			"ParamList": [
+				{
+					"Name": "柄部类型",
+					"Type": "ComboBox",
+					"Choise": "圆柱,侧固",
+					"String": "ZiFu",
+					"DefaultValue": "0",
+					"iniName": "Handle_Type",
+					"iniType": "string"
+				},
+				{
+					"Name": "d2",
+					"Type": "EditBox",
+					"DefaultValue": "3",
+					"iniName": "d2",
+					"iniType": "Float"
+				},
+				{
+					"Name": "l3",
+					"Type": "EditBox",
+					"DefaultValue": "28",
+					"iniName": "l3",
+					"iniType": "Float"
+				}
+			]
+		},
+		{
+			"Name":"冷却方式(单位:mm)",
+			"ParamList":
+				[
+					{
+						"Name":"内孔类型",
+						"Type":"ComboBox",
+						"Choise":"单直孔,双直孔,月牙孔",
+						"String":"ZiFu",
+						"DefaultValue":"0",
+						"iniName":"Hole_Type",
+						"iniType":"String"
+					}
+				]
+		},
+		{
+			"Name":"附加参数(单位:mm)",
+			"ParamList":
+			[
+				{
+					"Name":"Angle",
+					"Type":"EditBox",
+					"DefaultValue":"120",
+					"iniName":"Angle",
+					"iniType":"Float"
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,111 @@
+{
+	"ID":"123456",
+	"Name":"镗刀",
+	"Tab":
+	[
+		{
+			"Name": "主表(单位:mm)",
+			"ParamList": [
+				{
+					"Name": "刀具类型",
+					"Type": "ComboBox",
+					"Choise": "镗刀夹C",
+					"DefaultValue": "0",
+					"iniName": "tool_type",
+					"iniType": "string"
+				},
+				{
+					"Name": "刀具品牌",
+					"Choise": "nuopu,Seco,Prawet",
+					"Type": "ComboBox",
+					"DefaultValue": "0",
+					"iniName": "company_name",
+					"iniType": "Float"
+				},
+				{
+					"Name": "订货型号",
+					"Type": "EditBox",
+					"DefaultValue": "0",
+					"iniName": "No",
+					"iniType": "string"
+				},
+				{
+					"Name": "文件名",
+					"Type": "EditBox",
+					"DefaultValue": "",
+					"iniName": "FN",
+					"iniType": "string",
+					"ServerGenerateID": 1
+				},
+				{
+					"Name": "更新文件名",
+					"Type": "GenerateServerID",
+					"DefaultValue": ""
+				}
+			]
+		},
+		{
+			"Name":"样本参数(单位:mm)",
+			"ParamList":
+			[
+				{
+					"Name":"f1",
+					"Type":"EditBox",
+					"DefaultValue":"12.5",
+					"iniName":"f1",
+					"iniType":"Float"
+				},
+				{
+					"Name":"l1",
+					"Type":"EditBox",
+					"DefaultValue":"10.3",
+					"iniName":"l1",
+					"iniType":"Float"
+				},
+				{
+					"Name":"刀夹规格",
+					"Type":"ComboBox",
+					"Choise":"09,10,20,30,40,50,60,65,70,75",
+					"DefaultValue":"1",
+					"iniName":"daojia_type",
+					"iniType":"Float"
+				},
+				{
+					"Name":"直径范围",
+					"Type":"EditBox",
+					"DefaultValue":"",
+					"iniName":"zhijing_type",
+					"iniType":"Float"
+				},
+				{
+					"Name":"d",
+					"Type":"EditBox",
+					"DefaultValue":"5",
+					"iniName":"d",
+					"iniType":"Float"
+				},
+				{
+					"Name":"tool_draft",
+					"Type":"EditBox",
+					"DefaultValue":"7",
+					"iniName":"tool_draft",
+					"iniType":"Float"
+				},
+				{
+					"Name":"tool_h",
+					"Type":"EditBox",
+					"DefaultValue":"2",
+					"iniName":"tool_h",
+					"iniType":"Float"
+				},
+				{
+					"Name":"tool_s",
+					"Type":"EditBox",
+					"DefaultValue":"1",
+					"iniName":"tool_s",
+					"iniType":"Float"
+				}
+			]
+		}
+	]
+}

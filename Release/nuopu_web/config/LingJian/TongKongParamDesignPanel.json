@@ -1,0 +1,63 @@
+{
+	"Name":"孔",
+	"ParamsArray":
+	[
+		{
+			"Name": "类型",
+			"Type": "ComboBox",
+			"Choise": "1",
+			"DefaultValue": "0",
+			"Value":"0"
+		},
+		{
+			"Name":"子特征数据",
+			"Type":"EditBox",
+			"DefaultValue":1,
+			"DanWeiString":"",
+			"Value":"1"
+		},
+		{
+			"Name":"直径",
+			"Type":"EditBox",
+			"DefaultValue":7.5,
+			"DanWeiString":"mm",
+			"Value":7.5
+		},
+		{
+			"Name":"深度",
+			"Type":"EditBox",
+			"DefaultValue":10,
+			"DanWeiString":"mm",
+			"Value":10
+		},
+		{
+			"Name":"是否通孔",
+			"Type":"ComboBox",
+			"Choise": "1,0",
+			"DefaultValue":0,
+			"DanWeiString":"mm",
+			"Value":0
+		},
+		{
+			"Name":"顶角",
+			"Type":"EditBox",
+			"DefaultValue":100,
+			"DanWeiString":"度",
+			"Value":100
+		},
+		{
+			"Name":"X",
+			"Type":"EditBox",
+			"DefaultValue":0,
+			"DanWeiString":"mm",
+			"Value":0
+		},
+		{
+			"Name":"Y",
+			"Type":"EditBox",
+			"DefaultValue":0,
+			"DanWeiString":"mm",
+			"Value":0
+		}
+	]
+}

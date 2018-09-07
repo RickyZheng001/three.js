@@ -1,0 +1,24 @@
+{
+	"Name":"中间隔空",
+	"ParamsArray":
+	[
+		{
+			"Name": "基准",
+			"Type": "EditBox",
+			"Choise": "4",
+			"DefaultValue": "0"
+		},
+		{
+			"Name":"隔空高度",
+			"Type":"EditBox",
+			"DefaultValue":1,
+			"DanWeiString":""
+		},
+		{
+			"Name":"起始面到中心距离",
+			"Type":"EditBox",
+			"DefaultValue":7.5,
+			"DanWeiString":""
+		}
+	]
+}
